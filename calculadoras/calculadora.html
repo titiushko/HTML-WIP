@@ -1,0 +1,242 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<FORM action="" id=calculadora method=post name=FORM1>
+<P> </P>
+<P>
+<TABLE bgColor=maroon border=0 cellPadding=1 cellSpacing=1 width="295" style="WIDTH: 295px; HEIGHT: 148px">
+  
+  <TR>
+    <TD align=middle colspan=6>
+      <P align=left><INPUT id=text1 name=text1 style="WIDTH: 185px; HEIGHT: 22px; TEXT-ALIGN: 
+     right" value=0. 
+      readonly></P></INPUT></TD>
+    </TR>
+  <TR>
+    <TD align=middle><INPUT onclick='inserta("1")' id=button1 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=1></TD>
+    <TD align=middle><INPUT onclick='inserta("2")' id=button2 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=2></TD>
+    <TD align=middle><INPUT onclick='inserta("3")' id=button3 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=3></TD>
+    <TD align=middle></TD>
+    <TD align=middle><INPUT onclick='inserta_operador("-")' id=button- name=button1 style="WIDTH: 54px; HEIGHT: 24px" type=button value=-></TD>
+    <TD align=middle><INPUT onclick=borrar() id=buttonC name=button1 type=button value=C style="WIDTH: 54px"></TD></TR>
+  <TR>
+    <TD align=middle><INPUT onclick='inserta("4")' id=button4 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=4></TD>
+    <TD align=middle><INPUT onclick='inserta("5")' id=button5 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=5></TD>
+    <TD align=middle><INPUT onclick='inserta("6")' id=button6 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=6></TD>
+    <TD align=middle></TD>
+    <TD align=middle><INPUT onclick='inserta_operador("+")' id=button+ name=button1 type=button value=+ style="WIDTH: 54px; HEIGHT: 24px"></TD>
+    <TD align=middle><INPUT onclick=borrar_todo() id=buttonCE name=button1 type=button value=CE style="WIDTH: 54px"></TD></TR>
+  <TR>
+    <TD align=middle><INPUT onclick='inserta("7")' id=button7 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=7></TD>
+    <TD align=middle><INPUT onclick='inserta("8")' id=button8 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=8></TD>
+    <TD align=middle><INPUT onclick='inserta("9")' id=button9 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=9></TD>
+    <TD align=middle></TD>
+    <TD align=middle><INPUT onclick="inserta_operador('*')" id=button* name=button1 type=button value=* style="WIDTH: 54px; HEIGHT: 24px"></TD>
+    <TD align=middle><INPUT onclick='inserta_operador("exp")' id=button_epx name=button1 type=button value=exp style="WIDTH: 54px"></TD></TR>
+  <TR>
+    <TD align=middle><INPUT onclick='inserta2(".")' id=button_. name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=.></TD>
+    <TD align=middle><INPUT onclick='inserta2("0")' id=button0 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=0></TD>
+    <TD align=middle><INPUT onclick='inserta2("00")' id=button00 name=button1 style="WIDTH: 29px; HEIGHT: 24px" type=button value=00></TD>
+    <TD align=middle></TD>
+    <TD align=middle><INPUT onclick='inserta_operador("/")' id=button/ name=button1 type=button value=/ style="WIDTH: 54px; HEIGHT: 24px"></TD>
+    <TD align=middle><INPUT id=button= style="WIDTH: 54px" onclick='inserta_operador("=")' type=button value== name=button1></TD></TR></TABLE></P></FORM>
+<script language=javascript>
+var resultado=0
+var operacion=" "
+var acumulador=" "
+var operador=" "
+var cont_numeros=0
+var cont_operador=0
+var punto=0
+var nueva_ope=true;
+var entrada_operador=false;
+var entrada_numeros=false;	
+function inserta(tex)
+{
+	if(entrada_numeros)
+	{//true es numero
+		borrar_todo();
+		operacion=tex;
+		acumulador=(operacion+'.')
+		document.calculadora.text1.value=acumulador;
+		nueva_ope=false;
+		cont_numeros++;
+		entrada_numeros=false;
+		entrada_operador=false;
+	}
+	else if(nueva_ope)
+	{//solo entra cuando hay una operacion nueva 
+		operacion=0;
+		punto=0;
+		acumulador=" ";
+		operacion=tex;
+		cont_numeros=0;
+		acumulador=(operacion+'.')
+		document.calculadora.text1.value=acumulador;
+		cont_numeros++;
+		nueva_ope=false;
+	}
+	else if((acumulador)&&(punto==0))
+	{//nueva_ope y entrada son falsos
+		operacion+=tex;
+		acumulador=(operacion+'.')
+		document.calculadora.text1.value=acumulador;
+		cont_numeros++;
+	}
+	else
+	{
+		operacion+=tex;
+		acumulador=operacion
+		document.calculadora.text1.value=acumulador;
+		nueva_ope=false;
+		cont_numeros++;
+	}
+		
+}	
+
+function inserta2(tex)
+{
+	switch(tex)
+	{
+	case '.':
+		if(cont_numeros==0)
+		{
+			operacion="0.";
+			acumulador=operacion
+			document.calculadora.text1.value=acumulador;
+			nueva_ope=false;
+			punto++;
+			cont_numeros++;
+			
+		}
+		if(punto==0)
+		{
+			operacion+=".";
+			acumulador=operacion
+			document.calculadora.text1.value=acumulador;
+			punto++;
+			cont_numeros++;
+		}
+		
+		break;
+	case '0':
+	case "00":
+		if(cont_numeros>=1)		
+		{
+			nueva_ope=false;
+			inserta(tex);
+		}
+		break;	
+	} 
+}	
+function inserta_operador(tex)
+	{
+		if((cont_numeros)&&(cont_operador))
+		{
+		if(tex=='=')
+		{
+		if(nueva_ope==false)
+		{ejecuta()};
+		operador=" ";
+		cont_operador=0;
+		punto=0;
+		cont_numeros=0;
+		nueva_ope=true;
+		entrada_numeros=true;
+		entrada_operador=true;		
+		}
+		else
+		{
+		if(nueva_ope==false)
+		{ejecuta();}
+		operador=tex;
+		nueva_ope=true;
+		
+		}
+	}
+	else if(entrada_operador)
+	{
+		operador=tex;
+		cont_operador=1;
+		nueva_ope=true;
+		entrada_numeros=false;
+		entrada_operador=false;
+		
+	}	
+	else 	
+	{
+		resultado=acumulador;
+		operador=tex;
+		cont_operador=1;
+		nueva_ope=true;
+		
+	}	
+	
+}
+function ejecuta()
+{
+	var cont=0;
+	var opeacum=0;
+	var ope=0;
+	opeacum=eval(resultado);
+	cont=eval(acumulador);
+	ope=eval(resultado);
+		switch(operador)
+			{
+			case '+': resultado=(eval(resultado) + eval(acumulador));
+				break;
+			case '-': resultado=(eval(resultado) - eval(acumulador));
+				break;
+			case '*': resultado=(eval(resultado) * eval(acumulador));
+				break;
+			case '/': resultado=(eval(resultado) / eval(acumulador));
+				break;
+			case "exp": 
+				while(cont>=1)
+				{
+					opeacum*=ope;
+					cont--;
+				}
+				operacion=opeacum;
+				resultado=eval(operacion);
+				break;
+			
+			
+			}
+			cont=0;
+			cont=resultado%1;
+			if(cont!=0)
+			document.calculadora.text1.value=resultado;
+			else
+			document.calculadora.text1.value=(resultado+".");
+				
+			
+}		
+function borrar()
+{
+	acumulador=" ";
+	cont_numeros=0;
+	document.calculadora.text1.value="0.";
+	nueva_ope=true;
+}	
+function borrar_todo()
+{
+	resultado=0;
+	operacion=0;
+	acumulador=" ";
+	operador=" ";
+	cont_numeros=0;
+	cont_operador=0;
+	nueva_ope=true;
+	entrada_numeros=false;
+	entrada_operador=false;
+	document.calculadora.text1.value="0.";
+}	
+				
+</script>
+</BODY>
+</HTML>
