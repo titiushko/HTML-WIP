@@ -1,0 +1,264 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 5 (12/13)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La decimosegunda parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 5 (12/13)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La decimosegunda parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-10-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/5/12" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Hojas de Estilo en Cascada, CSS1 (XII)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11">anterior</a> | <a href="13.htm" tppabs="http://html.conclase.net/tutorial/html/5/13">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Una de las características fundamentales de las hojas de estilo, es que se pueden combinar.</p>
+<p class="a">- ¿Qué quiere decir eso?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues que puedes aplicar a un mismo documento <abbr>HTML</abbr> más de una hoja de estilo. Por ejemplo, una empresa puede tener una hoja de estilo común, y cada departamento de la empresa su propia hoja de estilo.</p>
+<p class="a">- Sí, podría ser útil.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- A eso hay que añadirle que cada usuario puede definir su propia hoja de estilo y aplicarla también el mismo documento.</p>
+<p class="a">- Pues qué lío ¿no? ¿Qué pasa si aplicamos al mismo elemento propiedades diferentes, o incluso opuestas?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, y no sólo eso, porque como te dije al principio, algunas propiedades se heredan de padres a hijos, lo cual complica aún más las cosas. Por eso <abbr>CSS1</abbr> define unas reglas precisas para determinar cuáles son los valores que se aplican finalmente a las propiedades de estilo de cada elemento. A estas reglas se les llama el <dfn>mecanismo de cascada</dfn>.</p>
+<p class="a">- Pues a ver, enséñame ese mecanismo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Es un poco complicado, y voy a intentar explicártelo a grandes rasgos. Como siempre, la especificación contiene la <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#la-cascada'" tppabs="http://html.conclase.net/w3c/css1-es.html#la-cascada">descripción completa</a>.</p>
+<p class="a">- Sí, venga, no seas tan vago y desembucha.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Las hojas de estilo se dividen en dos grupos: <dfn>hojas del autor</dfn>, y <dfn>hoja del lector</dfn>. En <abbr>CSS1</abbr>, las reglas del autor tienen más peso que las del lector, a menos que el lector declare sus reglas como "importantes", así, por ejemplo:</p>
+<pre class="p"><code>body { font-size : 2em !important }</code></pre>
+<p class="a">- ¿Y el autor no puede declarar sus reglas importantes también?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, y en ese caso sus reglas prevalecen sobre las del lector. Pero esto es así en <abbr>CSS1</abbr>, en <abbr>CSS2</abbr> ha cambiado, y una regla importante del lector siempre tiene preferencia.</p>
+<p class="a">- Bueno, a mí me parece más lógico.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Las hojas del autor se pueden importar básicamente de dos maneras: con varios elementos <code>LINK</code> desde el documento <abbr>HTML</abbr>, y con reglas <code>@import</code> en la hoja de estilo. Por ejemplo, una hoja de estilo podría ser así:</p>
+<pre class="p"><code>@import url(empresa.css);
+@import url(dep-comercial.css);
+h1 { font-style : italic }</code></pre>
+<p class="p">Esto quiere decir que primero se cargan las reglas de <code>empresa.css</code>, a continuación las de <code>dep-comercial.css</code> y finalmente se añade la regla de esta hoja. ¿Lo ves?</p>
+<p class="a">- Sí.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues bien, para cada propiedad de cada elemento, el valor especificado por la última regla es el que tiene preferencia, es como si anulara a los anteriores. Si por ejemplo en <code>dep-comercial.css</code> se hubiera especificado:</p>
+<pre class="p"><code>h1 { font-family : monospace; font-color : blue; font-style : normal }</code></pre>
+<p class="p">los valores de las propiedades de estilo resultantes para los <code>H1</code> serían:</p>
+<pre class="p"><code>h1 { font-family : monospace; font-color : blue; font-style : italic }</code></pre>
+<p class="a">- Ya entiendo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Estupendo. La regla <code>@import</code> debe ir obligatoriamente al principio de una hoja de estilo. Las reglas que empiezan con el símbolo <code>@</code> se llaman <dfn>reglas tipo arroba</dfn> (<em xml:lang="en">at-rules</em> en inglés), y en <abbr>CSS2</abbr> además de <code>@import</code> existen algunas más.</p>
+<p class="a">- Muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Visto eso, veamos cómo se resuelven los conflictos. Para ello, <abbr>CSS</abbr> se basa en dos conceptos: el <dfn>orden en la cascada</dfn> (como acabamos de ver), y la <dfn>especificidad</dfn>. Por ejemplo, imagina que, en el caso anterior añadimos una nueva declaración:</p>
+<pre class="p"><code>@import url(empresa.css);
+@import url(dep-comercial.css);
+div.resumen h1 { font-style : normal }
+h1 { font-style : italic }</code></pre>
+<p class="p">¿Qué valor de <code>font-style</code> le darías a los <code>H1</code> que aparecen dentro de un <code>DIV</code> de clase <code>resumen</code>?</p>
+<p class="a">- Pues, no sé, en principio <code>normal</code>, pero después aparece la regla <code>font-style:italic</code> para todos los <code>H1</code>... no sé.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Aplicaríamos <code>font-style:normal</code>, porque los selectores más específicos prevalecen sobre los más generales. Solamente en el caso en que dos selectores sean igual de específicos, se imponen las reglas del último declarado.</p>
+<p class="a">- Ya, ¿y cómo se mide la especificidad?, porque eso parece un concepto un poco abstracto...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- El <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#orden-de-cascada'" tppabs="http://html.conclase.net/w3c/css1-es.html#orden-de-cascada">concepto de especificidad</a> está definido en la especificación. Cuentas el número de atributos <code>id</code> en el selector, por ejemplo "<em>a</em>"; cuentas el número de atributos <code>class</code> (y pseudo-clases), por ejemplo "<em>b</em>"; y el número de nombres de elementos (y pseudo-elementos), por ejemplo "<em>c</em>". Concatenando los tres números obtienes la especificidad "<em>abc</em>". Estos son algunos ejemplos sacados de la especificación <abbr>CSS1</abbr>:</p>
+<pre class="p"><code>LI            {...}  /* a=0 b=0 c=1 -> especificidad =   1 */
+UL LI         {...}  /* a=0 b=0 c=2 -> especificidad =   2 */
+UL OL LI      {...}  /* a=0 b=0 c=3 -> especificidad =   3 */
+LI.red        {...}  /* a=0 b=1 c=1 -> especificidad =  11 */
+UL OL LI.red  {...}  /* a=0 b=1 c=3 -> especificidad =  13 */ 
+#x34y         {...}  /* a=1 b=0 c=0 -> especificidad = 100 */</code></pre>
+<p class="a">- Vaya, ya veo que han atado todos los cabos...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Por cierto, esos asteriscos, antes de que se me olvide, son la forma de poner comentarios en las hojas de estilo. No habíamos hablado de esto y es importante.</p>
+<p class="a">- Tsk, tsk...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Se pueden poner comentarios en un documento <abbr>HTML</abbr> de la siguiente manera:</p>
+<pre class="p"><code>&lt;!-- Esto es un comentario HTML --&gt;</code></pre>
+<p class="p">El comentario no aparecerá representado, pero te puede ser útil cuando repases tus documentos días o meses después de haberlos creado. En <abbr>CSS</abbr> los comentarios son diferentes:</p>
+<pre class="p"><code>/* Esto es un comentario CSS */</code></pre>
+<p class="p">Sólo es eso, es muy sencillo y son útiles para no volverte más loco de lo necesario.</p>
+<p class="a">- Demasiado tarde para eso...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, nunca es tarde para volverse más loco. En realidad todo esto de la cascada es más complicado de lo que te he explicado, y además en <abbr>CSS2</abbr> las cosas varían ligeramente. Por no decir que la implementación que hacen los navegadores actuales de <abbr>CSS</abbr> no es precisamente perfecta...</p>
+<p class="a">- Calla, calla, no me asustes más.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, creo que es el momento de ver unos cuantos ejemplos de <abbr>HTML 4</abbr> y <abbr>CSS1</abbr> auténtico y de verdad, ¿te parece?</p>
+<p class="a">- ¡Por supuesto!</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11">anterior</a> | <a href="13.htm" tppabs="http://html.conclase.net/tutorial/html/5/13">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/10/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

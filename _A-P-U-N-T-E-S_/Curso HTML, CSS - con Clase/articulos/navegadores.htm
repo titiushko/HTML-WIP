@@ -1,0 +1,171 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Navegadores</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Un breve artículo sobre los navegadores de la Web, y sobre la importancia de la universalidad de la Web y los estándares" />
+<meta name="Keywords"    content="Navegadores,Explorer,Mozilla,Netscape,Konqueror,Lynx,Opera,iCab,Safari,HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Navegadores" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Navegadores de la World Wide Web" />
+<meta name="DC.Description"       content="Un breve artículo sobre los navegadores de la Web, y sobre la importancia de la universalidad de la Web y los estándares" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/navegadores" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t1">Navegadores</h2>
+
+<p id="p01">A menudo, aun hoy, se oye a gente preguntado cómo tienen que hacer tal o tal cosa para que funcione "en los dos navegadores", como si sólo existieran dos.</p>
+
+<p id="p02">Esto está cambiando, pero a peor, y cada vez son más los que sólo se preocupan por que sus páginas funcionen en la última versión de Microsoft Internet Explorer.</p>
+
+<p id="p03">Estas dos actitudes son contrarias a la naturaleza de la <span xml:lang="en">World Wide Web</span>. Si conoces un poco su <a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia">historia</a> y sigues nuestros <a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/">tutoriales</a> comprenderás perfectamente que limitar nuestra creación a uno o dos navegadores determinados y defectuosos no sólo no es el único camino, sino que es el menos recomendable.</p>
+
+<p id="p04">Sobre todo porque no hay uno o dos navegadores. Hay muchos, de capacidades diferentes, y la gente es libre de elegir (y no siempre) aquél con el que se encuentra más a gusto. Por eso, como desarrollador, no puedes saber qué navegador está utilizando cada uno de tus visitantes. Y desde luego no sabes con qué navegadores te visitarán en el futuro. Si no quieres limitar la accesibilidad a tus páginas, no las diseñes para modelos de navegadores concretos.</p>
+
+<p id="p05">Eso no significa, en absoluto, que tus páginas deban limitarse a ser <a href="javascript:if(confirm('http://www.tierradenomadas.com/dt004.phtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tierradenomadas.com/dt004.phtml'" tppabs="http://www.tierradenomadas.com/dt004.phtml">letras negras sobre fondo blanco</a>. Las personas que creen que la accesibilidad equivale a falta de creatividad:</p>
+<ul>
+<li>No conocen la noción de universalidad que tiene la Web.</li>
+<li>No conocen las capacidades de <abbr>HTML</abbr> ni de <abbr>CSS</abbr>.</li>
+<li>Por ello mezclan en sus páginas los contenidos, su estructura y su apariencia, utilizando código estructural para lograr efectos de presentación (básicamente usando marcos o tablas para organizar la presentación de sus documentos).</li>
+</ul>
+
+<p id="p06">La consecuencia de dar más importancia a la apariencia que al contenido de las páginas es que al intentar usar navegadores de capacidades limitadas, ha sido necesario recurrir a trucos para conseguir imponer la apariencia; eso ha llevado a la utilización incorrecta del <abbr>HTML</abbr>, y ello ha producido problemas de <a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad">accesibilidad</a>, lo cual es justamente lo contrario de lo que se pretende al publicar una página en la Web.</p>
+
+<p id="p07">Moraleja: no sigamos cayendo en la misma trampa. Con <abbr>HTML</abbr> y <abbr>CSS</abbr> podemos hacer nuestras páginas accesibles a todos, tanto ahora como en el futuro.</p>
+
+<p id="p08">Hemos dicho que no sólo hay uno o dos navegadores. Ni siquiera hay un solo modelo de cada navegador. Si queréis ver o bajaros unos cuantos, podéis pasaros unos cuantos días en <a href="javascript:if(confirm('http://browsers.evolt.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://browsers.evolt.org/'" tppabs="http://browsers.evolt.org/">browsers.evolt.org</a>.</p>
+
+<p id="p09">Ciertamente, hoy por hoy, el navegador mayoritario es Internet Explorer, pero no hace mucho ese privilegio correspondía a Netscape Navigator 4 y no parecía desbancable. En el futuro, no sabemos cómo serán las cosas, pero si hacemos nuestras páginas siguiendo los principios de <abbr>HTML</abbr> y <abbr>CSS</abbr>, podemos estar bastante seguros de que funcionarán. De momento, como cifras globales nos podemos basar en las <a href="javascript:if(confirm('http://thecounter.com/stats/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://thecounter.com/stats/'" tppabs="http://thecounter.com/stats/">estadísticas de www.thecounter.com</a>, un servicio gratuito de "contadores de visitas". Lo que se deduce de aquí es que, aunque diseñáramos para el navegador más utilizado, estaríamos cerrando nuestras puertas a más del 20% de nuestros visitantes. Es decir, una de cada cinco personas; y no personas cualesquiera, sino precisamente las personas que mostraron interés en entrar en nuestras páginas. Como para pensárselo.</p>
+
+<p id="p10"><strong>Actualización:</strong> Dos años después de escribir este artículo, las cosas no han mejorado demasiado. Explorer, ahora en su versión 6, y que sigue copando cada vez mayor parte de mercado, apenas a introducido mejoras de implementación de las especificaciones del W3C con respecto a sus versiones anteriores. Sin embargo, los proyectos de <a href="javascript:if(confirm('http://www.opera.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.opera.com/'" tppabs="http://www.opera.com/">Opera</a>, <a href="javascript:if(confirm('http://www.mozilla.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mozilla.org/'" tppabs="http://www.mozilla.org/">Mozilla</a> y <a href="javascript:if(confirm('http://www.konqueror.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.konqueror.org/'" tppabs="http://www.konqueror.org/">Konqueror</a> siguen adelante y se están convirtiendo todos ellos en implementaciones muy sólidas y lejos del nivel de <a href="javascript:if(confirm('http://evolt.org/article/comment/25/60181/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://evolt.org/article/comment/25/60181/index.html'" tppabs="http://evolt.org/article/comment/25/60181/index.html">obsolescencia</a> de aplicaciones como Navigator o Explorer. Desgraciadamente su uso continúa siendo marginal. Por otra parte, la accesibilidad en la red va tomando cada día más importancia (por ejemplo la ley española <a href="javascript:if(confirm('http://www.lssi.es/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.lssi.es/'" tppabs="http://www.lssi.es/">LSSI</a> del 2002 obliga a hacer accesibles las páginas web financiadas con fondos públicos), por lo que quizás el panorama no sea tan sombrío como se podría pensar. El tiempo lo dirá.</p>
+
+<p class="copy">&copy; 2001-2003 Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a id="actual" title="¡No sólo hay dos!">&raquo;&nbsp;Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

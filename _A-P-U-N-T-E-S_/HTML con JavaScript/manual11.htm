@@ -1,0 +1,168 @@
+<html>
+<head><title>Mapas sensibles en HTML</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="mapa.gif" alt="Icono" width=104 height=64></td>
+<td><font  size=6><b>Mapas sensibles en HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p>
+Ante todo debemos definir lo que es un mapa interactivo. un mapa interactivo, no es m&aacute;s que una cierta zona (normalmente grafica), en la pagina WEB, que dependiendo en donde pinchemos sobre ella con el rat&oacute;n, nos encauza a otra direcci&oacute;n URL determinada y definida sobre esa &aacute;rea en particular. Hay 2 tipos de Mapas interactivos que son, los modo local (desde la propia p&aacute;gina que bajamos y en nuestro propio equipo), y en modo servidor. Nada diferencia externamente a un mapa interactivo, del resto de las im&aacute;genes del servidor. Pueden ser m&aacute;s grandes (a veces no), y tener alrededor textos que advierten sobre su uso (aunque a veces suele ser tan evidente que se evitan); pero por lo dem&aacute;s en poco se diferencian de un gr&aacute;fico cualquiera. Parecen un gr&aacute;fico con enlaces, pues pueden tener borde y el puntero del cursor (rat&oacute;n), adopta la misma forma que cuando se encuentra sobre un enlace.
+</p>
+
+<p>
+Sin embargo, los mapas son im&aacute;genes activas asociadas a enlaces (o accciones). Cuando el usuario hace un click sobre un punto del mapa, recibe como respuesta del servidor una p&aacute;gina determinada (ya sea mapa en modo local o en modo servidor).
+</p>
+
+<p>
+Como hemos icho anteriormente, hay 2 formas de crear un mapa sensible. Una es en modo servidor (por lo que dependemos del servidor correspondiente en donde tengamos alojada la p&aacute;gina WEB), por lo que como considero que no es muy factible, y que no todas las personas podr&aacute;n acceder a este tipo de servicio (ya que no todos los servidores lo soportan), me voy a centrar en el segundo m&eacute;todo. En modo cliente.
+</p>
+<br>
+
+<font  size=5><b>Mapas en modo CLIENTE</b></font>
+
+<p>
+Es una nueva funcionalidad que soportan la mayor&iacute;a de los navegadores m&aacute;s populares (por lo menos Netscape...). Se trata de incluir los comandos propios del fichero que tiene las coordenadas de las dintintas &aacute;reas que definen el mapa sensible y sus correspondientes direcciones URL a p&aacute;ginas WEB en el propio c&oacute;digo HTML de la p&aacute;gina.
+</p>
+
+<p>
+En los mapas en modo cliente es el navegador quien calcula la posici&oacute;n del cursor y el que busca la URL correspondiente, siendo esta la &uacute;nica petici&oacute;n que hace el servidor lo que mejora notablemente al velocidad de respuesta.
+</p>
+
+<p><b>
+NOTA: Si fuera un mapa en modo cliente, una vez traida la p&aacute;gina a nuestro visor, y al pinchar sobre el mapa (si estuviera en modo servidor), el navegador le enviar&iacute;a la informaci&oacute;n de la posici&oacute;n del click al servidor, y &eacute;ste calcular&iacute;a el &aacute;rea al que corresponde dicho click, y dar&iacute;a la p&aacute;gina que estuviera predeterminada en esa posici&oacute;n del &aacute;rea, lo que hace un poco m&aacute;s lenta la tranferencia de la p&aacute;gina, y los c&aacute;lculos sobre el mapa interactivo.
+</b></p>
+
+<p>
+La sintaxis HTML que soporta esta forma de trabajar se basa en la inclusi&oacute;n del atributo <b>USEMAP</b> en la directiva de <b>&lt;IMG&gt;</b> que indica que se trata de una im&aacute;gen que se va a emplear como un mapa cliente.
+</p>
+
+&lt;IMG SRC=“/images/mapa.gif” USEMAP=“#mapa”&gt;
+
+<p>
+Esta directiva carga la im&aacute;gen mapa.gif, y le asigna las &aacute;reas de mapa, definidas en el mismo documento <b>HTML</b>, en la parte denominada “<b>#mapa</b>”.
+</p>
+
+<p>
+La definici&oacute;n de mapa cliente est&aacute; limitada por la directiva <b>&lt;MAP&gt;...&lt;/MAP&gt;</b>. En su atributo NAME se inserta el nombre de la definici&oacute;n (en nuestro caso “#mapa”). Dentro de esta secci&oacute;n de c&oacute;digo, se incluyen las directivas <b>&lt;AREA&gt;</b> que definene cada una de las &aacute;reas de la imagen.
+</p>
+
+<p>
+<b>&lt;AREA&gt;</b> tiene los siguientes atributos <b>OBLIGATORIOS</b>:
+</p>
+<ul>
+
+<li><b>SHAPE=“tipo”</b>
+<p>
+Indica el tipo de &aacute;rea o forma geom&eacute;trica de &aacute;rea, a definir en el mapa sensible. Las posibles opciones pueden ser: 
+</p>
+
+<ul>
+<li><b>RECT</b> &aacute;rea rectangular. Se especifican las las coordenadas de las esquinas SUPERIOR IZQUIERDA y la INFERIOR DERECHA, definiendose as&iacute; el &aacute;rea rectangular.<br><br>
+
+<li><b>POLY</b> &aacute;rea poligonal, Se dene especificar las coordenadas de TODOS los v&eacute;rtices del pol&iacute;gono. El visor se encarga de “cerrar” la figura, por lo que el punto de inicio, no se repite como punto final. Por tanto, el punto final del &aacute;rea no se define, s&oacute;lo se define el inicial y el resto de los v&eacute;rtices.<br><br>
+
+<li><b>CIRCLE</b> &aacute;rea circular. Se debe especificar en primer lugar las coordenadas del centro y  continuaci&oacute;n el radio en un valor de puntos.<br><br>
+</ul>
+
+<li><b>COORD=“coordenadas”</b>
+<p>
+Indican la direcci&oacute;n, separada por comas sin espacio entre ellas, de la figura que incluye el atributo <b>SHAPE</b> o &aacute;rea que define.
+</p>
+
+<li><b>HREF=“URL”</b>
+<p>
+Indica la direcci&oacute;n a la que se accede si se pulsa sobre la zona delimitada por el &aacute;rea indicada, con el rat&oacute;n. (ver m&aacute;s arriba para ver las posibles &aacute;reas que se pueden definir).
+</p>
+</ul>
+
+<p>
+Si 2 &aacute;reas se superponen, se iniciar&aacute; la que est&eacute; en primer lugar en la definici&oacute;n del mapa. Es importante (aunque en absoluto necesario), definir una &uacute;ltima &aacute;rea que abarque la totalidad del gr&aacute;fico que empleamos como imagen mapa, para direccionar a una URL “por defecto”, con el objeto de contemplar el caso de que se pulse sobre un &aacute;rea no definida en el c&oacute;digo. Esto como ya he dicho no es necesario, ya que si una determinada &aacute;rea de la imagen no quedara definida, como no lo est&aacute;, al pinchar sobre ella, no pasar&iacute;a nada, por lo que nuestro inteligente visitante... sabr&iacute;a que est&aacute; pinchando sobre un &aacute;rea de la imagen que act&uacute;a como mapa sensible, sin definir. Normalmente se suele definir el URL “por defecto”, s&oacute;lo en caso de un mapa interactivo, con excesivas &aacute;reas definidas, y muy proximas entre s&iacute;, para indicar que la zona pinchada, no es la que visualmente se pretend&iacute;a indicar... un ejemplo ser&iacute;a una imagen del mundo el la que europa se viera muy pequeña, y al querer pinchar sobre las Islas Baleares, y debido al pequeño tamaño de la imagen, pinchamos en C&oacute;rcega...
+</p>
+
+<p>
+Una vez definida la imagen que actuar&aacute; como mapa, definamos el mapa:
+(para el ejemplo se supondr&aacute; una casa compuesta de un cuadrado, con un triangulo encima, un rect&aacute;ngulo vertical de puerta, y con un arbol al lado de la casa...)
+</p>
+
+&lt;IMG SRC=“/images/casa.gif” USEMAP=“#casa”&gt;
+
+<p>
+y el mapa:
+</p>
+
+<p>
+&lt;MAP NAME=“casa”&gt;*<br>
+&lt;!-- Define el &aacute;rea del tejado por medio de un tri&aacute;ngulo --&gt;<br>
+&lt;AREA SHAPE=“poly” COORDS=“2,62,57,62,28,1” HREF=“tejado.htm”&gt;<br><br>
+
+&lt;!-- Define el &aacute;rea de la puerta por medio de un rect&aacute;ngulo--&gt;<br>
+&lt;AREA SHAPE=“rect” COORDS=“21,101,35,138” HREF=“puerta.htm”&gt;<br><br>
+
+&lt;!-- Define el &aacute;rea de la casa por medio de un tri&aacute;ngulo --&gt;<br>
+&lt;AREA SHAPE=“rect” COORDS=“2,64,57,138” HREF=“casa.htm”&gt;<br><br>
+
+&lt;!-- Define el &aacute;rea de la copa del &aacute;rbol por medio de un circulo --&gt;<br>
+&lt;AREA SHAPE=“circle” COORDS=“80,76,21” HREF=“arbol.htm”&gt;<br><br>
+
+&lt;!-- Define el &aacute;rea del tronco del &aacute;rbol por medio de un rect&aacute;ngulo --&gt;<br>
+&lt;AREA SHAPE=“rect” COORDS=“78,98,85,138” HREF=“tronco.htm”&gt;<br><br>
+
+&lt;!-- Esta &uacute;ltima &aacute;rea, es el &aacute;rea por defecto si se pincha en una zona que no sea un &aacute;rea definida, y envia a nuestro visitante a la pagina “sin_enlace.htm” --&gt;<br>
+&lt;AREA SHAPE=“rect” COORDS=“0,0,96,138” HREF=“sin_enlace.htm”&gt;<br>
+&lt;/MAP&gt;
+</p>
+
+<p>
+Debido a que muy pocas personas (yo no conozco a ninguna...), saben posicionar exactamente las posiciones <b>X</b>, <b>Y</b> de los pixels de los que se compone una pantalla de ordenador, y debido a que es necesario para las definiciones de las &aacute;reas de las que se compone el mapa sensible, hay una serie de programas que pese a no llevarme comisi&oacute;n por su uso... (l&aacute;stima, sino ahora ser&iacute;a <b>Javier G&oacute;rriz “Gates”</b>... :oP), te recomiendo desde estas p&aacute;ginas debido a su extrema utilidad en la creaci&oacute;n de mapas interactivos a partir de una imagen: <b>Paint Shop Pro</b> y <b>Map This</b>.
+</p>
+
+<p>
+Ambos son programas Shareware, de modo que no es neceario un pago para su uso, en principio, teniendo un tiempo delimitado de prueba del programa, transcurrido el cual y en conciencia, deberemos de registrar pagando una cantidad &iacute;nfima por el empleo del programa... (gente sin conciencia como yo... nos olvidamos de pagar... ;oP).
+</p>
+
+<p>
+<b><u>Paint Shop Pro</u></b> es un programa de retoque gr&aacute;fico de multitud de formatos gr&aacute;ficos, y que nos da las coordenadas de la posici&oacute;n del cursor al situarlo sobre la imagen, lo que nos ser&aacute; muy &uacute;til a la hora de definir nuestras &aacute;reas sobre nuestra imagen que actuar&aacute; de mapa sensible.
+</p>
+
+<p>
+<b><u>Map This</u></b>, en cambio, es un programa infinitamente m&aacute;s &uacute;til que el anterior, para el prop&oacute;sito aqu&iacute; expuesto, ya que de una forma visual, podemos cargar la imagen que emplearemos como mapa, en el programa mismo, y podremos definir sobre ella directamente las &aacute;reas que deseemos as&iacute; como las direcciones URL a las que apuntar&aacute;n las distintas &aacute;reas... ¡¡ Y no s&oacute;lo eso, sino que adem&aacute;s nos generar&aacute; el c&oacute;digop HTML necesario para que nosotros s&oacute;lo tengamos que introducirlo tal cual en nuestra p&aacute;gina HTML que contendr&aacute; la definici&oacute;n del mapa...!! ¡¡ F&aacute;cil, ¿¿no??!!.
+</p>
+
+<p>
+Con estas 2 herramientas, y con un poco de paciencia para poder aprender a manejarlas (ambas est&aacute;n en ingles), podremos hacer la labor de crear nuestros mapas interactivos, una tarea mucho m&aacute;s entretenida, y menos laboriosa.
+</p>
+
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual10.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual12.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

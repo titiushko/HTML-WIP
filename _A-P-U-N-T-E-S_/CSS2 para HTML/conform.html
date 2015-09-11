@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Conformidad: requisitos y recomendaciones</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="intro.html">
+<link rel="next" href="syndata.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="intro.html">anterior</a> &nbsp;
+<a href="syndata.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">3 Conformidad: Requisitos y Recomendaciones</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="conform.html#q1" class="tocxref">3.1 Definiciones</a>
+    <li class="tocline2"><a href="conform.html#conformance" class="tocxref">3.2 Conformidad</a>
+    <li class="tocline2"><a href="conform.html#q3" class="tocxref">3.3 Condiciones de error</a>
+    <li class="tocline2"><a href="conform.html#text-css" class="tocxref">3.4 <span class="index-def" title="text/css">Tipo de contenido text/css</span></a>
+  </ul>
+</div>
+
+<H2><a name="q1">3.1 Definiciones</a></H2>
+
+<p> En esta sección, iniciamos la especificación formal de CSS2, comenzando con el contrato entre autores, usuarios e implementadores.
+
+<P>Las palabras clave <a name="x0"><span class="index-def" title="MUST">("DEBE")</span></a>,  
+<a name="x1"><span class="index-def" title="MUST NOT">("NO DEBE")</span></a>, <a name="x2"><span
+class="index-def" title="REQUIRED">("REQUERIDO")</span></a>, <a name="x3"><span
+class="index-def" title="SHALL">("DEBERÍA")</span></a>, <a name="x4"><span
+class="index-def" title="SHALL NOT">("NO DEBERÍA")</span></a>, <a name="x5"><span
+class="index-def" title="SHOULD">("DEBERÁ")</span></a>, <a name="x6"><span
+class="index-def" title="SHOULD NOT">("NO DEBERÁ")</span></a>, <a name="x7"><span
+class="index-def" title="RECOMMENDED">("RECOMENDADO")</span></a>, <a name="x8"><span
+class="index-def" title="MAY">("PUEDE")</span></a> y <a name="x9"><span
+class="index-def" title="OPTIONAL">("OPCIONAL")</span></a> en este documento serán interpretadas tal como se describe en RFC&nbsp;2119 (ver <a href="refs.html#ref-RFC2119" rel="biblioentry" class="noxref"><span class="normref">[RFC2119]</span></a>).
+Sin embargo, por razones de legibilidad, estas palabras no aparecen en mayúsculas en esta especificación.
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+Muy suscintamente, la interpretación que debe hacerse de los términos mencionados anteriormente es:<BR>
+DEBE/REQUERIDO: Significan que el ítem es un requerimiento absoluto de la especificación.<BR>
+DEBERÍA/DEBERÁ/RECOMENDADO: Significan que pueden existir razones válidas en circunstancias particulares para ignorar este ítem.<BR>
+PUEDE/OPCIONAL: Significan que el ítem es totalmente opcional.<BR>
+<I>Para cumplir estrictamente con los niveles de requerimiento, se recuerda que la única versión normativa es</I> <a href="http://www.w3.org/TR/1998/REC-CSS2-19980512">http://www.w3.org/TR/1998/REC-CSS2-19980512</a> <I>y que esta traducción puede contener errores</I>.
+    </TD>
+  </TR>
+</TABLE>
+
+<P>A veces, esta especificación recomienda algunas prácticas adecuadas para los autores y las aplicaciones del usuario. Estas recomendaciones no son normativas y la conformidad con esta especificación no depende de su cumplimiento. Estas recomendaciones contienen las expresiones "Recomendamos...", "Esta especificación recomienda...", o alguna frase similar.</P>
+
+<dl>
+<dt><strong><a name="x10"><span class="index-def" title="hoja de estilo">Hoja de estilo</span></a></strong>
+
+<dd>Un conjunto de estamentos que especifican la forma de presentación de un documento.
+
+<P> Las hojas de estilo pueden tener tres orígenes distintos: <a
+href="#author">autor</a>, <a href="#user">usuario</a>, y <a
+href="#user-agent">aplicación del usuario</a>. La interacción de estas fuentes se describe en la sección sobre <a href="cascade.html">cascada y herencia</a>.
+
+<dt><strong><a name="valid-style-sheet">Hoja de estilo válida</a></strong>
+
+<dd>La <a name="x11"><span class="index-def" title="hoja de estilo válida">validez</span></a>  de una hoja de estilo depende del nivel de CSS usado por la hoja de estilo. Todas las hojas de estilo CSS1 válidas son hojas de estilo CSS2 válidas. Sin embargo, algunos <a
+href="changes.html#changes-from-css1">cambios efectuados sobre CSS1</a> significan que unas pocas hojas de estilo CSS1 tendrán una semántica ligeramente diferente en CSS2.
+
+<P>Una hoja de estilo CSS2 debe estar redactada de acuerdo a la  <a
+href="grammar.html">gramática de CSS2</a>. Además, debe contener sólo reglas-arroba, nombres de propiedades y valores de propiedades definidos en esta especificación. Una regla-arroba, nombre de propiedad o valor de propiedad <a name="x12"><span class="index-def"
+title="ilícito"><strong>ilícito</strong></span></a> (inválido) es aquel que no es válido.
+<dt><strong><a name="x13"><span class="index-def" title="documento fuente">Documento fuente</span></a></strong>
+
+<dd>El documento al cual una o más hojas de estilo se refieren. Este está codificado en algún lenguaje que representa al documento como una estructura de <a
+href="#element">elementos</a>. Cada elemento consta de un nombre que identifica el tipo de elemento, opcionalmente algunos <a
+href="#attribute">atributos</a>, y un  <a href="#content">contenido</a> (posiblemente vacío).</dd>
+
+<dt><strong><span class="index-def" title="lenguaje del documento"><a
+name="doclanguage">Lenguaje del documento</a></span></strong>
+
+<dd>El lenguaje de codificación del documento fuente (ej., HTML o una aplicación XML).
+
+<dt><strong><span class="index-def" title="elemento"><a
+name="element">Elemento</a></span></strong>
+
+<dd>(Un término SGML, ver <a href="refs.html#ref-ISO8879" rel="biblioentry" class="noxref"><span class="normref">[ISO8879]</span></a>.) Las estructuras sintácticas primarias del lenguaje del documento. La mayoría de las reglas de las hojas de estilo CSS usan el nombre de estos elementos (como "P", "TABLE" y "OL" para HTML) para especificar la información acerca de su procesamiento.
+
+<dt><strong><span class="index-def" title="elemento reemplazado">
+<a name="replaced-element">Elemento reemplazado</a></span></strong>
+
+<dd>Un elemento del cual el intérprete de CSS sólo conoce las dimensiones intrínsecas. En HTML, los elementos IMG, INPUT, TEXTAREA, SELECT y OBJECT pueden ser ejemplos de elementos reemplazados. Por ejemplo, el contenido del elemento IMG es a menudo reemplazado por la imagen que el atributo "src" designa. CSS no define cómo son establecidas las dimensiones intrínsecas.
+
+<dt><strong><span class="index-def" title="dimensiones intrínsecas"><a name="intrinsic">Dimensiones intrínsecas</a></span></strong>
+
+<dd>El ancho y altura definidos por el propio elemento, no impuestos por el entorno. En CSS2 se asume que todos los elementos reemplazados --y sólo los elementos reemplazados-- poseen dimensiones intrínsecas.
+
+<dt><strong><span class="index-def" title="atributo"><a
+name="attribute">Atributo</a></span></strong>
+
+<dd> Un valor asociado a un elemento consistente en un nombre y un valor (textual) asociado.
+
+<dt><strong><span class="index-def" title="contenido"><a
+name="content">Contenido</a></span></strong>
+
+<dd>El contenido asociado a un elemento en el documento fuente; no todos los elementos tienen contenido, en cuyo caso son llamados  <strong><a name="x20"><span
+class="index-def" title="vacío">vacíos</span></a></strong>. El contenido de un elemento puede incluir texto y puede incluir varios sub-elementos, en cuyo caso el elemento es llamado <strong><a name="x21"><span
+class="index-def" title="padre">padre</span></a></strong> de esos sub-elementos.
+
+<dt><strong><span class="index-def" title="contenido procesado"><a name="rendered-content">Contenido procesado</a></span></strong>
+
+<dd>El contenido de un elemento después del procesamiento que se efectúa sobre él según las hojas de estilo pertinentes que han sido aplicadas. El contenido procesado de un <a href="#replaced-element">elemento reemplazado</a> proviene de fuera del documento fuente. El contenido procesado también puede ser el texto alternativo de un elemento (ej., el valor del atributo HTML "alt"), y puede incluir ítems insertados implícita o explícitamente por la hoja de estilo, como viñetas, numeradores, etc.
+ 
+<dt><strong><span class="index-def" title="estructura del documento">
+<a name="doctree">Estructura del documento</a></span></strong>
+
+<dd>La estructura de elementos codificados en el documento fuente. Cada elemento en esta estructura tiene exactamente un padre, con la excepción del elemento 
+<strong><span class="index-def" title="raíz"><a
+name="root">raíz</a></span></strong> que no tiene ninguno.
+
+<dt><strong><a name="x26"><span class="index-def"
+title="hijo">Hijo</span></a></strong>
+
+<dd>Un elemento A es llamado hijo de un elemento B si, y sólo si, B es el padre de A.
+
+<dt><strong><a name="x27"><span class="index-def"
+title="descendiente">Descendiente</span></a></strong>
+
+<dd>Un elemento A es llamado descendiente de un elemento B ya sea que (1) A es hijo de B o (2) A es hijo de algún elemento C que es descendiente de B.
+
+<dt><strong><a name="x28"><span class="index-def"
+title="antepasado">Antepasado</span></a></strong>
+
+<dd>Un elemento A es llamado antepasado de un elemento B si, y sólo si, B es descendiene de A.
+
+<dt><strong><a name="x29"><span class="index-def"
+title="hermano">Hermano</span></a></strong>
+
+<dd>Un elemento A es llamado hermano de un elemento B si, y sólo si, B y A comparten el mismo elemento padre. Un elemento A es hermano precedente si viene antes que B en la estructura del documento. Un elemento A es hermano siguiente si viene después de B en la estructura del documento.
+
+<dt><strong><span class="index-def" title="elemento precedente"><a name="preceding">Elemento precedente</a></span></strong>
+
+<dd>Un elemento A es llamado elemento precedente de un elemento B si, y sólo si, (1) A es un antecesor de B o (2) A es hermano precedente de B.
+
+<dt><strong><a name="x32"><span class="index-def" title="elemento siguiente">Elemento siguiente</span></a></strong>
+
+<dd>Un elemento A es llamado elemento siguiente de un elemento B si, y sólo si, B es un elemento precedente de A.
+
+<dt><strong><strong><a name="author">Autor</a></strong></strong>
+<dd>Un autor es una persona que escribe documentos y las hojas de estilo asociadas. Una  
+<a name="x34"><span class="index-def" title="herramienta de autor"><strong>herramienta de autor</strong></span></a>
+genera documentos y las hojas de estilo asociadas.</dd>
+
+<dt><strong><strong><a name="user">Usuario</a></strong></strong> 
+<dd> Un usuario es una persona que interactúa con una aplicación del usuario para ver, oír o usar de algún modo un documento y sus hojas de estilo asociadas. El usuario puede proporcionar una hoja de estilo personal que codifica sus preferencias individuales.
+</dd>
+<dt><strong><strong><a name="user-agent">Aplicación del usuario (AU)</a></strong></strong>
+<dd>Una <a name="x35"><span class="index-def" title="aplicación del usuario|AU">aplicación del usuario</span></a> es cualquier programa que interpreta un documento escrito en el lenguaje del documento y aplica hojas de estilo asociadas según los términos de esta especificación. Una aplicación del usuario puede mostrar un documento, leérlo en voz alta, permitir que sea impreso, convertirlo a otro formato, etc.
+</dd>
+</dl>
+
+<div class="html-example">
+<p>Este es un ejemplo de un documento fuente codificado en HTML:
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;   
+  &lt;TITLE&gt;Mi página personal&lt;/TITLE&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Mi página personal&lt;/H1&gt;
+    &lt;P&gt;¡Bienvenidos a mi página! Permítanme hablarles de mis compositores favoritos:
+    &lt;UL&gt;
+      &lt;LI&gt; Elvis Costello
+      &lt;LI&gt; Johannes Brahms
+      &lt;LI&gt; Georges Brassens
+    &lt;/UL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>Esto resulta en la siguiente estructura:</P>
+
+<div class="figure">
+<P><IMG src="images/doctree.gif" alt="Ejemplo de estructura del documento"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-doctree" href="images/longdesc/doctree-desc.html" title="Descripción extensa del diagrama de ejemplo de estructura del documento">[D]</A></SPAN></p>
+</div>
+
+<P>De acuerdo a la definición de HTML, los elementos HEAD serán inferidos durante el análisis y devendrán parte de la estructura del documento aún cuando las marcas HEAD no estén en la fuente del documento. De modo similar, el analizador sabe donde terminan los elementos P y LI, aunque no existan las marcas &lt;/P&gt; y &lt;/LI&gt; en la fuente.
+</div>
+
+<h2>3.2 <a name="conformance">Conformidad</a></h2>
+
+<P>Esta sección sólo define <a name="x37"><span class="index-def"
+title="conformidad">conformidad</span></a> con la especificación CSS2. Puede haber otros futuros niveles de CSS que requieran a las aplicaciones del usuario implementar un conjunto  de características diferente para obtener conformidad.
+<P>En general, los siguientes puntos deben ser observados por las aplicaciones del usuario que pretendan conformidad con esta especificación: </P>
+
+<ol>
+<li>Debe soportar uno o más <a href="media.html">tipos de medios</a> de CSS2.
+<li>Para cada documento fuente, debe intentar recuperar todas las hojas de estilo asociadas que sean apropiadas para los tipos de medio soportados. Si no puede recuperar todas las hojas de estilo asociadas (por ejemplo, debido a errores en la red), debe mostrar el documento usando aquellas que puede recuperar. 
+<li>Debe analizar las hojas de estilo de acuerdo con esta especificación. En particular, debe reconocer todas las reglas-arroba, bloques, declaraciones y selectores (ver la <a href="grammar.html">gramática de CSS2</a>). Si una aplicación del usuario encuentra una propiedad que se aplica a un tipo de medio soportado, la aplicación del usuario debe analizar el valor de acuerdo a la definición de la propiedad. Esto significa que la aplicación del usuario debe aceptar todos los valores válidos y debe <a name="x38"><span class="index-inst" title="ignorar">ignorar</span></a> las declaraciones con valores inválidos. Las aplicaciones del usuario deben <a name="x39"><span class="index-inst" title="ignorar">ignorar</span></a>
+reglas aplicadas a <a href="media.html">tipos de medio</a>  que no son soportados.
+
+<li>Para cada elemento en una <a href="#doctree">estructura del documento</a>, debe asignar un valor por cada propiedad aplicable, de acuerdo con la definición de propiedad y las reglas de <a href="cascade.html">cascada y herencia</a>.
+
+<li>Si el documento fuente viene con hojas de estilo alternativas (tal como la palabra clave "alternate" en HTML 4 <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>), la AU debe permitir al usuario seleccionar una de entre estas hojas de estilo y aplicar la seleccionada.
+</ol>
+
+<P>Sin embargo, no todas las aplicaciones del usuario deben observar cada punto:</p>
+
+<ul>
+<li>Una aplicación del usuario que permite <em>reconocer</em> hojas de estilo debe respetar los puntos 1 - 3.
+
+<li>Una herramienta de autor sólo necesita generar <a
+href="#valid-style-sheet">hojas de estilo válidas</a>
+
+<li>Una aplicación del usuario que <em>procesa</em> un documento con hojas de estilo asociadas debe respetar los puntos 1 - 5 y procesar el documento de acuerdo a los requerimientos específicos de los medios planteados en esta especificación. Los <a href="cascade.html#actual-value">valores</a> pueden ser aproximados cuando la aplicación del usuario así lo requiera.
+</ul>
+
+<P>La incapacidad de una aplicación del usuario para implementar parte de esta especificación debido a las limitaciones de un dispositivo en particular (ej., una aplicación del usuario no puede presentar colores sobre un monitor monocromático o una página) no implica la no conformidad. </P>
+
+<p>Esta especificación recomienda que una aplicación del usuario permita al usuario especificar sus propias hojas de estilo.
+
+<h2><a name="q3">3.3 Condiciones de error</a></h2>
+
+<P>En general, este documento no especifica un comportamiento por parte de las aplicaciones de usuario en el manejo de errores (ej., cómo se comportan cuando no pueden encontrar un recurso designado por un URI).
+
+<P>Sin embargo, las aplicaciones del usuario deben observar las <a
+href="syndata.html#parsing-errors">reglas para el manejo de los errores de análisis</a>.
+
+<P>Puesto que las aplicaciones del usuario pueden variar en el modo de manejar las condiciones de error, los autores y usuarios no deben confiar en un comportamiento específico para la recuperación de un error.
+
+<H2>3.4 <span class="index-def" title="text/css"><a
+name="text-css">El tipo de contenido text/css</a></span></H2>
+
+<p>Las hojas de estilo CSS que existen en archivos separados son enviadas a través de Internet como una secuencia de bytes acompañada por la información de codificación
+(ver <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a>, capítulo 5).  La estructura de la transmisión, llamada <span class="index-def" title="entidad del mensaje"><a
+name="message-entity"><strong>entidad del mensaje,</strong></a></span> es
+definida por RFC 2045 y RFC 2068 (ver <a href="refs.html#ref-RFC2045" rel="biblioentry" class="noxref"><span class="normref">[RFC2045]</span></a> y <a href="refs.html#ref-RFC2068" rel="biblioentry" class="noxref"><span class="normref">[RFC2068]</span></a>).  Una entidad del mensaje con un tipo de contenido "text/css" representa un documento CSS independiente. El tipo de contenido "text/css" ha sido registrado por RFC 2318 (<a href="refs.html#ref-2318" rel="biblioentry" class="noxref"><span class="normref">[RFC2318]</span></a>).
+
+<hr class="navbar">
+
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="intro.html">anterior</a> &nbsp;
+<a href="syndata.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</html>

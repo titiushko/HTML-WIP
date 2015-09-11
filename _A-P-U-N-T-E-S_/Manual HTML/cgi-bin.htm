@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>CGI, ejecuci&oacute;n de binarios</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" VLINK="#4C83FF" ALINK="#000000" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>7 - CGI (Common Gateway Interface), ejecuci&oacute;n de
+binarios.</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<P><A NAME="a1"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Definici&oacute;n<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los cgi-bin son programas que se ejecutan
+en el servidor, pueden servir para tratar informaci&oacute;n, como pasarela
+con una aplicaci&oacute;n o base de datos o para generar documentos html
+de forma autom&aacute;tica. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como se vi&oacute; con anterioridad, una
+de las principales utilidades de los <I>cgi-bin</I> es tratar los resultados
+de un formulario (<A HREF="form.htm">FORM</A>). </P>
+
+<P>Estos programas pueden ser escritos en cualquier tipo de lenguaje de
+programaci&oacute;n y son ejecutados en el servidor cuando se realiza su
+referencia. Algo importante es que el programa debe ser ejecutable en el
+servidor, por tanto al ser el servidor una maquina UNIX, no se puede utilizar
+por ejemplo los compiladores de los PC, sino los del servidor. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los lenguajes m&aacute;s comunes para
+escribir estos programas son el lenguaje <B>perl</B>, <B>C</B> &oacute;
+bien un <I>script</I> escrito en cualquier <I>shell</I> <I>(csh, sh, ksh
+&oacute; zsh)</I>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algo importante es que los cgi-bin deben
+tener una extensi&oacute;n especial <B>.cgi</B>, o bien, encontarse en
+un directorio especial llamado cgi-bin. Cuando se referencie en una pagina
+html un binario, cualquier fichero con la extensi&oacute;n <I>cgi</I>,
+en el servidor se ejecutar&aacute; este programa y la salida se enviar&aacute;
+al cliente de la WWW. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para que sea posible ejecutar el binario
+(cgi-bin), ser&aacute; necesario que el fichero tenga los permisos de forma
+correcta, para ello tendr&aacute; que ejecutar en Unix el siguiente comando:
+</P>
+
+<P><B>www2&gt; chmod 755 programa.cgi</B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con esto el programa ser&aacute; ejecutable
+por el servidor. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los cgi-bin se podr&aacute;n escribir
+con las instrucciones normales del lenguaje de programaci&oacute;n pero
+hay ciertos aspectos a tener en cuenta: </P>
+
+<OL>
+<LI><A HREF="#cgi-env">Variables de entorno</A> </LI>
+
+<LI><A HREF="#cgi-in">Entrada de datos al cgi-bin</A> </LI>
+
+<LI><A HREF="#cgi-out">Salida de datos del cgi-bin</A> </LI>
+</OL>
+
+<P><A NAME="cgi-env"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Variables
+de entorno<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para pasar datos el servidor al cgi-bin
+utiliza una serie de variables de entorno, que quedan definidas al ejecutar
+el script. Las variables de entorno m&aacute;s interesantes son: </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">REQUEST_METHOD</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El m&eacute;todo por el que se realiza
+la llamada al script, este puede ser <A HREF="form.htm#method">GET</A>
+o <A HREF="form.htm#method">POST</A> como se explic&oacute; anteriormente
+cuando se habla de los formularios. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">PATH_INFO</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El cgi-bin puede ser llamado directamente
+desde el cliente, en esta variable se incluir&aacute; toda la informaci&oacute;n
+que siga al nombre del cgi-bin, por ejemplo:</P>
+
+<P> http://www2.uca.es/binarios/cgibin.cgi/camino/fichero</P>
+
+<P> PATH_INFO = /camino/fichero</P>
+
+<P> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ser&aacute; la informaci&oacute;n adicional
+que se a&ntilde;ade tras el nombre de cgi-bin. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="codifica"></A>La informaci&oacute;n
+que se incluye ser&aacute; pasada de forma codificada al cgi-bin, de forma
+que los espacios se convierten en signos '+' y los caracteres especiales
+se codifican de la forma %xx, donde xx el c&oacute;digo ASCII en hexadecimal
+del caracter. Esto debe ser tenido en cuenta cuando se interprete la informaci&oacute;
+obtenida en formato URL. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">PATH_TRANSLATED</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una versi&oacute;n decodificada de PATH_INFO,
+obtiene el camino y lo convierte de camino virtual (en referencia del servidor)
+a camino real (camino completo). </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">SCRIPT_NAME</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre por el que fue llamado el cgi-bin.
+</P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">QUERY_STRING</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La informaci&oacute;n que sigue al s&iacute;mbolo
+<B>?</B> en la URL que referencia al cgi-bin. Ser&aacute; alg&uacute;n
+tipo de consulta que se realice al cgi-bin. No necesita ser decodificada
+de ninguna manera. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cuando se utiliza el m&eacute;todo <A HREF="form.htm#method">GET</A>
+las variables del formulario se pueden interpretar con esta variable de
+entorno. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El formato en que se envian estas variables
+es el siguiente:</P>
+
+<P> <B><FONT COLOR="#008200"><I>?variable1</I>=<I>valor1</I>&amp;<I>variable2</I>=<I>valor2</I>&amp;
+... &amp;<I>variablen</I>=<I>valorn</I></FONT> </B></P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">REMOTE_HOST</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El ordenador desde el que se ejecuto el
+cgi-bin. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">REMOTE_ADDR</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direcci&oacute;n IP del ordenador remoto
+que ejecuto el cgi-bin. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">CONTENT_LENGTH</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El n&uacute;mero de caracteres enviados
+por el cliente al cgi-bin. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">HTTP_USER_AGENT</FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El cliente de la WWW que ejecuta el cgi-bin,
+el formato general es:</P>
+
+<P> <FONT COLOR="#008200"><I>programa/versi&oacute;n</I> <I>libreria/versi&oacute;n</I></FONT>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El cgi-bin podr&iacute;a enviar un distinto
+c&oacute;digo HTML seg&uacute;n cada cliente. </P>
+
+<P><A NAME="cgi-in"></A><FONT COLOR="#FF0000"><FONT SIZE=+1><B>Entrada
+de datos al cgi-bin<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></B> </FONT></FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para
+los formularios que utilizan el m&eacute;todo <A HREF="form.htm#method">POST</A>,
+la informaci&oacute;n es enviada al cgi-bin por la entrada est&aacute;ndar
+<I>(stdin)</I>.</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El
+servidor env&iacute;a las variables de entorno </FONT><B><FONT COLOR="#008200">CONTENT_LENGTH</FONT></B>
+y </FONT><B><FONT COLOR="#008200">CONTENT_TYPE</FONT></B>
+indicando la longitud y el tipo de datos enviados. El servidor no esta
+obligado a enviar una marca de final de fichero tras los datos enviados,
+por tanto la variable </FONT><B><FONT COLOR="#008200">CONTENT_LENGTH</FONT></B>
+debe ser tenida en cuenta para determinar la cantidad de datos enviados.
+</FONT><B><FONT COLOR="#008200">CONTENT_TYPE</FONT></B>
+suele contener el valor </FONT><I><FONT COLOR="#008200">application/x-www-form-urlencoded</FONT></I>,
+que indica que se trata de informaci&oacute;n con codificaci&oacute;n URL.
+</FONT></FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En
+esta codificaci&oacute;n como se vio antes los espacios se convierten en
+signos </FONT><FONT COLOR="#008200">'+' y
+los caracteres especiales se codifican de la forma </FONT><FONT COLOR="#008200">%xx</FONT>,
+donde xx el c&oacute;digo ASCII en hexadecimal del car&aacute;cter. Por
+tanto esto debe ser tenido en cuenta cuando se interpreten los datos enviados
+del formulario. Las variables del formulario se enviar&aacute;n de la forma:</FONT></FONT></P>
+
+<P> </FONT><B><FONT COLOR="#008200"><I>variable1</I>=<I>valor1</I>&amp;<I>variable2</I>=<I>valor2</I>&amp;
+... &amp;<I>variablen</I>=<I>valorn</I></FONT><FONT COLOR="#FF0000"> </FONT></B></FONT></P>
+
+<P><A NAME="cgi-out"></A><FONT COLOR="#FF0000"><FONT SIZE=+1><B>Salida
+de datos del cgi-bin<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></B> </FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El
+cgi-bin debe enviar sus datos a la salida est&aacute;ndar (stdout), esta
+salida puede ser un documento generado por el cgi-bin o instrucciones al
+servidor para obtener el documento correcto. </FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La
+salida del cgi-bin <B>debe</B> comenzar con una peque&ntilde;a cabecera
+que identificar&aacute; al documento. Las directivas que definen esta cabecera
+ser&aacute;n:</FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1> </FONT></FONT></P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1><B>Content-type:</B> </FONT></FONT></LI>
+</UL>
+
+<P><FONT SIZE=+1><FONT COLOR="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es
+el tipo MIME del documento que se retorna. Si tuviera el valor </FONT><I><FONT COLOR="#008200">text/html</FONT></I><FONT COLOR="#FF0000">
+la salida se interpretar&iacute;a como c&oacute;digo html. Por tanto la
+salida del cgi-bin podr&iacute;a contener instrucciones HTML que serian
+interpretadas correctamente por el cliente. Otros valores que puede tomar
+son: </FONT><I><FONT COLOR="#008200">text/plain</FONT></I><FONT COLOR="#FF0000">
+para texto normal &oacute; </FONT><I><FONT COLOR="#008200">image/gif</FONT></I><FONT COLOR="#FF0000">,
+la salida se interpreta como una imagen GIF.</FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1> Por ejemplo: </FONT></FONT></P>
+
+<P><FONT SIZE=+1><FONT COLOR="#008200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<TT>printf
+( &quot;Content-type: text/html\n\n&quot; );</TT></FONT><FONT COLOR="#FF0000">
+</FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ser&iacute;a
+el comienzo de la salida de cgi-bin escrito en C que comienza a generar
+c&oacute;digo html.</FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1> </FONT></FONT></P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1><B>Location:</B> </FONT></FONT></LI>
+</UL>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute;
+al servidor que se esta enviado la referencia a un documento en lugar del
+documento en s&iacute;. Si el valor es una URL, el servidor indicar&aacute;
+al cliente que debe realizar un redireccionamiento a esa direcci&oacute;n.
+</FONT></FONT></P>
+
+<P><FONT SIZE=+1><FONT COLOR="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esta
+permitido el uso de informaci&oacute;n adicional (</FONT><FONT COLOR="#008200">PATH_INFO</FONT><FONT COLOR="#FF0000">)
+y la directiva ?, pero no la directiva <A HREF="enlaces.htm#name">#</A>
+para indicar un punto determinado dentro de un documento. </FONT></FONT></P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1><B>Status:</B> </FONT></FONT></LI>
+</UL>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute;
+un c&oacute;digo de estado para indicar errores. El formato ser&aacute;
+<TT>nnn xxxxxxx</TT>, donde <TT>nnn</TT> es un n&uacute;mero de tres d&iacute;gitos
+y <TT>xxxxxxx</TT> es una cadena de caracteres. </FONT></FONT></P>
+
+<P><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tras
+la cabecera se incluir&aacute;n dos caracteres de retorno de carro (<coode>\n</FONT></FONT>),
+siendo obligatorio para que sea bien interpretada la cabecera de cgi-bin,
+si no se respeta esto la salida del cgi-bin podr&iacute;a indicarnos el
+error <FONT COLOR="#008200">&quot;Server Error 500&quot;</FONT>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Despues de definida la cabecera se podr&aacute;
+generar la salida del cgi-bin, que se interpretar&aacute; seg&uacute; el
+valor dado a <I>Content-type</I>. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="form.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="form.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="frames.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="frames.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

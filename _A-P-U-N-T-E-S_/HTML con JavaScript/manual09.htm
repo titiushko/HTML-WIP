@@ -1,0 +1,459 @@
+<HTML>
+<HEAD><TITLE>Formularios en HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="formular.gif" alt="Icono" width=80 height=52></td>
+<td><font  size=6><b>Formularios en HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+Los formularios son elementos de nuestra p&aacute;gina Web que permitir&aacute;n a nuestro visitante interactuar con nuestra p&aacute;gina.
+</p>
+
+<p>
+Los formularios interpretan las acciones que una persona realiza sobre nuestra p&aacute;gina y obtiene en consecuencia determinada respuesta. Los programas que permiten una respuesta al usuario est&aacute;n escritos normalmente en Perl, C...
+</p>
+
+<p>
+Los formularios son plantillas en las que se introducen datos para mandarlos al servidor. Cada dato es un par nombre/valor, donde nombre indica el campo y valor los datos introducidos en dicho campo.
+</p>
+
+<p>
+En HTML un formulario es un &aacute;rea de c&oacute;digo comprendida entre 2 directivas. Cada formulario tiene asignada una acci&oacute;n distinta, lo que permite incluir varias l&iacute;neas dedicadas a este fin en una misma p&aacute;gina.
+</p>
+
+<p>
+Estas son las directivas principales que se emplean en todos los formularios posibles:
+</p>
+
+<p>
+&lt;INPUT&gt;<br>
+Campos de entrada por teclado. <br>
+Botones de selecci&oacute;n. <br>
+Casillas de marca. <br>
+Botones de proceso (submit). <br>
+Botones de inicializaci&oacute;n (reset). <br>
+Im&aacute;genes sensibles al rat&oacute;n. <br>
+<br>
+&lt;SELECT&gt; <br>
+Listas desplegables de valores. <br>
+Listas fijas de valores. <br>
+<br>
+&lt;TEXTAREA&gt; <br>
+Ventanas de escritura libre.
+</p>
+
+<p>
+En esta parte aprenderemos a tratar con los formularios y con sus diferentes elementos:
+</p>
+
+<ul>
+<li>Elementos de texto
+<li>Elementos de &aacute;rea de texto
+<li>Elementos de Men&uacute;s
+<li<Elementos de Confirmaci&oacute;n o Checkbox
+<li>Elementos de Botones de Radio
+<li>Elementos de Envio y Borrado de datos.
+</ul>
+<br>
+
+<font  size=5><b>ESTRUCTURA DEL FORMULARIO</b></font>
+<p>
+La estructura de un formulario es muy simple: comienza con la directiva <b>&lt;FORM&gt;</b> y finaliza con <b>&lt;/FORM&gt;</b>. La directiva tiene 2 par&aacute;metros o atributos que deben aparacer obligatoriamente:
+</p>
+
+<p>
+Dentro de este elemento a su vez se utilizan otros elementos, que son los que realmente dibujan en pantalla los componentes del formulario, son: 
+</p>
+
+<ul>
+<li><b>ACTION=URL</b>
+
+<p>
+Contiene la URl del programa CGI encargado de interpretar la entrada del suario y generar los resultados oportunos.
+</p>
+
+<li><b>METHOD= GET | POST</b>
+
+<p>
+Tiene un significado. En principio puede tomar como valor cualquiera de los m&eacute;todos de transferencia de datos reconocidos por HTTP, pero en la pr&aacute;ctica s&oacute;lo se emplean 2:
+</p>
+
+<ol type="a">
+<b><li>GET</b>. Añande los argumento del formulario al URL que se especifica en ACTION (usando como separador el s&iacute;mbolo ?), lo que da lugar a que el programa los reciba  como p&aacute;rametros de entrada.<br><br>
+
+<b><li>POST</b>. Env&iacute;a los datos como parte de la entrada est&aacute;ndar.
+</ol>
+
+<p>
+2 ejemplos de formularios ser&iacute;an:
+</p>
+
+<p>
+&lt;FORM METHOD=GET ACTION=/cgi-bin/envio_correo.pl&gt;<br>
+&lt;FORM METHOD=POST ACTION=http://lucas.cdf.udc.es/cgi-bin/subscribe.cgi&gt;
+</p>
+
+<p>
+<b>NOTA: La extensi&oacute;n de los programas CGI no es obligatoria y no tiene que identificar necesariamente el lenguaje empleado en su construcci&oacute;n. Aunque pueden aparecer extensiones .pl, .tcl o .sh para indicar programas escritos en Perl, Tcl o la Shell de UNIX, es igualmente v&aacute;lida la extensi&oacute;n .cgi o su ausencia (habitualmente en programas compilados).</b>
+</p>
+
+<p>
+El aspecto del formulario, depender&aacute; del navegador que emplee la persona que nos visite.
+</p>
+<br>
+</ul>
+
+<font  size=5><b>LA DIRECTIVA &lt;INPUT&gt;</b></font>
+
+<p>
+Es una directiva que nos servir&aacute; para especificar el tipo de campo o de espacio reservado para que el usuario final introduzca los datos que se le solicitan en el formulario. Respode al igual que en BASIC a datos que se le piden al usuario que rellene introduciendo los valores que estime oportunos.
+</p>
+
+<p>
+Esta directiva HTML admite los siguientes tipos de atributos:
+</p>
+
+<ul>
+<li><b><u>TYPE</u></b>
+<p>
+Indica el tipo de entrada visual que se emplear&aacute; para la petici&oacute;n de datos al usuario. Existen los siguiente modos:
+</p>
+
+<ul type="square">
+<li><b>TYPE=“text”</b>
+<p>
+Hace referencia a texto normal y corriente que el usuario interoducir&aacute; en el campo concreto. Indica que se trata de una entrada de datos formada por una l&iacute;nea de texto.
+</p>
+
+<li><b>TYPE=“password”</b>
+<p>
+Se trata de una entrada de tipo texto que oculta los datos, o se enmascara, normalmente escribiendo asteriscos en lugar de letras, para evitar que otra persona pueda ver qu&eacute; valores se introducen en ella. Resulta muy adecuada para recoger passwords, palabras clave, o n&uacute;meros de identificaci&oacute;n.
+</p>
+
+<li><b>TYPE=“hidden”</b>
+<p>
+Es simplemente un almacenamiento interno de datos. El visualizador no muestra el contenido, recogido en el atributo <b>VALUE</b>, pero s&iacute; se lo pasa  al programa CGI. Resulta un componente muy adecuado para guardar informaci&oacute;n que se mantiene estable en la p&aacute;gina (como un determinado valor que nos indica que los datos que provienen de esta p&aacute;gina son los correctos y no otros de otra p&aacute;gina distinta). Por ejemplo, si en un documento dado ha leido el nombre de usuarios, &eacute;ste puede pasar de una p&aacute;gina a otra a trav&eacute;s de ete tipo de entrada, en vez de agrandar la lista de par&aacute;metros añadidos al URL.
+</p>
+
+&lt;INPUT TYPE=“hidden” NAME=“browser” VALUE=“Arena”&gt;
+
+<p>
+Este ejemplo, toma un valor oculto (hidden) en la variable browser, como valor “Arena”, que es un tipo de navegador que reconoce el HTML 3.0.
+</p>
+
+<p>
+<b>CUIDADO</b>, esto no es un formato encriptado, viendo el documento fuente se puede saber el valor de la ventana, (el valor oculto del mismo).
+</p>
+
+<li><b>TYPE=“image”</b>
+<p>
+TYPE=IMAGE hace que el visualizador presente una imagen que es  sensible al rat&oacute;n. Lo que el formulario env&iacute;a al servidor es un registro cuyos campos son el nombre definido para la imagen seguido de los par&aacute;metros .x=n .y=n donde n son los n&uacute;meros de las coordenas x y del punto en el que estaba el rat&oacute;n en el momento del env&iacute;o. Para presentar la imagen se utiliza el atributo <b>SRC</b> del elemento <b>IMG</b>. Este ser&iacute;a un ejemplo de respuesta: 
+</p>
+<p>
+imagen.x=99&imagen.y=15
+</p>
+<p>
+Se escribe: 
+</p>
+
+&lt;FORM METHOD="POST" ACTION="cgi-bin/mail.pl"&gt;<br>
+&lt;INPUT TYPE=IMAGE NAME="imagen" SRC="mail.gif"&gt;<br>
+&lt;/FORM&gt;<br>
+<p>
+Los formularios que utilicen este tipo de recursos pueden prescindir del tipo SUBMIT, ya que el formulario se cierra con la imagen.
+</p>
+
+<p>
+Un tipo especial de bot&oacute;n. En este caso se visualizar&aacute; como una imagen cuya ubicaci&oacute;n se indica por el atributo SRC y que puede estar alineada con los valores t&iacute;picos ALIGN. Al hacer click sobre la imagen, se desembocar&aacute; una acci&oacute;n similar a la de SUBMIT con la diferencia de que se añade un par&aacute;metro m&aacute;s a la llamada, identificado con el atributo NAME y cuyo contenido, son las coordenadas sobre la que se hizo click el usuario. Se trata de un componente muy a decuado para la construcci&oacute;n de barras de herramientas, que pueden estar divididas en varias im&aacute;genes (caso en el que no importa sobre qu&eacute; punto de la imagen se hace click, s&oacute;lo se necesita saber qu&eacute; imagen se seleccion&oacute;), o ser un s&oacute;lo gr&aacute;fico (y hay que analizar las coordenadas para verificar qu&eacute; funci&oacute;n se est&aacute; invocando).
+</p>
+
+<li><b>TYPE=“checkbox”</b>
+<p>
+Se trata de una casilla de selecci&oacute;n, un componente que s&oacute;lo tiene 2 valores: seleccionado o ignorado. <b>VALUE</b> (el atributo) recoge el valor cuando se selecciona, sino es as&iacute; se devuelve una cadena vac&iacute;a. Si se incluye <b>CHECKED</b> se indica que inicialmente la casilla aparecer&aacute; seleccionada. 
+</p>
+<p>
+Este tipo de atributo permite que m&aacute;s de una casilla sea seleccionada.
+</p>
+
+&lt;INPUT TYPE=“checkbox” VALUE=“rubia” VALUE=1&gt;Cerveza Rubia<br>
+&lt;INPUT TYPE=“checkbox” VALUE=“negra” VALUE=1 CHECKED&gt;Cerveza Negra<br>
+
+<p>
+har&aacute; que aparezcan 2 casillas con los valores Cerveza Rubia y Cerveza Negra, con esta &uacute;ltima, como casilla selecciona por defecto, pudiendo añadir a esta selecci&oacute;n la otra, o eliminar la seleccionada, dejando los 2 campos sin seleccionar.
+</p>
+
+<li><b>TYPE=“radio”</b>
+<p>
+Botones radiales o redondos. Una misma variable asociada a varios elementos, cada uno con un valor distinto. Al igual que ocurrir&iacute;a con el componente anterior, si no hay ning&uacute;n valor seleccionado, se devuelve una cadena vac&iacute;a, y el atributo <b>CHECKED</b> señala la opci&oacute;n seleccionada.
+</p>
+
+<p>
+En este caso, si ponemos varias opciones para una misma variable (por ejemplo elegir el sistema operativo entre UNIX, Linux, DOS, WINDOWS, MACOS, OS/2), y s&oacute;lo se permite elegir una de ellas, el marcar un bot&oacute;n radial, excluir&aacute; a los dem&aacute;s, no pudiendo dejar el mismo en vac&iacute;o o sin marcar ninguna de las opciones ofrecidas. En este caso hemos de ser precabidos y poner uno de los botones marcados por defercto, para que las entradas no queden vac&iacute;as.
+</p>
+
+
+&lt;INPUT TYPE=“radio” NAME=“sino” VALUE=1 CHECKED&gt;SI&lt;BR&gt;<br>
+&lt;INPUT TYPE=“radio” NAME=“sino” VALUE=2&gt;NO&lt;BR&gt;<br>
+<br>
+&lt;INPUT TYPE=“radio” NAME=“SO” VALUE=unix CHECKED&gt;UNIX&lt;BR&gt;<br>
+&lt;INPUT TYPE=“radio” NAME=“SO” VALUE=mac&gt;MACINTOSH&lt;BR&gt;<br>
+&lt;INPUT TYPE=“radio” NAME=“SO” VALUE=dos&gt;DOS&lt;BR&gt;<br>
+&lt;INPUT TYPE=“radio” NAME=“SO” VALUE=win95&gt;WINDOWS’95&lt;BR&gt;<br>
+&lt;INPUT TYPE=“radio” NAME=“SO” VALUE=otro&gt;OTRO&lt;BR&gt;<br>
+<br>
+
+<li><b>TYPE=“SUBMIT”</b>
+<p>
+Es un bot&oacute;n; en este caso es el que desencadena la acci&oacute;n de enviar los datos al programa CGI que los interpreta y activa una respuesta. Tambi&eacute;n como <b>RESET</b>, el atributo <b>VALUE</b> contiene la frase que se mostrar&aacute; en lugar del valor por defecto que no es otro que “SUBMIT” (enviar).
+</p>
+
+&lt;INPUT TYPE=“SUBMIT” VALUE=“Enviar Datos”&gt;<br>
+&lt;INPUT TYPE=“RESET” VALUE=“Limpiar Formulario”&gt;<br>
+<br>
+
+<li><b>TYPE=“RESET”</b>
+<p>
+Es un tipo de elemento especial que no recibe datos, s&oacute;lo ejecuta localmente una acci&oacute;n. Tiene el aspecto de un bot&oacute;n y hace que los campos de entrada y todos los componentes del formulario vuelvan a su estado original. El atributo opcional <b>VALUE</b> contiene la frase que se mostrar&aacute; en el bot&oacute;n, en lugar de “RESET” (reiniciar), que es el texto por defecto.
+</p>
+
+<p>
+<b>NOTA: Para que los botones de enviar y limpiar (SUBMIT y RESET), funcionen como tales, deben de ser escritos en MAY&uacute;SCULAS, de lo contrario no funcionar&aacute;n.</b>
+</p>
+
+<li><b>TYPE=“file”</b>
+<p>
+Este es un nuevo tipo que s&oacute;lo funciona con Netscape 3.0 o superior, y sirve para enviar un fichero a una m&aacute;quina remota (hacer FTP), pero no funciona solo, necesita de ciertos acompañantes que hacen su uso un poco m&aacute;s complicado: Aqu&iacute; hay que echar mano de un atributo parametrizado de <b>&lt;FORM&gt;</b>: <b>ENCTYPE="multipart/form-data"</b> para generar un bot&oacute;n que permitir&aacute; buscar un fichero en nuestra m&aacute;quina, ponerlo en una ventanita de entrada como las ya conocidas (por tanto tanbi&eacute;n se puede escribir directamente el nombre del fichero en lugar de buscarlo) y junto con un bot&oacute;n tipo submit enviar el fichero.
+</p>
+
+<p>
+Se escribe: 
+</p>
+
+&lt;FORM enctype="multipart/form-data" ACTION="ftp://miservidor/" METHOD="POST"&gt;<br><br>
+Enviar el fichero: <br><br>
+&lt;INPUT NAME="mifichero" TYPE="FILE"&gt;<br>
+&lt;INPUT TYPE="SUBMIT" VALUE="Enviar fichero"&gt;&lt;/FORM&gt;<br>
+
+<p>
+el bot&oacute;n generado aparece con el texto "Browse.." y no sirve de nada añadirle el par&aacute;metro VALUE para darle otro nombre, como se puede hacer con el bot&oacute;n de tipo submit. 
+</p>
+
+<p>
+En este ejemplo se har&iacute;a una conexi&oacute;n al servicio FTP general de la m&aacute;quina remota, pero se puede hacer a un directorio en particular de un usuario concreto. S&oacute;lo habr&iacute;a que cambiar la l&iacute;nea 
+</p>
+
+ACTION="ftp://miservidor/" METHOD="POST"&gt;
+
+<p>
+y escribir: 
+</p>
+
+ACTION="ftp://miusuario@miservidor/" METHOD="POST"&gt;
+
+<p>
+Otra forma m&aacute;s directa de hacer un FTP en las dos direcciones, es desde la ventana "Location" del visualizador. La sintaxis de los par&aacute;metros de ACTION son v&aacute;lidos en esa ventana. 
+</p>
+
+<p>
+Por supuesto, todo esto si no tienes cuenta y permiso de escritura en la m&aacute;quina remota, no sirve para nada...
+</p>
+</ul>
+<br>
+
+<li><b>NAME=“nombre de variable”</b>
+
+<p>
+Es el atributo de <b>&lt;INPUT&gt;</b> que contiene el nombre que recibe la variable en la que se almacena la entrada del formulario o datos que nosotros o nuestro visitantes tecleeen o marquen.
+</p>
+<br>
+
+<li><b>VALUE=“valor num&eacute;rico/texto”</b>
+<p>
+Es un atributo que nos sirve para dar un valor inicial del campo que deseemos. Esto es muy &uacute;til si por ejemplo es un formulario que se nos muestre la opci&oacute;n de HOMBRE o MUJER, queremos que por defecto aparezca MUJER seleccionado (inicialmente) y modificable totalmente, pudiento tambi&eacute;n tomar el calor de HOMBRE.
+</p>
+
+<p>
+Este atributo tambi&eacute;n se puede emplear como texto en lugar de como valor num&eacute;rico, dado que algunos campos de texto, podemos querer que contengan un texto inicial por defecto. Esto se hace por medio de este atributo.
+</p>
+
+<p>
+Tambi&eacute;n sirve para cambiar los mensajes que por defeco muestran los botones de SUBMIT y RESET al enviar o borrar un formulario. Modificando este valor para estos botones, podremos poner el texto que deseemos.
+</p>
+<br>
+
+<li><b>SIZE=“valor num&eacute;rico”</b>
+
+<p>
+Es el tamaño de caracteres de la entrada de visualizaci&oacute;n. SIZE define la longitud de la ventana de texto.
+</p>
+<br>
+
+<li><b>MAXLENGTH=“valor num&eacute;rico”</b>
+
+<p>
+Es la longitud m&aacute;xima del valord e caracteres. MAXLENGTH define la m&aacute;xima longitud de la cadena que se puede escribir dentro de la ventana.
+</p>
+
+<p>
+<b>NOTA: MAXLENGTH no puede ser menor que  SIZE, de forma que visualmente no tecleemos hasta el final de la l&iacute;nea del formulario, dando un aspecto m&aacute;s “pulido”, del formulario.</b>
+</p>
+<br>
+</ul>
+
+<font  size=5><b>LA DIRECTIVA &lt;SELECT&gt;...&lt;/SELECT&gt;</b></font>
+
+<p>
+La directiva <b>&lt;SELECT&gt;...&lt;/SELECT&gt;</b> es otra directiva cerrada que se puede incluir entre las directivas <b>&lt;FORM&gt;...&lt;/FORM&gt;</b>. Se trata de una componente habitual (en realidad), de los entornos de ventanas. Esta misma directiva permite construir una lista de selecci&oacute;n recogida en una ventana que pued tener barras de desplazamiento (scroll) y una lista desplegable similar a un men&uacute;. Todo depende del valor del atributo <b>SIZE</b> de la aparici&oacute;n de <b>MULTIPLE</b>.
+</p>
+
+<p>
+Esta directiva puede tener los atributos <b>NAME</b>, <b>SIZE</b>, <b>OPTION</b> y <b>MULTIPLE</b>.
+</p>
+
+<ul>
+<li><b>Lista Desplegable</b>
+<p>
+Para ver esta lista primero debemos añadir el atributo <b>NAME=“nombre de variable”</b> y acto seguido el valor de <b>SIZE=“valor num&eacute;rico”</b> a <b>&lt;SELECT&gt;...&lt;/SELECT&gt;</b>; en el atributo <b>SIZE</b> indicaremos el n&uacute;mero de opciones desplegables que se mostrar&aacute;n en la lista desplegable (el valor m&iacute;nimo es 1). 
+</p>
+
+<p>
+<b>TRUCO-NOTA: si lo que queremos es que nos aparezca una lengüeta desplegable en lugar de que aparezcan todos los valores que queramos ver a la vez con el atributo SIZE=“valor num&eacute;rico”, lo &uacute;nico que debemos hacer es omitir el atributo SIZE.</b>
+<p>
+
+<p>
+Una vez definido estos campos, podemos poner cada valor a cada uno de los ITEMS desplegables; para ello contamos con la directiva &lt;OPTION&gt; que debe ir incluida entre la directiva <b>&lt;SELECT&gt;...&lt;/SELECT&gt;</b>. Cada uno de los valores <b>&lt;OPTION&gt;</b> mostrar&aacute; las valores que se pueden seleccionar de la lista, siento una directiva <b>&lt;OPTION&gt;</b> por cada una de las opciones.
+</p>
+
+<p>
+Dentro de la diectiva &lt;OPTION&gt;, podemos añadir el atributo <b>VALUE=“valor”</b> de forma que podremos modificar le valor que se env&iacute;a para cadauna de las opciones que tenemos. Por ejemplo
+</p>
+
+<p>
+&lt;SELECT NAME=“puntuacion” MULTIPLE SIZE=11&gt;<br>
+&lt;OPTION VALUE=“10”&gt;Puntuo con un 10<br>
+&lt;OPTION VALUE=“9”&gt;Puntuo con un 9<br>
+&lt;OPTION VALUE=“8”&gt;Puntuo con un 8<br>
+&lt;OPTION VALUE=“7”&gt;Puntuo con un 7<br>
+&lt;OPTION VALUE=“6”&gt;Puntuo con un 6<br>
+&lt;OPTION VALUE=“5”&gt;Puntuo con un 5<br>
+&lt;OPTION VALUE=“4”&gt;Puntuo con un 4<br>
+&lt;OPTION VALUE=“3”&gt;Puntuo con un 3<br>
+&lt;OPTION VALUE=“2”&gt;Puntuo con un 2<br>
+&lt;OPTION VALUE=“1”&gt;Puntuo con un 1<br>
+&lt;OPTION VALUE=“0”&gt;Puntuo con un 0<br>
+&lt;/SELECT&gt;
+</p>
+
+<p>
+nos env&iacute;a el valor contenido en el atributo VALUE, cuando es seleccionada la &lt;OPTION&gt; con el texto que sea.
+</p>
+
+<p>
+Con las listas desplegables, es obligatorio seleccionar siempre un valor, y si  no hay ninguno seleccionado, por defecto el visualizador enviar&aacute; el primer valor de la lista.
+</p>
+
+<p>
+Se puede hacer que haya un valor preseleccionado añadiendo el par&aacute;metro SELECTED al atributo OPTION, y si se quiere permitir m&aacute;s de una selecci&oacute;n, se pondr&aacute; el atributo MULTIPLE al elemento SELECT. Para seleccionar y deseleccionar hay que atenerse a las normas de Windows.
+</p>
+
+<p>
+En el ejemplo anterior
+</p>
+
+<p>
+&lt;SELECT NAME=“puntuacion” MULTIPLE&gt;<br>
+&lt;OPTION VALUE=“10”&gt;Puntuo con un 10<br>
+&lt;OPTION VALUE=“9”&gt;Puntuo con un 9<br>
+&lt;OPTION VALUE=“8”&gt;Puntuo con un 8<br>
+&lt;OPTION VALUE=“7”&gt;Puntuo con un 7<br>
+&lt;OPTION VALUE=“6”&gt;Puntuo con un 6<br>
+&lt;OPTION VALUE=“5” SELECTED&gt;Puntuo con un 5<br>
+&lt;OPTION VALUE=“4”&gt;Puntuo con un 4<br>
+&lt;OPTION VALUE=“3”&gt;Puntuo con un 3<br>
+&lt;OPTION VALUE=“2”&gt;Puntuo con un 2<br>
+&lt;OPTION VALUE=“1”&gt;Puntuo con un 1<br>
+&lt;OPTION VALUE=“0”&gt;Puntuo con un 0<br>
+&lt;/SELECT&gt;
+</p>
+
+<p>
+esta vez por defecto estar&aacute; marcado el valor 5 y la lista desplegable nos permitir&aacute; hacer m&aacute;s de una selecci&oacute;n. Esta vez, la lista es desplegable desde una lengüeta, ya que hemos omitido el valor SIZE.
+</p>
+</ul>
+<br>
+
+<font  size=5><b>LA DIRECTIVA &lt;TEXTAREA&gt;...&lt;/TEXTAREA&gt;</b></font>
+
+<p>
+Se trata de una directiva de tipo TEXTO. Aqu&iacute; se define un cuadro de entrada de texto con varias l&iacute;neas y columnas.
+</p>
+
+<p>
+<b>&lt;TEXTAREA&gt;...&lt;/TEXTAREA&gt;</b> es una directiva que se haya entre las directivas <b>&lt;FORM&gt;...&lt;/FORM&gt;</b>. Es un delimitador que asume el texto contenido en &eacute;l, es el valor por defecto, el contenido inicial del elemento. Las dimensiones del &aacute;rea de entrada de texto se define con los atributos <b>ROWS</b> y <b>COLS</b> en la primera directiva de definici&oacute;n de &lt;TEXTAREA&gt;. No tiene otros atributos o posibles variantes. Por supuesto, para que sea operativo, deber&aacute; ir acompañado de los componentes necesarios para enviar e inicializar. Tambi&eacute;n debe de ir identificada con el nombre de la variable que contendr&aacute; a ese texto con el atributo <b>NAME=“nombre de la variable”</b>, si queremos que sea procesado por el CGI correspondiente.
+</p>
+
+<p>
+Otra opci&oacute;n menos empleada es la de, en este tipo de formulario de texto, poner por defecto un texto prederminado. Para ello lo &uacute;nico que tenemos que hacer es teclear el texto que queremos que aparezca por defecto en la ventana en la que deben de escribir lo usuarios, entre las directivas &lt;TEXTAREA&gt;...&lt;/TEXTAREA&gt;
+</p>
+
+<p>
+Veamos un ejemplo:
+</p>
+
+<p>
+&lt;FORM&gt;<br>
+&lt;TEXTAREA NAME=“COMENTARIOS”  ROWS=5 COLS=35&gt;<br>
+ESCRIBE TUS COMENTARIOS<br>
+&lt;/TEXTAREA&gt;<br>
+ &lt;INPUT TYPE="SUBMIT" VALUE="PROCESAR"&gt;<br>
+ &lt;INPUT TYPE="RESET" VALUE="INICIALIZAR"&gt;<br>
+&lt;/FORM&gt;
+</p>
+
+<p>
+<b>TRUCO:</b> Si queremos que nos env&iacute;en directamente un mail a nosotros sin tener que procesar los formularios por complejos programas CGI’s ni nada por el estilo,el truco es el siguiente:
+</p>
+
+<p>
+Debemos de poner :
+</p>
+
+&lt;FORM ACTION=“mailto:&lt;direcci&oacute;n completa de correo electr&oacute;nico&gt;” METHOD=“POST” ENCTYPE=“text/plain”&gt;...&lt;/FORM&gt;
+
+<p>
+de forma que cuando recibamos los datos del formulario directamente a nuestra cuenta de correo electr&oacute;nico, el atributo <b>ENCTYPE=“text/plain”</b>, trasforma ya los datos codificados en texto legible, de forma que nosotros mismos podemos llevar una estad&iacute;stica de nuestra p&aacute;gina sin tener conocimientos complejos de programaci&oacute;n de CGI’s.
+</p>
+
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual08.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual10.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

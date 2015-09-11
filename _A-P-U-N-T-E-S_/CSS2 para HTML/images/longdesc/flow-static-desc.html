@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+  <head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+    <title>Descripción extensa para la ilustración del posicionamiento absoluto con respecto al bloque de contención inicial</title>
+  </head>
+
+  <body>
+      <h1>Descripción extensa para la ilustración del posicionamiento absoluto con respecto al bloque de contención inicial</h1>
+
+<P>Este diagrama ilustra el efecto de posicionar absolutamente una caja con respecto al bloque de contención inicial.
+
+<P>Se muestra una ventana de documento, con 8 líneas (numeradas de 1 a 8), cada una de 24px del alto. Todo el texto del contenido y de "externo" fluye a través de las líneas 1, 2 y 3. La caja de "interno" ha sido posicionada en "-100, 200" con relación a las coordenadas "0, 0" (la esquina superior izquierda de la ventana del documento). La mayor parte del contenido de la caja de "interno" es por lo tanto procesado fuera de la ventana del documento.
+
+<P>En el siguiente ejemplo con un elemento PRE, cada línea de 24px es simulada por dos líneas, la segunda comienza con el número apropiado. El texto que está a la izquierda de los números de línea quedan afuera del bloque de contención inicial. Las líneas, tal como aparecen en la imagen, contienen aproximadamente:</p>
+
+<PRE>
+
+       1 El comienzo del contenido. [@]Este
+
+       2 es el tema externo. Fin del tema
+
+       3 externo. El final del contenido.
+
+       4
+
+Tema   5
+
+Intern 6 o.
+
+       7                
+
+       8                
+</PRE>
+
+<P>El color de texto predeterminado es negro. "Este es el tema externo" es rojo. "o." de "tema interno" es azul. "Fin del tema externo" es rojo.
+
+<P><a href="../../visuren.html#img-flow-static">Volver a la imagen.</a>
+  </body>
+</html>

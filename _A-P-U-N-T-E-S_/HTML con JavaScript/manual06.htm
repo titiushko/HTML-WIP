@@ -1,0 +1,324 @@
+<HTML>
+<HEAD><TITLE>Enlaces en HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="conect.gif" alt="Icono" width=70 height=63></td>
+<td><font  size=6><b>Enlaces en HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p><b>
+NOTA: todos los nombres de archivos y sus extensiones a las que se hacen referencia en los hiperenlaces, deben de ponerse en su totalidad en min&uacute;sculas, para evitar posibles errores al buscar un DOCUMENTO.HTML, cuando lo que en realidad estamos buscando es un documento.html. No hay que olvidar que los enlaces a los que hacemos referencia, pueden estar en m&aacute;quinas que sean servidores UNIX, por lo que al ser este un sistema operativo distinto a otros m&aacute;s empleados en uso dom&eacute;stico, sea sensible a may&uacute;sclas y min&uacute;sculas, no siendo lo mismo DOCUMENTO.HTML que documento.html. Como normal general se debe escribir todos los nombres de enlaces, directorios y archivos, en min&uacute;sculas, debidas princuipalmente a esta caracter&iacute;stica de la mayor&iacute;a de los servidores HTML de Internet.
+</b></p>
+
+<p>
+Por el mismo motivo, en Internet la mayor&iacute;a de las referencias a directorios se emplean con la barra “/” y no con la barra “\”, ya que las m&aacute;quinas UNIX antes nombradas, hacen referencias a directorios con la barra de divisi&oacute;n. Debemos de tener estas 2 consideraciones muy encuenta a la hora de hacer hiperenlaces desde nuestro documento HTML, ya que sino son tenidas en cuenta, nos llevar&aacute; a tener sucesivso errores al intentar enlazar con distintos enlaces (valga la redundancia).
+</p>
+<br>
+
+<font  size=5><b>ENLACES. DOCUMENTOS HIPERTEXTO</b></font>
+
+<p>
+Una vez hayamos hecho nuestra p&aacute;gina, puede que queramos que nuestros visitantes tengan referencias de otras p&aacute;ginas que nosotros creamos convenientes que visiten, bien porque tienen que ver con el tema que se trata en nuestra p&aacute;ginas, bien porque consideremos que pueden ser interesantes.
+</p>
+
+<p>
+Las funcionalidades hipertexto se basan en el concepto de enlace. Un enlace es una referencia a un documento HTML, o a cualquier otro objeto, expresada por medio de un formato, universalmente aceptado. Este permite que el visualizador, cuando detecta que se requiere ”saltar” a un documento determinado, sea capaz de identificarlo y obtenerlo, de forma que nos sea visible a nosotros en nuestra pantalla del navegador.
+</p>
+
+<p>
+De cara al usuario, los hiperenlaces apareceran como texto en otro color, realzado o subrayado (incluso como veremos pueden ser im&aacute;genes).
+</p>
+<br>
+
+<font  size=5><b>HIPERENLACES</b></font>
+
+<p>
+Para incluir un hiperelace, se usa la directiva cerrada <b>&lt;A&gt;...&lt;/A&gt;</b>. El texto que se haye entre ambas “anclas” (anchors) ser&aacute; sensible, lo que indica que una pulsaci&oacute;n con el rat&oacute;n sobre ella, nos lleva a otro documento o a otro lugar al que haga referencia el enlace.
+</p>
+
+<p>
+Esta directiva posee el atributo HREF (referencia de hiperenlace), que indica hacia donde nos traslada el hiperenlace:
+</p>
+
+&lt;A HREF=“...”&gt;...&lt;/A&gt;
+
+<p>
+Este atributo HREF y hacia donde apunta (el entrecomillado), lo que indica es la direcci&oacute;n URL, documento de hipertexto, o imagen a la que haremos el salto una vez “pinchado” el enlace. Entre las directivas podemos incluir texto o una imagen descriptivas del enlace al que estamos haciendo referencia. Ejemplos de hiperenlac ser&iacute;an:
+</p>
+
+&lt;A HREF=“http://lucas.cdf.udc.es/jgorriz/”&gt;Javier G&oacute;rriz&lt;/A&gt;
+
+<p>
+Aparecer&iacute;a como Javier G&oacute;rriz lo que nos indicar&iacute;a que este texto “Javier G&oacute;rriz” es un hiperenlace por aparecer subrayado con distinto color al resto del texto. Al colocar el rat&oacute;n sobre ella, aparecer&iacute;a en la barra de estado del navegador, la direcci&oacute;n URL hacia la que apunta (en este caso http://lucas.cdf.udc.es/jgorriz/). Una vez pinchado el enlace, el mismo navegador se har&iacute;a cargo de traernosla informaci&oacute;n que contuviese ese enlace (en este caso la URL o p&aacute;gina personal de la persona que est&aacute; explicandote desde estas l&iacute;neas el c&oacute;dgio HTML ;-) ).
+</p>
+
+<p>
+En lugar de texto entre las “anclas”, podr&iacute;amos incluir una imagen que actuara de hiperenlace:
+</p>
+
+&lt;A HREF=“http://lucas.cdf.udc.es/jgorriz/”&gt;&lt;IMG SRC=“vic-web.gif”&gt;&lt;/A&gt;
+
+<p>
+En este caso la imagen por aparecer como enlace a otro documento HTML (el mismo nombrado anteriomente), aparecer&iacute;a bordeada con un marco azul, de similar tonalidad al que subrayaba anteriormente al enlace de tipo texto. Esto (el marco azul), nos indicar&iacute;a que esa imagen est&aacute; actuando de enlace a otra p&aacute;gina. Al igula que como ocurr&iacute;a con el texto, al colocar al rat&oacute;n sobre cualquier &aacute;rea dela imagen, en la barra de estado nos indica la direcci&oacute;n URL del enlace a la que apunta la imagen.
+</p>
+
+<p><b>
+NOTA: Hay ultimamente una moda en Internet que es la de ocultar por medio de Javascript las URL que nos aparecen en la barra de estado del navegador, y en su lugar introducir una pequeña descripci&oacute;n que aparece al poner el rat&oacute;n sobre el enlace. Que no nos asuste el ver este tipo de enlaces, ya que est&aacute; haciendo lo mismo que acabo de explicar, pero lo &uacute;nico que hace es ocultar el URL para darnos as&iacute; m&aacute;s informaci&oacute;n mediante una breve descripci&oacute;n hacia donde apunta.
+</b></p>
+
+<p>
+Ni que decir tiene, que si el texto que hemos puesto como descripci&oacute;n entre las directivas &lt;A&gt;...&lt;/A&gt;, est&aacute; modificado por estilos de letra como son negrita, cursiva, etc... mantienen este tipo de atributos de texto, pero siguen manteniendo el subrayado en distinto color al del resto del documento.
+</p>
+<br>
+
+<font  size=5><b>HIPERENLACES DENTRO DEL MISMO DOCUMENTO</b></font>
+
+<p>
+Un hiperenlace nos puede conducir a una parte determinada del mismo documento. Para ello,dentro del mismo documento debemos marcar cada zona de referencia, con una “etiqueta” (o nombre de etiqueta), de forma que el navegador cuando se le haga referencia a ella, la localice por su nombre. Para ello empleamos otro atributo dela directiva &lt;A&gt;...&lt;/A&gt; que es NAME=“...”.
+</p>
+
+&lt;A NAME=“nombre de la referencia”&gt;...&lt;/A&gt;
+
+<p>
+todo lo que se encuentre entre las directivas &lt;A&gt;...&lt;/A&gt; ya sea texto, im&aacute;gen o lo que queramos poner como s&iacute;mbolo del enlace, es ahora conocido por el navegador con la etiqueta “nombre de refencia”, de forma que que si dentro del documento hay un enlace a esta etiqueta, el navegador nos lleve hasta ella.
+</p>
+
+<p>
+Supongamos que queremos hacer un enlace a esta parte del documento en un principio del mismo:
+</p>
+
+&lt;A HREF=“#nombre”&gt;Enlace Interno del documento&lt;/A&gt;
+
+<p>
+aparecer&iacute;a como Enlace Interno del documento lo que nos indica que es un hiperenlace a alg&uacute;n sitio; nosotros sabremos que se trata de un enlace a una parte interna del mismo documento o de otro cualquiera (no tiene por qu&eacute; ser el propio que tenemos abierto en nuestro navegador), porque en el momento de situar el rat&oacute;n sobre el hiperenlace, en la barra de estado del navegador nos aparece la URL con una almohadilla (<b>#</b>), lo que nos indica que hace referencia una parte espec&iacute;fica de un documento, que puede ser el mismo que tenemos abierto o no. En el momento que vemos la almohadilla, sabremos siempre que hace una referencia a una parte espec&iacute;fica de documento. Un ejemplo ser&iacute;a:
+</p>
+
+&lt;A HREF=“http://lucas.cdf.udc.es/jgorriz/inde.html#enlace”&gt;Enlace Interno&lt;/A&gt;
+
+<p>
+nos indicar&iacute;a un enlace interno (por la almohadilla que nos aparecer&iacute;a en el la barra de estado), a un documento localizado en la URL http://lucas.cdf.udc.es/, directorio jgorriz/, documento index.html, secci&oacute;n interna del mismo #enlace.
+</p>
+
+<p>
+Si ahora pinchamos sobre &eacute;l, el navegador buscar&aacute; la referencia de hiperenlace de referencia (HREF), que tenga incluida, buscando el nombre de la etiqueta que sigue a la almohadilla (en este caso #enlace).
+</p>
+
+<p>
+Una vez buscado en el documento, y hallada la referencia interna
+</p>
+
+&lt;A NAME=“enlace”&gt;...&lt;/A&gt;
+
+<p>
+mostrar&aacute; en pantalla el texto o documento que se encuentra entre las anclas &lt;A&gt;...&lt;/A&gt;, pero nunca el anterio a &eacute;l (a no ser que con la barra de desplazamiento vertical del navegador, nosotros lo hicieramos a mano, sino no se nos mostrar&aacute; lo anterior a esa parte del documento).
+</p>
+
+<p><b>
+NOTA: los enlaces se podr&iacute;an hacer incluso a im&aacute;genes independientes como por ejemplo http://lucas.cdf.udc.es/logo.gif, que nos enlace con la imagen logo.gif que se encuentra situada en este servidor.
+</b></p>
+<br>
+
+<font  size=5><b>ENLACES A OTROS RECURSOS DE INTERNET</b></font>
+
+<p>
+La referencia del hiperenlace, no s&oacute;lo tiene que hacer referencia a una p&aacute;gina HTML o a una secci&oacute;n interna de la misma (tal y como hemos visto anteriormente), sino que puede hacer referencia a otros tipos de referencias (valga la redundancia):
+</p>
+
+<ul>
+<li><b>file://</b> hace referencia a un archivo del ordenador local en el que estamos trabajando; s&oacute;lo se emplea para ver p&aacute;ginas en “local”, es decir, sin estar conectado a la red, y para prop&oacute;sitos de diseño WEB, antes de colocar la p&aacute;gina en un servidor definitvamente.<br><br>
+
+<li><b>http://</b> hace refencia a una direcci&oacute;n URL, por lo que nos anlazar&aacute; a otro documento .html.<br><br>
+
+<li><b>ftp://</b> hace refencia a una direcci&oacute;n URL de FTP (FILE TRANSFER PROTOCOL), que nos permite bajar un fichero de la direcci&oacute;n URL que indica el enlace al FTP.<br><br>
+
+<li><b>telnet://</b> hace refencia a una sesi&oacute;n TELNET remota a un ordenador con una direcci&oacute;n URL concreta.<br><br>
+
+<li><b>news://</b> hace refencia a un grupo de USENET de Internet en que discutir de un tema en particular de News.<br><br>
+
+<li><b>mailto:</b> hace referencia a una direcci&oacute;n de correo electr&oacute;nico, a la que enviar un correo; en el momento que lo activemos, y si nuestro navegador lo soporta, se nos abrir&aacute; la ventana de correo electr&oacute;nico que tengamos configurada, para enviar el correo al enlace de correo que esta indicando el enlace.<br><br>
+
+<li><b>gopher://</b> hace refenrecia a un servidor GOPHER en Internet, o servicio de informaci&oacute;n por men&uacute;s.<br><br>
+</ul>
+
+<p>
+Tambi&eacute;n se podr&iacute;a realizar un hiperenlace a un fichero cualquiera, sin tener por qu&eacute; ser un documento .html (podr&iacute;a ser un documento de Word .doc, de Adobe Acrobat. pdf, de dibujo de AutoCad .dxf, ... etc). En este caso el navegador intentar&aacute; ejecutar el fichero, y si no puede hacerlo, nos preguntar&aacute; que queremos que haga con &eacute;l. Una de las opciones suele ser grabarlo (el archivo), en nuestro ordenador de modo loca. Es una forma de permitir a nuestros visitantes copiar ficheros a su ordenador:
+</p>
+
+&lt;A HREF=“manual.zip”&gt;manual comprimido&lt;/A&gt;
+
+<p>
+Debe tenerse en cuenta que, en la parte entrecomillada del atributo HREF=“...”, debe incluir un enlace, o bien una URL diferente, o bien a otro directorio de nuestro servidor de p&aacute;ginas WEB. Vamos a tomar un ejemplo.
+</p>
+
+<p>
+Supongamos que hay una p&aacute;gina de un amigo, al que le vamos a hacer un enlace desde nuestra p&aacute;gina, para que la gente la visite:
+</p>
+
+<p>
+La URL de nuestro servidor ser&aacute;: http://lucas.cdf.udc.es/<br>
+Nuestro directorio ser&aacute;: jgorriz/<br>
+El archivo de nuestro amigo estar&aacute; en manual/manual.zip
+</p>
+
+<p>
+El atributo HREF, puede hacer referencia de 2 formas a este archivo manual.zip:
+</p>
+
+<ol>
+
+<li><b>Enlace absoluto</b><br><br>
+
+&lt;A HREF=“http://lucas.cdf.udc.es/jgorriz/manual/manual.zip”&gt;MANUAL&lt;/A&gt;
+
+<p>
+lo que aparecer&iacute;a como MANUAL y nos enlazar&iacute;a con el archivo manual.zip, en la direcci&oacute;n URL que indica HREF.
+</p>
+
+
+<li><b>Enlace relativo</b>
+
+<p>
+Ya que el archivo se halla en el mismo servidor (en este caso http://lucas.cdf.udc.es es el servidor al que estamos haciendo referencia), lo &uacute;nico que tendr&iacute;amos que hacer, ser&iacute;a una referencia relativa del mismo:
+</p>
+
+&lt;A HREF=“jgorriz/manual/manual.zip”&gt;MANUAL&lt;/A&gt;
+
+<p>
+lo que aparecer&iacute;a igualmente que en el caso anterior, enlaz&aacute;ndonos con el mismo archivo, pero con un enlace relativo, al mismo directorio y al mismo documento (manual.zip), que el enlace anterior.
+</p>
+
+<p>
+Esto s&oacute;lo es posible en el caso de que ambas p&aacute;ginas estuvieran en el mismo servidor; en caso contrario, deberemos enlazar con la URL del documento al que hagamos referencia, con un enlace absoluto (indicando por tanto tamb&iacute;en la URL del servidor, junto con los directorios y el nombre del archivo al que hacemos referencia).
+</p>
+
+<p>
+En el caso de que quisieramos hacer referencia a un directorio que se halla en la ra&iacute;z del servidor,  lo &uacute;nico que tendr&iacute;amos que hacer es indicarselo al atributo HREF, de forma:
+</p>
+
+&lt;A HREF=“../directorio/archivo.html”&gt;...&lt;/A&gt;
+
+<p>
+Esta referencia buscar&iacute;a el “archivo.html” en el que directorio que se halla en la ra&iacute;z del servidor, denominado “directorio/”.
+</p>
+
+<p><b>
+NOTA: El directorio ra&iacute;z (representado por el primer /), no es necesariamente la ra&iacute;z del disco duro o del sistema. Una de las opciones de configuraci&oacute;n de un servidor, permite definir un directorio cualquiera como “ra&iacute;z del servidor HTML”, de forma que s&oacute;lo se pueda acceder a los contenidos en este directorio y a ning&uacute;n otro que est&eacute; en un nivel inferior a &eacute;l, lo que se hace como medida de seguridad y buscando aislar la informaci&oacute;n exportada del resto de los materiales contenidos en el sistema.
+</b></p>
+<br>
+
+<font  size=5><b>EJEMPLOS DE REFERENCIAS CON HIPERENLACES</b></font>
+
+<p>
+Muchas veces, algunos de los protocolos que estamos empleando para hacer un hiperenlace a otro tipo de servicio de Internet, necesitan de un “login” o nombre de usuario y una “password” o clave, as&iacute; como de un determinado puerto de conexi&oacute;n para iniciar la sesi&oacute;n en el servidor remoto. En HTML, tambi&eacute;n se puede acceder a este tipo de informac&oacute;n, colocando directamente el login y el password en el enlace HTML.
+<p>
+
+<p><b>
+NOTA: El poner este tipo de informaci&oacute;n en HTML, conlleva el peligro de que cualquier persona que sea un oco avispada, pueda conseguir el login y password de nuestro protocolo, pudiendo una vez hechas con ellas, emplearlas con fines destructivos o dañinos para el sistema en el que se accede con ese nombre y clave personal de usuario. El poner directamente la clave de un usuario en c&oacute;digo HTML, nunca es recomendable.
+</b></p>
+
+Algunos tipos de ejemplo son:
+
+<br><br>
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td>FTP</td>
+<td>ftp://usuario:password@servidor:puerto/ruta</td>
+</tr>
+
+<tr>
+<td>GOPHER</td>
+<td>gopher://servidor:puerto/ruta</td>
+</tr>
+
+<tr>
+<td>HTTP</td>
+<td>http:// usuario:password@servidor:puerto/ruta</td>
+</tr>
+
+<tr>
+<td>NNTP</td>
+<td>nntp://servidor_de_news/grupo_de_news</td>
+</tr>
+
+<tr>
+<td>TELNET</td>
+<td>telnet:// usuario:password@servidor:puerto</td>
+</tr>
+
+<tr>
+<td>WAIS</td>
+<td>wais://servidor:puerto/base_de_datos</td>
+</tr>
+</table>
+</center>
+<br>
+
+<p>
+Un ejemplo de los campos podr&iacute;an ser:
+</p>
+
+<p>
+usuario=<b>jgorriz</b><br>
+password=<b>4885s84fds</b><br>
+servidor=<b>lucas.cdf.udc.es</b><br>
+puerto=<b>(seg&uacute;n el tipo de protocolo)</b><br>
+ruta=<b>/pub/software</b><br>
+grupo_de_news=<b>alt.fan.u2</b><br>
+base_de_datos=<b>Internet</b>
+</p>
+
+<p>
+Vemos que en este caso, no s&oacute;lo puede ser necesario un nombre y clave para el protocolo FTP o el protocolo TELNET, sino que algunos servidores, hacen tambi&eacute;n necesario el terner una clave de acceso y un nombre para el protocolo HTTP. protocolo://usuario:password@... ser&aacute; el formato est&aacute;ndar para poder acceder a cualquier tipo de protocolo en Internet que necesite de un login y password. en HTML una referencia aetes tipos de protocolo podr&iacute;a ser:
+</p>
+
+&lt;A HREF=“ftp://jgorriz:4885s84fds@lucas.cdf.udc.es/pub/software”&gt;FTP DE SOFTWARE&lt;/A&gt;
+
+<p>
+lo que nos dar&iacute;a acceso al FTP privado del usuario jgorriz con clave 4885s84fds en el directorio /pub/software del protocolo ftp. Lo mismo ser&iacute;a para el resto de protocolos pero modificando el protocolo y la ruta o base de datos de acceso.
+</p>
+
+<p><b>
+NOTA: el no indicar el tipo de puerto en un protocolo, ignifica que se asume el puerto por defecto que toma siempre ese tipo de protocolo en los servidores. Un ejemplo, el FTP toma normalmente el puerto 21 y cuando no se especifica el puerto se asume que este es el valor que toma; para el protocolo HTTP el puerto es el 80; para el TELNET el puerto es el 23... y as&iacute; con el resto de puertos. El par&aacute;metro puerto, s&oacute;lo debe especificarse, por regla general, cuando no se corresponda con un puerto est&aacute;ndar asignado al tipo de protocolo.
+</b></p>
+
+<p>
+<b>TRUCO:</b> Una particularidad y recomendaci&oacute;n, es que cuando necesitemos especificar un nombre y clave de acceso a un determinado protocolo, dejemos el campo de password en blanco, poniendo en su lugar solo el login, de forma que cuando el navegador contacte con el servidor y le mande el login que estemos empleando, al no encontrar una clave, nos aparecer&aacute; una ventana de di&aacute;logo del propio navegador, en el que se nos preguntar&aacute; por la clave necesaria para acceder al sistema, lo que nos permitir&aacute; una mayor privacidad, ya que al teclear la cleve, en la ventana del navegador, nos aparecer&aacute;n asteriscos *************** evitando as&iacute; que un posible interesado obtenga el password de acceso.
+</p>
+
+<p>
+<u><b>ADVERTENCIA</b></u> Puede que al especificar un determinado protocolo en un hiperenlace (telnet, ftp, gopher, ...) que no sea el protocolo HTTP, nuestro navegador, al activar el enlace, nos muestre un mensaje de error y no lance el protocolo que hemos solicitado. Dicho problema puede venir determinado, porque nuestro navegador no tiene accesible la aplicaci&oacute;n que debe de lanzar para ese determinado protocolo; un ejemplo con Netscape es el protocolo telnet://. Para lanzar este protocolo, Netscape debe de tener configurado en las opciones la ruta de nuestro disco duro, en el que se encuantre localizado la aplicaci&oacute;n que nos permitir&aacute; lanzar este protocolo de conexi&oacute;n remota a otro ordenador de la red. De no ser as&iacute;, no podremos enlazar con el hiperenlace que apunte a un telnet:// y lo &uacute;nico que deberemos de hacer es configurar el navegador con el programa apropiado para que dicho enlace funcione correctamente. Lo mismo ocurre con el resto de protocolos (exceptuanto el HTTP por hazones obvias).
+</p>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual05.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual07.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

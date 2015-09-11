@@ -1,0 +1,740 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Modelo de caja</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="media.html">
+<link rel="next" href="visuren.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="media.html">anterior</a> &nbsp;
+<a href="visuren.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">8 <a name="box-model">Modelo de caja</a></H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="box.html#box-dimensions" class="tocxref">8.1 Dimensiones de la caja</a>
+    <li class="tocline2"><a href="box.html#mpb-examples" class="tocxref">8.2 Ejemplo de márgenes, rellenos y bordes</a>
+    <li class="tocline2"><a href="box.html#margin-properties" class="tocxref">8.3 Propiedades del margen: <span class="propinst-margin-top">'margin-top'</span>,  <span class="propinst-margin-right">'margin-right'</span>,  <span class="propinst-margin-bottom">'margin-bottom'</span>, <span class="propinst-margin-left">'margin-left'</span> y <span class="propinst-margin">'margin'</span></a>
+    <ul class="toc">
+      <li class="tocline3"><a href="box.html#collapsing-margins" class="tocxref">8.3.1 Márgenes cerrados</a>
+    </ul>
+    <li class="tocline2"><a href="box.html#padding-properties" class="tocxref">8.4 Propiedades del relleno: <span class="propinst-padding-top">'padding-top'</span>, <span class="propinst-padding-right">'padding-right'</span>, <span class="propinst-padding-bottom">'padding-bottom'</span>, <span class="propinst-padding-left">'padding-left'</span> y <span class="propinst-padding">'padding'</span></a>
+    <li class="tocline2"><a href="box.html#border-properties" class="tocxref">8.5 Propiedades del borde</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="box.html#border-width-properties" class="tocxref">8.5.1 Ancho del borde: <span class="propinst-border-top-width">'border-top-width'</span>, <span class="propinst-border-right-width">'border-right-width'</span>, <span class="propinst-border-bottom-width">'border-bottom-width'</span>, <span class="propinst-border-left-width">'border-left-width'</span> y <span class="propinst-border-width">'border-width'</span></a>
+      <li class="tocline3"><a href="box.html#border-color-properties" class="tocxref">8.5.2 Color del borde: <span class="propinst-border-top-color">'border-top-color'</span>, <span class="propinst-border-right-color">'border-right-color'</span>, <span class="propinst-border-bottom-color">'border-bottom-color'</span>, <span class="propinst-border-left-color">'border-left-color'</span> y <span class="propinst-border-color">'border-color'</span></a>
+      <li class="tocline3"><a href="box.html#border-style-properties" class="tocxref">8.5.3 Estilo del borde: <span class="propinst-border-top-style">'border-top-style'</span>, <span class="propinst-border-right-style">'border-right-style'</span>, <span class="propinst-border-bottom-style">'border-bottom-style'</span>, <span class="propinst-border-left-style">'border-left-style'</span> y <span class="propinst-border-style">'border-style'</span></a>
+      <li class="tocline3"><a href="box.html#border-shorthand-properties" class="tocxref">8.5.4 4 Propiedades resumidas del borde: <span class="propinst-border-top">'border-top'</span>, <span class="propinst-border-bottom">'border-bottom'</span>, <span class="propinst-border-right">'border-right'</span>, <span class="propinst-border-left">'border-left'</span> y <span class="propinst-border">'border'</span></a>
+    </ul>
+  </ul>
+</div>
+
+<P>El modelo de caja de CSS describe las cajas rectangulares que son generadas por los elementos en la <a href="conform.html#doctree">esructura del documento</a> y compuestas de acuerdo al <a href="visuren.html">modelo de formato visual</a>.  La <A href="page.html">caja de página</A> es una clase especial de caja que se describe en detalle en la sección sobre <A
+href="page.html">medios paginados</a>.
+
+<H2>8.1 <a name="box-dimensions">Dimensiones de la caja</a></H2> 
+
+<P>Cada caja tiene un <span class="index-def" title="caja::contenido|contenido::de una caja">
+<a name="box-content-area"><dfn>área de contenido</dfn></a></span> (ej., texto, una imagen, etc.) y las áreas circundantes opcionales de <span class="index-def" title="caja::padding|padding::de una caja">
+<a name="box-padding-area"><dfn>padding</dfn></a></span>,
+<span class="index-def" title="caja::border|border::de una caja">
+<a name="box-border-area"><dfn>border</dfn></a></span> y 
+<span class="index-def" title="caja::margin|margin::de una caja">
+<a name="box-margin-area"><dfn>margin</dfn></a></span>; el tamaño de cada área es especificado por las propiedades que se definen abajo. El siguiente diagrama muestra cómo se relacionan estas áreas y la terminología usada para referirse a las partes de margin, border y padding:</P>
+
+<div class="figure">
+<P><img src="./images/boxdim.gif"
+     alt="Imagen ilustrando la relación entre contenido, padding, border y margin."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-boxdim" href="images/longdesc/boxdim-desc.html" title="Descripción extensa de la ilustración de las áreas de la caja">[D]</A></SPAN></P>
+</div>
+
+<P>Margin, border y padding pueden ser divididos en los segmentos left, right, top y bottom (ej., en el diagrama, "LM" para left margin, "RP" para right padding, "TB" para top border, etc.).
+
+<P>El perímetro de cada una de las cuatro áreas (contenido, padding, border y margin) es llamado  "límite", de manera que cada caja tiene cuatro límites:</P>
+
+<dl>
+<dt><span class="index-def"
+title="límite del contenido"><a name="content-edge"><strong>límite del contenido</strong></a></span>
+o <span class="index-def" title="límite interno"><a name="inner-edge"><strong>límite interno</strong></a></span>
+<dd>El límite del contenido rodea al <a href="conform.html#rendered-content">contenido procesado</a> del elemento.
+<dt><span class="index-def" title="límite de padding"><a name="padding-edge"><strong>límite de padding</strong></a></span>
+<dd>El límite de padding (relleno) rodea a la caja de relleno. Si padding tiene un ancho de 0, el límite del relleno es el mismo que el límite de contenido. El límite del relleno de una caja define el límite de la <a href="visuren.html#containing-block">caja de contención</a> establecida por la caja.
+<dt><span class="index-def" title="límite de border"><a name="border-edge"><strong>límite de border</strong></a></span>
+<dd>El límite de border (borde) rodea el borde de la caja. Si border tiene un ancho de 0, el límite del borde es el mismo que el límite del relleno (padding).
+
+<dt><span class="index-def" title="límite de margin"><a name="margin-edge"><strong>límite de margin</strong></a></span>
+o <span class="index-def" title="límite externo"><a name="outer-edge"><strong>límite externo</strong></a></span>
+<dd>El límite de margin (margen) rodea el margen de la caja. Si margin tiene un ancho de 0, el límite del margen es el mismo que el límite del borde (border).
+</dl>
+
+<P>Cada límite puede dividirse en límite left (izquierdo), right (derecho), top (superior) y bottom (inferior). 
+
+<P>Las dimensiones del área del contenido de una caja --el <span
+class="index-def" title="caja::ancho del contenido"><a
+name="content-width"><dfn>ancho del contenido</dfn></a></span> y la <span
+class="index-def" title="caja::altura del contenido"><a
+name="content-height"><dfn>altura del contenido</dfn></a></span>-- dependen de varios factores: si el elemento que genera la caja tiene asignadas las propiedades <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a>
+o <a href="visudet.html#propdef-height" class="noxref"><span class="propinst-height">'height'</span></a>, si la caja contiene texto u otras cajas, si la caja es una tabla, etc. El ancho y la altura de la caja son discutidos en el capítulo sobre <a href="visudet.html">detalles del modelo de composición visual</a>.
+
+<P>El <span class="index-def" title="caja::ancho"><a
+name="the-box-width"><dfn>ancho de la caja</dfn></a></span> está dado por la suma de los márgenes, bordes y rellenos izquierdos y derechos, y el ancho del contenido. La <span class="index-def" title="caja::altura"><a
+name="the-box-height"><dfn>altura</dfn></a></span> está dada por la suma de los márgenes, bordes y rellenos superiores e inferiores, y la altura del contenido.
+
+<P>El estilo del fondo de las distintas áreas de una caja es determinado como sigue:</p>
+
+<ul>
+<li><em>Area del contenido</em>: La propiedad <a href="colors.html#propdef-background" class="noxref"><span
+class="propinst-background">'background'</span></a> del elemento generador.
+<li><em>Area del relleno (padding)</em>: La propiedad <a href="colors.html#propdef-background" class="noxref"><span
+class="propinst-background">'background'</span></a> del elemento generador.
+<li><em>Area del borde (border)</em>: Las <a href="#border-properties">
+propiedades del borde</a> del elemento generador.
+<li><em>Area del margen (margin)</em>: Los márgenes son siempre transparentes.
+</ul>
+
+<H2>8.2 <a name="mpb-examples">Ejemplo de márgenes, rellenos y bordes</a></H2> 
+
+<P>Este ejemplo ilustra cómo interactúan los márgenes, los rellenos y los bordes. El documento HTML de ejemplo:
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Ejemplo de márgenes, rellenos y bordes&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      UL { 
+        background: green; 
+        margin: 12px 12px 12px 12px;
+        padding: 3px 3px 3px 3px;
+                                     /* No se especifica border */
+      }
+      LI { 
+        color: black;                /* el color del texto es negro */ 
+        background: gray;            /* Contenido, padding será gris */
+        margin: 12px 12px 12px 12px;
+        padding: 12px 0px 12px 12px; /* Note 0px para padding right */
+        list-style: none             /* sin viñeta antes de un ítem */
+                                     /* Ningún borde definido */
+      }
+      LI.withborder {
+        border-style: dashed;
+        border-width: medium;        /* pone el ancho de border para todos los lados */
+        border-color: black;
+      }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;UL&gt;
+      &lt;LI&gt;El primer elemento
+      &lt;LI class="withborder"&gt;El segundo elemento de la lista es
+           más largo y se ajusta.
+    &lt;/UL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>resulta en una <a href="conform.html#doctree">estructura del documento</a> con
+(entre otras relaciones) un elemento UL que tiene dos LI
+hijos. 
+
+<P>El primero de los diagramas siguientes ilustra el resultado que produciría este ejemplo. El segundo ilustra la relación entre los márgenes, el relleno y los bordes del elemento UL y la de sus elementos hijos LI.</P>
+
+<div class="figure">
+<P><img src="./images/boxdimeg.gif"
+     alt="Imagen ilustrando cómo se relacionan los márgenes, bordes y rellenos de padres e hijos."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-boxdimeg" href="images/longdesc/boxdimeg-desc.html" title="Descripción extensa del ejemplo de la caja de una lista mostrando los márgenes, rellenos y bordes">[D]</A></SPAN></p>
+</div>
+
+<P>Observe que:</p>
+
+<ul>
+
+<li>El <a href="#content-width">ancho del contenido</a> de cada caja de LI es calculado de arriba hacia abajo; el <a href="visuren.html#containing-block">bloque de contención</a> de cada caja LI es establecido por el elemento UL.
+
+<li>La altura de cada caja LI está dada por su <a
+href="#content-height">altura del contenido</a>, más los rellenos, bordes y márgenes superiores e inferiores. Observe que los márgenes verticales entre las cajas LI se <a href="#collapsing-margins">cierran</a>.
+
+<li>El relleno derecho de las cajas LI ha sido colocado de un ancho igual a cero (la propiedad <a href="box.html#propdef-padding" class="noxref"><span class="propinst-padding">'padding'</span></a>). El efecto es evidente en la segunda ilustración.
+
+<li>Los márgenes de las cajas de LI son transparentes --los márgenes siempre lo son-- por eso el color del fondo (green) de las áreas de relleno y contenido de UL se observa a través de ellos.
+
+<li>El segundo elemento LI especifica un borde cortado (la propiedad <a href="box.html#propdef-border-style" class="noxref"><span class="propinst-border-style">'border-style'</span></a>).
+</ul>
+
+<H2>8.3 <a name="margin-properties">Propiedades del margen</a>:
+<a href="box.html#propdef-margin-top" class="noxref"><span class="propinst-margin-top">'margin-top'</span></a>, 
+<a href="box.html#propdef-margin-right" class="noxref"><span class="propinst-margin-right">'margin-right'</span></a>, 
+<a href="box.html#propdef-margin-bottom" class="noxref"><span class="propinst-margin-bottom">'margin-bottom'</span></a>,
+<a href="box.html#propdef-margin-left" class="noxref"><span class="propinst-margin-left">'margin-left'</span></a> y
+<a href="box.html#propdef-margin" class="noxref"><span class="propinst-margin">'margin'</span></a></H2>
+
+<P>Las propiedades del margen especifican el ancho del <a
+href="#box-margin-area">área del margen</a> de una caja.  La propiedad resumida
+<a href="box.html#propdef-margin" class="noxref"><span class="propinst-margin">'margin'</span></a> determina el margen para los cuatro lados mientras que las otras propiedades sólo determinan su lado respectivo.
+
+<P>Las propiedades definidas en esta sección se refieren al tipo de valor para <span
+class="index-def" title="&lt;margin-width&gt;::definición de"><a
+name="value-def-margin-width"><strong>&lt;margin-width&gt;</strong></a></span>, que puede tomar uno de los siguientes valores:
+
+<dl>
+<dt><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length"><strong>&lt;medida&gt;</strong></span></a>
+<dd>Especifica un ancho fijo.
+<dt><a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage"><strong>&lt;porcentaje&gt;</strong></span></a>
+<dd>El porcentaje es calculado con respecto al <em>ancho</em> del <a href="visuren.html#containing-block">bloque de contención</a> de la caja generada.
+Esto es así para <a href="box.html#propdef-margin-top" class="noxref"><span
+class="propinst-margin-top">'margin-top'</span></a> y <a href="box.html#propdef-margin-bottom" class="noxref"><span
+class="propinst-margin-bottom">'margin-bottom'</span></a>, 
+excepto en el <a href="page.html#page-context">contexto de la página</a>, donde los porcentajes se refieren a la altura de la caja de la página.
+<dt><strong>auto</strong>
+<dd>Ver la sección sobre <a
+href="visudet.html#Computing_widths_and_margins">computando anchos y márgenes</a> por su comportamiento.
+</dl>
+
+<P>Los valores negativos para las propiedades de los márgenes son permitidos, pero pueden existir limitaciones específicas de la implementación. 
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'margin-top'"><a name="propdef-margin-top" class="propdef-title"><strong>'margin-top'</strong></a></span>, <span class="index-def" title="'margin-right'"><a name="propdef-margin-right" class="propdef-title"><strong>'margin-right'</strong></a></span>, <span class="index-def" title="'margin-bottom'"><a name="propdef-margin-bottom" class="propdef-title"><strong>'margin-bottom'</strong></a></span>, <span class="index-def" title="'margin-left'"><a name="propdef-margin-left" class="propdef-title"><strong>'margin-left'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-margin-width" class="noxref"><span class="value-inst-margin-width">&lt;margin-width&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>0
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>se refieren al ancho del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Estas propiedades determinan los márgenes superior, derecho, inferior e izquierdo de una caja.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+H1 { margin-top: 2em }
+</PRE>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'margin'"><a name="propdef-margin" class="propdef-title"><strong>'margin'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-margin-width" class="noxref"><span class="value-inst-margin-width">&lt;margin-width&gt;</span></a>{1,4} | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>no definido para las propiedades resumidas
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>se refieren al ancho del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P> La propiedad <a href="box.html#propdef-margin" class="noxref"><span class="propinst-margin">'margin'</span></a> es una propiedad resumida para establecer <a href="box.html#propdef-margin-top" class="noxref"><span
+class="propinst-margin-top">'margin-top'</span></a>, <a href="box.html#propdef-margin-right" class="noxref"><span
+class="propinst-margin-right">'margin-right'</span></a>, <a href="box.html#propdef-margin-bottom" class="noxref"><span
+class="propinst-margin-bottom">'margin-bottom'</span></a>, y <a href="box.html#propdef-margin-left" class="noxref"><span
+class="propinst-margin-left">'margin-left'</span></a> en un mismo lugar de la hoja de estilo.
+
+<P> Si hay sólo un valor, se aplica a todos los lados. Si hay dos valores, los márgenes superior e inferior son determinados por el primer valor y los márgenes derecho e izquierdo son determinados por el segundo. Si hay tres valores, el superior es definido por el primer valor, el izquierdo y el derecho son definidos por el segundo, y el inferior es definido por el tercero. Si hay cuatro valores, ellos se aplican al superior, derecho, inferior e izquierdo, respectivamente.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+BODY { margin: 2em }         /* todos los márgenes en 2em */
+BODY { margin: 1em 2em }     /* top &amp; bottom = 1em, right &amp; left = 2em */
+BODY { margin: 1em 2em 3em } /* top=1em, right=2em, bottom=3em, left=2em */
+</PRE>
+
+<P> La última regla del ejemplo de arriba es equivalente al ejemplo de abajo:
+
+<PRE>
+BODY {
+  margin-top: 1em;
+  margin-right: 2em;
+  margin-bottom: 3em;
+  margin-left: 2em;        /* copiado del lado opuesto (right) */
+}
+</PRE>
+</div>
+
+<H3>8.3.1 <a name="collapsing-margins">Márgenes cerrados</a></H3>
+
+<P>En esta especificación, la expresión <a name="x24"><span class="index-def"
+title="márgenes cerrados"><dfn>márgenes cerrados</dfn></span></a> significa que los márgenes adyacentes (ningún área de relleno o de borde los separa) de dos o más cajas (que pueden estar una al lado de la otra o anidadas) se combinan para formar un solo margen.
+
+<P>En CSS2, los <a name="x25"><span class="index-inst" title="margen horizontal|margen::horizontal">márgenes horizontales</span></a> nunca se cierran.
+
+<P>Los <a name="x27"><span class="index-inst" title="margen vertical|margen::vertical">
+márgenes verticales</span></a> pueden cerrarse entre ciertas cajas:</p>
+
+<ul>
+<li>Dos o más márgenes verticales adyacentes de cajas de <a
+href="visuren.html#block-box">bloques</a> en el <a
+href="visuren.html#normal-flow">flujo normal</a> se cierran. El ancho del margen resultante es el máximo de los anchos de los márgenes adyacentes. En el caso de márgenes negativos, el máximo absoluto de los márgenes adyacentes negativos es restado del máximo de los márgenes adyacentes positivos. Si no hay ningún margen positivo, el máximo absoluto de los márgenes adyacentes negativos es restado de cero.
+
+<li>Los márgenes verticales entre una caja <a
+href="visuren.html#floats">flotante</a> y cualquier otra caja no se cierran.
+
+<li>Los márgenes de cajas con posiciones <a
+href="visuren.html#absolutely-positioned">absoluta</a> y
+relativa no se cierran.
+</ul>
+
+<P>Por favor, consulte los <a href="#mpb-examples">ejemplos de márgenes, rellenos y bordes</a> por una ilustración de márgenes cerrados.
+
+<H2>8.4 <a name="padding-properties">Propiedades del relleno</a>:
+<a href="box.html#propdef-padding-top" class="noxref"><span class="propinst-padding-top">'padding-top'</span></a>,
+<a href="box.html#propdef-padding-right" class="noxref"><span class="propinst-padding-right">'padding-right'</span></a>,
+<a href="box.html#propdef-padding-bottom" class="noxref"><span class="propinst-padding-bottom">'padding-bottom'</span></a>,
+<a href="box.html#propdef-padding-left" class="noxref"><span class="propinst-padding-left">'padding-left'</span></a> y
+<a href="box.html#propdef-padding" class="noxref"><span class="propinst-padding">'padding'</span></a>
+</H2> 
+
+<P>Las propiedades del relleno especifican el ancho del <a
+href="#box-padding-area">área de relleno</a> de una caja. La propiedad resumida <a href="box.html#propdef-padding" class="noxref"><span
+class="propinst-padding">'padding'</span></a> define el relleno para los cuatro lados mientras que las otras propiedades de relleno sólo definen sus respectivos lados. 
+
+<P>Las propiedades definidas en esta sección se refieren al tipo de valor de <span
+class="index-def" title="&lt;padding-width&gt;::definición de"><a
+name="value-def-padding-width"><strong>&lt;padding-width&gt;</strong></a></span>, que puede tomar uno de los siguientes valores:</p>
+
+<dl>
+<dt><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length"><strong>&lt;medida&gt;</strong></span></a>
+<dd>Especifica una medida fija.
+<dt><a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage"><strong>&lt;porcentaje&gt;</strong></span></a>
+<dd>El porcentaje es calculado con respecto al <em>ancho</em> del <a
+href="visuren.html#containing-block">bloque de contención</a> de la caja generada, aún para
+<a href="box.html#propdef-padding-top" class="noxref"><span class="propinst-padding-top">'padding-top'</span></a> y <a href="box.html#propdef-padding-bottom" class="noxref"><span
+class="propinst-padding-bottom">'padding-bottom'</span></a>.
+</dl>
+
+<P>A diferencia de las propiedades del margen, los valores para los valores de relleno no pueden ser negativos. Al igual que las propiedades del margen, los valores de porcentaje para las propiedades del relleno se refieren al ancho del bloque de contención de la caja generada.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'padding-top'"><a name="propdef-padding-top" class="propdef-title"><strong>'padding-top'</strong></a></span>, <span class="index-def" title="'padding-right'"><a name="propdef-padding-right" class="propdef-title"><strong>'padding-right'</strong></a></span>, <span class="index-def" title="'padding-bottom'"><a name="propdef-padding-bottom" class="propdef-title"><strong>'padding-bottom'</strong></a></span>, <span class="index-def" title="'padding-left'"><a name="propdef-padding-left" class="propdef-title"><strong>'padding-left'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-padding-width" class="noxref"><span class="value-inst-padding-width">&lt;padding-width&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>0
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>se refieren al ancho del bloque de contención 
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Estas propiedades determinan el relleno superior, derecho, inferior e izquierdo de una caja.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+BLOCKQUOTE { padding-top: 0.3em }
+</PRE>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'padding'"><a name="propdef-padding" class="propdef-title"><strong>'padding'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-padding-width" class="noxref"><span class="value-inst-padding-width">&lt;padding-width&gt;</span></a>{1,4} | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>no definido para las propiedades resumidas
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>se refieren al ancho del bloque de contención 
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P> La propiedad <a href="box.html#propdef-padding" class="noxref"><span class="propinst-padding">'padding'</span></a> es una propiedad resumida para definir <a href="box.html#propdef-padding-top" class="noxref"><span
+class="propinst-padding-top">'padding-top'</span></a>, <a href="box.html#propdef-padding-right" class="noxref"><span
+class="propinst-padding-right">'padding-right'</span></a>, <a href="box.html#propdef-padding-bottom" class="noxref"><span
+class="propinst-padding-bottom">'padding-bottom'</span></a> y <a href="box.html#propdef-padding-left" class="noxref"><span
+class="propinst-padding-left">'padding-left'</span></a> en un mismo lugar en la hoja de estilo.
+<P>Si hay sólo un valor, se aplica a todos los lados. Si hay dos valores, los rellenos superior e inferior son determinados por el primer valor y los rellenos derecho e izquierdo son determinados por el segundo. Si hay tres valores, el superior es definido por el primer valor, el izquierdo y el derecho son definidos por el segundo, y el inferior es definido por el tercero. Si hay cuatro valores, ellos se aplican al superior, derecho, inferior e izquierdo, respectivamente.
+
+<P> El color de la superficie o la imagen del área de relleno es especificado a través de la propiedad <a href="colors.html#propdef-background" class="noxref"><span class="propinst-background">'background'</span></a>:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+H1 { 
+  background: white; 
+  padding: 1em 2em;
+} 
+</PRE>
+
+<P> El ejemplo de arriba especifica un relleno vertical igual a '1em' (<a href="box.html#propdef-padding-top" class="noxref"><span
+class="propinst-padding-top">'padding-top'</span></a> y <a href="box.html#propdef-padding-bottom" class="noxref"><span
+class="propinst-padding-bottom">'padding-bottom'</span></a>) y un relleno horizontal de '2em' (<a href="box.html#propdef-padding-right" class="noxref"><span
+class="propinst-padding-right">'padding-right'</span></a> y<a href="box.html#propdef-padding-left" class="noxref"><span
+class="propinst-padding-left">'padding-left'</span></a>). La unidad 'em' es <a href="syndata.html#absrel-units">relativa</a> al tamaño de la fuente del elemento: '1em' es igual al tamaño de la fuente en uso.
+</div>
+
+<H2>8.5 <a name="border-properties">Propiedades del borde</a></H2>
+
+<P>Las propiedades del borde especifica el ancho, color y estilo del <a
+href="#box-border-area">área del borde</a> de una caja. Estas propiedades se aplican a todos los elementos.
+
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Particularmente para HTML, las aplicaciones del usuario pueden procesar los bordes de ciertos elementos (ej., botones, menúes, etc.) de manera diferente a los elementos "ordinarios".
+</em>
+</div>
+
+<H3>8.5.1 <a name="border-width-properties">Ancho del borde</A>: <a href="box.html#propdef-border-top-width" class="noxref"><span
+class="propinst-border-top-width">'border-top-width'</span></a>, <a href="box.html#propdef-border-right-width" class="noxref"><span
+class="propinst-border-right-width">'border-right-width'</span></a>, <a href="box.html#propdef-border-bottom-width" class="noxref"><span
+class="propinst-border-bottom-width">'border-bottom-width'</span></a>,
+<a href="box.html#propdef-border-left-width" class="noxref"><span class="propinst-border-left-width">'border-left-width'</span></a> y
+<a href="box.html#propdef-border-width" class="noxref"><span class="propinst-border-width">'border-width'</span></a></H3>
+
+<P>Las propiedades del ancho del borde especifican la medida del <a
+href="#box-border-area">área del borde</a>.  Las propiedades definidas en esta sección se refieren al tipo de valor de <span class="index-def"
+title="&lt;border-width&gt;::definición de"><a
+name="value-def-border-width"
+class="value-def"><strong>&lt;border-width&gt;</strong></a></span>, que puede tomar uno de los siguientes valores:</P>
+
+<dl>
+<dt><strong>thin</strong>
+<dd>Un borde fino.
+<dt><strong>medium</strong>
+<dd>Un borde mediano.
+<dt><strong>thick</strong>
+<dd>Un borde grueso.
+<dt><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length"><strong>&lt;medida&gt;</strong></span></a>
+<dd>El grosor del borde tiene un valor explícito. Las dimensiones del borde explícitas no pueden ser negativas.
+</dl>
+
+<P>La interpretación de los primeros tres valores depende de la aplicación del usuario. Sin embargo, se deben mantener las siguientes relaciones:
+
+<P>'thin' &lt;='medium' &lt;= 'thick'.  
+
+<P>Además, estos grosores deben mantenerse constantes a lo largo de todo un documento.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-top-width'"><a name="propdef-border-top-width" class="propdef-title"><strong>'border-top-width'</strong></a></span>, <span class="index-def" title="'border-right-width'"><a name="propdef-border-right-width" class="propdef-title"><strong>'border-right-width'</strong></a></span>, <span class="index-def" title="'border-bottom-width'"><a name="propdef-border-bottom-width" class="propdef-title"><strong>'border-bottom-width'</strong></a></span>, <span class="index-def" title="'border-left-width'"><a name="propdef-border-left-width" class="propdef-title"><strong>'border-left-width'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-width" class="noxref"><span class="value-inst-border-width">&lt;border-width&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>medium
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Estas propiedades determinan al ancho de los bordes superior, derecho, inferior e izquierdo de una caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-width'"><a name="propdef-border-width" class="propdef-title"><strong>'border-width'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-width" class="noxref"><span class="value-inst-border-width">&lt;border-width&gt;</span></a>{1,4} | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P> Esta propiedad es una propiedad resumida para especificar <a href="box.html#propdef-border-top-width" class="noxref"><span class="propinst-border-top-width">'border-top-width'</span></a>, 
+<a href="box.html#propdef-border-right-width" class="noxref"><span class="propinst-border-right-width">'border-right-width'</span></a>, 
+<a href="box.html#propdef-border-bottom-width" class="noxref"><span class="propinst-border-bottom-width">'border-bottom-width'</span></a> y
+<a href="box.html#propdef-border-left-width" class="noxref"><span class="propinst-border-left-width">'border-left-width'</span></a> en un mismo lugar en la hoja de estilo. 
+<P>Si hay sólo un valor, se aplica a todos los lados. Si hay dos valores, los bordes superior e inferior son determinados por el primer valor y los bordes derecho e izquierdo son determinados por el segundo. Si hay tres valores, el superior es definido por el primer valor, el izquierdo y el derecho son definidos por el segundo, y el inferior es definido por el tercero. Si hay cuatro valores, ellos se aplican al superior, derecho, inferior e izquierdo, respectivamente.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> En los ejemplos de abajo, los comentarios indican los grosores resultantes en los bordes superior, derecho, inferior e izquierdo:
+
+<PRE>
+H1 { border-width: thin }                   /* thin thin thin thin */
+H1 { border-width: thin thick }             /* thin thick thin thick */
+H1 { border-width: thin thick medium }      /* thin thick medium thick */
+</PRE>
+</div>
+
+<H3>8.5.2 <A name="border-color-properties">Color del borde</A>:
+<a href="box.html#propdef-border-top-color" class="noxref"><span class="propinst-border-top-color">'border-top-color'</span></a>,
+<a href="box.html#propdef-border-right-color" class="noxref"><span class="propinst-border-right-color">'border-right-color'</span></a>,
+<a href="box.html#propdef-border-bottom-color" class="noxref"><span class="propinst-border-bottom-color">'border-bottom-color'</span></a>,
+<a href="box.html#propdef-border-left-color" class="noxref"><span class="propinst-border-left-color">'border-left-color'</span></a> y
+<a href="box.html#propdef-border-color" class="noxref"><span class="propinst-border-color">'border-color'</span></a>
+</H3>
+
+<P>Las propiedades del color del borde especifican el color del borde de una caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-top-color'"><a name="propdef-border-top-color" class="propdef-title"><strong>'border-top-color'</strong></a></span>, <span class="index-def" title="'border-right-color'"><a name="propdef-border-right-color" class="propdef-title"><strong>'border-right-color'</strong></a></span>, <span class="index-def" title="'border-bottom-color'"><a name="propdef-border-bottom-color" class="propdef-title"><strong>'border-bottom-color'</strong></a></span>, <span class="index-def" title="'border-left-color'"><a name="propdef-border-left-color" class="propdef-title"><strong>'border-left-color'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-color" class="noxref"><span class="value-inst-color">&lt;color&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>el valor de la propiedad 'color'
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-color'"><a name="propdef-border-color" class="propdef-title"><strong>'border-color'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-color" class="noxref"><span class="value-inst-color">&lt;color&gt;</span></a>{1,4} | transparent | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>La propiedad <a href="box.html#propdef-border-color" class="noxref"><span class="propinst-border-color">'border-color'</span></a> determina el color de los cuatro bordes. Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><span class="index-inst" title="&lt;color&gt;"><a name="x46" href="syndata.html#value-def-color" class="noxref"><span
+class="value-inst-color"><strong>&lt;color&gt;</strong></span></a></span>
+<dd>Especifica un valor de color.
+<dt><strong>transparent</strong>
+<dd>El borde es transparente (no obstante puede tener grosor).
+</dl>
+
+
+<P>La propiedad <a href="box.html#propdef-border-color" class="noxref"><span class="propinst-border-color">'border-color'</span></a> puede tener de uno a cuatro valores, y los valores son aplicados a los distintos lados como en <a href="box.html#propdef-border-width" class="noxref"><span
+class="propinst-border-width">'border-width'</span></a>.
+
+<P>Si el color del borde de un elemento no es especificado con una propiedad del borde, las aplicaciones del usuario deben tomar el valor de la propiedad <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> del elemento como el <a href="cascade.html#computed-value">valor computado</a> 
+para el color del borde.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>En este ejemplo, el borde será una línea negra sólida.
+<PRE>
+P { 
+  color: black; 
+  background: white; 
+  border: solid;
+}
+</PRE>
+</div>
+
+<H3>8.5.3 <A name="border-style-properties">Estilo del borde</a>:
+<a href="box.html#propdef-border-top-style" class="noxref"><span class="propinst-border-top-style">'border-top-style'</span></a>,
+<a href="box.html#propdef-border-right-style" class="noxref"><span class="propinst-border-right-style">'border-right-style'</span></a>,
+<a href="box.html#propdef-border-bottom-style" class="noxref"><span class="propinst-border-bottom-style">'border-bottom-style'</span></a>,
+<a href="box.html#propdef-border-left-style" class="noxref"><span class="propinst-border-left-style">'border-left-style'</span></a> y
+<a href="box.html#propdef-border-style" class="noxref"><span class="propinst-border-style">'border-style'</span></a></H3>
+
+<P>Las propiedades del estilo del borde especifican el estilo de la línea del borde de una caja (sólida, doble, punteada, etc.). Las propiedades definidas en esta sección se refieren al tipo de valor de <span class="index-def"
+title="&lt;border-style&gt;, definición de"><a
+name="value-def-border-style"><strong>&lt;border-style&gt;</strong></a></span>, que puede estar constituido por uno de los siguientes:</p>
+
+<dl>
+<dt><strong><span class="index-def" title="'none'::como estilo de borde"><a name="value-def-bo-none" class="value-def">none</a></span></strong>
+<dd>Ningún borde. Este valor fuerza al valor computado de <a href="box.html#propdef-border-width" class="noxref"><span class="propinst-border-width">'border-width'</span></a> a '0'. 
+<dt><strong><span class="index-def" title="'hidden'"><a name="value-def-hidden" class="value-def">hidden</a></span></strong>
+<dd>Igual a 'none', excepto en términos de <a
+href="tables.html#border-conflict-resolution">resolución de conflictos de bordes</a> para los <a href="tables.html">elementos de tabla</a>.
+<dt><strong><span class="index-def" title="'dotted'"><a name="value-def-dotted" class="value-def">dotted</a></span></strong>
+<dd>El borde es una serie de puntos.
+<dt><strong><span class="index-def" title="'dashed'"><a name="value-def-dashed" class="value-def">dashed</a></span></strong>
+<dd>El borde es una serie de pequeños segmentos de línea.
+<dt><strong><span class="index-def" title="'solid'"><a name="value-def-solid" class="value-def">solid</a></span></strong>
+<dd>El borde es un único segmento de línea.
+<dt><strong><span class="index-def" title="'double'"><a name="value-def-double" class="value-def">double</a></span></strong>
+<dd>El borde son dos líneas sólidas. La suma de las dos líneas y el espacio entre ellas es igual al valor de <a href="box.html#propdef-border-width" class="noxref"><span
+class="propinst-border-width">'border-width'</span></a>.
+<dt><strong><span class="index-def" title="'groove'"><a name="value-def-groove" class="value-def">groove</a></span></strong>
+<dd>El borde luce como si estuviese tallado en el lienzo.
+<dt><strong><span class="index-def" title="'ridge'"><a name="value-def-ridge" class="value-def">ridge</a></span></strong>
+<dd>Lo opuesto a 'grove': el borde parece que estuviera sobresaliendo del lienzo.
+<dt><strong><span class="index-def" title="'inset'"><a name="value-def-inset" class="value-def">inset</a></span></strong>
+<dd>El borde hace que toda la caja luzca como si estuviera empotrada en el lienzo.
+<dt><strong><span class="index-def" title="'outset'"><a name="value-def-outset" class="value-def">outset</a></span></strong>
+<dd>Lo opuesto a 'inset': el borde hace que toda la caja parezca sobresalir del lienzo.
+</dl>
+
+<P>Todos los bordes son dibujados por encima del fondo de la caja. El color de los bordes con valores de 'groove', 'ridge', 'inset' y 'outset' depende de la propiedad <a href="colors.html#propdef-color" class="noxref"><span class="propinst-color">'color'</span></a> del elemento.
+
+<P><span class="index-inst" title="conformidad"><a name="x58"
+href="conform.html#conformance">Las aplicaciones de usuario HTML con conformidad</a></span> pueden interpretar a 'dotted', 'dashed', 'double', 'groove', 'ridge',
+'inset' y 'outset' como 'solid'. 
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-top-style'"><a name="propdef-border-top-style" class="propdef-title"><strong>'border-top-style'</strong></a></span>, <span class="index-def" title="'border-right-style'"><a name="propdef-border-right-style" class="propdef-title"><strong>'border-right-style'</strong></a></span>, <span class="index-def" title="'border-bottom-style'"><a name="propdef-border-bottom-style" class="propdef-title"><strong>'border-bottom-style'</strong></a></span>, <span class="index-def" title="'border-left-style'"><a name="propdef-border-left-style" class="propdef-title"><strong>'border-left-style'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-style" class="noxref"><span class="value-inst-border-style">&lt;border-style&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-style'"><a name="propdef-border-style" class="propdef-title"><strong>'border-style'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-style" class="noxref"><span class="value-inst-border-style">&lt;border-style&gt;</span></a>{1,4} | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P> La propiedad <a href="box.html#propdef-border-style" class="noxref"><span class="propinst-border-style">'border-style'</span></a> determina el estilo de los cuatro bordes. Puede tener de uno a cuatro valores, y los valores son distribuidos para los distintos lados como en <a href="box.html#propdef-border-width" class="noxref"><span class="propinst-border-width">'border-width'</span></a> más arriba.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+#xy34 { border-style: solid dotted }
+</PRE>
+<P> En el ejemplo de arriba, los bordes horizontales serán 'solid' y los bordes verticales serán 'dotted'.
+</div>
+
+<P> Como el valor inicial del estilo de borde es 'none', ningún borde será visible a menos que se establezca el estilo de borde.
+
+<H3>8.5.4 <A name="border-shorthand-properties">Propiedades resumidas del borde</a>:
+<a href="box.html#propdef-border-top" class="noxref"><span class="propinst-border-top">'border-top'</span></a>,
+<a href="box.html#propdef-border-bottom" class="noxref"><span class="propinst-border-bottom">'border-bottom'</span></a>,
+<a href="box.html#propdef-border-right" class="noxref"><span class="propinst-border-right">'border-right'</span></a>,
+<a href="box.html#propdef-border-left" class="noxref"><span class="propinst-border-left">'border-left'</span></a> y
+<a href="box.html#propdef-border" class="noxref"><span class="propinst-border">'border'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border-top'"><a name="propdef-border-top" class="propdef-title"><strong>'border-top'</strong></a></span>, <span class="index-def" title="'border-right'"><a name="propdef-border-right" class="propdef-title"><strong>'border-right'</strong></a></span>, <span class="index-def" title="'border-bottom'"><a name="propdef-border-bottom" class="propdef-title"><strong>'border-bottom'</strong></a></span>, <span class="index-def" title="'border-left'"><a name="propdef-border-left" class="propdef-title"><strong>'border-left'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="box.html#propdef-border-top-width" class="noxref"><span class="propinst-border-top-width">&lt;'border-top-width'&gt;</span></a> || <a href="box.html#propdef-border-style" class="noxref"><span class="propinst-border-style">&lt;'border-style'&gt;</span></a> || <a href="syndata.html#value-def-color" class="noxref"><span class="value-inst-color">&lt;color&gt;</span></a> ] | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P> Esta es una propiedad resumida para definir el ancho, estilo y color del borde superior, derecho, inferior e izquierdo de una caja.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+H1 { border-bottom: thick solid red }
+</PRE>
+
+<P> La regla de arriba determinará el ancho, el estilo y el color del borde por <strong>debajo</strong> del elemento H1. Los valores omitidos son colocados en sus <a href="cascade.html#initial-value">valores iniciales</a>. Como la siguiente regla no especifica un color de borde, el borde tendrá el color especificado en la propiedad <a href="colors.html#propdef-color" class="noxref"><span class="propinst-color">
+'color'</span></a>:
+
+<PRE>
+H1 { border-bottom: thick solid }
+</PRE>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'border'"><a name="propdef-border" class="propdef-title"><strong>'border'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="box.html#propdef-border-width" class="noxref"><span class="propinst-border-width">&lt;'border-width'&gt;</span></a> || <a href="box.html#propdef-border-style" class="noxref"><span class="propinst-border-style">&lt;'border-style'&gt;</span></a> || <a href="syndata.html#value-def-color" class="noxref"><span class="value-inst-color">&lt;color&gt;</span></a> ] | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P> La propiedad <a href="box.html#propdef-border" class="noxref"><span class="propinst-border">'border'</span></a> es una propiedad resumida para colocar el mismo ancho, color y estilo a los cuatro bordes de una caja. A diferencia de las propiedades resumidas <a href="box.html#propdef-margin" class="noxref"><span
+class="propinst-margin">'margin'</span></a> y <a href="box.html#propdef-padding" class="noxref"><span
+class="propinst-padding">'padding'</span></a>, la propiedad <a href="box.html#propdef-border" class="noxref"><span
+class="propinst-border">'border'</span></a> no puede definir diferentes valores para los cuatro bordes. Para eso, deben usarse una a más de las otras propiedades del borde.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Por ejemplo, la primer regla de abajo es equivalente al conjunto de cuatro reglas mostradas a continuación de ella.
+
+<PRE>
+P { border: solid red }
+P {
+  border-top: solid red;
+  border-right: solid red;
+  border-bottom: solid red;
+  border-left: solid red
+}
+</PRE>
+</div>
+
+<P> Como, hasta cierto punto, las propiedades tienen un funcionamiento que se superpone, el orden en que las reglas son especificadas es importante.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Considere este ejemplo:
+<PRE>
+BLOCKQUOTE {
+  border-color: red;
+  border-left: double;
+  color: black
+}
+</PRE>
+
+<P> En el ejemplo de arriba, el color del borde izquierdo es negro, mientras que los otros bordes son rojos. Esto se debe a la definición del ancho, estilo y color para <a href="box.html#propdef-border-left" class="noxref"><span
+class="propinst-border-left">'border-left'</span></a>. Como el valor del color no está dado en la propiedad <a href="box.html#propdef-border-left" class="noxref"><span class="propinst-border-left">'border-left'</span></a>, éste será tomado de la propiedad <a href="colors.html#propdef-color" class="noxref"><span class="propinst-color">'color'</span></a>. El hecho de que la propiedad <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> esté puesta después que la propiedad <a href="box.html#propdef-border-left" class="noxref"><span
+class="propinst-border-left">'border-left'</span></a> no es relevante.
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+<div class="navbar" align="center">
+<p><a href="media.html">previous</a> &nbsp;
+<a href="visuren.html">next</a> &nbsp;
+<a href="cover.html#minitoc">contents</a> &nbsp;
+<a href="propidx.html">properties</a> &nbsp;
+<a href="indexlist.html">index</a> &nbsp;
+</div>
+</BODY>
+</HTML>

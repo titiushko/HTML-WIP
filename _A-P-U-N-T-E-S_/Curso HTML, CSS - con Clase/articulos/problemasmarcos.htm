@@ -1,0 +1,224 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Los problemas de los marcos</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Este documento trata sobre los incovenientes de utilizar marcos en las páginas web. Un artículo de HTML con Clase, la página web sobre creación y diseño de páginas web." />
+<meta name="Keywords"    content="HTML,marcos,frames,FRAMESET,problemas,inconvenientes,páginas web,diseño web" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Los problemas de los marcos" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Marcos en HTML" />
+<meta name="DC.Description"       content="Este documento trata sobre los incovenientes de utilizar marcos en las páginas web. Un artículo de HTML con Clase, la página web sobre creación y diseño de páginas web." />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/problemasmarcos" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t01">Por qué pasamos de marcos</h2>
+<p id="p01">Aunque por el título pueda parecer lo contrario, no tengo nada contra nadie que se llame Marcos. Hablamos, naturalmente, de los marcos de <abbr title="HyperText Markup Language" xml:lang="en">HTML</abbr>, los famosos <em xml:lang="en">frames</em>, uno de los más odiados y más amados inventos de Netscape.</p>
+
+<p id="p02">Se sabía. Se veía venir. <a href="javascript:if(confirm('http://www.nyct.net/~aray/htmlwg/95q3/781.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.nyct.net/~aray/htmlwg/95q3/781.html'" tppabs="http://www.nyct.net/~aray/htmlwg/95q3/781.html">Se lo dijeron</a>. Los marcos eran una mala idea. Pero aun así, <a href="javascript:if(confirm('http://www.nyct.net/~aray/htmlwg/95q3/1083.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.nyct.net/~aray/htmlwg/95q3/1083.html'" tppabs="http://www.nyct.net/~aray/htmlwg/95q3/1083.html">los implementaron</a>.</p>
+
+<p id="p03">¿Y por qué es tan mala idea?, te estarás preguntando. He aquí el porqué.</p>
+
+<h3 id="t02">Los marcos van en contra de la propia esencia del HTML</h3>
+
+<p id="p04">Es como si inventaras el tapón para mangueras.</p>
+
+<p id="p05">El objetivo del lenguaje <abbr>HTML</abbr> es dotar a un texto de <em>estructura lógica</em>: párrafos, listas, citas, etc. En <abbr>HTML</abbr>, no dices <strong>cómo</strong> se representa cada cosa; únicamente <strong>qué</strong> es cada cosa. El cómo se representa depende del navegador que estés usando. En un navegador gráfico, los títulos saldrán más grandes, los párrafos separados entre sí, saldrán marcadores en las listas, etc. Un sintetizador de voz hará pausas, inflexiones en la voz, utilizará sonidos auxiliares, etc. Un motor de búsqueda lo ignorará todo y se dedicará simplemente a indexar las palabras. Etc., etc.</p>
+
+<p id="p06">Esto es el punto fuerte de <abbr>HTML</abbr>: es flexible, cualquier documento se adapta a cualquier modo de navegar. Cualquier aplicación puede obtener el documento y representarlo de la mejor manera posible.</p>
+
+<p id="p07">Los marcos rompen con ese esquema y lo vuelven inservible. Los marcos no son información lógica, sino de presentación. No dice <strong>qué</strong> es cada cosa, sino <strong>dónde</strong> está cada cosa. Esto, obviamente, sólo tiene sentido para navegadores gráficos. Para todas las demás aplicaciones, en las que el concepto de "dónde" no tiene ningún significado (motores de búsqueda, sintetizadores de voz, etc.), el documento puede fácilmente tornarse inaccesible, o difícilmente accesible en el mejor de los casos.</p>
+
+<p id="p08">En cualquier caso, introducen una componente de presentación en un lenguaje cuya misión es describir estructuras lógicas. Si lo que queremos es especificar el modo en que se representan nuestros documentos, debemos usar hojas de estilo, que son el complemento del HTML y la herramienta apropiada para ello.</p>
+
+<p id="p09">Pero si esto no es razón suficiente para ti (lo cual me hace sospechar que no tienes muy claro por qué estás haciendo páginas para la Web), aquí tienes una ristra más de buenos motivos para evitar el uso de marcos.</p>
+
+<h3 id="t03">No se puede enlazar a una combinación particular de marcos</h3>
+
+<p id="p10">Una de las primeras cosas que se aprende del diseño web, es que cada recurso tiene un "nombre propio" que lo identifica y lo distingue de todos los demás. Esto muy importante, porque la esencia de la Web es que todos los recursos que forman parte de ella se encuentran enlazados entre sí (y de ahí su nombre). Naturalmente, para que un recurso sea referenciado por otro, necesita algo que lo identifique. En la red, ese identificador es un <dfn><abbr xml:lang="en" title="Uniform Resource Identifier">URI</abbr></dfn> (identificador uniforme de recursos).</p>
+
+<p id="p11">Las páginas web suelen identificarse con un tipo especial de <abbr>URI</abbr> llamado <dfn><abbr xml:lang="en" title="Uniform Resource Locator">URL</abbr></dfn> (localizador uniforme de recursos), que especifica dónde está localizado dicho recurso. Es la cadena que aparece en la barra de direcciones (por ejemplo, el <abbr>URL</abbr> de este documento es <code>http://html.conclase.net/articulos/problemasmarcos</code>).</p>
+
+<p id="p12">Pues bien, resulta que este esquema se rompe con las páginas con marcos.</p>
+
+<p id="p13">Una página con marcos está compuesta de dos grupos de elementos: por un lado el documento <abbr>HTML</abbr> que contiene la <em>definición</em> de los marcos (el elemento <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/present/frames.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/present/frames.html#h-16.2.1'" tppabs="http://html.conclase.net/w3c/html401-es/present/frames.html#h-16.2.1"><code>FRAMESET</code></a>) junto con el estado inicial de la página, y por otro lado los documentos <abbr>HTML</abbr> que constituyen el <em>contenido</em> de cada marco, y que se almacenan por separado. El <abbr>URL</abbr> de la página con marcos es siempre el del documento que contiene el <code>FRAMESET</code>. Si comenzamos a navegar por el sitio, se van cargando páginas nuevas en cada marco, pero el <abbr>URL</abbr> es siempre el mismo. Si cualquier persona escribe ese <abbr>URL</abbr> en la barra de direcciones de su navegador, siempre llegará al estado inicial de la página web.</p>
+
+<p id="p14">Eso quiere decir que si queremos hacer un enlace a una página particular... no podemos. Es decir, los marcos están impidiendo en gran medida el objetivo primario de la Web: enlazar unos documentos con otros. A lo sumo, lo más que podemos hacer es enlazar con el <code>FRAMESET</code> y dar instrucciones para avanzar desde allí.</p>
+
+<p id="p15">Naturalmente, podríamos enlazar directamente con el documento <abbr>HTML</abbr> que nos interesa, pero como hemos quitado deliberadamente los elementos de navegación para ponerlos en un marco separado, llegaremos a una página sin salida, sin herramientas de navegación.</p>
+
+<h3 id="t03b">Dan problemas con los buscadores</h3>
+
+<p id="p16">Actualmente casi todos los motores de búsqueda conocen la sintaxis de los marcos y son capaces de seguir e indexar todos los documentos enlazados desde los documentos que forman el estado inicial de la página. Sin embargo, imagina esta situación: alguien busca algo en un buscador y da con uno de tus documentos. No con el <code>FRAMESET</code>, sino con uno de los documentos que, en teoría, debería ir en un marco. El usuario pincha, llega al documento y... no hay marcos, no hay elementos de navegación.</p>
+
+<h3 id="t04">Sólo se puede cambiar el contenido de un marco al mismo tiempo</h3>
+
+<p id="p17">Imagina esta situación. Tenemos tres marcos. En el primero tenemos un índice general de capítulos. En el segundo tenemos un subíndice de secciones, y en el tercero los contenidos de la sección que queremos presentar. Al elegir un capítulo del índice de capítulos, queremos que cambien los contenidos del índice de secciones de ese capítulo, y que se muestren los contenidos correspondientes a la primera sección del capítulo elegido.</p>
+
+<p id="p18">Pero eso no es posible, porque al elegir uno de los capítulos del índice general, sólo podemos cambiar el contenido de uno de los otros dos marcos.</p>
+
+<h3 id="t05">Añaden más complejidad de la necesaria</h3>
+
+<p id="p19">Esto es especialmente cierto en páginas con más de dos marcos, sobre todo si queremos que cambien a la vez los contenidos de más de uno de ellos con los métodos de que hablamos más adelante.</p>
+
+<p id="p20">Hay que tener en cuenta que se tarda más en cargar dos documentos pequeños por separado que uno solo más grande que contuviera la suma de los dos (esto es así debido a la naturaleza del protocolo de red utilizado en Internet). Esto es especialmente sensible en lugares con conexiones muy lentas.</p>
+
+<h3 id="t06">Más problemillas</h3>
+
+<ul>
+<li>El <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#idx-title'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#idx-title">título</a> deja de ser informativo. El título del documento es siempre el del documento que contiene el <code>FRAMESET</code>, y no el del documento individual que estamos leyendo.</li>
+<li>En general no es posible almacenar una combinación específica de marcos en la lista de favoritos. Algunos navegadores sí pueden, pero otros no.</li>
+<li>Los <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/intro/intro.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/intro/intro.html#fragment-uri'" tppabs="http://html.conclase.net/w3c/html401-es/intro/intro.html#fragment-uri">identificadores de fragmento</a> dejan de ser útiles, porque no se puede apuntar hacia ellos, ya que si lo hacemos nos volvemos a quedar sin barra de navegación.</li>
+<li>En cuanto hay más de dos marcos, la navegación por la historia del navegador (con los botones <em>Atrás</em> y <em>Adelante</em>) se hace bastante confusa (por no decir inservible).</li>
+</ul>
+
+<h3 id="t07">Y las soluciones no son precisamente buenas</h3>
+
+<p id="p22">Más que soluciones son trucos, y a veces crean más problemas de los que resuelven.</p>
+
+<p id="p23">El problema de cambiar los contenidos de más de un marco a la vez se suele resolver anidando <code>FRAMESET</code>s. En el <a href="#t04">ejemplo de arriba</a>, en vez de definir tres marcos definiríamos sólo dos. En el primero tendríamos el índice de capítulos y en el segundo cargaríamos un nuevo frameset con dos marcos, en uno de ellos cargaríamos el índice de secciones y en el segundo presentaríamos cada sección. Esto tiene la ventaja de que se puede apuntar a un capítulo en particular, aunque nos quedaríamos sin el índice de capítulos, y seguiríamos sin poder apuntar a una sección en particular o a un fragmento de ella. Además sigue sin resolver el problema de los motores de búsqueda y hará que la navegación por el sitio sea más lenta, ya que cada vez que cambiemos de capítulo habrá que cargar tres nuevos documentos en lugar de sólo dos.</p>
+
+<p id="p24">Este método se puede extender al límite, y hacer que cada documento sea en realidad un <code>FRAMESET</code>, de modo que cada vez que queramos abrir un documento, la ventana se vacía (usando <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/types.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/types.html#type-frame-target'" tppabs="http://html.conclase.net/w3c/html401-es/types.html#type-frame-target"><code>target="_top"</code></a>) y se vuelven a dibujar todos los marcos y a rellenarlos con los documentos apropiados. Ahora podemos cambiar todos los marcos que queramos al mismo tiempo, y tenemos más libertad para apuntar a diferentes combinaciones de marcos, pero a cambio la navegación se hace mucho más lenta, ya que cada vez que seguimos un vínculo hay que volver a cargar un <code>FRAMESET</code> y uno o normalmente más documentos en cada marco. Además persiste el problema de los motores de búsqueda y el de los identificadores de fragmento. Y además uno de los motivos por el que mucha gente decide usar marcos es que un documento queda fijo en la pantalla sin necesidad de volver a cargarlo cada vez, cosa que con este método ya no ocurre.</p>
+
+<p id="p25">Por último, existen scripts de JavaScript para resolver algunos problemas (por ejemplo, cargar automáticamente el <code>FRAMESET</code> cuando se accede directamente a uno de los documentos desde un motor de búsqueda). Sin embargo, uno de los principios del diseño web es que cualquier página debería funcionar aunque el usuario no pueda o no quiera activar JavaScript en su navegador. Por tanto, estos métodos constituyen una solución parcial, no una solución de ningún problema.</p>
+
+<h3 id="t08">En consecuencia</h3>
+
+<p id="p26">A primera vista, los marcos son una buena idea. En el fondo, no dan más que problemas y no son tan necesarios como te podrías imaginar. Mi consejo es que, siempre que puedas, los evites.</p>
+
+<p id="p27">Si de todos modos vas a usarlos o tienes que hacerlo, hazte un favor: no te unas al <a href="javascript:if(confirm('http://www.google.com/search?q=%22browser+does+not+support+frames%22  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google.com/search?q=%22browser+does+not+support+frames%22'" tppabs="http://www.google.com/search?q=%22browser+does+not+support+frames%22">club de los 500.000 maleducados</a>. Está muy bien que utilices el elemento <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/present/frames.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/present/frames.html#h-16.4'" tppabs="http://html.conclase.net/w3c/html401-es/present/frames.html#h-16.4"><code>NOFRAMES</code></a> para los navegadores que no soportan marcos, pero es absurdo utilizarlo para decir <q>Su navegador no acepta marcos</q>. Y es una auténtica falta de respeto decir <q>Actualice su navegador</q>, o <q>Quizá sea un buen momento para modernizarse</q> cuando no sabes si la persona que está leyendo tu mensaje puede realmente actualizar su navegador o no. Incluso podría estar usando un lector de pantalla carísimo para utilizar con un navegador de texto. La verdad es que <q>Lo siento, no soporto su navegador</q> está más cercano a la realidad. Pero en todo caso, si vas a poner algo en el elemento <code>NOFRAMES</code>, que sea información. Recuerda que todo esto va de transmitir información. Pon un vínculo a una página, o a varias. Sé amable con todos tus visitantes y no despidas a algunos de ellos con un mensaje grosero sólo porque no navegan como tú. Y piensa en ir diseñando una nueva versión de tu página... sin marcos.</p>
+
+<h2 id="t09">Más información</h2>
+
+<p id="p28">Este artículo se basa en el <a href="javascript:if(confirm('http://www.webreference.com/html/tutorial15/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webreference.com/html/tutorial15/'" tppabs="http://www.webreference.com/html/tutorial15/">tutorial sobre marcos</a> de Stephanos Piperoglou en <a href="javascript:if(confirm('http://www.webreference.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webreference.com/'" tppabs="http://www.webreference.com/">webreference.com</a>. En <a href="javascript:if(confirm('http://www.allmyfaqs.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.allmyfaqs.com/'" tppabs="http://www.allmyfaqs.com/">allmyfaqs.com</a> puedes encontrar <a href="javascript:if(confirm('http://www.allmyfaqs.com/cgi-bin/wiki.pl?Problems_with_using_frames  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.allmyfaqs.com/cgi-bin/wiki.pl?Problems_with_using_frames'" tppabs="http://www.allmyfaqs.com/cgi-bin/wiki.pl?Problems_with_using_frames">muchos más documentos</a> con información sobre los problemas de los marcos, algunos más modernos que otros, pero todos ellos con información interesante.</p>
+
+<p class="copy">&copy; 2001-2003 Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a id="actual" title="Los problemas de utilizar marcos en las páginas web">&raquo;&nbsp;Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

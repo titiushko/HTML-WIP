@@ -1,0 +1,297 @@
+<html>
+<head><title> Trucos pr&aacute;cticos para HTML</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="trucos.gif" alt="Icono" width=80 height=80></td>
+<td><font  size=6><b>Trucos pr&aacute;cticos para HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p>
+Pese a que durante el transcurso del manual ya incluyo una serie de abundantes trucos, para que nuestras p&aacute;ginas tengan una mayor vistosidad, aqu&iacute; tienes algunos trucos m&aacute;s, entre los que tambi&eacute;n incluyo al g&uacute;n que otro Javascript muy curioso y &uacute;til para nuestros espectaculares diseños.
+</p>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Detectar el navegador</b></font>
+
+<p>
+Para comprobar el navegador que se est&aacute; usando, por si queremos crear una p&aacute;gina para Net
+scape y otra para Internet Explorer:
+</p>
+
+<pre><b>
+&lt;script language="JavaScript"&gt;
+&lt;!--
+function esIE30(){
+    var browserType=navigator.userAgent;
+    if (browserType.indexOf("MSIE")==-1)
+        return false;
+    else
+        return true;
+}
+
+&lt;!-- Cargar la p&aacute;gina seg&uacute;n el explorador --&gt;
+function cargar(){
+    if (esIE30())
+        window.location.href="indice_ie.htm";
+    else
+        window.location.href="indice_netscape.htm";
+}
+
+//--&gt;
+&lt;/script&gt;
+</b></pre>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Cambiar el contenido de una p&aacute;gina cada "x" segundos</b></font>
+
+<p>
+O mejor dicho, cargar otra p&aacute;gina despu&eacute;s de "x" segundos.
+Este comando debe estar en el bloque <b>&lt;HEAD&gt;...&lt;/HEAD&gt;</b>:
+</p>
+
+<pre><b>
+&lt;HEAD&gt;
+&lt;!-- otras cosas --&gt;
+&lt;META http-equiv="refresh" content="segundos; url=siguiente_pagina.htm"&gt;
+&lt;!--y algunas mas --&gt;
+&lt;/HEAD&gt;
+</b></pre>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Informaci&oacute;n adicional sobre la p&aacute;gina</b></font>
+
+<p>
+Si te has fijado en el c&oacute;digo HTML de una p&aacute;gina, habr&aacute;s visto, dentro de <b>&lt;head&gt;... &lt;/head&gt;</b> algo parecido a esto:
+</p>
+
+<pre><b>
+&lt;meta name="GENERATOR" content="Microsoft FrontPage 2.0"&gt;
+&lt;title&gt;T&iacute;tulo de la p&aacute;gina&lt;/title&gt;
+</b></pre>
+<br>
+
+<p>
+Pues tambi&eacute;n puedes incluir informaci&oacute;n adicional sobre la p&aacute;gina, algunos "localizadores" la utilizan. Por ejemplo, el autor, las palabras claves, la descripci&oacute;n, etc.
+</p>
+
+<pre><b>
+&lt;meta name="Author" content="Guillermo Som - el Guille"&gt;
+&lt;meta name="Description" content="Trucos y listados sobre Visual Basic, HTML..."&gt;
+&lt;meta name="KeyWords" content="Visual Basic, VB, VBScript, JavaScript, JScript, tips"&gt;
+</b></pre>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Link para que te env&iacute;en un mensaje</b></font>
+
+<pre><b>
+&lt;a href="mailto:jgorriz@lucas.cdf.udc.es"&gt;Env&iacute;ame un mensaje&lt;/a&gt;
+</b></pre>
+<br>
+
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Añadir el subject, al hacer el mailto</b></font>
+
+<p>
+Pues otra cosa m&aacute;s para añadir a tus trucos de HTML. Ya sabes que para enviar un mensaje, tienes que incluir mailto:direcci&oacute;n@correo (no pulses ya que no va a ning&uacute;n lado). Bien, pues si añades al final de la direcci&oacute;n de correo ?subject=el subject, &eacute;ste aparecer&aacute; de forma autom&aacute;tica en ese campo, as&iacute; de f&aacute;cil.
+</p>
+
+<p>
+En este ejemplo, las sentencias HTML, quedar&iacute;an as&iacute;:
+Env&iacute;a un mensaje con el subject: Prueba de subject a jgorriz@lucas.cdf.udc.es
+</p>
+
+<p>
+Env&iacute;a un mensaje con el subject: Prueba de subject a<br><br>
+
+<pre><b>
+&lt;a href=" jgorriz@lucas.cdf.udc.es?subject=Prueba de subject"&gt;jgorriz@lucas.cdf.udc.es &lt;/a&gt;&lt;br&gt;
+</b></pre>
+</p>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b> Saber el tamaño de la ventana con Netscape </b></font>
+
+<p>
+S&oacute;lo funcionar&aacute; con la versi&oacute;n 3 o superior, pero...
+</p>
+
+<pre><b>
+if(navigator.javaEnabled()){
+    var toolkit = java.awt.Toolkit.getDefaultToolkit();
+    var screen_size = toolkit.getScreenSize();
+    wz = screen_size.width;
+    hz = screen_size.height;
+}
+</b></pre>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Forzar que la p&aacute;gina se muestre en la pantalla completa</b></font>
+
+<p>
+Cuando est&aacute;s navegando en una p&aacute;gina, de tantas (incluidas las m&iacute;as), que tienen frames, al pulsar en algunos links que te interesan, te dar&aacute;s cuenta que se mustran estas p&aacute;ginas dentro del marco (frame) en el que has picado el link... Esto lo sufrimos todos, despu&eacute;s de horas arreglando la presentaci&oacute;n de nuestras p&aacute;ginas, nos damos cuenta de que al estar dentro de un marco... ¡se jode el invento! No s&eacute; si esto funcionar&aacute; siempre, pero las pocas pruebas que he hecho, han dado resultados positivos.
+</p>
+
+<p>
+¿Que hay que hacer? Crear una p&aacute;gina que a su vez cargue a nuestra p&aacute;gina principal, adem&aacute;s de solucionar el problema anterior de la fecha/hora esa del año 1600, solucionas el que te "encierren" dentro de un frame. Aqu&iacute; est&aacute; el c&oacute;digo:
+</p>
+
+<pre><b>
+&lt;html&gt;
+&lt;script language="javascript"&gt;
+&lt;!--
+function carga(){
+        parent.location.href="indice_cf.htm"
+
+}
+
+//--&gt;
+
+&lt;/script&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+&lt;title&gt;P&aacute;gina cargadora...&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFFFFF" text="#000080" onload="carga()"&gt;
+&lt;h1 align="center"&gt;&lt;strong&gt;cargando&lt;br&gt;
+
+P&aacute;gina de prueba
+
+&lt;/body&gt;
+&lt;/html&gt;
+</b></pre>
+
+<p>
+El truco est&aacute; en el <b>parent.location.href= "nombre de la p&aacute;gina"</b>. 
+</p>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Columnas r&aacute;pidas</b></font>
+
+<p>
+Desde la versi&oacute;n 3.0b5, Netscape soporta un nuevo tipo de atributo que nos permite formatear texto en columnas al estilo de los peri&oacute;dicos de forma r&aacute;pida y sencilla.. Este tipo de atributo es muy sencillo de utilizar, lo &uacute;nico que se debe de poner es:
+</p>
+
+<pre><b>
+&lt;MULTICOL&gt;
+...
+&lt;MULTICOL&gt;
+</b></pre>
+<br>
+
+<p>
+entre del texto que deseamos que se muestre en el navegador en columnas. Esta directiva tiene 2  atributos, uno  de las cuales es obligatoria: <b>COLS</b> y <b>GUTTER</b>. <b>COLS</b> es el atributo obligatorio he indica el n&uacute;mero de columnas en las que ser&aacute; mostrada la informaci&oacute;n que deseemos. <b>GUTTER</b> (canal), es el otro tipo de atributo opcional que posee un valor por defecto de 10. Inica en pixels el espacio en blanco que habr&aacute; entre columnas con este atributo.
+</p>
+
+<multicol cols=2 gutter=20>
+Este es un ejemplo de texto a 2 columnas con una separaci&oacute;n entre las mismas de 20 pixels entre columna y columna. Como se ve da un resultado muy espectacular y muy limpio de cara al visitante. Este truco es uno de los m&aacute;s empleados por casi todos los que lo conocen, a la hora de hacer una presentaci&oacute;n r&aacute;pida de texto en columnas, sin recurrir a las tablas, y mucho m&aacute;s sencillo que &eacute;stas.
+</multicol>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>F&aacute;cil detecci&oacute;n del navegador</b></font>
+
+<p>
+¿¿Por qu&eacute; has de emplear un script para saber qu&eacute; navegador emplea tu visitante??. No es necesario. Lo que puedes hacer en poner un empuje dede el cliente de modo que si emplean Netscape o Explorer, les conduzca a su p&aacute;gina de navegador (que previamente habr&aacute;s escrito para cada uno de los 2 visitantes.), optimizada para el mismo o para su navegador.
+</p>
+
+<pre><b>
+&lt;META HTTP-EQUIV=&quot;Refresh&quot; CONTENT=&quot;3; URL=http://lucas.cdf.udc.es/jgorriz/index_net.htm&quot;&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;;Detectando tu navegador...&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H2&gt;;En estos momentos se est&aacute; detectando tu navegador...&lt;/H2&gt;
+Si est&aacute;s empleando una versi&oacute;n de netscape, la p&aacute;gina optimizada para Netscapese cargar&aacute; autom&aacute;ticamente.
+Sino fuera as&iacute; puedes acceder a la p&aacute;gina pulsando en el enlace
+&lt;A HREF="http://lucas.cdf.udc.es/jgorriz/index_otro.html"&gt;Siguiente&lt;/A&gt;
+</b></pre>
+
+<p>
+Cuando la gente sin Netscape accede a la p&aacute;gina, deber&aacute;n pulsar en enlace "Siguiente", para poder acceder a los contenidos de la misma, mientras que si el visitante posee Netscape, no tiene que hacer nada m&aacute;s que esperar 3seg, para que el resto de la p&aacute;gina se le cargue y la visualice correctamente. Este truco es muy conveniente por ejemplo si queremos tener dos p&aacute;ginas, una optimizada para Netscape, y la otra para el resto de navegadores...
+</p>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Frames sin barras divisiorias</b></font>
+
+<p>
+Este truco se emplea mucho para poner la t&iacute;pica p&aacute;gina con frames, de modo que no nos aparezca una barra de divisi&oacute;n entre a,bas columnas... Es muy vistoso y la verdad es que muy impresionante a la vista. Truco muy recomendado para personas que empleen frames en sus p&aacute;ginas. L&oacute;gicamente, s&oacute;lo se podr&aacute; emplear en navegadores que soporten <b>FRAMES</b>.
+</p>
+
+
+<pre><b>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt; Menu Menu &lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="240,*" border="0"&gt;
+&lt;frame name="menu" src="izda.htm" noresize  frameborder="0" scrolling="no"&gt;
+&lt;frame name="principal" src="derecha.htm" noresize frameborder="0"&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</b></pre>
+<br>
+
+<img src="bola.gif" alt="*" width=15 height=15>
+<font  size=5 color=#ff0000><b>Env&iacute;o de Mail desde Formulario</b></font>
+
+<p>
+Este truco es especialmente indicado para todos aquellos que deseen que nuestros visitantes nos manden unas palabras de agradecimiento o de desprecio, desde nuestra p&aacute;gina WEB, sin que para ello deban de configurar ninguna preferencia de E-mail desde su navegador favorito. El truco es muy simple. Un formulario que recoge los nombres, e-mail, y sugerencias de nuestros interlocutores, y los envia por medio del correo electr&oacute;nico nuestro, a nuestro buz&oacute;n. El truco est&aacute; en el atributo de <b>FORM</b> denominado <b>ENCTYPE</b>, que no hace otra cosa que informar al navegador que el texto que se introduzcan en los distintos campos debe ser pasado por medio de la cabecera <b>MIME</b>, <b>text/plain</b> o texto plano para que podamos leerlo tranquilamente y formateado en nuestro buz&oacute;n e-mail...
+</p>
+
+<pre><b>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Mail mediante form&lt;/title&gt;
+&lt;body&gt;
+&lt;form action="mailto:jgorriz@lucas.cdf.udc.es" method="post" enctype="text/plain"&gt;
+NOMBRE:&lt;input type=text size=20 name="nombre"&gt;&lt;br&gt;
+E-MAIL:&lt;input type=text size=20 name="mail"&gt;&lt;br&gt;
+COMENTARIOS:&lt;BR&gt;
+&lt;textarea name="comentarios" rows=5 cols=25&gt;&lt;/textarea&gt;&lt;br&gt;
+&lt;input type=submit value="ENVIAR"&gt;
+&lt;input type=reset value="BORRAR"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</b></pre>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual15.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual17.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

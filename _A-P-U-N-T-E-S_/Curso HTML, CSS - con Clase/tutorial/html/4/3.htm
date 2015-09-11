@@ -1,0 +1,302 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 4 (3/12)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La tercera parte del cuarto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 4 (3/12)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La tercera parte del cuarto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-08-21" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/4/3" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="2.htm" tppabs="http://html.conclase.net/tutorial/html/4/2" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Elementos de HTML (III)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="2.htm" tppabs="http://html.conclase.net/tutorial/html/4/2">anterior</a> | <a href="4.htm" tppabs="http://html.conclase.net/tutorial/html/4/4">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- El siguiente grupo de elementos del que vamos a hablar se refiere principalmente a <em>frases</em> y <em>párrafos</em>. Comenzamos con los elementos de frase:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elementos</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-EM'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-EM"><code>EM</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-STRONG'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-STRONG"><code>STRONG</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-DFN'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-DFN"><code>DFN</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-CODE'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-CODE"><code>CODE</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SAMP'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SAMP"><code>SAMP</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-KBD'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-KBD"><code>KBD</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-VAR'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-VAR"><code>VAR</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-CITE'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-CITE"><code>CITE</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-ABBR'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-ABBR"><code>ABBR</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-ACRONYM'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-ACRONYM"><code>ACRONYM</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea</td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obligatoria</td></tr>
+</table>
+<p class="a">- Muy bien. Alguno me suena.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, alguno ya lo hemos hemos utilizado antes. Te describo su utilidad rápidamente:</p>
+<dl class="p">
+<dt><code>EM</code>:</dt>
+<dd>Enfatiza el contenido (<em>emphasis</em>). Normalmente se representa poniéndolo en cursiva, aunque, como todo en <abbr>HTML</abbr>, depende del navegador, y se puede modificar con hojas de estilo.</dd>
+<dt><code>STRONG</code>:</dt>
+<dd>Indica un énfasis más fuerte. Normalmente se representa poniendo el contenido en negrita.</dd>
+<dt><code>CITE</code>:</dt>
+<dd>Contiene una cita o una referencia a otras fuentes.</dd>
+<dt><code>DFN</code>:</dt>
+<dd>Indica que aquí es donde se define el término encerrado.</dd>
+<dt><code>CODE</code>:</dt>
+<dd>Designa un fragmento de código de computadora.</dd>
+<dt><code>SAMP</code>:</dt>
+<dd>Designa una muestra de la salida de un programa, script, etc.</dd>
+<dt><code>KBD</code>:</dt>
+<dd>Indica texto que debe ser introducido por el usuario.</dd>
+<dt><code>VAR</code>:</dt>
+<dd>Indica que el texto es una variable o un argumento de un programa.</dd>
+<dt><code>ABBR</code>:</dt>
+<dd>Indica que el contenido es una abreviatura (p.ej., <abbr title="World Wide Web" xml:lang="en">WWW</abbr>, <abbr title="HyperText Transfer Protocol" xml:lang="en">HTTP</abbr>, <abbr title="Uniform Resource Locator" xml:lang="en">URL</abbr>, <abbr title="Señor">Sr.</abbr>, etc.). Esto puede ser útil porque en el atributo <code>title</code> del elemento se puede poner el significado de la abreviatura.</dd>
+<dt><code>ACRONYM</code>:</dt>
+<dd>Indica un acrónimo (p.ej., <acronym title="Red Nacional de los Ferrocarriles Españoles">RENFE</acronym>, <acronym title="Radio Detecting And Ranging" xml:lang="en">radar</acronym>, etc.).</dd>
+</dl>
+<p class="p">En la práctica, los que más utilizarás son <code>EM</code> y <code>STRONG</code>, y con menos frecuencia <code>CITE</code>, <code>DFN</code> y <code>ABBR</code>. ¿Vamos bien?</p>
+<p class="a">- Más o menos.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien. Seguimos con los elementos de párrafo. Básicamente son dos:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-P'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-P"><code>P</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea</td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>opcional</td></tr>
+</table>
+<p class="a">- Sí, esto ya estamos hartos de usarlo. ¿Cuál es el otro?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- El otro es el elemento <code>PRE</code>, para <dfn>texto preformateado</dfn>.</p>
+<p class="a">- ¿Ein? ¿qué es eso?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Como ya sabes, todo lo que escribas entre <code>&lt;p&gt;</code> y <code>&lt;/p&gt;</code> se representa como un párrafo. Aunque pongas saltos de línea en el código <abbr>HTML</abbr>, al representarlo saldrá un sólo párrafo. Aunque pongas diez espacios seguidos, al representarlo saldrá uno solo.</p>
+<p class="a">- Sí, eso ya lo sé.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Con el elemento <code>PRE</code>, los saltos de línea y los espacios en blanco que dejes saldrán representados. Esto es útil por ejemplo para escribir código de programas.</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-PRE'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-PRE"><code>PRE</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea, excepto <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/objects.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/objects.html#edef-IMG'" tppabs="http://html.conclase.net/w3c/html401-es/struct/objects.html#edef-IMG"><code>IMG</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/objects.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/objects.html#edef-OBJECT'" tppabs="http://html.conclase.net/w3c/html401-es/struct/objects.html#edef-OBJECT"><code>OBJECT</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/present/graphics.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/present/graphics.html#edef-BIG'" tppabs="http://html.conclase.net/w3c/html401-es/present/graphics.html#edef-BIG"><code>BIG</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/present/graphics.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/present/graphics.html#edef-SMALL'" tppabs="http://html.conclase.net/w3c/html401-es/present/graphics.html#edef-SMALL"><code>SMALL</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SUB'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SUB"><code>SUB</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SUP'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-SUP"><code>SUP</code></a></td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obigatoria</td></tr>
+</table>
+<p class="a">- Ya veo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En realidad hay una manera de provocar un salto de línea en un punto predeterminado usando el elemento <code>P</code>, que es con el elemento <code>BR</code>:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-BR'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-BR"><code>BR</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>VACIO</td></tr>
+</table>
+<p class="p">Como es un elemento vacío, no puedes poner etiqueta final. Simplemente donde escribas <code>&lt;br&gt;</code> habrá un salto de línea.</p>
+<p class="a">- Pero tú me dijiste que un salto de línea es donde termina un párrafo y empieza otro.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí. Recuerda que tratamos de separar la estructura de la apariencia. Por eso no te recomiendo que uses el elemento <code>BR</code>, a menos que sea absolutamente necesario.</p>
+<p class="a">- ¿Y si lo que queremos es impedir un salto de línea en un punto?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues en vez de poner un espacio normal, pones un <dfn>espacio de no separación</dfn>.</p>
+<p class="a">- Ah, muy bien, ¿y cómo?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Para escribir un espacio de no separación utilizamos el código <code>&amp;nbsp;</code> (<em xml:lang="en">non-breaking space</em>). Por ejemplo: <samp>salto&amp;nbsp;impedido</samp>. Pero seguimos. Otros elementos que conocemos ya son los encabezados de sección:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elementos</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H1'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H1"><code>H1</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H2'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H2"><code>H2</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H3'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H3"><code>H3</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H4'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H4"><code>H4</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H5'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H5"><code>H5</code></a>, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H6'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-H6"><code>H6</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea</td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obigatoria</td></tr>
+</table>
+<p class="p">El encabezado <code>H1</code> es más importante que el <code>H2</code>, el <code>H2</code> más importante que el <code>H3</code>, y así sucesivamente hasta el <code>H6</code> que es el menos importante..</p>
+<p class="a">- Sí, ya lo sé.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues seguimos. Otro grupo de elementos de texto son las <dfn>citas</dfn>. Se distingue entre citas en línea (<code>Q</code>) y citas en bloque (<code>BLOCKQUOTE</code>):</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-Q'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-Q"><code>Q</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea</td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obigatoria</td></tr>
+</table>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/text.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/text.html#edef-BLOCKQUOTE'" tppabs="http://html.conclase.net/w3c/html401-es/struct/text.html#edef-BLOCKQUOTE"><code>BLOCKQUOTE</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>elementos en bloque, <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/interact/scripts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/interact/scripts.html#edef-SCRIPT'" tppabs="http://html.conclase.net/w3c/html401-es/interact/scripts.html#edef-SCRIPT"><code>SCRIPT</code></a></td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obigatoria</td></tr>
+</table>
+<p class="p">El elemento <code>Q</code> es para citas cortas (frases, refranes...) y las citas largas contienen su propio párrafo o párrafos (como ves contiene elementos en bloque, no en línea, así que no puede contener palabras directamente).</p>
+<p class="a">- Ya. ¿Y qué diferencia hay entre <code>CITE</code> y <code>Q</code>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, lo normal es meter en <code>CITE</code> el origen de la cita (el autor, el libro, la persona que dijo eso, etc.) y en <code>Q</code> la cita en sí. De todos modos, tanto <code>Q</code> como <code>BLOCKQUOTE</code> tienen un atributo <code>cite</code> donde puedes poner el origen de la cita, aunque normalmente no aparecerá directamente representado.</p>
+<p class="a">-Bueno, vale.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Por último, tenemos el elemento <code>ADDRESS</code>, que da información de contacto del autor, y cuando aparece suele hacerlo al principio del documento:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="30%" />
+<tr><th>Elemento</th><td><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.5.6'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.5.6"><code>ADDRESS</code></a></td></tr>
+<tr><th>Modelo de contenido</th><td>cero o más elementos en línea</td></tr>
+<tr><th>Etiqueta inicial</th><td>obligatoria</td></tr>
+<tr><th>Etiqueta final</th><td>obigatoria</td></tr>
+</table>
+<p class="p">¿Seguimos?</p>
+<p class="a">- Seguimos.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="2.htm" tppabs="http://html.conclase.net/tutorial/html/4/2">anterior</a> | <a href="4.htm" tppabs="http://html.conclase.net/tutorial/html/4/4">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 21/08/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

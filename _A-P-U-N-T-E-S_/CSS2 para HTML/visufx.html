@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Visual effects</title>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="visudet.html">
+<link rel="next" href="generate.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</head>
+<body>
+<div class="navbar" align="center">
+<p><a href="visudet.html">anterior</a> &nbsp;
+<a href="generate.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<h1 align="center">11 Efectos visuales</h1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="visufx.html#overflow-clipping" class="tocxref">11.1 Desbordamiento y recorte</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visufx.html#overflow" class="tocxref">11.1.1 Desbordamiento: la propiedad <span class="propinst-overflow">'overflow'</span></a>
+      <li class="tocline3"><a href="visufx.html#clipping" class="tocxref">11.1.2 Recorte: la propiedad <span class="propinst-clip">'clip'</span></a>
+    </ul>
+    <li class="tocline2"><a href="visufx.html#visibility" class="tocxref">11.2 Visibilidad: la propiedad <span class="propinst-visibility">'visibility'</span></a>
+  </ul>
+</div>
+
+<H2>11.1 <a name="overflow-clipping">Desbordamiento y recorte</a></H2>
+
+<P>Generalmente, el contenido de una caja de bloque es confinado a los límites del contenido de la caja. En ciertos caso, una caja puede <a name="x0"><span
+class="index-def"
+title="desbordamiento|caja::desbordamiento"><dfn>desbordar</dfn></span></a>, significando que su contenido queda parcial o completamente fuera de la caja, por ej.:</P>
+
+<ul>
+<li>Una línea no puede ser cortada, provocando que la caja de línea sea más ancha que la caja de bloque.
+
+<li>Una caja a nivel de bloque es demasiado ancha para el bloque de contención. Esto puede suceder cuando la propiedad <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a> de un elemento tiene un valor que provoca que la caja de bloque generada se salga por los lados del bloque de contención.
+
+<li>La altura de un elemento excede la altura explícitamente asignada al bloque de contención (es decir, la altura del bloque de contención está determinada por la propiedad <a href="visudet.html#propdef-height" class="noxref"><span
+class="propinst-height">'height'</span></a>, no por la altura del contenido).
+
+<li>Una caja está <a href="visuren.html#absolute-positioning">absolutamente posicionada</a>.
+
+<li>Tiene <a href="box.html#margin-properties">márgenes negativos</a>.
+</ul>
+
+<p>Siempre que ocurra el desbordamiento, la propiedad <a href="visufx.html#propdef-overflow" class="noxref"><span
+class="propinst-overflow">'overflow'</span></a> especifica cómo (y si) una caja es recortada. La propiedad <a href="visufx.html#propdef-clip" class="noxref"><span class="propinst-clip">'clip'</span></a> especifica el tamaño y la forma de la zona de recorte. Especificar una zona de recorte pequeña puede provocar el recorte de contenidos en otro caso visibles.
+
+<H3>11.1.1 <a name="overflow">Desbordamiento</a>: la propiedad <a href="visufx.html#propdef-overflow" class="noxref"><span
+class="propinst-overflow">'overflow'</span></a></H3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'overflow'"><a name="propdef-overflow" class="propdef-title"><strong>'overflow'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>visible | hidden | scroll | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>visible
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque y reemplazados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visual</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica si el contenido de un elemento a nivel de bloque es recortado cuando desborda la caja del elemento (que está actuando como un bloque de contención para el contenido). Los valores tienen los siguientes significados:</p>
+
+<dl>
+
+<dt><strong>visible</strong> 
+
+<dd>Este valor indica que el contenido no es recortado, es decir, puede ser procesado fuera de la caja de bloque. 
+
+<dt><strong>hidden</strong> 
+
+<dd>Este valor indica que el contenido es recortado y que ningún mecanismo de desplazamiento deberá proporcionarse para ver el contenido fuera de la zona de recorte; los usuarios no tendrán acceso al contenido recortado. El tamaño y forma de la zona de recorte son especificados por la propiedad <a href="visufx.html#propdef-clip" class="noxref"><span class="propinst-clip">'clip'</span></a>.
+
+<dt><strong>scroll</strong> 
+
+<dd>Este valor indica que el contenido es recortado y que si la aplicación del usuario utiliza un mecanismo de desplazamiento que sea visible en la pantalla (tal como una barra de desplazamiento), ese mecanismo deberá ser visualizado en una caja tenga o no ésta parte de su contenido recortado. Esto evita cualquier problema con las barras de desplazamiento apareciendo y desapareciendo en un entorno dinámico. Cuando este valor es especificado y el medio al que está dirigido es 'print' o 'projection', el contenido que desborda deberá imprimirse.
+
+<dt><strong>auto</strong> 
+
+<dd>El comportamiento del valor 'auto' depende de la aplicación del usuario, pero debe provocar que se proporcione un mecanismo de desplazamiento para las cajas desbordadas. 
+
+</dl>
+
+<P> Aún si <a href="visufx.html#propdef-overflow" class="noxref"><span class="propinst-overflow">'overflow'</span></a> es puesto como 'visible', el contenido puede ser recortado a la ventana del documento de la AU por el entorno operativo nativo. 
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Considere el siguiente ejemplo de un bloque de cita (BLOCKQUOTE) que es demasiado grande para su bloque de contención (establecido por DIV). Aquí está el documento fuente:</p>
+
+<PRE class="html-example">
+&lt;DIV class="cita"&gt;
+&lt;BLOCKQUOTE&gt;
+&lt;P&gt;No me gustó la obra, pero la ví
+bajo condiciones adversas -el telón estaba levantado-.
+&lt;DIV class="atribuido-a"&gt;- Groucho Marx&lt;/DIV&gt;
+&lt;/BLOCKQUOTE&gt;
+&lt;/DIV&gt;
+</PRE>
+
+<P>Aquí está la hoja de estilo que controla el tamaño y estilo de las cajas generadas:
+
+<PRE>
+DIV.cita  { width : 100px; height: 100px;
+      border: thin solid red;
+      }
+
+BLOCKQUOTE   { width : 125px; height : 100px;
+      margin-top: 50px; margin-left: 50px; 
+      border: thin dashed black
+      }
+
+DIV.atribuido-a { text-align : right; }
+</PRE>
+
+<P>El valor inicial de <a href="visufx.html#propdef-overflow" class="noxref"><span
+class="propinst-overflow">'overflow'</span></a> es 'visible', de modo que BLOCKQUOTE sera procesado sin recortar, algo como esto:</P>
+
+<div class="figure">
+<P><img src="./images/overflow1.gif" alt="Desbordamiento procesado"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-overflow1" href="images/longdesc/overflow1-desc.html" title="Descripción extensa para el ejemplo con desbordamiento sin recortar">[D]</A></SPAN></p>
+</div>
+
+<P>Poniendo <a href="visufx.html#propdef-overflow" class="noxref"><span class="propinst-overflow">'overflow'</span></a> como 'hidden' para el elemento DIV, por otro lado, provoca que BLOCKQUOTE sea recortado por el bloque de contención:
+
+<div class="figure">
+<P><img src="./images/overflow2.gif" alt="Desbordamiento recortado"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-overflow2" href="images/longdesc/overflow2-desc.html" title="Descripción extensa para el ejemplo con desbordamiento recortado">[D]</A></SPAN></p>
+</div>
+
+<P>Un valor de 'scroll' le indicaría a las AU que soportan mecanismos de desplazamiento visibles que muestren uno para que los usuarios puedan acceder al contenido recortado.</div>
+
+<H3>11.1.2 <a name="clipping">Recorte</a>: la propiedad <a href="visufx.html#propdef-clip" class="noxref"><span
+class="propinst-clip">'clip'</span></a></h3>
+
+<p>Una <a name="x3"><span class="index-def" title="zona de recorte"><dfn>zona de recorte</dfn></span></a> define qué porción del 
+<a
+href="conform.html#rendered-content">contenido procesado</a> de un elemento es visible. De manera predeterminada, la zona de recorte tiene el mismo tamaño y forma que la(s) caja(s) del elemento. Sin embargo, la zona de recorte puede ser modificada por la propiedad <a href="visufx.html#propdef-clip" class="noxref"><span class="propinst-clip">'clip'</span></a>.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'clip'"><a name="propdef-clip" class="propdef-title"><strong>'clip'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="visufx.html#value-def-shape" class="noxref"><span class="value-inst-shape">&lt;forma&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque y reemplazados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visual</a>
+</table>
+</dl>
+</div>
+
+<P>La propiedad 'clip' se aplica a elementos que tienen una propiedad <a href="visufx.html#propdef-overflow" class="noxref"><span
+class="propinst-overflow">'overflow'</span></a> con un valor diferente a 'visible'. Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong>auto</strong>
+<dd>La zona de recorte tiene el mismo tamaño y ubicación que la(s) caja(s) del elemento.
+
+<dt><span class="index-def" title="&lt;forma&gt;::definición de"><a
+name="value-def-shape"
+class="value-def"><strong>&lt;forma&gt;</strong></a></span>
+
+<dd>En CSS2, el único valor permitido para &lt;forma&gt; es:
+rect (<a href="visufx.html#value-def-top" class="noxref"><span
+class="value-inst-top">&lt;arriba&gt;</span></a> <a href="visufx.html#value-def-right" class="noxref"><span
+class="value-inst-right">&lt;derecha&gt;</span></a> <a href="visufx.html#value-def-bottom" class="noxref"><span
+class="value-inst-bottom">&lt;abajo&gt;</span></a> <a href="visufx.html#value-def-left" class="noxref"><span
+class="value-inst-left">&lt;izquierda&gt;</span></a>)
+
+donde <a href="visufx.html#value-def-top" class="noxref"><span class="value-inst-top">&lt;arriba&gt;</span></a>, <a href="visufx.html#value-def-bottom" class="noxref"><span
+class="value-inst-bottom">&lt;abajo&gt;</span></a> <a href="visufx.html#value-def-right" class="noxref"><span
+class="value-inst-right">&lt;derecha&gt;</span></a> e <a href="visufx.html#value-def-left" class="noxref"><span
+class="value-inst-left">&lt;izquierda&gt;</span></a> especifican los desplazamientos de los lados respectivos de la caja.
+
+<P><span class="index-def" title="&lt;arriba&gt;::definición de"><a
+name="value-def-top" class="value-def">&lt;arriba&gt;</a></span>, <span
+class="index-def" title="&lt;derecha&gt;::definición de"><a
+name="value-def-right" class="value-def">&lt;derecha&gt;</a></span>,
+<span class="index-def" title="&lt;abajo&gt;::definición de"><a
+name="value-def-bottom" class="value-def">&lt;abajo&gt;</a></span>
+e <span class="index-def" title="&lt;izquierda&gt;::definición de"><a
+name="value-def-left" class="value-def">&lt;izquierda&gt;</a></span> pueden tener un valor de <a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> o 'auto'. Las medidas negativas están permitidas. El valor 'auto' significa que un determinado borde de la zona de recorte será el mismo que el borde de la caja generada del elemento (es decir, 'auto' significa lo mismo que '0').
+
+<P>Cuando las coordenadas se redondean a coordenadas en pixeles, se debe tener cuidado de que ningún pixel permanezca visible cuando &lt;izquierdo&gt; + &lt;derecho&gt; es igual al ancho del elemento (o &lt;arriba&gt; + &lt;abajo&gt; es igual a la altura del elemento), y recíprocamente que ningún pixel permanezca oculto cuando estos valores sean 0.
+
+</dl>
+
+<P>Los antepasados del elemento también pueden tener zonas de recorte (en el caso de que su propiedad <a href="visufx.html#propdef-overflow" class="noxref"><span class="propinst-overflow">'overflow'</span></a> no sea 'visible'); lo que se procesa es la intersección de las distintas zonas de recorte.
+
+<P>Si la zona de recorte excede los límites de la ventana del documento de la AU, el contenido puede ser recortado a esa ventana por el entorno operativo nativo.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+Las dos reglas siguientes:</P>
+<PRE>
+P { clip: rect(5px, 10px, 10px, 5px); }
+P { clip: rect(5px, -5px, 10px, 5px); }
+</PRE>
+
+<P>crearán las zonas de recorte rectangulares delimitadas por las líneas cortadas en las ilustraciones siguientes:</p>
+
+<div class="figure">
+<P><IMG src="images/clip.gif" alt="Dos zonas de recorte"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-clip" href="images/longdesc/clip-desc.html" title="Descripción extensa para el ejemplo de zonas de recorte">[D]</A></SPAN></p>
+</div>
+</div>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> En CSS2, todas las zonas de recorte son rectangulares. Anticipamos futuras extensiones para permitir recortes no rectangulares.
+</em>
+</div>
+
+<H2>11.2 <a name="visibility">Visibilidad</a>: la propiedad <a href="visufx.html#propdef-visibility" class="noxref"><span
+class="propinst-visibility">'visibility'</span></a></H2>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'visibility'"><a name="propdef-visibility" class="propdef-title"><strong>'visibility'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>visible | hidden | collapse | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>inherit
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visual</a>
+</table>
+</dl>
+</div>
+
+<p>La propiedad <a href="visufx.html#propdef-visibility" class="noxref"><span class="propinst-visibility">'visibility'</span></a> especifica si las cajas generadas por un elemento son procesadas. Las cajas invisibles siguen afectando la composición (poner la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> como 'none' para suprimir completamente la generación de la caja). Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong>visible</strong>
+<dd>La caja generada es visible. 
+<dt><strong>hidden</strong>
+<dd>La caja generada es invisible (totalmente transparente), pero sigue afectando la composición.
+<dt><strong>collapse</strong>
+<dd>Favor de consultar la sección sobre <a href="tables.html#dynamic-effects">efectos dinámicos en filas y columnas</a> en las tablas. Si se usa en otros elementos que no sean filas o columnas, 'collapse' tiene el mismo significado que 'hidden'.
+</dl>
+
+<P>Esta propiedad puede ser usada conjuntamente con scripts para crear efectos dinámicos.
+
+<div class="html-example"><P> En el siguiente ejemplo, presionando cualquier botón del formulario se invoca una función de script definida por el usuario que provoca que la caja correspondiente se vuelva visible y la otra se oculte. Como estas cajas tiene el mismo tamaño y posición, el efecto es que una reemplaza a la otra. (El código del script está en un lenguaje de script hipotético. Puede o no tener algún efecto en una AU apta para CSS.)
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE type=&quot;text/css&quot;&gt;
+&lt;!--
+   #contenedor1 { position: absolute; 
+                 top: 2in; left: 2in; width: 2in }
+   #contenedor2 { position: absolute; 
+                 top: 2in; left: 2in; width: 2in;
+                 visibility: hidden; }
+--&gt;
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P&gt;Elija un sospechoso:&lt;/P&gt;
+&lt;DIV id="contenedor1"&gt;
+   &lt;IMG alt="Al Capone" 
+        width="100" height="100" 
+        src="sospechoso1.jpg"&gt;
+   &lt;P&gt;Nombre: Al Capone&lt;/P&gt;
+   &lt;P&gt;Residencia: Chicago&lt;/P&gt;
+&lt;/DIV&gt;
+
+&lt;DIV id="contenedor2"&gt;
+   &lt;IMG alt="Lucky Luciano" 
+        width="100" height="100" 
+        src="sospechoso2.jpg"&gt;
+   &lt;P&gt;Nombre: Lucky Luciano&lt;/P&gt;
+   &lt;P&gt;Residencia: New York&lt;/P&gt;
+&lt;/DIV&gt;
+
+&lt;FORM method="post" 
+      action="http://www.suspect.org/process-bums"&gt;
+   &lt;P&gt;
+   &lt;INPUT name="Capone" type="button" 
+          value="Capone" 
+          onclick='show("contenedor1");hide("contenedor2")'&gt;
+   &lt;INPUT name="Luciano" type="button" 
+          value="Luciano" 
+          onclick='show("contenedor2");hide("contenedor1")'&gt;
+&lt;/FORM&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+</div>
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="visudet.html">anterior</a> &nbsp;
+<a href="generate.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</body>
+</html>

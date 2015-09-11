@@ -1,0 +1,144 @@
+<a name="comment" class="ancre"></a><h2>Atributos de etiquetas FORM y tipos de entrada</h2>
+<p align="justify">
+</p><table class="ccm" border>
+	<tbody><tr>
+		<th valign="top" align="center"><b>Etiqueta </b></th><th valign="top" align="center">Atributo</th>
+		<th valign="top" align="center">Valor</th>
+		<th valign="top" align="center">Resultado</th>
+
+		<th valign="top" align="center">Efecto visual</th>
+	
+	</tr><tr>
+		<td rowspan="3">&lt;FORM&gt; ... &lt;/FORM&gt;</td>
+		<td>METHOD</td>
+		<td>POST<br>GET</td>
+
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>ACTION</td>
+		<td>&nbsp;</td>
+		<td>Envía a la dirección mostrada</td>
+		<td>&nbsp;</td>
+
+	</tr>
+	<tr>
+		<td>ENCTYPE</td>
+		<td>&nbsp;</td>
+		<td>Especifica el tipo de código</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+
+		<td rowspan="7">&lt;INPUT&gt;</td>
+		<td rowspan="5">TYPE</td>
+		<td>submit</td>
+		<td>realiza la ACTION de la etiqueta &lt;FORM&gt;</td>
+		<td><form><input name="B1" value="Send" type="submit"></form></td>
+	</tr>
+
+	<tr>
+		<td>text</td>
+		<td>línea simple de texto cuya longitud<br> se especifica por el atributo SIZE</td>
+		<td><form><input size="20" name="T1" type="text"></form></td>
+	</tr>
+	<tr>
+		<td>Reset</td>
+
+		<td>Elimina el contenido del formulario</td>
+		<td><form><input name="B2" value="Reset" type="reset"></form></td>
+	</tr>
+	<tr>
+		<td>Radio</td>
+		<td>botón de radio</td>
+		<td><form><input checked="checked" name="R1" value="V1" type="radio"></form></td>
+
+	</tr>
+	<tr>
+		<td>Checkbox</td>
+		<td>casilla de selección</td>
+		<td><form><input name="C1" type="checkbox"></form></td>
+	</tr>
+	<tr>
+		<td>NAME</td>
+
+		<td>&nbsp;</td>
+		<td>Nombre</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>SIZE</td>
+		<td>&nbsp;</td>
+		<td>Tamaño del texto</td>
+
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td rowspan="3">&lt;TEXTAREA&gt; ... &lt;/TEXTAREA&gt;</td>
+		<td>NAME</td>
+		<td>&nbsp;</td>
+
+		<td rowspan="3">Casilla de texto</td>
+		<td rowspan="3"><form><textarea name="S1" rows="2" cols="20"></textarea></form></td>
+	</tr>
+	<tr>
+		<td>ROWS</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td>COLS</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td rowspan="2">&lt;SELECT&gt;<blockquote>
+			<p align="justify">&lt;OPTION&gt; ... &lt;/OPTION&gt;</p>
+
+		</blockquote>
+		<p align="justify">&lt;/SELECT&gt;</p>
+		</td>
+		<td>NAME</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><form><select name="D2" size="1">
+			<option selected="selected">Opción 1</option>
+
+			<option>Opción 2</option>
+			<option>Opción 3</option>
+			<option>Opción 4</option>
+		</select></form></td>
+	</tr>
+	<tr>
+		<td>MULTIPLE</td>
+
+		<td>&nbsp;</td>
+		<td>Múltiples selecciones posibles</td>
+		<td><form><select name="D1" multiple="multiple" size="1">
+			<option>Opción 1</option>
+			<option>Opción 2</option>
+			<option>Opción 3</option>
+			<option>Opción 4</option>
+
+		</select></form></td>
+	</tr>
+	<tr>
+		<td rowspan="2">&lt;OPTION&gt; ... &lt;/OPTION&gt;</td>
+		<td>SELECTED</td>
+		<td>Elección predeterminada</td>
+
+		<td>&nbsp;</td>
+		<td rowspan="2"><form><select name="D3" multiple="multiple" size="3">
+			<option selected="selected">Opción 1</option>
+			<option>Opción 2</option>
+			<option>Opción 3</option>
+			<option selected="selected">Opción 4</option>
+		</select></form></td>
+
+	</tr>
+	<tr>
+		<td>VALUE</td>
+		<td>Valor forzado</td>
+		<td>&nbsp;</td>
+	</tr>
+</tbody></table>

@@ -1,0 +1,167 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Breve historia de la World Wide Web</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Una breve historia de la World Wide Web y sus antecedentes" />
+<meta name="Keywords"    content="HTML,Historia,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Breve historia de la World Wide Web" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Breve historia de la World Wide Web" />
+<meta name="DC.Description"       content="Una breve historia de la World Wide Web y sus antecedentes" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-04-08" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/historia" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t01">Breve historia de la <span xml:lang="en">World Wide Web</span></h2>
+<p>La World Wide Web: documentos con referencias cruzadas. El concepto en sí no es nuevo. Las referencias a otros documentos, en forma de notas al margen, existían ya en los manuscritos medievales. La diferencia es que la Web es más global, más rápida, y más fácil de usar. Todo ello es posible gracias a los avances tecnológicos de finales del siglo pasado.</p>
+<p id="p01">En 1945, el Director de la Oficina de Desarrollo e Investigación Científica (<abbr title="Estados Unidos">EE.UU.</abbr>), el Doctor <a href="javascript:if(confirm('http://jefferson.village.virginia.edu/elab/hfl0034.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jefferson.village.virginia.edu/elab/hfl0034.html'" tppabs="http://jefferson.village.virginia.edu/elab/hfl0034.html"><span xml:lang="en">Vannevar Bush</span></a>, escribió el artículo "<a href="javascript:if(confirm('http://www.theatlantic.com/unbound/flashbks/computer/bushf.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.theatlantic.com/unbound/flashbks/computer/bushf.htm'" tppabs="http://www.theatlantic.com/unbound/flashbks/computer/bushf.htm"><span xml:lang="en">As We May Think</span></a>" para "<a href="javascript:if(confirm('http://www.theatlantic.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.theatlantic.com/'" tppabs="http://www.theatlantic.com/"><span xml:lang="en">The Atlantic Online</span></a>", en que expresaba su preocupación por la ingente cantidad de información que existía y estaba siendo generada, y el poco tiempo y los ineficientes sistemas que había para encontrarla. Así, y basándose en la tecnología existente en aquel entonces, describió un dispositivo personal, al que llamó "<a href="javascript:if(confirm('http://jefferson.village.virginia.edu/elab/hfl0051.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jefferson.village.virginia.edu/elab/hfl0051.html'" tppabs="http://jefferson.village.virginia.edu/elab/hfl0051.html">memex</a>", y que imaginaba como un suplemento íntimo a su memoria. Este aparato permitiría a cada individuo almacenar su información en microfilmes, consultarlos rápidamente y, lo que es más importante, crear vínculos entre unos documentos y otros, de modo que durante la lectura de un documento se recordara al lector qué documentos contenían información relacionada. Era una visión de lo que ocurriría sólo 45 años después.</p>
+<p id="p02">En los años 60, <a href="javascript:if(confirm('http://www.bootstrap.org/engelbart/index.jsp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bootstrap.org/engelbart/index.jsp'" tppabs="http://www.bootstrap.org/engelbart/index.jsp"><span xml:lang="en">Douglas Engelbart</span></a>, mientras trabajaba en el <a href="javascript:if(confirm('http://www.sri.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sri.com/'" tppabs="http://www.sri.com/"><span xml:lang="en">Stanford Research Institute</span></a>, propuso el <a href="javascript:if(confirm('http://www.bootstrap.org/engelbart/pubs.jsp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bootstrap.org/engelbart/pubs.jsp'" tppabs="http://www.bootstrap.org/engelbart/pubs.jsp"><abbr>NLS</abbr> (<span xml:lang="en">oNLine System</span>)</a>, un <a href="javascript:if(confirm('http://www.bootstrap.org/augment/AUGMENT/33076.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bootstrap.org/augment/AUGMENT/33076.html'" tppabs="http://www.bootstrap.org/augment/AUGMENT/33076.html">entorno de trabajo por computadora</a>, con un sistema para almacenar publicaciones, con catálogos e índices para facilitar la búsqueda, y con reglas establecidas para citar documentos, de modo que fuera más fácil para los lectores acceder a los documentos referenciados. Era un entorno con teclado, pantalla, ratón e impresora, con posibilidad de teleconferencia y correo electrónico a través de una red de computadoras para una rápida comunicación entre los profesionales. Tenía las herramientas básicas de composición, estudio, organización y modificación de información. Los ficheros se guardaban jerárquicamente para su mejor organización. Se trabajaba con los documentos en modo multiventana, para ver varios documentos a la vez en ventanas diferentes, y se podían copiar objetos seleccionados de una ventana a otra.</p>
+<p id="p03">El término "<a href="javascript:if(confirm('http://jefferson.village.virginia.edu/elab/hfl0037.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jefferson.village.virginia.edu/elab/hfl0037.html'" tppabs="http://jefferson.village.virginia.edu/elab/hfl0037.html">hipertexto</a>" fue acuñado por <a href="javascript:if(confirm('http://xanadu.com.au/ted/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xanadu.com.au/ted/'" tppabs="http://xanadu.com.au/ted/"><span xml:lang="en">Ted Nelson</span></a> en 1965, en su artículo "<span xml:lang="en">A File Structure for the Complex, the Changing, and the Indeterminate</span>", que leyó durante la vigésima conferencia anual de la <a href="javascript:if(confirm('http://www.acm.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.acm.org/'" tppabs="http://www.acm.org/"><span xml:lang="en">Association of Computer Machinery</span> (<abbr>ACM</abbr>)</a>. <span xml:lang="en">Ted Nelson</span> ideó un modelo para la interconexión de documentos electrónicos. El <a href="javascript:if(confirm('http://www.xanadu.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xanadu.com/'" tppabs="http://www.xanadu.com/">proyecto Xanadu</a> aún continúa luchando para conseguir un <a href="javascript:if(confirm('http://xanadu.com/tech/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xanadu.com/tech/'" tppabs="http://xanadu.com/tech/">modelo de hipertexto superior</a> al que trajo la <span xml:lang="en">World Wide Web</span>.</p>
+<p id="p04">La <span xml:lang="en">World Wide Web</span> fue inventada en 1989 por un informático del <a href="javascript:if(confirm('http://public.web.cern.ch/public/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://public.web.cern.ch/public/'" tppabs="http://public.web.cern.ch/public/"><abbr>CERN</abbr> (Organización Europea de Investigación Nuclear)</a> llamado <a href="javascript:if(confirm('http://www.w3.org/People/Berners-Lee/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Berners-Lee/'" tppabs="http://www.w3.org/People/Berners-Lee/"><span xml:lang="en">Tim Berners-Lee</span></a>. Era un sistema de hipertexto para compartir información basado en Internet, concebido originalmente para servir como herramienta de comunicación entre los científicos nucleares del <abbr>CERN</abbr>. <span xml:lang="en">Tim Berners-Lee</span> había estado experimentando con hipertexto desde 1980, año en que programó <a href="javascript:if(confirm('http://www.w3.org/People/Berners-Lee/FAQ.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Berners-Lee/FAQ.html#Influences'" tppabs="http://www.w3.org/People/Berners-Lee/FAQ.html#Influences"><span xml:lang="en">Enquire</span></a>, un programa para almacenar piezas de información y enlazarlas entre ellas. <span xml:lang="en">Enquire</span> se ejecutaba en un entorno multiusuario y permitía acceder a varias personas a los mismos datos. <span xml:lang="en">Tim Berners-Lee</span> entregó su <a href="javascript:if(confirm('http://www.w3.org/History/1989/proposal.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/History/1989/proposal.html'" tppabs="http://www.w3.org/History/1989/proposal.html">propuesta</a> al <abbr>CERN</abbr> en 1989, en septiembre de 1990 recibió el visto bueno y junto con <a href="javascript:if(confirm('http://ett-div.web.cern.ch/ett-div/WPE/People/RobertCailliau/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ett-div.web.cern.ch/ett-div/WPE/People/RobertCailliau/'" tppabs="http://ett-div.web.cern.ch/ett-div/WPE/People/RobertCailliau/"><span xml:lang="nl">Robert Cailliau</span></a> comenzó a escribir el nuevo sistema de hipertexto. A finales de 1990 el primer <em xml:lang="en">browser</em> de la historia, <a href="javascript:if(confirm('http://www.w3.org/People/Berners-Lee/FAQ.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Berners-Lee/FAQ.html#browser'" tppabs="http://www.w3.org/People/Berners-Lee/FAQ.html#browser"><span xml:lang="en">WorldWide Web</span></a>, ya tenía forma.</p>
+<p id="p05">Los documentos necesitaban un formato que fuera adecuado para su misión. En aquella época casi todo el mundo utilizaba TeX y PostScript, pero éstos eran demasiado complicados teniendo en cuenta que debían ser leídos por todo tipo de computadoras, desde la terminales tontas hasta las estaciones de trabajo gráficas X-Windows. Así, tanto el lenguaje de intercambio (<a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/#whatis'" tppabs="http://www.w3.org/MarkUp/#whatis"><abbr>HTML</abbr></a>), como el protocolo de red (<a href="javascript:if(confirm('http://www.w3.org/People/Berners-Lee/1996/ppf.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Berners-Lee/1996/ppf.html'" tppabs="http://www.w3.org/People/Berners-Lee/1996/ppf.html"><abbr>HTTP</abbr></a>) se diseñaron para ser realmente <a href="javascript:if(confirm('http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html'" tppabs="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html">muy simples</a>.</p>
+<p id="p06"><abbr>HTML</abbr> son las siglas de <em>"<span xml:lang="en">HyperText Mark-up Language</span>"</em>. "<a href="javascript:if(confirm('http://dictionary.reference.com/search?q=mark-up  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dictionary.reference.com/search?q=mark-up'" tppabs="http://dictionary.reference.com/search?q=mark-up"><span xml:lang="en">Mark-up</span></a>" es un término de imprenta que significa <dfn>el conjunto de instrucciones estilísticas detalladas escritas en un manuscrito que debe ser tipografiado</dfn>. Así, <abbr>HTML</abbr> podría ser traducido como <em>"Lenguaje de Formato de Documentos para Hipertexto"</em>. <abbr>HTML</abbr> es una aplicación de <a href="javascript:if(confirm('http://www.oasis-open.org/cover/gentle.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.oasis-open.org/cover/gentle.html'" tppabs="http://www.oasis-open.org/cover/gentle.html"><abbr>SGML</abbr></a>, un lenguaje muy general para definir lenguajes de formato de documentos.</p>
+<p id="p07">A principios de 1993 había alrededor de 50 servidores. Existían básicamente dos tipos de <em xml:lang="en">browsers</em>: el original, gráfico, pero sólo para plataformas NeXT, y el browser en modo de línea, preparado para cualquier plataforma pero muy limitado y muy poco atractivo. En Febrero se lanzó la primera versión alfa del navegador "<a href="javascript:if(confirm('http://archive.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/help-about.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://archive.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/help-about.html'" tppabs="http://archive.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/help-about.html"><span xml:lang="en">Mosaic for X</span></a>", desarrollado en el <a href="javascript:if(confirm('http://www.ncsa.uiuc.edu/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ncsa.uiuc.edu/'" tppabs="http://www.ncsa.uiuc.edu/"><abbr>NCSA</abbr> (<span xml:lang="en">National Center for Supercomputing Applications</span>)</a>. Funcionaba en X Windows, que era una plataforma popular entre la comunidad científica. En Abril el tráfico de la <abbr>WWW</abbr> era el 0,1% del total de Internet. El <abbr>CERN</abbr> declaraba la <abbr>WWW</abbr> como tecnología de acceso gratuito. En septiembre ya había versiones de Mosaic para PC y Macintosh. El tráfico alcanzaba el 1% de todo el tráfico de Internet y había más de 500 servidores. Es el comienzo del crecimiento explosivo de la Web. A finales del 94 ya había más de 10.000 servidores y 10 millones de usuarios. En 1997, más de 650.000 servidores.</p>
+<p id="p08">Hoy, en 2003, la Web es algo cotidiano para una gran parte de los más de 600 millones de <a href="javascript:if(confirm('http://www.nua.com/surveys/how_many_online/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.nua.com/surveys/how_many_online/index.html'" tppabs="http://www.nua.com/surveys/how_many_online/index.html">usuarios de Internet</a> que hay en todo el mundo. Sus utilidades son diversas, su impacto en la economía mundial es apreciable. No sólo hay documentos de texto: hay imágenes, vídeos, música, se pueden comprar cosas, se pueden hacer reservas...</p>
+<p id="p09">Y cada uno de nosotros puede tejer unas hebras más de esa gran red que la Web...</p>
+
+<h3 id="t02">Más información</h3>
+<p>Consulta las siguientes páginas si quieres información más detallada sobre la historia de la <span xml:lang="en">World Wide Web</span>:</p>
+<ul>
+<li><a href="javascript:if(confirm('http://www.w3.org/History.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/History.html'" tppabs="http://www.w3.org/History.html"><span xml:lang="en">A Little History of the World Wide Web, from 1945 to 1995</span></a>.</li>
+<li><a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/#historical'" tppabs="http://www.w3.org/MarkUp/#historical"><span xml:lang="en">Some early ideas of <abbr>HTML</abbr></span></a>.</li>
+<li><a href="javascript:if(confirm('http://public.web.cern.ch/public/about/achievements/www/www.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://public.web.cern.ch/public/about/achievements/www/www.html'" tppabs="http://public.web.cern.ch/public/about/achievements/www/www.html"><span xml:lang="en">A <abbr>CERN</abbr> invention you are familiar with: the World Wide Web</span></a>.</li>
+<li><a href="javascript:if(confirm('http://www.webhistory.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webhistory.org/'" tppabs="http://www.webhistory.org/"><span xml:lang="en">The World Wide Web History Project</span></a>.</li>
+<li><a href="javascript:if(confirm('http://ei.cs.vt.edu/~wwwbtb/book/chap1/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ei.cs.vt.edu/~wwwbtb/book/chap1/index.html'" tppabs="http://ei.cs.vt.edu/~wwwbtb/book/chap1/index.html"><span xml:lang="en">History of the World Wide Web</span></a>, por <span xml:lang="fa">Shahrooz Feizabadi</span>.</li>
+<li><a href="javascript:if(confirm('http://www.w3.org/People/Berners-Lee/1996/ppf.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Berners-Lee/1996/ppf.html'" tppabs="http://www.w3.org/People/Berners-Lee/1996/ppf.html"><span xml:lang="en">The World Wide Web - past, present and future</span></a>, discurso pronunciado por <span xml:lang="en">Tim Berners-Lee</span> en Julio de 1996.</li>
+</ul>
+
+<p class="copy">&copy; 2001-2003, Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 08/04/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a id="actual" title="Un poco de contexto para situarnos">&raquo;&nbsp;Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

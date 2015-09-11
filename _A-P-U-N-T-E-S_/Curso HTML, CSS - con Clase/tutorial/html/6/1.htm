@@ -1,0 +1,246 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 6 (1/3)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La primera parte del sexto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,FTP,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 6 (1/3)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La primera parte del sexto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-12-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/6/1" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="../5/13.htm" tppabs="http://html.conclase.net/tutorial/html/5/13" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Consejos antes de publicar la página (I)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="2.htm" tppabs="http://html.conclase.net/tutorial/html/6/2">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- ¡Hola!</p>
+<p class="a">- Hola, ¿te gusta mi barba?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¿Cómo dices?</p>
+<p class="a">- Me creció mientras te esperaba...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, bueno, perdona. Ya te dije que hago lo que puedo... ¿Y tú has hecho algo? No me has enviado ningún ejemplo.</p>
+<p class="a">- Estooo, será mejor que empecemos.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, claro. Vamos a empezar hablando sobre cómo subir tu sitio a la Web. Después hablaremos de un par de problemillas que suelen aparecer al publicar las páginas web y cómo resolverlos. Esta vez será un tutorial cortito.</p>
+<p class="a">- Ok, me parece muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Naturalmente, lo primero que necesitas es un lugar para subir tus páginas.</p>
+<p class="a">- Naturalmente. ¿Y dónde lo encuentro?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Hay muchos servicios de alojamiento gratuito. Normalmente a cambio ponen publicidad en tu página, para poder costear el servicio. Quizá la compañía con la que te conectas a Internet te dé espacio web. Si no, tienes listas de alojamiento gratuito en <a href="javascript:if(confirm('http://www.buscahosting.com/buscador.php?tipo=6  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.buscahosting.com/buscador.php?tipo=6'" tppabs="http://www.buscahosting.com/buscador.php?tipo=6">www.buscahosting.com</a> y en <a href="javascript:if(confirm('http://www.buscahost.com/hostinggratis.asp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.buscahost.com/hostinggratis.asp'" tppabs="http://www.buscahost.com/hostinggratis.asp">www.buscahost.com</a>.  Y en la web de <span xml:lang="en">FreeWebSpace</span> un <a href="javascript:if(confirm('http://www.freewebspace.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.freewebspace.net/'" tppabs="http://www.freewebspace.net/">buscador</a> (en inglés). Naturalmente también puedes pagar por el alojamiento web, pero para empezar no te hace falta.</p>
+<p class="a">- Muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- La manera más fácil y más cómoda de subir tus ficheros a tu espacio web es con <abbr title="File Transfer Protocol">FTP</abbr>. ¿Te acuerdas del <abbr>FTP</abbr>, no?</p>
+<p class="a">- Sí, protocolo de transferencia de ficheros. Para transferir ficheros, ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, muy bien. Te aconsejo que elijas un servicio que te permita subir tus archivos por <abbr>FTP</abbr>. La alternativa es subirlos con un formulario web, y, bueno, eso es más lento, sobre todo si tienes muchos ficheros. Pero lo importante es que funcione. Bueno, imaginemos que tienes acceso por <abbr>FTP</abbr>.</p>
+<p class="a">- Vale, ¿y cómo se imagina eso?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues imagina que sabes cuál es el servidor <abbr>FTP</abbr>, o sea, el nombre de la computadora donde vas a subir los ficheros (por ejemplo, <samp>ftp.miservidor.com</samp>), y que te han asignado una cuenta, con un nombre de usuario y una contraseña.</p>
+<p class="a">- Ah, vale.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Ahora necesitas un cliente de <abbr>FTP</abbr>, es decir, un programa que te permita conectarte con el servidor y comenzar a transferir ficheros.</p>
+<p class="a">- Lógico. ¿De dónde lo saco?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Lo más probable es que tu sistema operativo ya venga con uno. Pero será mejor uno que sea más sencillo de utilizar. Para Windows te recomiendo <a href="javascript:if(confirm('http://www.softonic.com/informacion_extendida.phtml?n_id=4940&plat=1  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.softonic.com/informacion_extendida.phtml?n_id=4940&plat=1'" tppabs="http://www.softonic.com/informacion_extendida.phtml?n_id=4940&plat=1">WS_FTP LE</a>. Es gratis para uso no comercial, está bastante bien y no ocupa mucho. También es probable que tu editor de páginas web te permita realizar transferencias por <abbr>FTP</abbr>.</p>
+<p class="a">- Bueno, me bajaré el WS_FTP LE ese.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Buena idea. Ahora es muy sencillo. Configuras en el programa tu cuenta, te conectas y transfieres tus archivos desde tu computadora al servidor, o viceversa, pulsando en las flechitas. Hay varios tutoriales sobre el uso de WS_FTP en la red. En la web de Softdownload tienen un <a href="
+javascript:if(confirm('http://www.softdownload.com.ar/wstutor1.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.softdownload.com.ar/wstutor1.htm'" tppabs="http://www.softdownload.com.ar/wstutor1.htm">tutorial</a> donde vienen muy bien explicados todos los pasos. Léetelo, ¿lo harás?</p>
+<p class="a">- Sí, sí, lo prometo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien, un par de consejos sobre el <abbr>FTP</abbr>:</p>
+<ul class="p">
+<li>Es <strong>muy</strong> recomendable que los nombres de tus archivos sólo tengan letras minúsculas, o números, nada de espacios ni símbolos raros ni eñes ni letras con acentos. Eso te hará la vida muuucho más fácil, créeme.</li>
+<li>Existen dos maneras de transferir ficheros por <abbr>FTP</abbr>: en modo <a href="javascript:if(confirm('http://www.ascii.cl/es/referencias.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ascii.cl/es/referencias.htm'" tppabs="http://www.ascii.cl/es/referencias.htm"><abbr title="American Standard Code for Information Interchange">ASCII</abbr></a> o en modo binario. El modo <abbr>ASCII</abbr> es para ficheros de texto, por ejemplo, documentos <abbr>HTML</abbr>, hojas de estilo <abbr>CSS</abbr>, scripts de Perl, etc. En general, todo lo que haya sido creado con un editor de texto. El modo binario es para todos los demás ficheros, por ejemplo, imágenes, ejecutables, animaciones, archivos comprimidos, etc. Normalmente los clientes de <abbr>FTP</abbr> suponen cuál es el modo en que tienen que trasferir el fichero según su extensión, y lo hacen automáticamente, pero en todo caso si te encuentras con problemas podrían estar causados por esto. (Por ejemplo, un error muy típico es subir un script <abbr title="Common Gateway Interface">CGI</abbr> Perl en modo binario desde Windows.)</li>
+</ul>
+<p class="a">- De acuerdo, no sé de qué estás hablando pero lo tendré en cuenta.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¡Ay, paciencia! ¿Qué no entiendes?</p>
+<p class="a">- Eso de "subir un script <abbr>CGI</abbr> Perl en modo binario desde Windows" te ha quedado muy esotérico...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bah, no te preocupes, ya te lo explicaré cuando hablemos de formularios.</p>
+<p class="a">- Ok, ok...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Muy bien, pues eso es todo. Realmente no tiene mucho secreto.</p>
+<p class="a">- Bueno, eso espero. Supongo que será cuestión de acostumbrarse, como todo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, claro. Bueno, ¿seguimos?</p>
+<p class="a">- Seguimos.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="2.htm" tppabs="http://html.conclase.net/tutorial/html/6/2">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/12/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

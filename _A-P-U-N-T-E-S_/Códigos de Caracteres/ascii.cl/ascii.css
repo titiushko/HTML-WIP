@@ -1,0 +1,70 @@
+body {
+	font: 10px arial, helvetica, sans-serif;
+	color: #333366;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color : #cccccc;
+	font-size : 10px;
+}
+
+A:link, A:visited, A:active { color: #3300CC; text-decoration: none; }
+
+A:hover    {color: #3300CC; text-decoration: none; background: #FFFF99;}
+
+B {font-weight: bold;}
+
+.content {margin-left: 40px; margin-right: 30px; margin-bottom: 20px;}
+
+.orangebox {padding: 4px; margin: 2px; background-color: #ff9933; border: solid black 2px; }
+
+P {
+	font: 10px/18px arial, helvetica, sans-serif;
+	margin-top: 5px;
+}
+
+UL, OL, DL, LI {font: 11px/18px arial, helvetica, sans-serif; margin-top: 5px;}
+
+.hd1 {font: bold 24px arial, helvetica, sans-serif; color: #333366;}
+
+.hd2 {font: bold 20px arial, helvetica, sans-serif; color: #333366; margin-top: 10px; margin-bottom: 0px;}
+
+.hd3 {font: bold 16px arial, helvetica, sans-serif; color: #333366; margin-top: 10px; margin-bottom: 0px;}
+
+.hd4 {font: bold 14px arial, helvetica, sans-serif;	color: #333366;	margin-top: 10px; margin-bottom: 0px;}
+
+.hd5 {font: bold 12px arial, helvetica, sans-serif; color: #333366; margin-bottom: 0px;}
+
+.hd6 {font: bold 10px arial, helvetica, sans-serif; color: #333366; margin-bottom: 0px;}
+
+.fine {font: 10px/12px arial, helvetica, sans-serif;}
+
+.superfine {font: 10px/14px geneva, arial, helvetica, sans-serif; margin-left: 20px; margin-right: 10px; margin-top: 10px;}
+
+.bm {
+	font: bold 11px arial, helvetica, sans-serif;
+	color: #3300cc;
+	margin-left : 10px;
+	margin-right : 10px;
+	vertical-align : bottom;
+	text-align : center;
+	margin-top : 5px;
+	cursor : hand;
+}
+
+.code {font: 11px monaco, monotype, courier, courier new; color: #333366;}
+
+PRE {font: 10px/18px arial, helvetica, sans-serif; color: #333366;}
+
+.main {font: 12px geneva, arial, helvetica, sans-serif; margin-left: 20px; margin-right: 10px; margin-top: 10px;}
+
+.box {	font: 10px arial, helvetica, sans-serif; color: #ffffff;
+ 	background-color: Blue; 
+	margin-top: 10px;
+	margin-bottom: 1px;
+	padding: 8px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+

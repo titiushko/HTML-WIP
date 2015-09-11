@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Tama&ntilde;o y Color de la Fuentes de Caracteres</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.4 - Tama&ntilde;o y Color de las fuentes de caracteres</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Utilidad</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el apartado anterior se vio el modo
+de definir los distintos t&iacute;tulos de documento, mediante <A HREF="cabecer.htm">cabeceras</A>.
+Estas son poco flexibles y predeterminadas. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe otra etiqueta HTML que permite
+una m&aacute;s sencilla adaptaci&oacute;n del tama&ntilde;o de las fuentes
+y permite adem&aacute;s modificar su color. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con esta podremos incluir texto resaltado
+en medio de una frase, con las cabeceras no es posible ya que estas introducen
+autom&aacute;ticamente un salto de l&iacute;nea detr&aacute;s, y permitir&aacute;
+incluir p&aacute;rrafos de distintos tama&ntilde;os o colores, proporcionando
+una mayor versatilidad y pudiendo crear efectos m&aacute;s espectaculares.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La etiqueta que permite esto se llama
+<B>FONT</B> y presenta atributos que nos permiten modificar el tama&ntilde;o
+y color del texto incluido entre la etiqueta de inicio y fin. <A NAME="size"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;FONT SIZE=<I>n</I>&gt; :
+Tama&ntilde;o de la fuente</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B>SIZE</B> permite indicar
+el tama&ntilde;o de la fuente, su valor puede estar entre 1 y 7. Increment&aacute;ndose
+de tama&ntilde;o progresivamente desde 1, que es la fuente de menor tama&ntilde;o,
+hasta 7 que la fuente de mayor tama&ntilde;o. El texto normal equivale
+a la fuente de tama&ntilde;o 3, por tanto los valores menores que 3 ser&aacute;n
+fuentes m&aacute;s peque&ntilde;as que el texto normal y las mayores que
+3 ser&aacute;n de mayor tama&ntilde;o. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El tama&ntilde;o tambi&eacute;n puede
+indicarse de forma relativa, indicando el incremento o detrimento a partir
+de la fuente base. Por defecto la fuente base ser&aacute; 3, por tanto
+si se indica como valor +1 la fuente ser&aacute; de tama&ntilde;o 4. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una etiqueta que redefine la fuente
+por defecto, esta etiqueta es: <B><A HREF="#basefont">&lt;BASEFONT SIZE
+...&gt;</A></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los elementos de tama&ntilde;o de fuentes
+pueden ser definidos para todo un documento, teniendo validez dentro de
+elementos tales como listas y formularios, pero no tendr&aacute;n validez
+global en las tablas, debiendo definir cada una de las celdas al tama&ntilde;o
+de fuente deseado. <A NAME="ej1"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Ejemplos de tama&ntilde;os de
+fuentes</FONT></FONT></B> </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra</TH>
+
+<TH>Explicaci&oacute;n </TH>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=2&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Obtendriamos en este caso texto
+de tama&ntilde;o de fuente 2</FONT></FONT> </TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=6&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=+3>Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Este texto es de tama&ntilde;o
+de fuente 6</FONT></FONT> </TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=-1&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Obtendriamos tambi&eacute;n en
+este caso texto de tama&ntilde;o de fuente 2, pero lo definir&iacute;amos
+de forma relativa: 3-1=2</FONT></FONT> </TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=+2&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=+2>Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>As&iacute; definir&iacute;amos
+fuente de tama&ntilde;o 6 de forma relativa: 3+2=5</FONT></FONT> </TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=6&gt;
+Muestra &lt;FONT SIZE=1&gt; Muestra &lt;/FONT&gt; Muestra &lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=+3>Muestra </FONT><FONT SIZE=-2>Muestra</FONT><FONT SIZE=+3>
+Muestra </FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se pueden combinar en una misma
+frase varios tama&ntilde;os de fuentes</FONT></FONT> </TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=4&gt;
+Muestra &lt;B&gt; &lt;I&gt; &lt; A HREF=&quot;http://www.uca.es&quot;&gt;
+Muestra &lt;/A&gt; &lt;/I&gt; Muestra &lt;/B&gt; &lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT SIZE=+1>Muestra <B><I><A HREF="http://www.uca.es">Muestra</A></I>
+Muestra </B></FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se pueden combinar con elementos
+de resalte e hiperenlaces</FONT></FONT> </TD>
+</TR>
+</TABLE>
+
+<P><A NAME="basefont"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;BASEFONT SIZE=<I>n</I>&gt;
+: Fuente por defecto</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definir&aacute; el tama&ntilde;o de la
+fuente que se considerar&aacute; como base para definir los tama&ntilde;os
+de fuente relativos. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esta etiqueta no define el tama&ntilde;o
+de la fuente por defecto, para el texto normal, y solo se usa para c&aacute;lculos
+de tama&ntilde;o de fuente relativos. La utilidad no es muy amplia, y se
+podr&iacute;a utilizar cuando en un documento en el que todos los tama&ntilde;os
+est&eacute;n definidos de forma relativa y se desee cambiar de forma global
+el tama&ntilde;o de las fuentes. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si no incluye esta etiqueta el valor base
+para estos c&aacute;lculos es 3, con esta se puede variar, como se ve en
+el ejemplo. </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra</TH>
+
+<TH>Explicaci&oacute;n </TH>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=-2&gt;Muestra&lt;/FONT&gt;</FONT></FONT>
+<P><FONT COLOR="#008200"><FONT SIZE=-1> &lt;BASEFONT SIZE=5&gt; </FONT></FONT></P>
+
+<P><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=-2&gt;Muestra&lt;/FONT&gt;</FONT></FONT></P>
+</TD>
+
+<TD><FONT SIZE=-2>Muestra</FONT> <FONT SIZE=+1>Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El nuevo valor para el calculo
+del tama&ntilde;o relativo ser&aacute; 6, not&aacute;ndose el efecto en
+el tama&ntilde;o de las fuentes</FONT></FONT> </TD>
+</TR>
+</TABLE>
+
+<P><A NAME="color"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;FONT COLOR=<I>texto color</I>
+&oacute; <I>rrvvaa</I>&gt; : Color de la fuente</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B>COLOR</B> nos permite definir
+el color que tendr&aacute; el texto incluido entre las etiquetas de inicio
+y fin. Este atributo solo funciona en el <I>Internet Explorer de Microsoft</I>
+y en el <A HREF="http://www.uca.es/servicios/actuali-soft"><I>Netscape</I>
+versi&oacute;n 2.0</A> o superior. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El <A HREF="body.htm#colores">modo de
+definir los colores</A> es similar al explicado para los atributos de <B>BODY</B>,
+al que le remitimos si no le quedo claro. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este atributo puede ser definido de forma
+conjunta con el atributo <B>SIZE</B>, o de forma independiente, siendo
+atributos de la misma etiqueta. Si se define el atributo <B>SIZE</B> solo,
+el color del texto que define ser&aacute; el por defecto, si se define
+con la etiqueta <B>COLOR</B> solo, el tama&ntilde;o ser&aacute; el de la
+fuente base. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al igual que en el caso del tama&ntilde;o
+de la fuente pueden ser utilizados junto con otros elementos del lenguaje
+HTML como listas y formularios y pueden ser utilizados conjuntamente con
+los elementos de resalte </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El cambio de color no afectar&aacute;
+al texto o elementos incluidos en un hiperenlace, utiliz&aacute;ndose para
+estos el color por defecto definido en la etiqueta <B>BODY</B>. <A NAME="ej2"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Ejemplos de definici&oacute;n
+de colores de fuentes</FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algunos ejemplos de la definici&oacute;n
+de colores de fuente podr&iacute;an ser: </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra</TH>
+
+<TH>Explicaci&oacute;n </TH>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT COLOR=FF00FF&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT COLOR="#FF00FF">Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El texto se mostrar&aacute; de
+un color lila, al mezclar los colores rojo y azul. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT COLOR=AQUA&gt;Muestra&lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT COLOR="#00FFFF">Muestra</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Tambi&eacute;n se puede utilizar
+uno de los colores predefinidos. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT SIZE=5 COLOR=red&gt;
+Muestra &lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT COLOR="#FF0000"><FONT SIZE=+2>Muestra</FONT></FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se puede combinar con el tama&ntilde;o
+de fuente</FONT></FONT> </TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FONT COLOR=NAVY&gt;
+Mue&lt;FONT SIZE=4 COLOR=BLUE&gt;str&lt;/FONT&gt;a &lt;/FONT&gt;</FONT></FONT></TD>
+
+<TD><FONT COLOR="#000080">Mue</FONT><FONT COLOR="#0000FF"><FONT SIZE=+1>str</FONT></FONT><FONT COLOR="#000080">a</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se pueden combinar varios colores
+en una misma frase o palabra. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;H3&gt; &lt;FONT
+COLOR=81426E&gt; Mu&lt;I&gt;es&lt;/I&gt;tra &lt;/FONT&gt; &lt;/H3&gt;</FONT></FONT></TD>
+
+<TD>
+<H1><FONT COLOR="#81426E">Mu<I>es</I>tra</FONT></H1>
+</TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Pueden ser utilizados junto con
+otros elementos de resalte como cabeceras, estilos f&iacute;sicos y l&oacute;gicos,
+etc ... </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585><FONT COLOR="#008200"><FONT SIZE=-1>
+</FONT></FONT></P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A><FONT COLOR="#008200"><FONT SIZE=-1>
+<A HREF="cabecer.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="cabecer.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="estilos.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="estilos.htm">Siguiente</A>
+</FONT></FONT></P></CENTER>
+
+</BODY>
+</HTML>

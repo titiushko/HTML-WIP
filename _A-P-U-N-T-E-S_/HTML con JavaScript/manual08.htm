@@ -1,0 +1,308 @@
+<HTML>
+<HEAD><TITLE>Listas en HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table cellpadding=3 cellspacing=3 width=700>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="listas.gif" width="129" height="92" border="0" alt="Icono"></td>
+<td><font  size=6><b>Listas en HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+Una habitual de organizar la informaci&oacute;n en un texto es hacer uso de:
+</p>
+
+<ul>
+<li>Listas de t&eacute;rminos, precedidos de un punto o cualquier otro signo.<br><br>
+
+<li>Listas numeradas alfab&eacute;ticamente, o con n&uacute;meros ar&aacute;bicos o romanos, y cuyos elementos se diferencia con este n&uacute;mero o letra.<br><br>
+
+<li>Listas simples sin indicaciones o separadores.<br><br>
+
+<li>T&eacute;rminos y sus definiciones.<br><br>
+
+<li>Listas en las que los elementos se distribuyen en columnas.<br><br>
+
+<li>Listas de varios de los tipos anteriores anidadas las unas en las otras
+</ul>
+
+<p>
+Todos estos tipos de listas, son las que podremos definir con ayuda de las directivas que HTML dispone para ello. Todas se explican a continuaci&oacute;n, pese a ser empleadas solamente unas cuantas de ellas.
+</p>
+<br>
+
+<font  size=5><b>LISTAS MARCADAS O SIN ORDEN</b></font>
+
+<p>
+O “Bullet list” por conocerse en ingl&eacute;s al punto o dibujo que precede a cada elemento con el nombre de “bullet”.
+</p>
+
+<p>
+La lista se empieza delimitando por la directiva <b>&lt;UL&gt;...&lt;/UL&gt;</b> (Unordered List, lista sin orden), entre las que se incluir&aacute;n los elementos de la lista. Cada uno de los elementos ir&aacute;n precedidos de la directiva <b>&lt;LI&gt;</b> (List Item, art&iacute;culo de la lista). Veamos un ejemplo:
+</p>
+
+<p>
+Animales:<br>
+&lt;UL&gt;<br>
+&lt;LI&gt;Perros<br>
+&lt;LI&gt;Gatos<br>
+&lt;LI&gt;Peces<br>
+&lt;LI&gt;Hamsters<br>
+&lt;/UL&gt;
+</p>
+
+<p>
+Esto nos define una lista de animales, con un “bullet” o punto al lado del nombre de cada animal. Debe de hacerse notar que la directiva &lt;LI&gt; hace referencia siempre a un elemeto de un tipo de lista, y que tras el siguiente &lt;LI&gt;, hace un retorno de carro, pero no deja un l&iacute;nea en blanco.
+</p>
+
+<p>
+Una caracter&iacute;stica del “punto” o car&aacute;cter que aparece antes de cada uno de los nombre de animales cuando los visualizamos, es que podemos modificarlo por medio de un atributo que se introduce en la directiva  que define la lista &lt;UL&gt;, y que es el atributo TYPE.
+</p>
+
+<b>TYPE=“bullet”</b>
+
+<p>
+Es la empleada por defecto y aparecer&aacute; un pequeño disco negro o punto.
+</p>
+
+<b>TYPE=“circle”</b>
+
+<p>
+aparece un disco vac&iacute;o en el que se distingue el contorno.
+</p>
+
+<b>TYPE=“square”</b>
+
+<p>
+aparece un pequeño cuadrado negro al lado de cada elemento.
+</p>
+<br>
+
+<font  size=5><b>LISTAS NUMERADAS</b></font>
+
+<p>
+Son semejantes a las anteriores, s&oacute;lo que en lugar del bullet o punto negro que aparece por defecto, es este tipo de listas aparecen n&uacute;meros ar&aacute;bicos, romanos y letras (may&uacute;sculas o min&uacute;sculas).
+</p>
+
+<p>
+En este caso la directiva que delimita la lista es <b>&lt;OL&gt;...&lt;/OL&gt;</b> (Ordered List, lista ordenada), manteniendo la directiva abierta para cada elelmento de la lista tal y como vimos en las listas anteriores <b>&lt;LI&gt;</b>.
+</p>
+
+<p>
+Al igual que la anterior directiva de listas con iconos, las listas ordendas tambi&eacute;n puedes ser modificadas en su apariencia, con un atributo que se introduce en la directiva que define la lista &lt;OL&gt;.
+</p>
+
+<b>TYPE=“A”</b>
+
+<p>
+comienza la lista numer&aacute;ndola con la letra A (al primer elemento), y prosigue con el resto de letras del &iacute;ndice alfab&eacute;tico.
+</p>
+
+<b>TYPE=“a”</b>
+
+<p>
+comienza la lista numer&aacute;ndola con la letra a (al primer elemento), y prosigue con el resto de letras del &iacute;ndice alfab&eacute;tico. Igual que la anterior pero en min&uacute;sculas.
+</p>
+
+<b>TYPE=“1”</b>
+
+<p>
+comienza la lista numer&aacute;ndola con la n&uacute;mero 1 (al primer elemento), y prosigue con el resto de n&uacute;mero ar&aacute;bicos. Este es el empleado por este tipo de listas como defecto.
+</p>
+
+<b>TYPE=“I”</b>
+
+<p>
+comienza la lista numer&aacute;ndola con la n&uacute;mero I romano (al primer elemento), y prosigue con el resto de n&uacute;mero romanos.
+</p>
+
+<b>TYPE=“i”</b>
+
+<p>
+comienza la lista numer&aacute;ndola con la n&uacute;mero i romano (al primer elemento), y prosigue con el resto de n&uacute;mero romanos. Al igual que el anterior, pero con los n&uacute;mero en min&uacute;scula.
+</p>
+
+<p>
+En este tipo de tablas, hay un atributo especialmente &uacute;til para la directiva &lt;LI&gt; y es el atributo <b>VALUE</b>, que posee la caracter&iacute;stica de comenzar el indicador de elemeto de la lista en el valor que a nosotros nos interese.
+</p>
+
+<b>VALUE=“n&uacute;mero indicativo de lugar”</b>
+
+<p>
+Con este atributo (que debe de figurar en el &lt;LI&gt; que nos interese modificar), lo &uacute;nico que tenemos que hacer es color el n&uacute;mero indicativo de lugar en el que queremos que comience. Por ejemplo, con TYPE=“A” y el primer &lt;LI VALUE=5&gt;, el primer elemento comenzar&iacute;a en el quinto lugar del alfabeto, es decir por el elemento “E”. En el caso de que fuera una lista de tipo TYPE=“1” y el primer elemento tuviera un valor &lt;LI VALUE=5&gt;, el primer elemento comenzar&iacute;a con el &iacute;ndice “5”. Si la lista fuera de tipo TYPE=“I” (n&uacute;mero romanos), y el valor del primer elemento fuera &lt;LI VALUE=5&gt;, el primer elemento tendr&iacute;a un valor de “V” (lo mismo para los indices alfab&eacute;ticos y romanos en min&uacute;sculas).
+</p>
+
+<p>
+Otra forma de comenzar la lista por un valor que queremos nosotros predeterminado, es el de indicarlo con el atributo <b>START</b> en la directiva decomienzo de definici&oacute;n de la lista &lt;OL&gt;.
+</p>
+
+<b>START=“n&uacute;mero”</b>
+
+<p>
+Este atributo indica el &iacute;ndice num&eacute;rico en el que debe de comenzar la lista.
+</p>
+
+<p>
+<b>NOTA: la direfencia entre este atributo y el anterior VALUE, es que el atributo START s&oacute;lo se puede colocar al comienzo de una lista, y el atributo VALUE se puede indicar en cualquier elemento &lt;LI&gt; que queramos modificar.</b>
+</p>
+
+<p>
+Un ejemplo ser&iacute;a &lt;OL START=5 TYPE=i&gt;...&lt;/OL&gt;, que har&iacute;a que comenzara la lista en el valor 5 en n&uacute;meros romanos (es decir en “v”).
+</p>
+<br>
+
+<font  size=5><b>LISTAS DE DEFINICIONES</b></font>
+
+<p>
+O tambi&eacute;n conocidas como “glossary list” (listas de glosario). Se trata de una lista de 2 niveles: cada elemento se descompone en un nombre que ocupa la primera l&iacute;nea, y una definici&oacute;n que ocupa las siguiente.
+</p>
+
+<p>
+La lista est&aacute; delimitada por la directiva <b>&lt;DL&gt;...&lt;/DL&gt;</b> (definition list, lista de definici&oacute;n). En estas listas el elemento a definir debe de llevar la directiva <b>&lt;DT&gt;</b> en lugar de la &lt;LI&gt; anterio, y la definici&oacute;n de este elemento la directiva <b>&lt;DD&gt;</b>.
+</p>
+
+<p>
+En este tipo de listas poco m&aacute;s se puede añadir, ya que no hay atributos de ning&uacute;n tipo. Un ejemplo de este tipo de listas ser&iacute;a:
+</p>
+
+<p>
+&lt;DL&gt;<br>
+&lt;DT&gt;Coche<br>
+&lt;DD&gt; Veh&iacute;culo de 4 o m&aacute;s ruedas que sirve para desplazar cosas, personas o animales.<br>
+&lt;/DL&gt;
+</p>
+<br>
+
+<font  size=5><b>MENUS, LISTAS PLANAS</b></font>
+
+<p>
+Son la forma m&aacute;s sencilla, pero no resulta habitual encontrarlas. Esto se pude deber a que no es f&aacute;cil simularlas con p&aacute;rrafos y la directica &lt;QUOTE&gt;, y a que no todos los navegadores las interpretan correctamente.
+</p>
+
+<p>
+La lista se delimita con la directiva cerrada <b>&lt;MENU&gt;...&lt;/MENU&gt;</b> y cada elemento por <b>&lt;LI&gt;</b>. Un ejemplo de este tipo de lista podr&iacute;a ser:
+</p>
+
+<p>
+Los nueve planetas<br>
+&lt;MENU&gt;<br>
+&lt;LI&gt;Mercurio<br>
+&lt;LI&gt;Venus<br>
+&lt;LI&gt;Tierra<br>
+&lt;LI&gt;Marte<br>
+&lt;LI&gt;Jupiter<br>
+&lt;LI&gt;Saturno<br>
+&lt;LI&gt;Urano<br>
+&lt;LI&gt;Neptuno<br>
+&lt;LI&gt;Plut&oacute;n<br>
+&lt;/MENU&gt;
+</p>
+
+<p>
+(En este caso e interpretan igual que una lista del tipo &lt;UL&gt;...&lt;/UL&gt;)
+</p>
+<br>
+
+
+<font  size=5><b>DIRECTORIOS</b></font>
+
+<p>
+Es un tipo de lista poco frecuente que se delimita por la directiva cerada <b>&lt;DIR&gt;...&lt;/DIR&gt;</b>. Aqu&iacute; al contrario de lo que pasa en el resto de las directivas de trabajo con listas, los elementos no se distribuyen “verticalmente”, uno sobre otro, si no que se usan tabuladores para dsitribuirlas horizontalmente en la l&iacute;nea. Esto no quiere decir que todos los elementos se distribuyan en una sola l&iacute;nea, si no simplemente que se organizan en columnas y l&iacute;neas. El delimitador de la lista de cada elemento es <b>&lt;LI&gt;</b>, al igual que en las otras listas. Veamos un ejemplo:
+</p>
+
+<p>
+Los 15 de la UE<br>
+&lt;DIR&gt;<br>
+&lt;LI&gt;Alemania<br>
+&lt;LI&gt;Austria<br>
+&lt;LI&gt;B&eacute;lgica<br>
+&lt;LI&gt;Dinamarca<br>
+&lt;LI&gt;España<br>
+&lt;LI&gt;Francia<br>
+&lt;LI&gt;Finlandia<br>
+&lt;LI&gt;Grecia<br>
+&lt;LI&gt;Holanda<br>
+&lt;LI&gt;Irlanda<br>
+&lt;LI&gt;Italia<br>
+&lt;LI&gt;Luxemburgo
+&lt;LI&gt;Portugal<br>
+&lt;LI&gt;Reino U.<br>
+&lt;LI&gt;Suecia<br>
+&lt;/DIR&gt;
+</p>
+
+<p>
+Si el navegador lo interpreta bien se tendr&iacute;a:
+</p>
+
+
+Alemania&nbsp;&nbsp;&nbsp;&nbsp;Austria&nbsp;&nbsp;&nbsp;&nbsp;B&eacute;lgica&nbsp;&nbsp;&nbsp;&nbsp;Dinamarca&nbsp&nbsp;&nbsp;&nbsp;España&nbsp;&nbsp;&nbsp;&nbsp;Francia<br>
+Finlandia&nbsp;&nbsp;&nbsp;&nbsp;Grecia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Holanda&nbsp;&nbsp;&nbsp;Irlanda&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Italia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Luxemburgo<br>
+Portugal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reino U.&nbsp;Suecia
+
+<p>
+<b>NOTA: Ni todos los navegadores interpretan &lt;DIR&gt;...&lt;/DIR&gt;, ni los que lo hacen siguen el mismo criterio. Resulta frecuente encontrarse con que el efecto final es similar al de la directiva &lt;MENU&gt;...&lt;/MENU&gt;</b>
+</p>
+<br>
+
+<font  size=5><b>LISTAS DE VARIOS NIVELES</b></font>
+
+<p>
+Con mucha frecuencia se encuentran listas de varios niveles, o tambi&eacute;n denominadas “listas anidadas”, en los documentos. Adem&aacute;s es muy habitual que se mezclen tipos de listas.
+</p>
+
+<p>
+¿C&oacute;mo hacerlo?, s&oacute;lo hay que tener presente que un elemento de una lista puede ser cualquier otro elemento  HTML, por ejemplo otra lista. Este es un ejemplo de lista anidada:
+</p>
+
+<p>
+&lt;OL&gt;<br>
+&nbsp;&nbsp;&lt;LI&gt;UNO<br>
+&nbsp;&nbsp;&lt;LI&gt;DOS<br>
+&nbsp;&nbsp;&lt;LI&gt;TRES<br>
+<br>
+&nbsp;&nbsp;&nbsp;&lt;UL&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;LI&gt;CUATRO<br>
+&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;LI&gt;CINCO<br>
+&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;LI&gt;SEIS<br>
+&nbsp;&nbsp;&nbsp;&lt;/UL&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;DL&gt;<br>
+&nbsp;&nbsp;&lt;DT&gt;ELEMENTO&lt;DD&gt;&lt;DT&gt;TERM&lt;DD&gt;&lt;LI&gt;SIETE<br>
+&nbsp;&nbsp;&lt;DT&gt;ELEMENTO&lt;DD&gt;&lt;LI&gt;OCHO<br>
+&nbsp;&nbsp;&lt;DT&gt;ELEMENTO&lt;DD&gt;&lt;LI&gt;NUEVE<br>
+&nbsp;&nbsp;&lt;/DL&gt;<br>
+<br>
+&lt;LI&gt;DIEZ<br>
+&lt;/OL&gt;
+</p>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual07.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual09.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

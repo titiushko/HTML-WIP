@@ -1,0 +1,544 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Resumen de Comandos HTML (Aprender HTML)</title>
+</head>
+
+<body background="" bgcolor=#D9FEFF>
+<center>
+
+</center>
+<p>
+
+<h3><center><font face="ARIAL">Resumen de Comandos /1</h3>
+<h1>HTML</h1>
+<h4>Incluye HTML 3.2</h4></font></center></h1>
+</p>
+<tt><center>por: <a href=mailto:hielo_bq@geocities.com TITLe="Contacto Ahora...">L.J.Berdugo</a></tt>
+</center>
+<hr>
+<a name="8_1">
+<h3>Estructuras Basicas</h3><p>
+<ul type=square>
+<li><b>&lt;!-- ........ --&gt;</b><br>
+Para escribir comentarios, los cuales son ignorados por el Browser.<p>
+<li><b>&lt;HTML&gt; ... &lt;/HTML&gt;</b><br>
+Indica que es un documento HTML, debe encerrar todo el Documento.<p>
+<li><b>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN"&gt;</b><br>
+Encabezado de todo documento de la version HTML 3.2.<p>
+<li><b>&lt;HEAD&gt; ... &lt;/HEAD&gt;</b><br>
+Encabezados del Documento. Los siguientes son los parámetros del Comando <b>head</b>.<p>
+<Ol type=a>
+<li><b>&lt;title&gt; ... &lt;/title&gt;</b><br>
+Indica el Titulo del Documento. Aparece en la ventana del browser.<p>
+<li><b>&lt;Base href="http://servidor.tipo/nombre.html"&gt;</b><br>
+Especifica la dirección del Documento por defecto en Uso. Util cuando se hace referencia a otra página dentro del Documento.<p>
+<li><b>&lt;Base href="http://servidor.tipo/nombre.html" Target="..."&gt;</b><br>
+Indica el "Frame" por defecto de la página actual.<p>
+<li><b>&lt;Meta attributo1, attributo2&gt;</b><br>
+Este comando describe algunas caracteristicas del documento. Por ejemplo:<br><p>
+<b>&lt;Meta http-Equiv="Refresh" Content=ss&gt;</b>, actualiza la pagina cada <b>ss</b> segundos.<br>
+<b>&lt;Meta http-Equiv="Refresh" Content=ss url="http://servidor.tipo/nombre.html"&gt;</b>, Llama una página difrenete a los <b>ss</b> segundos.<p>
+<b>&lt;Meta http-Equiv="Expires" Content="Sun, 10 Sep 1998 06:23:00 GMT&gt;</b>, Expira el documento a la fecha indicada y debe ser actualizada.<p>
+<b>&lt;Meta http-Equiv="Keywords" Content="Clave1, Clave2,.."&gt;</b>,Especifica palabras claves para los buscadores de  la Red.<p>
+<b>&lt;Meta http-Equiv="Description" Content="Describa su página aquí .."&gt;</b>, especifica una descripción general de su página.<p>
+</ol>
+
+<li><b>&lt;BODY attributo1=".." attributo2=".."&gt; ... &lt;/BODY&gt;</b><br>
+Contiene el cuerpo del Documento, o el contenido de la Página.<br>
+<ol type=1><h4>Attributos</h4>
+<b><li> ALINK="..."</b> Especifica el color de las Direcciones activadas en la página.
+<b><li> BACKGROUND="..."</b> Especifica el papel tapiz de la página. un Archivo *.jpg o *.gif.
+<b><li> BGCOLOR="..."</b>Especifica el Color del Fondo del Documento.<br>
+Los colores son expresados en formato <b>RGB</b>(<b>R</b>ed, <b>G</b>reen,<b>B</b>lue), donde cada color tiene un valor desde el 0 (0) hasta el 255 (FF).<p>
+<ul type=Square>
+<li><font color=#FFFF00>Amarillo</font> = #FFFF00 
+<li><font color=#0000ff>Azul</font> = #0000FF
+<li><font color=#00ccff>Azul Claro</font> = #00CCFF
+<li><font color=#FFFFff>Blanco</font> = #FFFFFF
+<li><font color=#cc9999>Gris</font> = #CC9999
+<li><font color=#cc33ff>Lila</font> = #CC33FF
+<li><font color=#000000>Negro</font> = #000000
+<li><font color=#FF0000>Rojo</font> = #FF0000
+<li><font color=#00FF00>Verde</font> = #00FF00<p>
+</ul>
+<b><li> BGPROPERTIES=FIXED </b> Fija la imagen del Fondo para que no se desplace. (IE)
+<b><li> LEFTMARGIN="..."</b> Especifica el margen Izquierdo de todo el documento.(IE)
+<b><li> LINK="..."</b> Especifica el color de las direcciones contenidas en el documento.
+<b><li> TEXT="..."</b> Especifica el Color del texto.
+<b><li> TOPMARGIN="..."</b> Fija el margen superior de todo el Documento.(IE)
+<b><li> VLINK="..."</b> Especifica las direcciones visitadas, incluidas en el Documento.<p>
+</ol>
+
+<li><b>&lt;BASEFONT atributo= &quot; &quot;&gt;</b><br>
+Fija los atributos de escritura en toda la p&aacute;gina. <br>
+<ol type=1><h4>Atributos:</h4>
+<b><li>SIZE="..."</b> Fija el tama&ntilde;o de las Letras, se usa un n&uacute;mero entre 1 y 7 donde el 3 es el tama&ntilde;o por  omisi&oacute;n. Tambien permite tama&ntilde;os relativos, e.j. SIZE=+2 . 
+<b><li>COLOR="..."</b> Especifica el color de las Letras en todo el Documento. 
+<b><li>NAME="..."</b> Especifica el tipo de apariencia de la Letra en todo el Documento. 
+</ol><p>
+    
+<li><b>&lt;Hn&gt;...&lt; /Hn&gt;</b><br>
+Especifica un encabezado de texto de varios tama&ntilde;os, n indica los tama&ntilde;os de 1 a 6, 1 es el m&aacute;s grande y 6 es el m&aacute;s peque&ntilde;o.<p>
+    
+<li><b>&lt;ISINDEX&gt;</b><br>
+Muestra un di&aacute;logo de indice de busqueda. Con este comando solamente no se puede crear una pagina de busqueda, el Servidor debe ser configurado para soportarlo.<p>
+    
+<ol type=1><h4>Atributos:</h4>
+<b><li>ACTION="..."</b> Especifica la ubicaci&oacute;n del puerto del programa donde se pasar&aacute; los par&aacute;metros  de busqueda. 
+<b><li>PROMPT="..."</b> Especifica un mensaje alterno para el di&aacute;logo.<p>
+</ol>    
+</ul>        
+<a name="8_2">
+<h3>Formato General:</h3>
+<ul type=square>
+
+<li><b>&lt;ADDRESS&gt;.....&lt; /ADDRESS&gt;</b><br>
+Encierra el archivo de firma del autor de la página. El texto se muestra en Italicas. <p>
+
+<li><b>&lt;B&gt;...&lt; /B&gt;</b><br>
+Resalta en Negritas el Texto encerradot. <p>
+        
+<li><b>&lt;BIG&gt;...&lt; /BIG&gt;</b><br>
+Incrementa el tamaño del Texto. <p>
+    
+<li><b>&lt;BLINK&gt;.....&lt; /BLINK&gt;</b><br>
+    Hace el texto parapadeante. <p>
+    
+ <li><b>&lt;BLOCKQUOTE&gt;.....&lt; /BLOCKQUOTE&gt;</b><br>
+    Encierra un enfasis. El margen izquierdo y derecho están indentados. <p>
+    
+    <li><b>&lt;BR&gt;</b><br>
+Inserta un final de línea.    <p>
+
+ <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>CLEAR="..."</b>--Causa que el texto alrededor de la imagen se elimine.
+        Los valores posibles son: RIGHT, LEFT, o ALL.
+</ol><p>
+        
+    <li><b>&lt;CENTER&gt;.....&lt; /CENTER&gt;</b><br>
+Centra los objetos que contiene. Este comando puede centrar cualquier cosa incluyendo imagenes, texto, tablas, formularios, etc. <p>
+        
+<li><b>&lt;CITE&gt;.....&lt; /CITE&gt;</b><br>
+    Encierra una Cita como un titulode un libro,etc.<p>
+        
+    <li><b>&lt;CODE&gt;.....&lt; /CODE&gt;</b><br>
+    Encierra Codigo de ejemplo. El texto se muestra en letras pequeñas.<p>
+    
+    <li><b>&lt;COMMENT&gt;.....&lt; /COMMENT&gt;</b><br>
+    Define un comentario. Todo el texto es ignorado aun si incluye codigo HTML. <p>
+        
+    <li><b>&lt;DFN&gt;.....&lt; /DFN&gt;</b><br>
+    Encierra una definición. El texto dentro de este comando se formatea como una definición.<p>
+            
+    <li><b>&lt;DIV ALIGN="&gt;...&lt; /DIV&gt;</b><br>
+    Especifica el alineamiento de los elementos que contiene. Se puede usar para dividir el documento que tiene secciones alineadas en forma diferente.<p>
+    <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>ALIGN="..."</b>--Fija el alineaminto. Por ejemplo: "center", "right", o "left". 
+    </ol><p>
+    
+    <li><b>&lt;EM&gt;...&lt; /EM&gt;</b><br>
+    El texto se muestra en cursivas (Itálicas).<p>
+    
+    
+    <li><b>&lt;FONT atributo="&gt;...&lt; /FONT&gt;</b><br>
+    Fija las propiedades y el tipo de letra del texto que contiene.<p>
+    <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>SIZE="..."</b>--Fija el tamaño de las letras desde valores entre 1 y 7 donde 
+        3 es el valor por omisión. Se puede especificar valores relativos, ejemplo. SIZE=+3 . 
+        <li><b>COLOR="..."</b>--Especifica el color de las letras. 
+        <li><b>FACE="..."</b>--Especifica el tipo de letra. Se puede definir una lista separada por comas.
+Por ejemplo: Arial, Verdana, etc. 
+    </ol><p>
+
+    <li><b>&lt;HR atributo1="..." atributo2="..."&gt;</b><br>
+    Inserta una líea horizontal.<p>
+    <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>SIZE="..."</b>--Especifica el grosor de la línea.
+        <li><b>COLOR="..."</b>--Especifica el color de la línea.(IE) 
+        <li><b>WIDTH="..."</b>--Especifica la longitud de la línea como porcentaje de la página,
+        ejemplo. WIDTH=70% . 
+        <li><b>ALIGN="..."</b>--Especifica el alineamiento: RIGHT, LEFT, o CENTER. 
+        <li><b>NOSHADE</b>--Muestra la línea como sólido.
+    </ol><p>    
+    
+    <li><b>&lt;I&gt;...&lt; /I&gt;</b><br>
+    Presenta el texto encerrado como Itálicas.<p>
+    
+    <li><b>&lt;KBD&gt;...&lt; /KBD&gt;</b><br>
+    Especifica el texto a ser entrado por teclado. El texto se muestra en negritas y de tamaño fijo. <p>
+    
+    <li><b>&lt;LISTING&gt;.....&lt; /LISTING&gt;</b><br>
+    Muestra texto en tamaño fijo. Obsoleto -- se usa el comando PRE. <p>
+    
+    
+    <li><b>&lt;MULTICOL&gt;.....&lt; /MULTICOL&gt;</b><br>
+    Muestra un texto en columnas. <p>
+    <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>COLS="..."</b>--Especifica el numero de columnas.
+        <li><b>GUTTER="..."</b>--Especifica el numero de pixels entre columnas.
+        <li><b>WIDTH="..."</b>-- Especifica el ancho de las columnas. 
+</ol><p>
+
+    <li><b>&lt;NOBR&gt;.....&lt; /NOBR&gt;</b><br>
+    El texto que lo contiene no se trunca en la pantalla. <p>
+    
+    
+    <li><b>&lt;P atributo&gt;...&lt; /P&gt;</b><br>
+    Diseñado para encerrar texto de un parrafo. El cierre es opcional. <p>
+    <ol type=1><h4>Atributos:</h4>
+        
+       <li><b> ALIGN="..."</b>--Especifica el alineamiento del parrafo. Por ejemplo:"center", "left", o "right". 
+    </ol><p>
+
+    <li><b>&lt;PLAINTEXT&gt;.....&lt; /PLAINTEXT&gt;</b><br>
+    Muestra el texto sin formato aun cuando contenga comandos de HTML. 
+    Obsoleto -- Se usa el comando PRE. <p>
+    
+    
+    <li><b>&lt;PRE&gt;.....&lt; /PRE&gt;</b><br>
+    Muestra texto sin formato, sin eliminar espacios y saltos. <p>
+    
+    
+    <li><b>&lt;S&gt;.....&lt; /S&gt;</b><br>
+    Muestra el texto con una línea por el centro (tachado). Es diferente al comando &lt;STRIKE&gt;.<p>
+    
+    
+    <li><b>&lt;SAMP&gt;...&lt; /SAMP&gt;</b><br>
+Indica un ejemplo de salida para un formulario o programa. El texto se muestra en tamaño pequeño.<p>
+    
+    <li><b>&lt;SMALL&gt;...&lt; /SMALL&gt;</b><br>
+    Muestra el texto en tamaño pequeño. <p>
+    
+    
+    <li><b>&lt;SPACER atributo&gt;...&lt; /SPACER&gt;</b><br>(Netscape)
+   Inserta bloques de espacios en la página.<p>
+    <ol type=1><h4>Atributos:</h4>
+        
+        <li><b>ALIGN="..."</b>--Cuando el tipo es de Bloque (BLOCK) especifica el alineamiento del texto alrededor.<p>
+        <b>Valores:</b><p>
+         <ul type=square>   
+            <li><b>RIGHT o LEFT</b>--Alinea el bloque de espacios en el lado especificado,
+            y el texto se trunca alrededor del bloque.
+            <li><b>TOP, MIDDLE, BOTTOM, TEXTTOP, ABSMIDDLE, BASELINE, y
+            ABSBOTTOM</b>--Especifica el alineaminto vertical del bloque con cualquier elemento el la misma línea.
+          </ul>  
+            <li><b>HEIGHT="..."</b>--Cuando el tipo es BLOCK, especifica la altura del bloque. 
+        <li><b>SIZE="..."</b>--Cuando el tipo es HORIZONTAL, o VERTICAL, especifica el tamaño del espacio.
+        <li><b>TYPE="..."</b>--Especifica el tipo de espacio.<p>
+        <b>Valores:</b><p>
+            <ul type=square>
+            <li><b>HORIZONTAL</b>--Inserta espacios en blanco entre palabras.
+            <li><b>VERTICAL</b>--Inserta espacios entre dos líneas.
+            <li><b>BLOCK</b>--Inserta un bloque de espoacios rectangular, muchos usan el comando IMG. 
+            </ul>
+<li><b>WIDTH="..."</b>--Cuando el tipo es BLOCK, especifica el ancho del bloque. 
+</ol><p>
+
+    <li><b>&lt;STRONG&gt;...&lt; /STRONG&gt;</b><br>
+    Muestra el texto en negritas, resaltado.<p>
+
+
+    <li><b>&lt;SUB&gt;...&lt; /SUB&gt;</b><br>
+    Muestra el texto encerrado como un subindice.<p>
+
+
+    <li><b>&lt;SUP&gt;...&lt; /SUP&gt;</b><br>
+    Muestra el texto encerrado como superindice.<p>
+
+
+    <li><b>&lt;TT&gt;...&lt; /TT&gt;</b><br>
+    Muestra el texto en formato teletipo.<p>
+
+
+    <li><b>&lt;U&gt;...&lt; /U&gt;</b><br>
+    Muestra el texto subrayado. No use este comando puede confundir con una  dirección o Link.<p>
+
+
+    <li><b>&lt;VAR&gt;...&lt; /VAR&gt;</b><br>
+    Especifica una variable. Eltexto se muestra en letras pequeñas y de tamaño fijo.<p>
+
+
+    <li><b>&lt;WBR&gt;</b><br>
+    Hace que el texto que contiene, se trunque si es necesario.<p>
+
+
+    <li><b>&lt;XMP&gt;...&lt; /XMP&gt;</b><br>
+    Hace que el texto encerrado se muestre sin procesar los coamdos HTML que contenga.
+Obsoleto -- Se usa el comando PRE.<p>
+</ul><p>
+
+<a name="8_3">
+<h3>Multimedia:</h3>
+
+<ul type=scuare>
+&nbsp;
+<li><b>&lt;IMG atributo1 atributo2&gt;</b><br>
+Coloca una imagen el en documento.<p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>SRC="..."</b> Especifica la ubicaci&oacute;n de la Imagen. 
+<b><li>DYNSRC="..."</b> Especifica la ubicaci&oacute;n de un video o un mundo VRML. Se puede soportar una imagen usando el SRC de primero para aquellos Browser que no soportan Videos. (IE)
+<b><li>CONTROLS</b> Activa una serie de controles de Video. (IE) 
+<b><li>LOOP="n"</b> Para videos, especifica en n&uacute;mero de repetici&oacute;n del video. Un valor de &quot;-1&quot; o &quot;INFINITE&quot; repite el video indefinidamente. (IE) 
+<b><li>START="..."</b> Especifica el momento inicial de reproducci&oacute;n del video. Se puede usar &quot;FILEOPEN&quot; por omisi&oacute;n, "MOUSEOVER", o ambos. (IE) 
+<b><li>USEMAP="#map1"</b> Dice al Browser que use la imagen como una interface de selecci&oacute;n definida con el nombre de "map1". 
+<b><li>ISMAP</b>  Dice al Browser que la imagen es un mapa de Selecci&oacute;n. 
+<b><li>ALT="..."</b>  Especifica un texto que se muestra en los Browser que no soportan imagenes. 
+<b><li>BORDER="..."</b> Especifica el ancho del borde alrededor de la imagen.
+Si  BORDER es "0", No presenta bordes en la imagen.
+<b><li>LOWSRC="..."</b>--Especifica la Direeci&oacute;n de la imagen que se cargar&aacute; primero antes de que la imagen sea cargada. LOWSRC usualmente se refiere a una imagen pequeña. 
+<b><li>ALIGN="..."</b>--especifica el alineamiento de la imagen. <p>
+Valores:<p>
+<ul type=scuare>
+<b><li>RIGHT o LEFT</b>--Alinea a un lado especifico de la p&aacute;gina, y todo el texto  se justifica al lado de la imagen. 
+<b><li>TOP, MIDDLE, BOTTOM, TEXTTOP, ABSMIDDLE, BASELINE, y
+ABSBOTTOM</b>--Especifica el alineamiento vertical de la imagen. 
+</ul><p>
+<b><li>VSPACE="..."</b>--Especifica el espacio entre el borde de la imagen y los items encima o debajo de ella. 
+<b><li>HSPACE="..."</b>--Especifica el espacio entre el borde de la imagen y los items a la derecha e izquierda. 
+<b><li>WIDTH="..."</b>--Especifica el ancho de la imagen. Si el tama&ntilde;o no coincide con el original se ajusta. 
+<b><li>HEIGHT="..."</b>--Igual al anterior pero con la altura. 
+</ol><p>
+
+<li><b>&lt;MAP atributo&gt;...&lt; /MAP&gt; </b><br>
+Especifica los puntos de selecci&oacute;n de una imagen. El comando  AREA se usa para definir las coordenadas.<p> 
+<ol type=1><h4>Atributos:</h4>
+<b><li>NAME="..."</b>--Especifica el nombre del mapa para ser usado despu&eacute;s. 
+</ol><br>
+
+<b><li>&lt;AREA atributo1 atributo2&gt;...&lt; /AREA&gt;</b> <br>
+Especifica la silueta y el tamaño del area de selecci&oacute;n el el mapa que se muestra. Se usa dentro del comando MAP. <br>
+<ol type=1><h4>Atributos:</h4>
+<b><li>SHAPE="..."</b>--Especifica la Silueta del area de selecci&oacute;n. Los valores posibles son RECT, RECTANGLE, CIRC, CIRCLE, POLY, o POLYGON. 
+<b><li>COORDS="..."</b>--Especifica la coordenada de la silueta. 
+Dos pares de coordenadas indican un rectangulo, tres o mas pares definen un poligono, y un par de coordenadas y un radio define un Circulo. 
+<b><li>HREF="..."</b>--Especifica la direcci&oacute;n donde apunta el area del mapa. 
+<b><li>NOHREF--</b>Indica que esta silueta no apunta a una direcci&oacute;n. 
+<b><li>TARGET="..."</b>--Especifica la ventana donde se mostrará la p&aacute;gina. El target puede ser el nombre de un Frame o alguno de los siguientes valores: <p>
+<ul type=Square>           
+<li>"_blank"--Muestra la direcci&oacute;n en un  p&aacute;gina en blanco. 
+<li>"_parent"--Muestra la direcci&oacute;n en la pagina que lo invoc&oacute;.
+<li>"_self"--Muestra la direcci&oacute;n en la misma ventana. (por omisio&oacute;n) 
+<li>"_top"--Muestra la direcci&oacute;n en la ventana actual usnado todo el espacio. 
+</ul>
+</ol><p>
+
+<b><li>&lt;MAP atributo&gt;...&lt; /MAP&gt; </b><br>
+Especifica los puntos de selecci&oacute;n de una imagen. El comando AREA se usa para definir las coordenadas.<br> 
+<ol type=1>
+<h4>Atributos:</h4>
+<b><li>NAME="..."</b>--Especifica el nombre del mapa para ser usado despu&eacute;s. 
+</ol><br>
+<b><li>&lt;AREA atributo1 atributo2&gt;...&lt; /AREA&gt;</b> <br>
+Especifica la silueta y el tamaño del area de selecci&oacute;n el el mapa que se muestra. Se usa dentro del comando MAP. <br>
+<ol type=1><h4> Atributos:</h4>
+<b><li>SHAPE="..."</b>--Especifica la Silueta del area de selecci&oacute;n. Los valores posibles son RECT, RECTANGLE, CIRC, CIRCLE, POLY, o POLYGON. 
+<b><li>COORDS="..."</b>--Especifica la coordenada de la silueta. 
+Dos pares de coordenadas indican un rectangulo, tres o mas  pares definen un poligono, y un par de coordenadas y un radio define un Circulo. 
+<b><li>HREF="..."</b>--Especifica la direcci&oacute;n donde apunta el area del mapa. 
+<b><li>NOHREF</b>--Indica que esta silueta no apunta a una direcci&oacute;n. 
+<b><li>TARGET="..."</b>--Especifica la ventana donde se mostrará la p&aacute;gina. El target puede ser el nombre de un Frame o alguno de los siguientes valores: <br>
+<ul type=Square>                       
+<li> "_blank"--Muestra la direcci&oacute;n en un  p&aacute;gina en blanco. 
+<li> "_parent"--Muestra la direcci&oacute;n en la pagina que lo invoc&oacute;.
+<li>"_self"--Muestra la direcci&oacute;n en la misma ventana. (por omisio&oacute;n) 
+<li>"_top"--Muestra la direcci&oacute;n en la ventana actual usnado todo el espacio. 
+</ul>
+</ol><p>
+
+<b><li>&lt;BGSOUND atributo1 atributo2&gt; (IE)</b><br>
+Reproduce un archivo de sonidos en el fondo cuando la p&aacute;gina es cargada.
+Este archivo de sonido puede ser de tipo (.wav or .au) o midi (.mid).<br>
+<ol type=1><h4>Atributos:</h4>
+<b><li>SRC="..."</b>-- indica el archivo de musica. 
+<b><li>LOOP="n"</b>-- Indica el numero de veces que se repite. Un valor de "-1" o "INFINITE" indica una reproducci&oacute;n sin interrupci&oacute;n. 
+</ol><br>
+
+<b><li>&lt;MARQUEE atributo1 atributo2&gt;...&lt; /MARQUEE&gt; (IE)</b><br>
+Fija un texto que se desplaza por la pantalla.<br>
+<ol type=1><h4>Atributos:</h4>
+<b><li> ALIGN="..."</b>-- Especifica el alineaminto del texto. Loa valores posibles son "TOP", "MIDDLE", o "BOTTOM". 
+<b><li>BEHAVIOR="..."</b>--Indica la forma de presentaci&oacute;n "SCROLL" (omisi&oacute;n), "SLIDE", o  "ALTERNATE".  "SLIDE" hace que el texto se desplaze afuera y adentro , "ALTERNATE" muestra el texto adelante y atras repetidamente. 
+<b><li>BGCOLOR="..."</b>-- Fija el color de fondo. 
+<b><li>DIRECTION="..."</b>--Indica la Direcci&oacute;n "LEFT" (omisi&oacute;n) o "RIGHT". 
+<b><li>HEIGHT="..."</b>-- Fija la altura del texto en Pixels o %. 
+<b><li> HSPACE="n"</b>--Fija el margen en espacios a la derecha e izquierda del texto. 
+<b><li>LOOP="n"</b>-- Fija el numero de repeticiones. Un valor de  "-1" o "INFINITE" repite indefinidamente. 
+<b><li>SCROLLAMOUNT="n"</b>-- Fija el Numero de pixel entre cada display. 
+<b><li>SCROLLDELAY="n"</b>--Indica el tiempo de espera para mostrar cada texto. 
+<b><li>VSPACE="n"</b>-- Fija el margen superior e inferior del texto. 
+<b><li>WIDTH="..."</b>-- Fija el ancho del Marquee en pixels o %. 
+</ol><p>            
+    
+<b><li>&lt;APPLET atributo1 atributo2&gt; parametros1 parametros2 ... &lt; /APPLET&gt; </b><br>
+Inserta un applet de Java en el documento. Cualquier texto dentro del comando APPLET se mostrar&aacute; en los browser que no soportan JAVA.<br>
+<ol type=1><h4>Atributos:</h4>
+<b><li> ALIGN="..."</b>-- Fija el alineamiento del applet, los parametros son "LEFT", "RIGHT", "TOP", "MIDDLE", o "BOTTOM". 
+<b><li> ALT="..."</b>--Muestra un mensaje cuando el brwoser no puede ejecutar el applet. 
+<b><li>CODE="..."</b>--Especifica el nombre del applet. 
+<b><li>CODEBASE="..."</b>--Especifica la direcci&oacute;n de inicio del applet. El directorio donde se encuentra el applet.
+<b><li>DOWNLOAD=n</b>--Especifica el orden de descarga de la imagenes. 
+<b><li>HIGHT="..."</b>--Especifica la altura del applet en pixels o %.
+<b><li>HSPACE="n"</b>--Especifica los margenes en espacios fuera del applet en pixels. 
+<b><li>NAME="..."</b>-- Indica el nombre de un applet (rutina), si hay mas applets en una misma p&aacute;gina. 
+<b><li>VSPACE="n"</b>--Especifica el margen superio e inferior del applet. 
+<b><li>WIDTH="..."</b>--Fija el ancho del applet en pixel o en %. <p>
+<ul type=Square><b>Parametros:</b><br>
+Estos son los parametros especificaos de cada applet, que son pasasdos como argumentos. Se expresan como comandos as&iacute;<p> 
+<b><li>&lt;PARAM NAME="..." VALUE="..." &gt; </b>
+</ul>
+</ol><p>
+  
+<b><li>&lt;EMBED atributo1 atributo2&gt;&lt; /EMBED&gt; </b><br>
+Inserta un objeto multimedia, como un corto de video o sonido, en la p&aacute;gina.  En los browser modernos se mantiene por compatibilidad. <br>
+<ol type=1><h4>Atributos:</h4>
+<b><li> AUTOSTART="..."</b>--Especifica si iniciar la ejecución o No."TRUE" o "FALSE". 
+<b><li>HIGHT="..."</b>-- Especifica el tama&ntilde; en pixels o %.
+<b><li>LOOP="..."</b>-- Fija el numero de repeticiones. Los valores son  "TRUE" o "FALSE". 
+<b><li> NAME="..."</b>-- Indica el nombre del Objeto, en caso de haber otros en la p&aacute;gina. 
+<b><li> SRC="..."</b>-- Indica la ubicaci&oacute;n del archivo. 
+<b><li> WIDTH="..."</b>--Especifica el ancho donde se mostrar&aacute; el objeto. <p>
+</ol> 
+
+<b><li>&lt;SCRIPT atributo&gt;&nbsp;...sentencias script ...&nbsp;&lt; /SCRIPT&gt; </b><br>
+Encierra el codigo de programaci&oacute;n que se ejecuta en la pagina. Para matener compatibilidad los comandos est&aacute;n marcados como cometarios, <b>(&lt;!-- comandos script... --&gt;)</b></p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>LANGUAGE="..."</b>--Especifica el elnguaje usado en el script, como "VBScript" Visual Basic Script  o "JavaScript" Java Script.
+b><li>SRC="..."</b>-- Indica la ubicaci&oacute;n del archivo que contiene un script.  <br>
+Se usa si ud. no quiere tener el codigo de programación en la página. 
+<p></ol>
+
+<b><li>&lt;NOSCRIPT&gt;&nbsp;...&nbsp;&lt; /NOSCRIPT&gt; </b><br>
+Muestra todo lo que quiera diferente a codigo de programación. 
+Este comando va dentro del comando SCRIPT.<p>
+</ul>     
+<a name="8_4">
+<h3>Direcciones (Links):</h3><p>
+
+<ul type=square>
+<b><li>&lt;A atributo="..."&gt;...&lt; /A&gt;</B><br>
+Cuando se usa con el atributo HREF, el texto o la grafica apunta a otro documento o función. Cuando se usa el atributo NAME, el texto o la grafica identifica el nombre del documento. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>HREF="..."</b>--Especifica la URL (ubicación)  al documento señalado. 
+<b><li>NAME="..."</b>--Especifica el nombre del encadenamiento. 
+onClick="-- Especifica un codigo script cunado se hace click con el mouse. 
+onMouseOver="--Activa un codigo script cuando el mouse está sobre el link. 
+<b><li> REL="..."</b>-- Especifica una relación Directa.
+<b><li>REV="..."</b>--Especifica una relación Inversa. 
+<b><li>TARGET="..."</b>--Especifica la ventana donde se mostrará la página. El contenido puede ser el nombre de un Frame pre-definido o alguno como sigue: <p>
+<b>Valores:</b><p>
+<ul type=Square>        
+<b><li>"_blank"</b>--Carga la página en una ventana en blanco. 
+<b><li>"_parent"</b>--Craga la página en la ventana del documento que lo llamó. 
+<b><li>"_self"</b>--Carga la página en la misma ventana. (Omisión) 
+<b><li>"_top"</b>--Carga la página en toda la ventana, sin importar el frame. 
+</ul><br>
+<b><li> TITLE="..."</b>--Especifica una leyenda que aparece cuando se ubica sobre el link, pero que aun no se ha seleccionado.<p>
+</ol>
+</ul>         
+<a name="8_5">
+<h3>Listas (Lists:):</h3><p>
+
+<ul type=square>
+<b><li>&lt;LI atributo&gt;</b><br>
+Este comando enumera los parrafos como una lista de palabras usando los siguientes sub-comandos:
+ &lt;DIR&gt;,&lt;MENU&gt;, &lt;OL&gt;, o &lt;UL&gt;. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>TYPE="..."</b><p>--Especifica el tipo de indicador de la lista. 
+Los valores mas comunes son: DISC, CIRCLE, SQUARE, A, a, I, i, 1. </p>
+<b><li>VALUE="..."</b>--Especifica el valor asignado a un item. 
+</ol>    
+<p>
+
+<b><li>&lt;DIR&gt;...&lt; /DIR&gt;</b><br>
+Convierte el texto encerrado por &lt;LI&gt;, en una lista de directorio. <p>
+
+<b><li> &lt;MENU&gt;...&lt; /MENU&gt;</b><br>
+Convierte el texto encerrado por &lt;LI&gt;, en una lista de menus. <p>
+    
+<b><li>&lt;OL atributo&gt;...&lt; /OL&gt;</b><br>
+Convierte al texto encerrado por &lt;LI&gt;, en una lista numerada. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>TYPE="..."</b>--Especifica el tipo de numeracion para el indicador. 
+Un tipo de indicador sería: A, a, I, i, 1. 
+<b><li>START="..."</b>--Especifica el valor inicial de la numeración. 
+</ol>
+    
+<b><li>&lt;UL atributo&gt;...&lt; /UL&gt;</b><br>
+Convierte el texto encerrado por &lt;LI&gt;, en una lista indicada. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>TYPE="..."</b>--Especifica el tipo de indicador para la lista. 
+Los valores comunes son: DISC, CIRCLE, SQUARE. <p>
+</ol>
+
+<b><li>&lt;DL&gt;...&lt; /DL&gt;</b><br>
+Crea una lista definida. Donde, &lt;DT&gt; especifica  un termino de la lista y &lt;DD&gt; especifica el contenido del termino. <p>
+</ul>
+<a name="8_6">
+<h3>Particiones de Ventanas (Frames):</h3><P>
+
+<ul type=square>
+<b><li>&lt;FRAMESET atributo1="..." atributo2="..."&gt;...&lt; /FRAMESET&gt;</b><br>
+Define una serie de ventanas que forman una página. Los comandos FRAME, y NOFRAMES van dentro de FRAMESET. El comando FRAMESET se usa como el comando BODY.<br>
+Se puede incluir un comando BODY dentro del comando NOFRAMES para aquellos browser que no soportan frames. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li> BORDER="..."</b>--Indica el ancho (en pixels) del borde alrededor del frame.(Netscape)
+<b><li>COLS="..."</b>--Crea el frame como columnas y fija el tamaño de cada columna. 
+El ancho se puede expresar en %, pixels, o en tamaño relativo (*). Por ejemplo, Si usted queire 3 frames de igual tamaño en forma de columna  use el atributo COL así: COLS=33%,33%,* 
+<b><li>FRAMEBORDER="..."</b>--Especifica si se muestra el borde del frame en 3D o No.
+Los valores comunes son; 0 (sin borde) o 1 (Omisión).(IE)
+<b><li>FRAMESPACING="..."</b>--Especifica la separación en pixels entre frames. 
+<b><li>ROWS="..."</b>--Al igual que COLS especifica frames en forma de filas.<br>
+Por ejemplo, si desea un pequeño frame arriba de la página y uno grande debajo el atributo ROWS sería: ROWS=15%,* 
+<b><li>SCROLLING="..."</b>--Indica si los frames llevan barra de desplazamiento. <br>
+Los valores mas comunes son "yes", "no", y "auto". 
+<p></ol>    
+    
+<b><li>&lt;FRAME atributo1="..." atributo2="..."&gt;</b><br>
+Define un frame simple. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>BORDER="..."</b>--Especifica el ancho en pixels del borde alrededor del frame.(Netscape)
+<b><li>FRAMEBORDER="..."</b>--Especifica si se muestra el borde del frame en 3D o No.
+Los valores comunes son; 0 (sin borde) o 1 (Omisión).(IE)
+<b><li>MARGINHEIGHT="..."</b>--Especifica los margenes superior e inferior. 
+<b><li>MARGINWIDTH="..."</b>--Especifica el margen izquierdo y derecho. 
+<b><li>NAME="..."</b>--Asigna un nombre al frame. 
+<b><li>NORESIZE</b>--Impide que el usuario cambie el tamaño. 
+<b><li>SCROLLING="..."</b>--Indica si los frames llevan barra de desplazamiento. 
+Los valores mas comunes son "yes", "no", y "auto". 
+<b><li>SRC="..."</b>--Indica el archivo que contiene el frame. 
+</ol><p>
+
+<b><li>&lt;IFRAME atributo1="..." atributo2="..."&gt;&lt; /IFRAME&gt; (IE)</b><br>
+Define un frame eventual. No necesita el comando FRAMESET. <p>
+<ol type=1><h4>Atributos:</h4>
+<b><li>ALIGN="..."</b>--Especifica la posicion del texto alrededor del frame.
+Los valores posibles son TOP, MIDDLE, BOTTOM, LEFT, y RIGHT. 
+<b><li>FRAMEBORDER="..."</b>--Especifica si se muestra el borde del frame en 3D o No.
+Los valores comunes son; 0 (sin borde) o 1 (Omisión).(IE)
+<b><li>HEIGHT="..."</b>--Especifica la altura del frame eventual. 
+<b><li>MARGINHEIGHT="..."</b>--Especifica los margenes superior e inferior. 
+<b><li>MARGINWIDTH="..."</b>--Especifica el margen izquierdo y derecho. 
+<b><li>NAME="..."</b>--Asigna un nombre al frame. 
+<b><li>NORESIZE</b>--Impide que el usuario cambie el tamaño. 
+<b><li>SCROLLING="..."</b>--Indica si los frames llevan barra de desplazamiento. 
+Los valores mas comunes son "yes", "no", y "auto". 
+<b><li>SRC="..."</b>--Indica el archivo que contiene el frame. 
+<b><li>WIDTH="..."</b>--Especifica el ancho del frame eventual. 
+</ol><p>
+<b><li>&lt;NOFRAMES&gt;...&lt; /NOFRAMES&gt;</b><br>
+Se utiliza dentro de FRAMESET, cualquier objeto dentro de este comando se ve solo en browsers que no soportan frames.<p>
+</ul>
+<hr>
+<center>
+<b>This page hosted by <a href=/><img src= /pictures/gc_icon.gif  border=0 align=middle></a>
+Get your own <a href=/>Free Home Page</a></b></center>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Formato de las URL </TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>2 - Formato de las URL</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Definici&oacute;n</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>URL</B> es el acr&oacute;nimo de <I>(<FONT SIZE=+1>U</FONT>niform
+<FONT SIZE=+1>R</FONT>esource <FONT SIZE=+1>L</FONT>ocator)</I>, localizador
+uniforme de recursos y permite localizar o acceder de forma sencilla cualquier
+recurso de la red desde el navegador de la WWW. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Con la WWW se pretende unificar el acceso
+a informaci&oacute;n de servicios que antes eran incompatibles entre s&iacute;,
+tratando de conseguir que todos los servicios de internet sean accesibles
+a trav&eacute;s de la WWW, de esta forma desde un mismo programa se puede
+tener acceso a todos los recursos de una forma uniforme y permite que los
+documentos HTML incluyan enlaces a otras fuentes de informaci&oacute;n
+en servicios como FTP, gopher, WAIS, etc ... <A NAME="a2"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Uso y Formato</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las <B>URL</B> se utilizar&aacute;n para
+definir el documento de destino de los hiperenlaces, para referenciar los
+gr&aacute;ficos y cualquier otro fichero que se desee incluir dentro de
+un documento HTML. Cada elemento de internet tendr&aacute; una <B>URL</B>
+que lo defina, ya se encuentre en un servidor de la WWW, FTP, gopher o
+las News. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El formato de una <B>URL</B> ser&aacute;:
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>servicio://maquina.dominio:puerto/camino/fichero</FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El <B><FONT SIZE=+1>servicio</FONT></B>
+ser&aacute; alguno de los de internet, estos pueden ser: </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>http:</FONT></B><I> (HyperText
+Transport Protocol)</I>, es el protocolo utilizado para transmitir hipertexto.
+Todas las p&aacute;ginas HTML en servidores WWW deber&aacute;n ser referenciadas
+mediante este servicio. Indicar&aacute; conexi&oacute;n a un servidor de
+la WWW. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>https:</FONT></B><I>
+(HyperText Transport Protocol Secure)</I>, es el protocolo para la conexi&oacute;n
+a servidores de la WWW seguros. Estos servidores son normalmente de &aacute;mbito
+comercial y utilizan encriptaci&oacute;n para evitar la intercepci&oacute;n
+de los datos enviados, usualmente numeros de tarjeta de credito, datos
+personales, etc ..., realizar&aacute; una conexi&oacute;n a un servidor
+de la WWW seguro. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>ftp:</FONT></B> <I>(File
+Transfer Protocol)</I>, utilizar&aacute; el protocolo FTP de transferencia
+de ficheros. Se utilizar&aacute; cuando la informaci&oacute;n que se desee
+acceder se encuentre en un servidor de ftp. Por defecto se acceder&aacute;
+a un servidor an&oacute;nimo <I>(anonymous)</I>, si se desea indicar el
+nombre de usuario se usar&aacute;: <I>ftp://maquina.dominio@usuario</I>,
+y luego le pedir&aacute; la clave de acceso. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>gopher, wais:</FONT></B>
+Cualquiera de estos servicios de localizaci&oacute;n de informaci&oacute;n,
+se indicar&aacute; el directorio para localizar el recurso concreto. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>news</FONT></B>: Accede
+al servicio de news, para ello el visualizador de la WWW debe ser capaz
+de presentar este servicio, todos no lo son. Se indicar&aacute; el servidor
+de news y como camino el grupo de noticias al que se desea acceder: <I><FONT COLOR="#008200">news://news.cica.es/uca.es</FONT></I>.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>telnet:</FONT></B> Emulaci&oacute;n
+de terminal remota, para conectarse a maquina multiusuario, se utiliza
+para acceder a cuentas p&uacute;blicas como por ejemplo la de biblioteca.
+Lo normal es llamar a una aplicaci&oacute;n externa que realice la conexi&oacute;n.
+En este caso se indicar&aacute; la maquina y el login: <I>telnet://maquina.dominio@login</I>.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT SIZE=+1>mailto:</FONT></B> Se
+utilizar&aacute; para enviar correo electr&oacute;nico, todos los navegadores
+no son capaces. En este caso solo se indicar&aacute; la direcci&oacute;n
+de correo electr&oacute;nico del destino: <I>mailto://alias. correo@domino</I>.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La <B><FONT SIZE=+1>maquina.dominio</FONT></B>
+indicar&aacute; el servidor que nos proporciona el recurso, en este caso
+se utilizar&aacute; el esquema IP para identificar la maquina ser&aacute;
+el nombre de la maquina y el dominio. En el caso de nuestra Universidad
+el dominio siempre ser&aacute; <B>uca.es</B>. Por tanto un nombre valido
+de maquina ser&aacute; <B>www2.uca.es</B>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es muy importante indicar siempre el dominio,
+ya que debemos suponer que se conectar&aacute;n a nuestras p&aacute;ginas
+desde servidores externos a nuestra red local por tanto si no indicamos
+el dominio las URL que especifiquemos no podr&iacute;an ser seguidas por
+los navegadores externos. Si en vez de www2.uca.es utilizamos www2 ser&aacute;
+perfectamente accesible por cualquier maquina de nuestra red local pero
+si se referenciara desde una red con distinto dominio la maquina www2 ser&aacute;
+la maquina llamada as&iacute; en el dominio remoto si existiera, que no
+es la que deseamos referenciar. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El <B><FONT SIZE=+1>puerto</FONT></B>
+<B><FONT SIZE=+1>TCP</FONT></B> es opcional y lo normal es no ponerlo si
+el puerto es el mismo que se utiliza normalmente por el servicio. Solo
+se utilizar&aacute; cuando el servidor utilice un puerto distinto al puerto
+por defecto. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El <B><FONT SIZE=+1>camino</FONT></B>
+ser&aacute; la ruta de directorios que hay que seguir para encontrar el
+documento que se desea referenciar. para separar los subdirectorios utilizaremos
+la barra de UNIX <B>/</B>, se usa por convenio al ser este tipo de maquinas
+las m&aacute;s usadas como servidores. El nombre de los subdirectorios
+y del fichero referenciado puede ser de m&aacute;s de ocho caracteres y
+se tendr&aacute; en cuenta la diferencia entre may&uacute;sculas y min&uacute;sculas
+en el nombre. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La extensi&oacute;n de los ficheros ser&aacute;
+tambi&eacute;n algo importante, ya que por ella sabe el servidor el tipo
+de documento que se accede e indica al cliente (navegador) el modo en que
+debe tratarse ese documento. Para definir los tipos de documentos se utiliza
+los tipos MIME. Las extensiones m&aacute;s normales con sus tipos correspondientes
+son: </P>
+
+<DL>
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Tipo MIME</TH>
+
+<TH>Extensi&oacute;n</TH>
+
+<TH>Tipo de fichero </TH>
+</TR>
+
+<TR>
+<TD>text/html </TD>
+
+<TD>html &oacute; .htm, </TD>
+
+<TD>documento HTML </TD>
+</TR>
+
+<TR>
+<TD>text/plain </TD>
+
+<TD>.txt</TD>
+
+<TD>por defecto, texto plano </TD>
+</TR>
+
+<TR>
+<TD>image/gif </TD>
+
+<TD>.gif </TD>
+
+<TD>imagen de formato GIF </TD>
+</TR>
+
+<TR>
+<TD>image/jpeg </TD>
+
+<TD>jpg &oacute; .jpeg </TD>
+
+<TD>imagen de formato JPEG </TD>
+</TR>
+</TABLE>
+</DL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El navegador de la WWW, realiza una acci&oacute;n
+para cada tipo de fichero, solo los que sean del tipo text/html ser&aacute;n
+mostrados como documentos HTML. En el caso de que el tipo no sea conocido
+por el cliente se considerar&aacute; por defecto como un documento de texto
+normal. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si no se indica un fichero y solo referenciamos
+un directorio accederemos a la p&aacute;gina html por defecto de ese directorio.
+En el servidor est&aacute;n definidos unos ficheros para ser usados si
+no de indica un fichero concreto, el nombre que debe tener este fichero
+es en nuestro caso <I>default.htm</I> &oacute; <I>default.html</I>. En
+caso que no exista este fichero se mostrar&aacute; un listado de todos
+los documentos que forman el directorio. Este fichero es la p&aacute;gina
+inicial (<I>home page</I>) del servidor o del espacio Web. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algunos ejemplos de URL podr&iacute;an
+ser: </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>URL</TH>
+
+<TH>Definici&oacute;n </TH>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">http://www.uca.es</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso solo se indica el
+servicio y la maquina y dominio. El resto de los par&aacute;metros se toman
+por defecto, el puerto 80, el directorio, el ra&iacute;z del servidor y
+el documento por defecto de ese directorio. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">http://www.uca.es/internet/internet.html</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Esta URL est&aacute; m&aacute;s
+completa en este caso se accede al fichero internet.html que se encuentra
+en el directorio internet del servidor de la WWW, www.uca.es. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">http://www2.uca.es/serv/sii</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se acceder&aacute; al fichero por
+defecto del directorio /serv/sii del servidor de la WWW, www2.uca.es </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">ftp://ftp.uca.es/imagenes/globo.gif</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso se acceder&aacute;
+a un servidor de FTP an&oacute;nimo, ftp.uca.es por el protocolo FTP y
+se acceder&aacute; al fichero globo.gif del directorio de imagenes. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">news:uca.es</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso se acceder&aacute;
+al grupo de news de la uca en el servidor de news definido por defecto
+en el navegador de la WWW, esta opci&oacute;n solo es soportada por los
+navegadores m&aacute;s modernos. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD align=middle><FONT COLOR="#008200">mailto://www-team@uca.es</FONT></TD>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Enviar&aacute; un mail al equipo
+de la WWW de la UCA, esta opci&oacute;n solo es soportada por los navegadores
+m&aacute;s modernos. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585><FONT COLOR="#008200"><FONT SIZE=-1>
+</FONT></FONT></P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A><FONT COLOR="#008200"><FONT SIZE=-1>
+<A HREF="etiquet.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="etiquet.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="dochtml.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="dochtml.htm">Siguiente</A>
+</FONT></FONT></P></CENTER>
+
+</BODY>
+</HTML>

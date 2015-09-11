@@ -1,0 +1,269 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 5 (7/13)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La séptima parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 5 (7/13)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La séptima parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-10-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/5/7" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="6.htm" tppabs="http://html.conclase.net/tutorial/html/5/6" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Hojas de Estilo en Cascada, CSS1 (VII)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/5/6">anterior</a> | <a href="8.htm" tppabs="http://html.conclase.net/tutorial/html/5/8">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- El siguiente grupo son las <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#propiedades-de-fuente'" tppabs="http://html.conclase.net/w3c/css1-es.html#propiedades-de-fuente">propiedades de color y fondo</a>, y son las siguientes:</p>
+<ul class="p">
+<li><code>color</code>: color del texto</li>
+<li><code>background-color</code>: color del fondo</li>
+<li><code>background-image</code>: imagen de fondo</li>
+<li><code>background-repeat</code>: patrón de repetición de la imagen de fondo (si se repite, y cómo se repite)</li>
+<li><code>background-attachment</code>: imagen fija o desplazable</li>
+<li><code>background-position</code>: posición de la imagen de fondo</li>
+<li><code>background</code>: propiedad abreviada para las propiedades de fondo.</li>
+</ul>
+<p class="p">La propiedad <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#color'" tppabs="http://html.conclase.net/w3c/css1-es.html#color"><code>color</code></a> es sencilla. Todas estas reglas significan lo mismo:</p>
+<pre class="p"><code>color : red;
+color : rgb(255,0,0);
+color : rgb(100%,0,0);
+color : #ff0000;
+color : #f00;</code></pre>
+<p class="a">- ¿Todo eso significa lo mismo?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí. Como ves hay cinco maneras de especificar un color en <abbr>CSS</abbr>:</p>
+<ol class="p">
+<li>Usando uno de los nombres de color predefinidos por <abbr>CSS1</abbr>: <code>aqua</code> (celeste), <code>black</code> (negro), <code>blue</code> (azul), <code>fuchsia</code> (fucsia), <code>gray</code> (gris), <code>green</code> (verde), <code>lime</code> (verde lima), <code>maroon</code> (marrón), <code>navy</code> (azul marino), <code>olive</code> (verde oliva), <code>purple</code> (púrpura), <code>red</code> (rojo), <code>silver</code> (gris claro), <code>teal</code> (verde azulado), <code>white</code> (blanco) y <code>yellow</code> (amarillo).</li>
+<li>Especificando las componentes <abbr title="Red-Green-Blue" xml:lang="en">RGB</abbr> (rojo, verde y azul) del color, de acuerdo a alguna de las cuatro notaciones siguientes:
+<ul>
+<li><code>#rrggbb</code>, en hexadecimal, cada componente de <code>00</code> a <code>FF</code>. Por ejemplo <code>#4f6ac9 = RGB(4*16+15,6*16+10,12*16+9) = RGB(79,106,201)</code></li>
+<li><code>#rgb</code> en hexadecimal. Por ejemplo <code>#369 = #336699 = RGB(51,102,153)</code></li>
+<li><code>RGB(R,G,B)</code> en decimal, cada componente de 0 a 255. Por ejemplo, <code>RGB(255,255,255)</code>=blanco, <code>RGB(0,0,0)</code>=negro, <code>RGB(0,0,255)</code>=azul</li>
+<li><code>RGB(R%,G%,B%)</code> en porcentajes. Por ejemplo, <code>RGB(0,100%,0)</code>=verde</li>
+</ul></li>
+</ol>
+<p class="a">- ¡Uf, es un poco lío!</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, ya le irás pillando el truco. Vamos con las propiedades de fondo. El color de fondo se especifica con <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background-color'" tppabs="http://html.conclase.net/w3c/css1-es.html#background-color"><code>background-color</code></a> y es igual que antes:</p>
+<pre class="p"><code>background-color : valor de color</code></pre>
+<p class="p">También puede tomar el valor:</p>
+<pre class="p"><code>background-color : transparent</code></pre>
+<p class="p">o sea, ningún valor, que es el valor por defecto. Por ejemplo:</p>
+<pre class="p"><code>P { background-color : #ff0 }</code></pre>
+<p class="a">- Veamos, eso sería <code>#ffff00</code>, máximo rojo, máximo verde, mínimo azul... mmm, no sé...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Amarillo puro.</p>
+<p class="a">- Ah.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Venga, esto deberías entenderlo, léete los <a href="../2/6.htm" tppabs="http://html.conclase.net/tutorial/html/2/6">artículos que te recomendé</a> en el segundo tutorial.</p>
+<p class="a">- Bueeeno, vaaale.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Seguimos. <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background-image'" tppabs="http://html.conclase.net/w3c/css1-es.html#background-image"><code>background-image</code></a> permite especificar una imagen de fondo. Conviene especificar al mismo tiempo una imagen de fondo y un color de fondo, por si no se puede cargar la imagen:</p>
+<pre class="p"><code>body { background-image : url(ajedrez.gif) ; background-color : white }</code></pre>
+<p class="p">El valor por defecto es <code>none</code>, ningún fondo:</p>
+<pre class="p"><code>p { background-image : none }</code></pre>
+<p class="a">- Muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Con <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background-repeat'" tppabs="http://html.conclase.net/w3c/css1-es.html#background-repeat"><code>background-repeat</code></a> decimos si la imagen de fondo se repite, y cómo lo hace. Los valores que puede tomar son:</p>
+<ul class="p">
+<li><code>repeat</code>: repetir horizontal y verticalmente</li>
+<li><code>repeat-x</code>: repetir horizontalmente</li>
+<li><code>repeat-y</code>: repetir verticalmente</li>
+<li><code>no-repeat</code>: no repetir</li>
+</ul>
+<p class="a">- Está claro...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Por ejemplo:</p>
+<pre class="p"><code>body {
+ background-image : url(ajedrez.gif);
+ background-color : white;
+ background-repeat : repeat
+}</code></pre>
+<p class="a">- Muy bonito.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background-attachment'" tppabs="http://html.conclase.net/w3c/css1-es.html#background-attachment"><code>background-attachment</code></a> dice si la imagen está pegada al fondo, o si se mueve con el resto de los contenidos. En el primer caso el valor es <code>fixed</code>, en el segundo caso es <code>scroll</code>:</p>
+<pre class="p"><code>body {
+ background-image : url(ajedrez.gif);
+ background-color : white;
+ background-repeat : repeat;
+ background-attachment : fixed;
+}</code></pre>
+<p class="a">- Ya me lo estoy imaginando...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Y <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background-position'" tppabs="http://html.conclase.net/w3c/css1-es.html#background-position"><code>background-position</code></a> dice la posición inicial de la imagen de fondo. Son dos valores, y hay varias maneras de especificarlos, pero es un poco difícil de explicar. Lo mejor es que lo leas en la especificación. Si no lo entiendes no te preocupes, no es normal utilizar esto.</p>
+<p class="a">- Muy bien, allí lo leeré.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Vale. Por último, <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#background'" tppabs="http://html.conclase.net/w3c/css1-es.html#background"><code>background</code></a> nos permite declarar todas las reglas de una tacada, así:</p>
+<pre class="p"><code>background : white url(ajedrez.gif) repeat fixed;</code></pre>
+<p class="p">Todos los valores son opcionales y van en cualquier orden. Podrías poner:</p>
+<pre class="p"><code>background : red</code></pre>
+<p class="a">- Genial.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En realidad no es lo mismo <code>background-color : red</code> que <code>background : red</code>, pero no nos vamos a enrollar más.</p>
+<p class="a">- Vale, vamos al siguiente grupo.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/5/6">anterior</a> | <a href="8.htm" tppabs="http://html.conclase.net/tutorial/html/5/8">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/10/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE> Im&aacute;genes Sensibles</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.9 - Im&aacute;genes Sensibles</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Im&aacute;genes Sensibles</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una de las caracter&iacute;sticas principales
+del lenguaje HTML es la posibilidad de crear im&aacute;genes sensibles
+o mapeadas, que son im&aacute;genes en las que se definen diversas zonas
+que activan distintos hiperenlaces, al pulsar con el cursor sobre una de
+estas zonas activaremos el hiperenlace que la define. La im&aacute;gen
+se dividir&aacute; en distintas &aacute;reas que definir&aacute;n documentos
+a los que es posible acceder. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para crear una imagen sensible ser&aacute;
+necesaria la especificaci&oacute;n de las distintas &aacute;reas de la
+imagen y los enlaces que activaran cada una de ellas. Esto se puede hacer
+a mano indicando las coordenadas o bien lo normal es utilizar alg&uacute;n
+programa. Existen programas que permiten la definici&oacute;n de las im&aacute;genes
+sensibles, en estos se presentar&aacute; la imagen en pantalla y mediante
+un puntero se podr&aacute;n ir indicando las distintas zonas. Estas zonas
+podr&aacute;n ser: rect&aacute;ngulo, circulo, l&iacute;nea poligonal o
+un punto. A cada una de estas zonas le asignamos una <A HREF="url.htm">URL</A>
+que ser&aacute; la que se active cuando se pulse en esa zona determinada.
+Con este programa crearemos un fichero con la extensi&oacute;n <B><I>.map</I></B>
+que ser&aacute; el que defina el mapa de la imagen. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El contenido normal de este tipo de ficheros
+ser&aacute;n l&iacute;neas del estilo: </P>
+
+<P><B><FONT COLOR="#008200">figura_geom&eacute;trica URL coord1 coord2
+... coordn</FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donde <FONT COLOR="#008200">figura_geom&eacute;trica</FONT>
+podr&aacute; ser una de: </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">default</FONT>:</B> Indicar&aacute; la acci&oacute;n
+a realizar si se pulsa en un lugar no definido en el mapeado.</LI>
+
+<P> </P>
+
+<LI><B><FONT COLOR="#FF0000">circle</FONT>:</B> Definir&aacute; un circulo.
+En un servidor del NCSA las coordenadas se definen el centro del circulo
+y un punto externo (que es el caso de nuestro servidor), en uno del CERN
+se definir&aacute; el centro del circulo y el radio.</LI>
+
+<P> </P>
+
+<LI><B><FONT COLOR="#FF0000">poly</FONT>:</B> Una l&iacute;nea poligonal
+de a lo sumo 100 v&eacute;rtices. Se definir&aacute; tantas coordenadas
+como v&eacute;rtices formen la l&iacute;nea poligonal y no ser&aacute;
+necesario cerrar la figura.</LI>
+
+<P> </P>
+
+<LI><B><FONT COLOR="#FF0000">rect</FONT>:</B> Definir&aacute; un rect&aacute;ngulo.
+Las coordenadas indicaremos el v&eacute;rtice de la esquina superior izquierda
+y la esquina inferior derecha.</LI>
+
+<P> </P>
+
+<LI><B><FONT COLOR="#FF0000">point</FONT>:</B> Indicar&aacute; un punto.
+Si en la figura se definen diversos puntos se activar&aacute; el enlace
+del punto m&aacute;s cercano al lugar donde se pulso en la imagen.</LI>
+
+<P> </P>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La <A HREF="url.htm">URL</A> del enlace
+podr&aacute; ser una local, que debe empezar desde el directorio ra&iacute;z,
+no vale relativa, o bien indicar la URL completa. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las coordenadas ser&aacute;n pares <FONT COLOR="#008200">x</FONT>
+e <FONT COLOR="#008200">y</FONT> separados por comas. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hay que tener en cuenta que las figuras
+que definen las zonas no deben solaparse ya que un punto de las im&aacute;genes
+no puede activar dos enlaces. En caso que se solapen se utilizar&aacute;
+la que estuviera definida en primer lugar en el fichero del mapa. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si se utiliza la directiva point, no
+tiene sentido definir la URL por defecto, default, ya que siempre el lugar
+donde se pulse estar&aacute; m&aacute;s pr&oacute;ximo a un punto. En otro
+caso siempre ser&aacute; necesario indicar la direcci&oacute;n por defecto,
+salvo que el mapeado cubra toda la imagen, ya que si no se define en caso
+de pulsar en un lugar sin mapear producir&aacute; un error. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen navegadores, los m&aacute;s antiguos,
+y programas de indexaci&oacute;n, los robots de busqueda m&aacute;s extendidos
+(lycos, excite, etc ...) que no pueden seguir los enlaces que se encuentran
+en una imagen sensible. Por tanto se recomienda incluir en formato texto
+en la parte baja de la im&aacute;gen los enlaces que se activan con la
+imagen sensible. De esta forma los documentos enlazados se pueden activar
+de las dos maneras. </P>
+
+<P><B><FONT SIZE=+1><A HREF="ejimgmap.htm#a1">Ejemplo</A></FONT></B><BR>
+<A NAME="a2"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>ISMAP como referenciar la im&aacute;gen
+sensible</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez creado el fichero que mapear&aacute;
+la imagen solo queda referenciarlo en el documento HTML. Para ello debemos
+definir la imagen y el enlace que se efectuar&aacute;. Existe dos formas:
+</P>
+
+<UL>
+<LI>En los antiguos servidores que no permiten soporte interno a im&aacute;genes
+sensibles: </LI>
+</UL>
+
+<P><FONT COLOR="#008200"><B>&lt;A HREF=&quot;http://www2.uca.es/cgi-bin/imagemap/camino_hasta-
+_el_mapa/fichero_mapa.map&quot;&gt;&lt;IMG SRC=&quot;camino_imagen_sensible.gif&quot;
+ISMAP&gt;&lt;/A&gt;</B> </FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el primer caso la parte primera define
+el programa que trata la imagen sensible <FONT COLOR="#008200">http://www2.uca.es/cgi-bin/imagemap</FONT>,
+la segunda parte especifica el fichero que mapea la imagen <FONT COLOR="#008200">/camino_hasta_el_mapa/fichero_mapa.map</FONT>.
+Dentro del hiperenlace se incluye la referencia de la imagen con el atributo
+ISMAP para indicar que se trata de una imagen sensible. </P>
+
+<UL>
+<LI>En los servidores que poseen soporte interno de im&aacute;genes sensibles:
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso no es necesario poner el
+camino al programa imagemap sino solo la referencia al fichero del mapa.
+El mismo gr&aacute;fico se referencia as&iacute;: </P>
+
+<P><B><FONT COLOR="#008200">&lt;A HREF=&quot;/camino_hasta_el_mapa/fichero_mapa.map&quot;&gt;&lt;IMG
+SRC=&quot;camino_imagen_sensible.gif&quot; ISMAP&gt;&lt;/A&gt;</FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <FONT COLOR="#008200">ISMAP</FONT>
+en la imagen es importante al igual que la extensi&oacute;n <I>.map</I>
+del fichero que mapea la imagen. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El segundo caso es m&aacute;s r&aacute;pido
+ya que es el servidor el que se encarga de determinar las distintas zonas
+del mapa e indicar el enlace que se debe seguir, en lugar de llamar al
+programa imagemap para que lo trate. Dependiendo del servidor instalado
+usaremos uno u otro m&eacute;todo, en nuestro caso usaremos el segundo.
+</P>
+
+<P><B><FONT SIZE=+1><A HREF="ejimgmap.htm#ej1">Ejemplo</A></FONT></B><BR>
+<A NAME="a3"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Im&aacute;genes sensibles definidas
+desde el cliente</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el caso anterior la interpretaci&oacute;n
+del mapa de la imagen sensible correspond&iacute;a al servidor, por tanto
+cuando el usuario pulsa sobre una im&aacute;gen sensible, las coordenadas
+se pasan al servidor y este se encarga de comprobar usando el fichero que
+mapeaba la im&aacute;gen. Por tanto para activar un enlace har&iacute;a
+falta enviar los datos al servidor del punto donde se ha pulsado y que
+este indique el enlace que se activa, lo cual hace la consulta un poco
+m&aacute;s lenta. Y adem&aacute;s a priori no es posible saber que zonas
+son sensibles y cuales no ni tampoco que enlace se activa en cada zona.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para solucionar esto se introdujo la posibilidad
+de crear im&aacute;genes sensibles definidas desde el cliente, de esta
+forma es el cliente (su navegador de la WWW) el que interpreta la im&aacute;gen
+sensible y puede mostrar los enlaces que se activan en cada zona y que
+zonas son sensibles y cuales no. En este caso no es necesario indicar el
+documento por defecto ya que solo se podr&aacute;n activar las zonas &uacute;tiles
+de la im&aacute;gen. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una nueva etiqueta HTML que permite
+definir estas im&aacute;genes sensibles interpretadas desde el cliente,
+su formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt;MAP NAME=&quot;<I>nombre</I>&quot;&gt;<BR>
+<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;<I>x11</I>,<I>y11</I>,<I>x12</I>,<I>y12</I>&quot;
+href=&quot;<I>URL</I>&quot;&gt;<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;<I>x21</I>,<I>y21</I>,<I>x22</I>,<I>y22</I>&quot;
+href=&quot;<I>URL</I>&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;<I>xn1</I>,<I>yn1</I>,<I>xn2</I>,<I>yn2</I>&quot;
+href=&quot;<I>URL</I>&quot;&gt;<BR>
+<BR>
+&lt;/MAP&gt;</FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cada una de las l&iacute;neas con la etiqueta
+<B><FONT COLOR="#008200">AREA</FONT></B>, definen una zona sensible. Actualmente
+solo es posible definir zonas sensibles delimitadas por rect&aacute;ngulos,
+no pudiendo definir otras. Con el atributo <B><FONT COLOR="#008200">COORDS</FONT></B>
+se definen las coordenadas de la zona sensible, estas ser&aacute;n la coordenada
+del primer v&eacute;rtice <I>xi1</I>, <I>yi1</I> y la coordenada del v&eacute;rtice
+opuesto <I>xi2</I>, <I>yi2</I>. La etiqueta <B><FONT COLOR="#008200">HREF</FONT></B>
+indica la URL que se activa con esta zona sensible. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La forma de referenciarlo es utilizando
+el atributo <B><FONT COLOR="#008200">USEMAP</FONT></B>, indicando el mapa
+a usar, cuando se defina la im&aacute;gen la forma ser&aacute;: </P>
+
+<P><B><FONT COLOR="#008200">&lt;IMG SRC=&quot;...&quot; USEMAP=&quot;#nombre&quot;
+&gt;</FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como nombre utilizaremos el nombre que
+se le dio al mapa su definici&oacute;n. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esta etiqueta solo es soportada por los
+navegadores m&aacute;s modernos, <I>Internet Explorer de Microsoft</I>
+y el<I> Netscape 2.0</I>, por tanto los navegadores antiguos no podr&iacute;an
+interpretar este tipo de mapas, sin embargo es posible utilizar ambas formas
+de definici&oacute;n a la vez, permitiendo que el mapa sea interpretado
+por todos los navegadores la forma ser&aacute;: </P>
+
+<P><B><FONT COLOR="#008200">&lt;A HREF=&quot;mapa.map&quot;&gt;&lt;IMG
+SRC=&quot;...&quot; ISMAP USEMAP=&quot;#nombre&quot; &gt;&lt;/A&gt;</FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De esta forma si el navegador entiende
+la etiqueta USEMAP lo interpreta como un mapa sensible definido en el cliente,
+en caso contrario se interpreta como un mapa sensible normal y que debe
+ser interpretado por el servidor. </P>
+
+<P><B><FONT SIZE=+1><A HREF="ejimgmap.htm#ej2">Ejemplo</A></FONT></B><BR>
+</P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="imagenes.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="imagenes.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="multimed.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="multimed.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

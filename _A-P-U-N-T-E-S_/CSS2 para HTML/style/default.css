@@ -1,0 +1,317 @@
+/* Esta Hoja de Estilo es copia de la utilizada 
+ * en la versión original de la Especificación CSS2 */
+
+BODY{
+	background : white;
+	color : black;
+	font-family : helvetica, sans-serif;
+	margin : 2em;
+	}
+
+
+H1, H2, H3, H4, H5, H6{
+	text-align : left;
+	}
+
+
+H1{
+	clear : left;
+	margin-top : 2em;
+	text-align : center;
+	}
+
+
+PRE{
+	font-family : monospace;
+	font-size : 90%;
+	margin-left : 1em;
+	}
+
+
+ADDRESS{
+	font-style : italic;
+	text-align : right;
+	}
+
+
+VAR{
+	font-style : normal;
+	}
+
+
+IMG{
+	border : 0;
+	}
+
+
+.toc{
+	text-indent : 0;
+	}
+
+
+P.toc-line{
+	margin-bottom : 1em;
+	margin-top : 1em;
+	text-indent : 0;
+	}
+
+A.noxref:link, A.noxref:visited{
+	color : black;
+	}
+
+
+DIV.example A:link, DIV.example A:visited{
+	color : maroon;
+	}
+
+
+DIV.deprecated-html-example A:link,
+DIV.deprecated-html-example A:visited{
+	color : red;
+	}
+
+
+.note A:link, .note A:visited{
+	color : green;
+	}
+
+
+A.propdef-title{
+	background : yellow;
+	}
+
+
+A.descdef-title{
+	background : green;
+	color : yellow;
+	}
+
+DIV.propdef{
+	margin : 1.2em 0;
+	}
+
+
+div.example{
+	color : maroon;
+	}
+
+
+pre.example{
+	color : maroon;
+	}
+
+
+pre.illegal-example{
+	color : red;
+	}
+
+
+div.illegal-example{
+	color : red;
+	}
+
+
+div.illegal-example p{
+	color : black;
+	}
+
+
+div.html-example{
+	color : maroon;
+	}
+
+
+pre.html-example{
+	color : maroon;
+	}
+
+
+pre.illegal-html-example{
+	color : red;
+	}
+
+
+div.illegal-html-example{
+	color : red;
+	}
+
+
+div.illegal-html-example p{
+	color : black;
+	}
+
+
+pre.deprecated-html-example{
+	color : red;
+	}
+
+
+div.deprecated-html-example{
+	color : red;
+	}
+
+
+div.deprecated-html-example p{
+	color : black;
+	}
+
+
+div.xml-example{
+	color : maroon;
+	}
+
+
+pre.xml-example{
+	color : maroon;
+	}
+
+
+pre.illegal-xml-example{
+	color : red;
+	}
+
+
+div.illegal-xml-example{
+	color : red;
+	}
+
+
+div.illegal-xml-example p{
+	color : black;
+	}
+
+
+div.dtd-example{
+	color : maroon;
+	}
+
+
+pre.dtd-example{
+	color : maroon;
+	}
+
+
+pre.illegal-dtd-example{
+	color : red;
+	}
+
+
+div.illegal-dtd-example{
+	color : red;
+	}
+
+
+div.illegal-dtd-example p{
+	color : black;
+	}
+
+
+.note{
+	color : green;
+	font-weight : bold;
+	margin-bottom : 1em;
+	margin-left : 1em;
+	margin-right : 1em;
+	margin-top : 1em;
+	}
+
+
+.normref{
+	color : red;
+	}
+
+
+.informref{
+	color : green;
+	}
+
+
+DIV.propdef TH{
+	text-align : right;
+	}
+
+
+DIV.descdef TH{
+	text-align : right;
+	}
+
+
+UL.toc, OL.toc{
+	list-style : none;
+	}
+
+
+DIV.toc UL UL, DIV.toc OL OL{
+	margin-left : 0;
+	}
+
+
+DIV.toc UL UL UL, DIV.toc OL OL OL{
+	margin-left : 1em;
+	}
+
+
+DIV.toc UL UL UL UL, DIV.toc OL OL OL OL{
+	margin-left : 0;
+	}
+
+
+LI.tocline1{
+	font-weight : bold;
+	}
+
+
+LI.tocline2{
+	font-weight : normal;
+	}
+
+
+LI.tocline4{
+	font-style : italic;
+	}
+
+
+UL.index{
+	list-style : none;
+	}
+
+
+S, DEL{
+	color : red;
+	text-decoration : line-through;
+	}
+
+
+U, INS{
+	background : #bfa;
+	text-decoration : underline;
+	}
+
+
+DIV.figure{
+	margin : 2.5em 0;
+	text-align : center;
+	}
+
+
+P.caption, CAPTION{
+	color : #088;
+	font-size : 90%;
+	font-style : italic;
+	font-weight : bold;
+	margin : 1.5em 25% 0 25%;
+	text-align : center;
+	}
+
+
+DIV.toc, UL.index, DT{
+	text-align : left;
+	}
+
+
+SUP{
+	font-size : 80%;
+	vertical-align : super;
+	}
+
+

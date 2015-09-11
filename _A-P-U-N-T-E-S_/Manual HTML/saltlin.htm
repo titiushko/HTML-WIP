@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Espaciados y Saltos de L&iacute;nea </TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.1 - Espaciados y saltos de l&iacute;nea</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>El espaciado en HTML</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En HTML no est&aacute; permitido m&aacute;s
+de un elemento blanco (espacios, tabuladores, saltos de l&iacute;nea) separando
+cualquier elemento o texto, todos estos son convertidos a un &uacute;nico
+espacio blanco y el resto se omiten en la representaci&oacute;n del documento.
+En el documento fuente podremos usar el espaciado que deseemos, y no deber&aacute;
+estar bien formateado, este se conseguir&aacute; con las etiquetas HTML.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen unas etiquetas especiales HTML
+para definir estos elementos de control de texto. A continuaci&oacute;n
+se detallar&aacute; cada una de ellas. </P>
+
+<P><A NAME="p"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;P&gt; Cambio
+de p&aacute;rrafo :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definir&aacute; un p&aacute;rrafo, se
+usar&aacute; al comienzo o al final de un p&aacute;rrafo de texto e introducir&aacute;
+un espaciado de separaci&oacute;n (normalmente dos l&iacute;neas) con el
+pr&oacute;ximo texto que se exprese. Esta etiqueta se puede utilizar para
+introducir un espaciado entre cualquier elemento HTML y no solo servir&aacute;
+para separar texto. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El efecto se conseguir&aacute; introduciendo
+la etiqueta <B><FONT COLOR="#008200">&lt;P&gt;</FONT></B> en el punto en
+el que deseemos que se produzca el espaciado. La etiqueta de fin de p&aacute;rrafo
+<B><FONT COLOR="#008200">&lt;/P&gt;</FONT></B> es opcional no siendo necesario
+incluirla. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen elementos HTML que ya introducen
+separaciones de l&iacute;neas, tanto antes como despues, por tanto en estos
+casos no es necesario, pero s&iacute; posible, introducir el elemento de
+nuevo p&aacute;rrafo. No es necesario utilizar esta etiqueta ni antes ni
+despu&eacute;s de cabeceras <B><FONT COLOR="#008200">&lt;H<I>n</I>&gt;</FONT></B>,
+despu&eacute;s de <B><FONT COLOR="#008200">&lt;HR&gt;</FONT></B> (reglas
+horizontales), <B><FONT COLOR="#008200">&lt;ADDRESS&gt;</FONT></B>, <B><FONT COLOR="#008200">&lt;BLOCKQUOTE&gt;</FONT></B>,
+<B><FONT COLOR="#008200">&lt;PRE&gt;</FONT></B>. Tampoco es necesario dentro
+de listas tras los elementos <B><FONT COLOR="#008200">&lt;LI&gt;</FONT></B>,
+<B><FONT COLOR="#008200">&lt;DT&gt;</FONT></B> ni <B><FONT COLOR="#008200">&lt;DD&gt;</FONT></B>,
+que se utilizan para separar los distintos elementos de una lista. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>Esta es una frase
+que forma un parrafo.&lt;P&gt;Este es el otro parrafo. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>Esta es una frase que forma un parrafo.
+<P>Este es el otro parrafo. </P>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En el punto donde se ha introducido
+la instrucci&oacute;n HTML de nuevo parrafo se observa una separaci&oacute;n
+de dos l&iacute;neas. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="br"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;BR&gt; Salto
+de l&iacute;nea :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Su utilidad es similar al anterior pero
+en este caso el espaciado del texto es menor, se pasar&aacute; a la l&iacute;nea
+siguiente, sin dejar una l&iacute;nea de separaci&oacute;n. En este caso
+ser&aacute; un cambio de l&iacute;nea y no de parrafo. Igualmente no es
+necesario usarlo tras los elementos que llevan impl&iacute;citos un salto
+de l&iacute;nea, ni tampoco es necesaria la etiqueta de fin <B><FONT COLOR="#008200">&lt;/BR&gt;.</FONT></B>
+</P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>Esta es una frase
+de la primera l&iacute;nea.&lt;BR&gt;Esta es la siguiente l&iacute;nea
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>Esta es una frase de la primera l&iacute;nea.<BR>
+Esta es la siguiente l&iacute;nea </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En el punto donde se ha introducido
+la instrucci&oacute;n HTML de nueva l&iacute;nea se observa el cambio de
+l&iacute;nea. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="hr"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;HR&gt; Regla
+Horizontal :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P><B><FONT COLOR="#008200">&lt;HR ALIGN=<I>LEFT</I>|<I>RIGTH</I>|<I>CENTER</I>
+NOSHADE SIZE=<I>n</I> WIDTH=<I>n</I>&gt;</FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se usa para dividir un documento en distintas
+secciones, mostrar&aacute; una l&iacute;nea horizontal de tama&ntilde;o
+determinable. Se asemejar&aacute; al salto de p&aacute;gina dentro de un
+documento. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si no se especifican atributos dibujar&aacute;
+una l&iacute;nea que ocupe el ancho de la pantalla del navegador y introduciendo
+una separaci&oacute;n con el texto anterior y siguiente, equivalente a
+cambio de p&aacute;rrafo. No es necesaria la etiqueta de fin <B><FONT COLOR="#008200">&lt;/HR&gt;</FONT></B>.
+Con los atributos podemos especificar su forma y tama&ntilde;o, esto atributos
+son: </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">ALIGN=LEFT, RIGTH &oacute; CENTER</FONT></B>:</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la forma en la que se
+alinear&aacute; la regla en el caso de no ocupar todo el ancho de la pantalla
+del navegador, a la izquierda, derecha o centrada. </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000">NOSHADE:</FONT></B></LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No muestra la sombra de la barra, evitando
+el efecto en tres dimensiones. </P>
+
+<UL>
+<LI><B><FONT COLOR="#008200">SIZE=<I>n</I>:</FONT></B></LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la altura de la regla
+en puntos de la pantalla. </P>
+
+<UL>
+<LI><B><FONT COLOR="#008200">WIDTH=<I>n</I> &oacute; <I>n</I>%:</FONT></B></LI>
+</UL>
+
+<P>Especificar&aacute; el ancho de la regla, se puede especificar en tanto
+por ciento del ancho de la ventana <B><FONT COLOR="#008200">&lt;HR WIDTH=50%&gt;</FONT></B>
+o en valor absoluto <B><FONT COLOR="#008200">&lt;HR WIDTH=75&gt;</FONT></B>
+en puntos de la pantalla. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;HR&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<HR></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Mostrar&aacute; un l&iacute;nea
+que ocupa todo el ancho disponible y de altura 1 con sombra. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;HR SIZE=5 NOSHADE&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<HR SIZE=5 NOSHADE></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Mostrar&aacute; un l&iacute;nea
+que ocupa todo el ancho disponible, es de 5 de alto y no tiene sombra ni
+efecto dimensional. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;HR SIZE=5 WIDTH=50%
+ALIGN=LEFT&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<HR SIZE=5 WIDTH=50% ALIGN=LEFT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Mostrar&aacute; un l&iacute;nea
+que ocupa el cincuenta por ciento del ancho disponible, es de 5 de alto
+y est&aacute; alineada a la izquierda. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="pre"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;PRE&gt;
+Texto preformateado :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Muestra un porci&oacute;n de texto en
+el que se respetan los saltos de l&iacute;nea, tabuladores y espacios en
+blanco. Todo lo que se encuentre entre las etiquetas de inicio y fin de
+texto preformateado se mostrar&aacute; tal y como se expresa en el fuente
+del documento html. Para mostrar este texto se utiliza una fuente de espaciado
+fijo m&aacute;s peque&ntilde;a que el texto normal. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Presenta un problema cuando la l&iacute;nea
+es demasiado larga, ya que no la corta el navegador y se mostrar&iacute;a
+tal y como aparece en el fichero fuente. No se recomienda como forma r&aacute;pida
+de convertir un documento texto a formato visible en HTML ya que presenta
+muchas limitaciones y no se obtiene una buena presentaci&oacute;n. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dentro de la etiqueta PRE no tendr&aacute;n
+validez la mayor&iacute;a de las instrucciones HTML, solo se podr&aacute;n
+utilizar <FONT COLOR="#008200">&lt;B&gt;</FONT>, <FONT COLOR="#008200">&lt;I&gt;</FONT>
+y los hiperenlaces. El resto de las etiquetas HTML son ignoradas. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;PRE&gt;Este texto &nbsp;&nbsp;&nbsp;se
+ver&aacute;<BR>
+tal y como se<BR>
+escribi&oacute;. &lt;/PRE&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<PRE>Este texto    se ver&aacute;
+tal y como se
+escribi&oacute;.
+</PRE>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve utiliza otra fuente
+de caracteres distintas de espaciado fijo y se respetan los espacios en
+blanco y los saltos de l&iacute;nea de la instrucci&oacute;n original.
+</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="center"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;CENTER&gt;
+Centrado de texto e im&aacute;genes :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se utilizar&aacute; para centrar l&iacute;neas
+de texto, im&aacute;genes o cualquier otro elemento HTML (tablas, listas,
+etc ...). Todo lo que se encuentre entre las etiquetas de inicio y fin
+aparecer&aacute; centrado en el navegador. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=3>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;CENTER&gt; Este texto se ver&aacute;
+centrado &lt;/CENTER&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD align=middle>Este texto se ver&aacute; centrado </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El texto aparece centrado en el
+navegador. Se puede utilizar tanto para una l&iacute;nea como para un p&aacute;rrafo,
+y para cualquiera de la instrucciones del lenguaje HTML. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD align=middle><FONT COLOR="#008200"><FONT SIZE=-1>&lt;CENTER&gt; El
+texto y la imagen se centran&lt;BR&gt; &lt;IMG SRC=&quot;/iconos1/or_star.gif&quot;&gt;
+&lt;/CENTER&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD align=middle>El texto y la imagen se centran<BR>
+<IMG SRC="or_star.gif" HEIGHT=18 WIDTH=21> </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve la etiqueta de centrado
+puede afectar a otros elementos como una imagen o cualquier otra estructura
+del lenguaje HTML. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="nbsp"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&amp;nbsp;
+Espacios en blanco :</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con esta secuencia de caracteres conseguiremos
+espacios en blanco que se mostrar&aacute;n de forma efectiva, pudiendo
+mostrar m&aacute;s de un espacio en blanco de separaci&oacute;n. Se incluir&aacute;n
+tantas expresiones <B><FONT COLOR="#008200">&amp;nbsp;</FONT></B> como
+espacios en blanco se desee conseguir. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="body.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="body.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="latincha.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="latincha.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

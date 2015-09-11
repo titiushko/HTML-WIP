@@ -1,0 +1,539 @@
+<HTML>
+<HEAD><TITLE>Tablas en HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="tabla.gif" alt="Icono" width=90 height=60></td>
+<td><font  size=6><b>Tablas en HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+Al igual que las listas,las tablas son componentes dedicados fundamentalmente a mejorar la visualizaci&oacute;n de los documentos en formato electr&oacute;nico. Se trata de una funcionalidad básica de la inmensa mayor&iacute;a de los programas de tratamiento de texto y una forma habitual de presentar informaci&oacute;n, especialmente num&eacute;rica, desde la introducci&oacute;n de las mejoras de cálculo.
+</p>
+<br>
+
+<font  size=5><b>TABLAS BASICAS</b></font>
+
+<p>
+La directiva dedicada a las tablas es <b>&lt;TABLE&gt;;...&lt;/TABLE&gt;;</b> (directiva cerrada). No es preciso determinar inicialmente el n&uacute;mero de filas o columnas, el  navegador se encarga de averiguarlo a medida que profundice en el contenido de la tabla que está cargando en pantalla.
+</p>
+
+<p>
+Cada celda se limita con la directiva cerrada <b>&lt;TD&gt;;...&lt;/TD&gt;;</b> y cada fila con la directiva <b>&lt;TR&gt;;...&lt;/TR&gt;;</b>. Una vez que tengamos declarada el comienzo de nuestra tabla con &lt;TABLE&gt;;...&lt;/TABLE&gt;;, se coloca un nuevo comando contenedor, el atributo &lt;TR&gt;;...&lt;/TR&gt;; (Table Row), para identificar cada fila de la tabla, en el interior de la definici&oacute;n de la tabla:
+</p>
+
+<p>
+<b>&lt;TABLE&gt;;</b>Identifica el comienzo de la tabla<br>
+<b>&lt;TR&gt;;...&lt;/TR&gt;;</b>Esto identifica una fila horizontal.<br>
+<b>&lt;/TABLE&gt;;</b>Identifica el final de la tabla
+</p>
+
+<p>
+En cada una de las filas podrán aparecer celdillas que serán de 2 tipos: cabeceras o normales.
+</p>
+
+<ul>
+<li><b>Celdillas Cabeceras</b>
+
+<p>
+Este tipo de celdillas son las que por as&iacute; decirlo, identifican cada una de las columnas de la celdilla, y su interior destaca del resto del texto contenido en el resto de la tabla, debido a que aparece en negrita. Se limitan por <b>&lt;TH&gt;;...&lt;/TH&gt;;</b> (Table Head) y todo lo que contenga en su interior, destacara del resto del documento.
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;TR&gt;;&lt;TH&gt;;...&lt;/TH&gt;;&lt;TH&gt;;...&lt;/TH&gt;;&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;<br>
+</p>
+
+<p>
+En este ejempo definimos una tabla con 2 columnas y una fila. Las columnas contendrán un texto destacado del resto del contenido de la tabla. Fijarse que todo lo que vaya entre las directivas &lt;TR&gt;;...&lt;/TR&gt;; definen el total de una fila, y despu&eacute;s podremos poner tantas celdillas de cabecera como queramos, definiendo cada una por medio de &lt;TH&gt;;...&lt;/TH&gt;;. Un ejemplo de celdillas de cabecera ser&iacute;a el empleado por ejemplo para destacar los d&iacute;as de la semana (Lunes, Martes, Miercoles, ...), de un horario de clases, del resto de las celdillas que contienen las horas de clase en s&iacute;.
+</p>
+
+
+<li><b>Celdillas Normales</b>
+
+<p>
+Este tipo de celdillas son las más comunes dentro de una tabla y son las celdillas en las que irá contenido el texto o informaci&oacute;n que aparecerá relacionada en cada una de los espacios de las tablas. Se definen dentro de una fila (&lt;TR&gt;;...&lt;/TR&gt;;), por medio de &lt;TD&gt;;...&lt;/TD&gt;;, lo que definir&iacute;a una celdilla normal con el texto sin destacar del resto. Al igual que las celdillas de cabecera, podemos definir tantas celdillas por fila como deseemos.
+<p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;TR&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;/TR&gt;;<br>
+&lt;TR&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;<br>
+</p>
+
+<p>
+En este ejemplo, definimos una tabla con 2 filas y 2 columnas. N&oacute;tese que debemos de acabar de definir por completo una fila, antes de definir la siguiente, de lo contrario nos dar&iacute;a lugar a una tabla que no es la que estabamos esperando que apareciera.
+</p>
+
+<p>
+<b>NOTA: El navegador tiene una forma de leer las tablas antes de mostrarlas en pantalla y es del siguiente modo: desde el lado superior izquierdo de latabla, se desplaza a la derecha por la misma fila, y cuando acaba la primera fila, vuelve a comenzar por la izquierda hacia la derecha, pero en la siguiente fila definida de la tabla (si es que existiera).</b>
+</p>
+</ul>
+
+<p>
+En una celda de tabla (ya sea de cabecera o normal), puede aparecer cualquier tipo de elemeto HTML, o imagen, o texto, o sonido, o lo que deseemos. Un ejemplo ser&iacute;a un texto de una celdilla que apareciera junto a una imagen con el texto en rojo a 5 puntos de latura de letra y una imagen como hiperenlace... ¿Parece complicado, no?
+</p>
+
+<p>
+Veamos un ejemplo como el descrito antes.
+</p>
+
+<p>
+Definamos una tabla de 1x2, es decir de una fila, por 2 columnas (el digito de la izquierda señala siempre la fila y el de la derecha las columnas; recuerda como lee el navegador la tabla...):
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;&lt;FONT SIZE=5 COLOR=“#FF0000”&gt;;Esta imagen es un Icono que enlaza a otra página&lt;/FONT&gt;;&lt;/TD&gt;;<br>
+&lt;TD&gt;;&lt;A HREF=“siguiente.htm”&gt;;&lt;IMG SRC=“icono.gif”&gt;;&lt;/A&gt;;&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Primero hemos definido la tabla con &lt;TABLE&gt;;. A continuaci&oacute;n, definimos la primera fila de la tabla con &lt;TR&gt;;. El siguiente paso es poner tantas celdillas como queramos con las directivas &lt;TD&gt;;...&lt;/TD&gt;;, y en su interior introducir el texto y darle el formato deseado. La siguiente celdilla definida con &lt;TD&gt;;...&lt;/TD&gt;; introduce la imagen y la hace ser enlace a otra página llamada “siguiente.htm”. una vez hecho esto, cerramos el final de la primera fila con &lt;/TR&gt;; y cerramos la tabla general &lt;/TABLE&gt;;.
+<p>
+
+<p>
+<b>NOTA: Hay que tener en cuenta que de no cerrar la tabla con la directiva &lt;/TABLE&gt;;, por mucha tabla que hayamos creado con todo su contenido, en la ventana del visualizador cuando la carguemos no nos aparecerá ninguna de las columnas ni filas, ya que al no delimitar el final de la tabla, el navegador cree que hay mas filas y columnas e intenta seguir leyendo... Y como en nuestro caso ya la hemos definida toda, digamos que el navegador como no sabe d&oacute;nde está el fin, trata de leer una tabla infinita... Por tanto no olvidar de cerrar la definici&oacute;n de la tabla con &lt;/TABLE&gt;;.</b>
+</p>
+
+<p>
+Vamos a ver otro ejemplo con un Horario de clase de 5 d&iacute;as y 3 horas 4x5 (4 filas debidas a las 3 filas de las horas + la fila de los d&iacute;as de las semana, y 5 columnas debidas a los d&iacute;as de la semana). Para ello en las celdillas de los d&iacute;as de las semana, las pondremos como celdillas de cabeceras:
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TH&gt;;Lunes&lt;/TH&gt;;<br>
+&lt;TH&gt;;Martes&lt;/TH&gt;;<br>
+&lt;TH&gt;;Mi&eacute;rcoles&lt;/TH&gt;;<br>
+&lt;TH&gt;;Jueves&lt;/TH&gt;;<br>
+&lt;TH&gt;;Viernes&lt;/TH&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;Lenguaje&lt;/TD&gt;;<br>
+&lt;TD&gt;;Lenguaje &lt;/TD&gt;;<br>
+&lt;TD&gt;;Matemáticas&lt;/TD&gt;;<br>
+&lt;TD&gt;;F&iacute;sica&lt;/TD&gt;;<br>
+&lt;TD&gt;;Qu&iacute;mica&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;Matemáticas&lt;/TD&gt;;<br>
+&lt;TD&gt;;Matemáticas&lt;/TD&gt;;<br>
+&lt;TD&gt;;Matemáticas&lt;/TD&gt;;<br>
+&lt;TD&gt;;Qu&iacute;mica&lt;/TD&gt;;<br>
+&lt;TD&gt;;Qu&iacute;mica&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;Ciencias&lt;/TD&gt;;<br>
+&lt;TD&gt;;Ciencias&lt;/TD&gt;;<br>
+&lt;TD&gt;;Ciencias&lt;/TD&gt;;<br>
+&lt;TD&gt;;Ciencias&lt;/TD&gt;;<br>
+&lt;TD&gt;;Ciencias&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Este ejemplo si lo analizamos cuidadosamente, con las anteriores indicaciones, veremos que en cada una de las partes de la tabla, se definen primero las filas y despues las celdas dentro de cada una de las filas.
+</p>
+
+<p>
+Si queremos que la tabla posea un t&iacute;tulo por ejemplo:
+</p>
+
+<i>BALANCE DE GASTOS ANUALES</i>
+
+<p>
+en HTML poseemos una caracter&iacute;stica propias de las tablas que es la directiva cerrada <b>&lt;CAPTION&gt;;...&lt;/CAPTION&gt;;</b> que va incluida dentro de la definici&oacute;n de la tabla y antes del comienzo de la definici&oacute;n de filas:
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;CAPTION&gt;; BALANCE DE GASTOS ANUALES&lt;/TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Ahora si queremos definir el t&iacute;tulo en la parte superior de la tabla o al pie de la misma, tenemos un atributo para la directiva &lt;CAPTION&gt;;...&lt;/CAPTION&gt;; que nos sit&uacute;a el t&iacute;tulo donde nosotros estimemos oportuno.
+</p>
+
+<b>ALIGN=TOP | BOTTOM</b>
+
+<p>
+TOP, nos define el t&iacute;tulo en la parte superior de la tabla antes de su comiento, y BOTTOM nos lo sit&uacute;a a pie de tabla una vez finalizada esta, por lo que 
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;CAPTION ALIGN=TOP&gt;; BALANCE DE GASTOS ANUALES&lt;/TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+</p>
+coloca el t&iacute;tulo en al parte superior, y
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;CAPTION ALIGN=BOTTOM&gt;; BALANCE DE GASTOS ANUALES&lt;/TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+coloca el t&iacute;tulo en al parte inferior.
+</p>
+
+<p>
+<b>NOTA: Por defecto si no se lo especificamos al navegador, &eacute;ste define la tabla con sus filas y columnas, pero no nos muestra el contorno de la tabla, por lo que parece que la tabla no está definida, pese a estarlo. Si queremos que se nos muestren los contornos de las cedillas y de las filas, debemos de colocar el atributo BORDER=“valor_num&eacute;rico” dentro de la primera directiva de definici&oacute;n de la tabla:<br><br>
+&lt;TABLE BORDER=“valor_num&eacute;rico”&gt;;<br><br>
+de forma que el valor_num&eacute;rico por defecto es 0 sino se especifica otro. Un valor muy com&uacute;n para ver la tabla contorneada es con BORDER=“1”. Una vez colocado este atributo, podremos ver el contorno.</b>
+</p>
+<br>
+
+
+<font  size=5><b>TABLAS AVANZADAS</b></font>
+
+<p>
+Ya definidos los conceptos básicos de las tablas, con sus respectivas filas y celdillas, vamos ahora a ver en mayor detalle como hacer de nuestras tablas algo más llamativo o con mayor presentaci&oacute;n. Para ello ire definiendo distintos atributos que puede poseer una tabla, y el lugar en el que deberán de ir colocadas.
+</p>
+
+<ul>
+<li><b>Ancho de la tabla</b>
+
+<p>
+Podemos modificar el ancho que la tabla ocupará en la pantalla del visualizador, ya que si no lo hacemos as&iacute;,la tabla coge por defecto el ancho de cada uno de las filas, sumando cada uno de los anchos de cada celdilla hasta definir el ancho completo de la fila, dando un resultado pobre ya que los datos de cada celdilla aparecen pegados a los bordes que delimitan cada celdilla. Para ello se define el atributo <b>WIDTH=“valor_num&eacute;rico”</b> que no hace otra cosa que definir el ancho TOTAL de la tabla. Hay 2 formas de definir el ancho de la tabla:
+</p>
+
+<ol>
+<li>Anchura en pixels
+<li>Anchura en porcentaje de pantalla
+</ol>
+
+<p>
+para definir el ancho total de la tabla este atributo va colocado en el interior de la directiva que define la tabla:
+</p>
+
+<p>
+&lt;TABLE WIDTH=“400”&gt;; Define una tabla con ancho total de 400 pixels<br>
+&lt;TABLE WIDTH=“50%”&gt;; Define una tabla con ancho total del 50% de pantalla.
+</p>
+
+<p>
+<b>NOTA: Si definimos una ancho de tabla muy pequeño, y los datos no caben en el espacio definido, el navegador amplia el ancho de la tabla, para que los datos quepan en su totalidad.</b>
+</p>
+
+<p>
+Hay sin embargo la posibilidad que lo que queramos es definir el ancho de una celdilla en lugar del ancho total de la tabla, para ello haremos lo mismo que anteriormente, con la diferencia de que esta vez el atributo WIDTH no va colocado en la directiva &lt;TABLE&gt;;, sino en la directiva que defina el comienzo de la celdilla que queramos modificar en ancho:
+</p>
+
+<p>
+&lt;TABLE&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD WIDTH=100&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Esto hace que la primera celdilla de la primera fila tome un ancho de 100 pixels mientras la siguiente celdilla no tiene definido el ancho, y vendrá definido por u contenido interno (texto, imagen, ...). Tambi&eacute;n se pude definir el ancho por porcetaje al igual que cuando se definimos el ancho total de la tabla.
+</p>
+<br>
+
+<li><b>Extensi&oacute;n en las tablas</b>
+
+<p>
+Muchas veces, estaremos interesados en que una celdilla de una fila ocupe el ancho de 2 celdillas normales de la tabla, de forma que no haya separaci&oacute;n entre las celdillas. Veamos un ejemplo:
+</p>
+
+<table border=1>
+<tr><td width=100><br></td><td width=100><br></td><td width=100><br></td></tr>
+<tr><td colspan=2 width=100><br></td><td width=100><br></td></tr>
+<tr><td width=100><br></td><td width=100><br></td><td width=100><br></td></tr>
+</table>
+<br>
+
+<p>
+En este ejemplo la 2 fila tiene en su primera celdilla una extensi&oacute;n de 2 celdillas normales del resto de la tabla. O tambi&eacute;n puede ser que queramos que una fila ocupe más filas de altura que el normal de la tabla. Veamos otro ejemplo:
+</p>
+
+<table border=1 >
+<tr><td width=100><br></td><td width=100><br></td></tr>
+<tr><td rowspan=2 width=100><br></td><td width=100><br></td></tr>
+<tr><td width=100><br></td></tr>
+<tr><td width=100><br></td><td width=100><br></td></tr>
+</table>
+<br>
+
+<p>
+para ello existen una serie de atributos que nos sirven para indicar al navegador que la tabla poseerá un ancho de fila o columna doble, triple, cuadruple... del estándar definido para el resto de la tabla. Estos atributos van siempre definidos al comienzo de la definici&oacute;n de la cendilla que tendrá el alto o ancho mayor que las demás.
+</p>
+
+<ul type="square">
+<li><b>COLSPAN=“valor_num&eacute;rico”</b>
+
+<p>
+Indica cuántas columnas ocupará la celda en la que se defina el atributo.
+</p>
+
+<li><b>ROWSPAN=“valor_num&eacute;rico”</b>
+
+<p>
+Indica cuántas filas ocupará la celda en la que se defina el atributo.
+</p>
+<br>
+
+<p>
+&lt;TABLE BORDER=1&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD COLSPAN=2&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Este ejemplo nos define una tabla de 4 columnas y 3 filas, pero en la segunda fila, la segunda celdilla ocupa un ancho de 2 columnas (tal como hemos definido en el c&oacute;digo HTML con &lt;TD COLSPAN=2&gt;;...&lt;/TD&gt;;)
+</p>
+
+<p>
+&lt;TABLE BORDER=1&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD ROWSPAN=2&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+Este ejemplo nos define una tabla de 3 columnas y 3 filas, pero en la segunda fila, la segunda celdilla ocupa un alto de 2 filas (tal como hemos definido en el c&oacute;digo HTML con &lt;TD ROWSPAN=2&gt;;...&lt;/TD&gt;;)
+</p>
+
+<p>
+La mejor forma de familiarizarse como funcionan esto parámetros es ir haciendo varios ejemplos hasta que te acostumbres a poner cada una de ellas seg&uacute;n te vaya mejor al diseño de tu tabla.
+</p>
+
+<p>
+<b>TRUCO:</b> Si cuando definimos una tabla, en lugar de que nos aparezcan los espacios de celdillas sin rellenar, como una continuaci&oacute;n del contorno de la tabla, que abarca toda la cedilla sin datos, si queremos que aparezca una celdilla en blanco simplemente vac&iacute;a y sin el relleno de contorno, si en el interior de la definici&oacute;n de la celdilla sin datos colocamos un &lt;BR&gt;; (salto de l&iacute;nea en HTML), nos aparecerá la celdilla totalmente blanca, sin datos:
+</p>
+
+&lt;TD&gt;;&lt;BR&gt;;&lt;/TD&gt;;
+</ul>
+<br><br>
+
+<li><b>Colores de fondo en celdillas y columnas</b>
+
+<p>
+Un efecto impactante en las tablas, es el colocar un color de fondo, por ejemplo a la primera fila para destacar el contenido de los mismo, o el definir una columna con un color de fondo distinto al del resto de la tabla, para destacar un resultado de esa columna. En HTML es tan sencillo como emplear el atributo ahora definido.
+</p>
+
+<b>BGCOLOR=“peso o nombre de color”</b>
+
+<p>
+Con este atributo, colocado en el interior del comienzo de la definici&oacute;n de la fila o celdilla que queramos destacar, obtendremos el resultado deseado. El color como ya hemos dicho en anteriores secciones lo podemos definir con el nombre del color deseado en ingles (por ejemplo “Blue” para color azul), o bien por el peso RGB en valor hexagesimal, precedido de una almohadilla (#).
+</p>
+
+<p>
+&lt;TABLE BORDER=1&gt;;<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD BGCOLOR=“blue”&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD BGCOLOR=“blue”&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD BGCOLOR=“blue”&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+este ejemplo define una tabla de 3x3 con la columna central de fondo azul.
+</p>
+
+<p>
+&lt;TABLE BORDER=1&gt;;<br>
+&lt;TR BGCOLOR=“#0000ff”&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+<br>
+&lt;TR&gt;;<br>
+&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;&lt;TD&gt;;...&lt;/TD&gt;;<br>
+&lt;/TR&gt;;<br>
+&lt;/TABLE&gt;;
+</p>
+
+<p>
+este ejemplo sin embargo define la misma tabla anterior, pero con la primera fila con un fondo azul.
+</p>
+
+<p>
+<b>TRUCO:</b> Un diseño espectacular de una tabla, podr&iacute;a ser el poner un fondo en la primera fila que destacara del resto de la tabla, y al mismo tiempo no definir el contorno de la tabla (BODER=0), de forma que la primera fila sirviera con sus divisiones para distinguir el resto de la tabla.
+</p>
+<br>
+
+<li><b>Alineaci&oacute;n en el interior de la tabla</b>
+
+<p>
+Otra recurso de las tablas más complejas, es el definir el alineado que queremos que el texto o imagen o lo que se halle en el interior de la celdilla adopte, respecto al eje X (horizontal) y al eje Y (vertical). Para ello existen una serie de atributos que adoptan distintos valores seg&uacute;n las distintas alineaciones de que disponemos.
+</p>
+
+<b>ALIGN= RIGHT | CENTER | LEFT</b>
+
+<p>
+Alinean en la parte derecha, centro e izquierza, el texto imagen o elemento que estemos poniendo en el interior de la fila o celdilla. Si el atributo está colocado en el comienzo de definici&oacute;n de la tabla (&lt;TABLE ALIGN=...&gt;;), afecta a la tabla por completo. Si el atributo está colocado en el comienzo de definici&oacute;n de la fila (&lt;TR ALIGN=...&gt;;), afecta a la fila por completo. Si el atributo está colocado en el comienzo de definici&oacute;n de la celdilla (&lt;TD ALIGN=...&gt;;), afecta s&oacute;lo a la celdilla.
+</p>
+
+<b>VALIGN= TOP | MIDDLE | BOTTOM</b>
+
+<p>
+Alinean en la parte superior, centro e inferior, el texto imagen o elemento que estemos poniendo en el interior de la fila o celdilla. Si el atributo está colocado en el comienzo de definici&oacute;n de la tabla (&lt;TABLE VALIGN=...&gt;;), afecta a la tabla por completo. Si el atributo está colocado en el comienzo de definici&oacute;n de la fila (&lt;TR VALIGN=...&gt;;), afecta a la fila por completo. Si el atributo está colocado en el comienzo de definici&oacute;n de la celdilla (&lt;TD VALIGN=...&gt;;), afecta s&oacute;lo a la celdilla.
+</p>
+
+<p>
+Experimentando con esto atributos, obtendremos tablas  bajo nuestro control, que no definiendo ninguno de ellos.
+</p>
+
+<p>
+<b>TRUCO:</b> si queremos que la tabla en su totalidad est&eacute; centrada con respecto a la pantalla de visualizaci&oacute;n del navegador, lo &uacute;nico que debemos de definir es el atributo &lt;CENTER&gt;;...&lt;/CENTER&gt;; entre el comienzo y final de la tabla:
+</p>
+
+<p>
+&lt;CENTER&gt;;<br>
+&lt;TABLE&gt;;<br>
+...................<br>
+&lt;/TABLE&gt;;<br>
+&lt;/CENTER&gt;;
+</p>
+<br>
+
+<li><b>Espaciado entre filas y celdillas</b>
+
+<p>
+Hay 2 atributos que son idependientes entre s&iacute;, pero que aportan mucha mayor flexibilidad al diseño de una tabla, en cuanto a la distancia que debe de separar el elemento que contenga cada celdilla (texto, imagen, ...) y el separado entre filas.
+<p>
+
+<p>
+<b>CELLPADDING=“nº pixels”<br>
+CELLSPACING=“ nº pixels”</b>
+</p>
+
+<p>
+Ambos atributos van colocados en la directiva de comienzo de definici&oacute;n de tabla (&lt;TABLE CELLPADDING=“nº pixels” CELL SPACING=“ nº pixels”&gt;;), aunque no tienen por qu&eacute; ir juntos. CELLPADING lo que hace es definir el n&uacute;mero de pixels que habrá de separaci&oacute;n entre el contorno de la cendilla y el texto, imagen o elemento que se halle en la celdilla, y CELLSPACING define el espaciado en pixels que habrá entre las diferentes celdillas que componen la tabla.
+</p>
+<br>
+</ul>
+
+
+<font  size=5><b>EMPLEOS MAS COMUNES DE LAS TABLAS EN HTML</b></font>
+
+<P>
+Una de las ventajas que poseen las tablas, el la tremenda diversificaci&oacute;n y aplicaci&oacute;n que poseen en el diseño de un documento HTML. Por lo general, se verán pocas páginas diseñadas en HTMl, que no contengan en una u otra manera alg&uacute;n tipo de tabla por sencilla que sea, debido a la gran a plicaci&oacute;n que poseen. Veamos unos ejemplo para hacernos una idea:
+</p>
+
+<ul>
+<li><b>Notas al margen del documento</b>
+
+<p>
+Simular la inclusi&oacute;n de notas al margen, bien como texto, bien en forma de iconos, es extremadamente fácil, pero exige poder reducir el tamaño de las columnas.
+</p>
+
+<p>
+Se trata simplemente de construir una tabla con 2 columnas (y una fila). La primera de ellas contendrá las notas del margen y su tamaño será menjor que la segunda; por ejemplo s&oacute;lo 200 pixels de anchura para la primera columna y el resto del area de visualizaci&oacute;n para la segunda (suponiendo que estemos trabajando a 800x600).
+</p>
+
+<p>
+La segunda columna contendrá el texto (o cualquier otro contenido) de la página. Cada vez que necesitemos incluir una nota o una imagen al margen crearemos una nueva fila.
+</p>
+
+<li><b>Texto en 2 o más columnas</b>
+
+<p>
+Una consecuencia l&oacute;gica del punto anterior; si quisieramos que el texto que estamos presentando apareciera dividido en columnas como es el caso del texto que nos muestra diariamente un peri&oacute;dico, no tendr&iacute;amos más que incluir todo el contenido dela página en una tabla y dividirla en 2 o más columnas en el punto que consideremos se encuentra la mitad, tercera parte, etc... del contenido, seg&uacute;n el n&uacute;mero deseado de columnas.
+</p>
+
+<li><b>Tabulaci&oacute;n</b>
+
+<p>
+La posiblidad de presentar determinados  datos en forma tabular resulta muy interesante, pero a&uacute;n lo es más, la lectura de estos datos en ese formato. Pese a no haber visto a&uacute;n como trabajar con formularios (ver Formularios), cabe destacar que si por ejemplo quisieramos que los visitantes nos respondieran a un pequeño cuestionario para que opinaran sobre nuestra página, las tablas ser&iacute;a la forma ideal de mostrar las preguntas y los espacios para las distintas respuestas.
+</p>
+
+<li><b>Efecto de fondo de libreta</b>
+
+<p>
+Si queremos obtener el efecto de una página de libreta (con el fondo que lo simule), como fondo de nuestra página, s&oacute;lo debemos de hacer lo siguiente. Tomamos una imagen que simule en una pequeña l&iacute;nea el motivo a lo ancho de la pantalla del visualizador, que posteriormente será puesta como mosaico de fondo de la página:
+</p>
+
+<img src="libreta.gif" alt="Libreta" width=508 height=80>
+
+<p>
+acto seguido, como en las “anillas” de la “libreta” no queremos que nos aparezca al contenido de la pagina, lo que hacemos es definir una tabla con 2 columnas de forma que una pequeña columna se sit&uacute;e a la izquierda, totalmente carente de contenido, y en la otra que ocupe las “cuadr&iacute;culas” de la “libreta” de forma que en esta columna colocaremos el texto, dandonos ese efecto de fondo de libreta.
+</p>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual06.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual08.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

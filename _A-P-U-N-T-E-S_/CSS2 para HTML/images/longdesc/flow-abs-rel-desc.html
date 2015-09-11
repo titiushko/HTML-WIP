@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+  <head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+    <title>Descripción extensa para el ejemplo ilustrando el posicionamiento con respecto a un antepasado posicionado</title>
+  </head>
+
+  <body>
+      <h1>Descripción extensa para el ejemplo ilustrando el posicionamiento con respecto a un antepasado posicionado</H1>
+
+<P>Este diagrama ilustra el efecto de posicionar absolutamente una caja ("interno") con respecto a un bloque de contención establecido por un antepasado posicionado relativamente ("externo").
+
+<P>Se muestra una ventana de documento, con 8 líneas (numeradas de 1 a 8), cada una de 24px del alto. Todo el texto del contenido y de "externo" fluye sobre las líneas 1, 2 y 3. La caja de "interno" ha sido posicionada con relación a los bordes superior e izquierdo de la primer caja de línea del elemento "externo".
+
+<P>En el siguiente ejemplo con un elemento PRE, cada línea de 24px es simulada por dos líneas, la segunda comienza con el número apropiado. Los bordes de referencia para posicionar la caja de "interno" son indicados en el diagrama por líneas cortadas gruesas. La coordenada superior izquierda de la caja de "interno" está señalada por (+200, -100). En el elemento PRE de abajo, los bordes de referencia para "interno" son indicados por barras verticales y signos de igual. El desplazamiento de la caja de "interno" está dado entre corchetes. Las líneas de texto, tal como aparecen en la imagen, contienen aproximadamente:</p>
+
+
+<PRE>                            ====
+                            |
+1 El comienzo del contenido.|Este
+
+2 es el tema externo. Fin del tema
+
+3 externo. El final del contenido.
+
+4          [(+200, -100)]
+
+5                Tema
+
+6                interno.
+
+7                
+
+8                
+</PRE>
+
+<P>El color de texto predeterminado es negro. "Este es el tema externo" es rojo. "Tema interno" es azul. "Fin del tema externo" es rojo.
+
+<P><a href="../../visuren.html#img-flow-abs-rel">Volver a la imagen.</a>
+  </body>
+</html>

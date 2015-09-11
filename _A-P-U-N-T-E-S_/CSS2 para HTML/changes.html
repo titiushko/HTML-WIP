@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Apéndice B: Cambios con respecto a CSS1</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="sample.html">
+<link rel="next" href="notes.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="sample.html">anterior</a> &nbsp;
+<a href="notes.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">Apéndice B: Cambios con respecto a CSS1</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="changes.html#q1" class="tocxref">B.1 Nuevo funcionamiento</a>
+    <li class="tocline2"><a href="changes.html#q2" class="tocxref">B.2 Descripciones actualizadas</a>
+    <li class="tocline2"><a href="changes.html#changes-from-css1" class="tocxref">B.3 Cambios semánticos a CSS1</a>
+  </ul>
+</div>
+<P><em>Este apéndice es informativo, no normativo.</em></P>
+
+<P>CSS2 se cimenta en CSS1 y todas las hojas de estilo CSS1 válidas son hojas de estilo CSS2 válidas. Los cambios entre la especificación CSS1 (ver <a href="refs.html#ref-CSS1" rel="biblioentry" class="noxref"><span class="normref">[CSS1]</span></a>) y esta especificación caben en tres grupos: nuevo funcionamiento, descripciones actualizadas del funcionamiento de CSS1 y cambios a CSS1.
+
+<H2><a name="q1">B.1 Nuevo funcionamiento</a></H2>
+
+<P>Además del funcionamiento de CSS1, CSS2 soporta:</p>
+
+<UL>
+
+<LI>El concepto de <A HREF="media.html">tipos de medios</A>.
+
+<LI>El valor <a href="cascade.html#value-def-inherit">'inherit'</a> para todas las propiedades.
+
+<LI><A HREF="page.html">Medios paginados</A>
+
+<LI><A HREF="aural.html">Hojas de estilo auditivas</A>
+
+<LI>Algunas características de internacionalización, incluyendo <a href="generate.html#lists">estilos de numeración de listas</a>, soporte para <a href="visuren.html#direction">texto bidireccional</a> y soporte para <a href="generate.html#quotes">comillas</a> sensibles al idioma.
+
+<LI>Un mecanismo extendido de <A HREF="fonts.html#font-selection">selección de fuentes</A>, incluyendo equivalencia inteligente, síntesis y fuentes descargables. También, se ha introducido el concepto de fuentes del sistema y una nueva propiedad, <a href="fonts.html#propdef-font-size-adjust" class="noxref"><span class="propinst-font-size-adjust">'font-size-adjust'</span></a>, ha sido agregada.
+
+<LI><A HREF="tables.html">Tablas</A>, incluyendo nuevos valores en <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> y <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align'</span></a>.
+
+<LI><A HREF="visuren.html#relative-positioning">Posicionamiento relativo</A> y <A HREF="visuren.html#absolute-positioning">absoluto</A>, incluyendo <A HREF="visuren.html#fixed-positioning">posicionamiento fijo</A>.
+
+<LI>Nuevos tipos de cajas (junto con las de bloque y de línea): <a href="visuren.html#compact">compact</a> y <a href="visuren.html#run-in">run-in</a>.
+
+<LI>La capacidad de controlar el <a href="visufx.html#overflow">desbordamiento</a>, <a href="visufx.html#clipping">recorte</a> y <a
+href="visufx.html#visibility">visibilidad</a> del contenido en el modelo de formato visual.
+
+<LI>La capacidad de especificar <a href="visudet.html#min-max-widths">anchos</a> y <a href="visudet.html#min-max-heights">alturas</a> mínimos y máximos en el modelo de formato visual.
+
+<LI>Un mecanismo <A HREF="selector.html">selector</A> extendido, incluyendo selectores de hijos, selectores de adyacentes y selectores de atributos.
+
+<LI><A HREF="generate.html#generated-text">Contenido generado</a>, <a href="generate.html#counters">contadores y numeración automática</A>, y <a href="generate.html#markers">marcadores</a>.
+
+<LI>Texto con sombra, a través de la nueva propiedad <a href="text.html#propdef-text-shadow" class="noxref"><span
+class="propinst-text-shadow">'text-shadow'</span></a>.
+
+<LI>Algunas nuevas <A HREF="selector.html#pseudo-classes">pseudo-clases</A>, :first-child, :hover, :focus, :lang.
+
+<LI><A HREF="ui.html#system-colors">Colores</A> y <A href="ui.html#system-fonts">fuentes</a> del sistema.
+
+<LI><A href="ui.html#cursor-props">Cursores</a>.
+
+<LI><A href="ui.html#dynamic-outlines">Contornos dinámicos</a>.
+
+</UL>
+
+<H2><a name="q2">B.2 Descripciones actualizadas</a></H2>
+
+<P>La especificación CSS1 era breve y concisa. Esta especificación es mucho más voluminosa y más legible. Mucho del contenido adicional describe el nuevo funcionamiento, pero la descripción de las características de CSS1 ha sido también extendida. Excepto en los pocos casos descriptos abajo, las descripciones revisadas no indican un cambio en la sintaxis ni en la semántica.
+
+<H2>B.3 <a name="changes-from-css1">Cambios semánticos a CSS1</a></H2>
+
+<P>Mientras que todas las hojas de estilo CSS1 son hojas de estilo CSS2 válidas, hay unos pocos casos donde la hoja de estilo CSS1 tendrá un significado distinto cuando sea interpretada como una hoja de estilo CSS2. La mayoría de los cambios se deben a la implementación en la especificación de la experiencia acumulada, pero también hay alguna corrección de errores.
+
+<UL>
+<LI>El significado de "!important" ha sido cambiado. En CSS1, "!important" en una hoja de estilo del autor tenía preponderancia por sobre una especificada en una hoja de estilo del usuario. Esto ha sido invertido en CSS2.
+
+<LI>En CSS2, los <A HREF="syndata.html#color-units">valores para color</A> son recortados con respecto a la gama del dispositivo, no con respecto a la gama sRGB como en CSS1.
+
+<LI>CSS1 simplemente decía que 'margin-right' era ignorado si tanto 'margin-left' como 'width' estaban establecidos. En CSS2 la elección entre 'margin-right' o 'margin-left' depende de la dirección de escritura.
+
+<LI>En CSS1, varias propiedades (ej., 'padding') tenía valores referidos al ancho del elemento padre. Esto era un error; el valor debe siempre referirse al ancho del elemento a nivel de bloque y esta especificación refleja esto introduciendo el término "bloque de contención".
+
+<LI>El valor inicial de 'display' es 'inline' en CSS2, no 'block' como en CSS1.
+
+<LI>En CSS1, la propiedad 'clear' se aplicaba a todos los elementos. Esto era un error, y la propiedad sólo se aplica a los elementos a nivel de bloque en CSS2.
+
+<LI>En CSS1, <a name="x0"><span class="index-inst" title="pseudo-clases:::link|:link|link (pseudo-clase)">':link'</span></a>, <a name="x3"><span class="index-inst" title="pseudo-clases:::visited|:visited|visited (pseudo-clase)">':visited'</span></a> y <a name="x6"><span class="index-inst" title="pseudo-clases:::active|:active|active (pseudo-clase)">':active'</span></a> eran mutuamente excluyentes; en CSS2, <a href="selector.html#dynamic-pseudo-classes">':active'</a> puede aparecer junto con <a href="selector.html#link-pseudo-classes">':link' o ':visited'</a>.
+
+<LI>El factor de escala sugerido entre índices adyacentes de <a href="fonts.html#propdef-font-size" class="noxref"><span
+class="propinst-font-size">'font-size'</span></a> en la tabla de tamaños de la fuente ha sido reducido de 1.5 a 1.2.
+
+<LI>El valor computado, no es valor real, de <a href="fonts.html#propdef-font-size" class="noxref"><span
+class="propinst-font-size">'font-size'</span></a> es heredado.
+
+<LI>La descripción en CSS1 de 'inside' (para <a href="generate.html#propdef-list-style-position" class="noxref"><span
+class="propinst-list-style-position">'list-style-position'</span></a>) posibilitaba la interpretación de que el margen izquierdo del texto era afectado, en lugar de la posición de la viñeta. En CSS2 esa interpretación está corregida.
+
+<li>Por favor, también consulte la sección <em>normativa</em> en <a href="grammar.html#tokenizer-diffs">diferencias entre los comandos de CSS1 y CSS2</a>.
+</UL>
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="sample.html">anterior</a> &nbsp;
+<a href="notes.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</HTML>

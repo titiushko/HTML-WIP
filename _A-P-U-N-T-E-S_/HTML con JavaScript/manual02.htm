@@ -1,0 +1,275 @@
+<HTML>
+<HEAD><TITLE>Estructura del HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table cellpadding=3 cellspacing=3 width=700>
+<tr><td>
+<font size=3 face="Arial">
+
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="timon.gif" alt="Icono" width=72 height=63></td>
+<td><font  size=6><b>Directivas del HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+El HTML (HyperText Makeup Language), en realidad no es un lenguaje de programaci&oacute;n, sino como su nombre indica es un “lenguaje de maquillado” ya que nosotros lo &uacute;nico que hacemos es “maquillar” una serie de textos e im&aacute;genees para que el navegador nos d&eacute; la presentaci&oacute;n deseada en conjunto.
+</p>
+
+<p>
+El HTML est&aacute; en cont&iacute;nuo desarrollo, por lo que en un principio s&oacute;lo existe un HTML est&aacute;ndar que es el que se denomina SGML (Standart Generalized Makeup Language), que es lenguaje est&aacute;ndar reconocido por todos los navegadores. S&oacute;lo hay una versi&oacute;n (por el momento), que es la 1.0 y las desventajas que posee sobre el HTML es que es un poco pobre de contenidos, ya que no actualiza las nuevas directivas que est&aacute;n en cont&iacute;nuo desarrollo.
+</p>
+
+<p>
+Las directivas en HTML son aquellas “ordenes” que se hayna entre los s&iacute;mbolos &lt;...&gt; y que son de 2 clases: abiertas y cerradas.
+</p>
+
+<ul>
+<li><b>Abiertas</b>
+<p>
+Son aquellas directivas que no necesitan ser cerradas para que su acci&oacute;n sea comprendida por el navegador (&lt;HR&gt;, &lt;BR&gt;, ...)
+</p>
+
+<li><b>Cerradas</b>
+
+<p>
+Son aquellas directivas que para ser comprendidas por el navegador, deben indicar en d&oacute;nde comienzan y e d&oacute;nde terminan. Son las m&aacute;s, y cuando indican al navegador que cierran la directiva poseen el formato &lt;/DIRECTIVA&gt; donde DIRECTIVA es la “orden” que queremos cerrar. El texto o im&aacute;genes o elementos que se hayen entre las 2 directivas &lt;DIRECTIVA&gt;...&lt;/DIRECTIVA&gt; quedan afectadas por la acci&oacute;n de dicha DIRECTIVA en su totalidad (&lt;H1&gt;...&lt;/H1&gt;, &lt;TABLE&gt;...&lt;/TABLE&gt;, ...).
+</p>
+</ul>
+
+<p>
+Las directivas en HTML no tienen por qu&eacute; ser escritas en may&uacute;sculas, ya que pueden escribirse sin lugar a errores en min&uacute;sculas. En este texto, las directivas se emplear&aacute;n en may&uacute;sculas para mayor claridad y destaque del c&oacute;digo HTML, del resto de texto.
+</p>
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="herram.gif" alt="Icono" width=70 height=86></td>
+<td><font  size=6><b>Estructura del Documento</b></font></td>
+</tr>
+</table>
+
+<p>
+Todo el contenido de un documento HTML debe encontrarse englobado en el interior de la directiva cerrada &lt;HTML&gt;...&lt;/HTML&gt;. Esto indica al navegador que estamos empleando que todo lo que se encuentra entre estas dos marcacs, es c&oacute;digo HTML y que debe ser interpretado como tal.
+</p>
+
+<p>
+La directiva &lt;HTML&gt;...&lt;/HTML&gt; contiene en su interior 2 bloques: &lt;HEAD&gt;...&lt;/HEAD&gt; que es la directiva que señala la cabecera del documento y, &lt;BODY&gt;...&lt;/BODY&gt;, que contiene el cuerpo del documento o para entendernos lo que visualizamos en el navegador con el formato correspondiente. En resumen un fichero de HTML ser&iacute;a de la forma:
+</p>
+
+<pre>
+&lt;HTML&gt;
+     &lt;HEAD&gt;
+     ...
+     &lt;/HEAD&gt;
+     &lt;BODY&gt;
+     ...
+     &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+<br>
+
+<img src="red-bal1.gif" alt="*" width=12 height=12>
+<b>&lt;HEAD&gt; CABECERA DEL DOCUMENTO</b>
+
+<p>
+Esta cabecera contiene esencialmente informaci&oacute;n del documento. Entre esta directiva podremos poner otras directivas que acontinuaci&oacute;n explico:
+</p>
+
+<ul>
+<li><b>&lt;BASE&gt;</b>
+<p>
+Se emplea para especificar un directorio de trabajo (o base) distinto del que actualmente estemos trabajando. Cuando un navegador lee un documento, toma como direcci&oacute;n de este documento con una direcci&oacute;n en el que se halla (http://www.miserver.es/directorio/index.html), como refencia base para el resto del documento. Si ahora us&aacute;semos una imagene en nuestro documento (ver secci&oacute;n IMAGENES) con la directiva:
+</p>
+
+<p>
+&lt;IMG HREF=“dibujos/indice.gif”&gt;
+</p>
+
+<p>
+el navegador buscar&aacute; el dibujo en http://www.miserver.es/directorio/dibujos/indice.gif (ya que para el navegador el directorio base es directorio y la refencia de la imagen, el navegador la hece sobre esta referencia).
+</p>
+
+<p>
+Suponemos ahora que el documento index.html lo modificamos, y para comprobar que funciona (tras haberlo modificado), lo colocamos en la direcci&oacute;n: http://www.miserver.es/pruebas/index.html.
+</p>
+
+<p>
+La imagen que tenemos referenciada como &lt;IMG HREF=“dibujos/indice.gif”&gt;, ahora ser&aacute; buscada en http://www.miserver.es/pruebas/dibujos/indice.gif, directorio que seguramente no exista y por lo tanto no veremos la imagen. Aqu&iacute; es donde entra una de las aplicaciones de la directica &lt;BASE&gt;.
+</p>
+
+<p>
+Si en el ancabezado indicamos cu&aacute;l es el directorio base o ra&iacute;z de nuestro documento, el resto de referencias a im&aacute;genes las podremos seguir manteniendo, de forma que si ponemos:
+</p>
+
+<pre>
+&lt;HTML&gt;
+     &lt;HEAD&gt;
+     &lt;BASE HREF=“ http://www.miserver.es/directorio/”&gt;
+     ...
+</pre>
+
+<p>
+podemos cambiar el documento HTML que queramos de directorio, que las referencias de las im&aacute;genes las seguir&aacute; manteniendo.
+</p>
+<br>
+
+<li><b>&lt;META&gt;</b>
+<p>
+Esta es otra directiva que puede incluirse entre las directivas &lt;HEAD&gt;...&lt;/HEAD&gt;. Se usa para incluir metainformaci&oacute;n no definida en las restantes directivas HTML.
+</p>
+
+<p>
+Una aplicaci&oacute;n mucho m&aacute;s pr&aacute;ctica es la construcci&oacute;n de p&aacute;ginas din&aacute;micas con Netsacpe, lo que se ver&aacute; m&aacute;s adelante. El siguiente ejemplo, tras cargar el documento, carga otro al cabo de 10 segundos,  si el usuario no sigue antes de este pr&iacute;odo de tiempo ning&uacute;n otro enlace:
+</p>
+
+<pre>
+&lt;HTML&gt;
+     &lt;HEAD&gt;
+     &lt;META http-equiv=REFRESH content=“10;URL=http://www.miserver.es/directorio/siguiente.html”&gt;
+     ...
+</pre>
+	...
+<p>
+&lt;META&gt; es una directiva obligatoria en ning&uacute;n documento HTML, sino que es opcional totalmente.
+</p>
+
+<p>
+<b>TRUCO:</b> Podemos hacer con esta directiva, que al finalizar la carga de la p&aacute;gina, en lugar de hacer que tras un tiempo salte a otra, suene una cacni&oacute;n, en formato <b>.au</b> (<b>Real Audio</b>, reconocido por Netscape).
+</p>
+<br>
+
+<li><b>&lt;TITLE&gt;</b>
+<p>
+Es otra directiva de la cabecera del documento y en este caso es una directiva cerrada a diferencia de las anteriores que eran abierta (&lt;TITLE&gt;...&lt;/TITLE&gt;). Esta directiva nos da la opci&oacute;n de darle un t&iacute;tulo al documento, y mejor a&uacute;n, permite visualizarlo en el visualizador de la barra del navegador:
+</p>
+
+<pre>
+&lt;HTML&gt;
+     &lt;HEAD&gt;
+     &lt;TITLE&gt; Documento de Javier Gorriz &lt;/TITLE&gt;
+     &lt;/HEAD&gt;
+     ...
+</pre>
+
+<p>
+Aunque en principio no se imponen l&iacute;mites a la longitud de un t&iacute;tulo, conviene ser razonable y no usar ni nombre largos nombre muy pequeños. En este tipo de directiva, no se puede emplear ninguna directiva que modifique el tipo de texto, es decir, no podemos ponerlo en negrilla, ni subrayado, ni en cursiva, ni cambiarle el color, simplemente no debemos limitar a poner el texto que deseemos. Ninguna modificaci&oacute;n surtir&aacute; efecto, y por el contrario ser&aacute;n tambi&eacute;n parte del t&iacute;tulo las distintas directivas que queramos emplear para modificar la apariencia del t&iacute;tulo.
+</p>
+
+<p>
+Aunque est&aacute; directiva a diferencia de las anteriores, no es obligatoria, es conveniente poner t&iacute;tulo a nuestra p&aacute;gina ya que podremos identificarla en todo momento sin tener que verla por completo, para conocer el contenido de la misma.
+</p>
+
+<p>
+<b>TRUCO:</b> En Netscape se pueden intentar efectos de “scrolling” o texto pasante en el t&iacute;tulo del mismo, separando las distintas l&iacute;neas con el car&aacute;cter “backspace”.
+</p>
+</ul>
+<br>
+
+<img src="red-bal1.gif" alt="*" width=12 height=12>
+<b>&lt;BODY&gt; CUERPO DEL DOCUMENTO</b>
+
+<p>
+En el cuerpo del documento se encontrar&aacute;n todas las directivas HTML as&iacute; como el texto, las im&aacute;genes, sonidos, tablas, listas, etc... Como descripci&oacute;n gr&aacute;fica, podremos decir que todo lo que aparezca entre las directivas &lt;BODY&gt;...&lt;/BODY&gt; ser&aacute; visualizado de una u otra manera en la pantalla del navegandor.
+</p>
+
+<p>
+Esta directiva puede alojar en su interior una serie de atributos que suelen hacerla de lo m&aacute;s interesante en lo que se refiere a la presentaci&oacute;n principal del documento HTML.
+</p>
+
+<ul>
+<li><b>BACKGROUND="..."</b>
+<p>
+Este atributo define un gr&aacute;fico en formato <b>.jpg</b> o <b>.gif</b> que nos servir&aacute; de fondo para la p&aacute;gina de nuestro documento. El gr&aacute;fico que empleemos se pondr&aacute; en toda el &aacute;rea de visualizaci&oacute;n del documento, de forma que complete un mosaico en el que repite el motivo que no es otro que la imagen que definimos en esta directiva.
+</p>
+
+<p>
+La imagen que nos servir&aacute; de fondo en nuestra p&aacute;gina, puede ser puesta con su ruta absoluta de referencia en el servidor, como por ejemplo la ruta absoluta <i><b>http://www.miservidor.es/fondos/imagen.gif</b></i>, lo que nos cargar&iacute;a la <i><b>imagen.gif</b></i> definida en la ruta de internet <i><b>http://www.miservidor.es/fondos/</b></i>, como fondo de nuestra pantalla, o con su ruta relativa como podr&iacute;a ser <b><i>imagen.gif</i></b>, que indicar&iacute;a al servidor que dicho imagen GIF, est&aacute; situada en el mismo directorio del documento que se est&aacute; cargando en el navegador.
+</p>
+
+<p>
+<b>NOTA:</b> En el caso de que nuestro visitante tenga desactivada la opci&oacute;n de cargar im&aacute;genes, el fondo de nuestra p&aacute;gina no ser&iacute;a cargada, y el fondo que aparecer&iacute;a (en caso de que no lo impidieramos definiendo otro color de fondo), ser&iacute;a de color gris oscuro.
+</p>
+<br>
+
+<li><b>BGCOLOR="..."</b>
+<p>
+Este atributo define el color que aparecer&aacute; de fondo en nuestra p&aacute;gina. Por defecto, en el navegador Netscape, aparecer&iacute;a de color gris oscuro a no ser que se le definiera otro color.
+</p>
+
+<p>
+Los colores se definiran de dos formas: en formato RGB, o dando el nombre del color deseado en ingl&eacute;s.
+</p>
+
+<p>
+El formato RGB lo que hace es definir en 3 pares de n&uacute;meros hexagesimales, el valor de Rojo (Red), Verde (Green) y Azul (Blue) en cantidad que va desde 0 a 255 (00-FF en hexagesimal). El conjunto en total nos da un color deternimado que ser&aacute; el indicativo del que aparecer&aacute; de fondo en nuestro documento. En el caso de que definamos el color del modo RGB, debemos anteponer una almohadilla (#) de forma que el navegador con esta almohadilla sepa que el siguiente n&uacute;mero, es un n&uacute;mero hexagesimal y no una serie de caracteres. Por ejemplo,  BGCOLOR="#FF0000" en el atributo &lt;BODY&gt; (<b>&lt;BODY BGCOLOR="#FF0000"&gt;</b>), nos dar&aacute; el color de fondo <font  color="#ff0000"><b>ROJO</b></font>, el BGCOLOR="#00FF00" el color <font  color="#00ff00"><b>VERDE</b></font> y el BGCOLOR="#0000FF" el color <font  color="#0000ff"><b>AZUL</b></font>.
+</p>
+
+<p>
+Existen muchos programas que nos permiten seleccionar el color que deseemos sintener que hacer c&aacute;lculos hexagesimales del valor RGB del color, por lo que nosotros solo nos debemos de preocupar de elegir el color y colocar el atributo con el valor correspondiente dentro de la directiva &lt;BODY&gt;.
+</p>
+
+<p>
+La otra forma de definir los valores de los colores (por lo menos en Netscape), es la de otorgar el nombre en Ingles del color que deseemos colocar. Esta opci&oacute;n tiene el fallo de que no todos los colores est&aacute;n definidos, y s&oacute;lo los m&aacute;s b&aacute;sicos son los definidos. Por ejemplo BGCOLOR="Red", BGCOLOR="Green" y BGCOLOR="Blue", nos dar&iacute;a al igual que antes, colores <font  color="#ff0000"><b>Rojo</b></font>, <font  color="#00ff00"><b>Verde</b></font> y <font  color="#0000ff"><b>Azul</b></font> de fondo de documento
+</p>
+
+<p>
+<b>TRUCO:</b> Aunque nuestro visitante tenga predefinido el no cargar las im&aacute;genes y por lo tanto no ver nuestro fondo (en caso de que tuvieramos una imagen), si definimos un color al mismo tiempo que definimos una imagen de fondo, si el usuario no ve las im&aacute;genes, SI ver&aacute; el color que predefinamos,permitiendonos definir un color similar al que predomine en el mosaico que genera la imagen que colocamos de fondo, y dando un efecto similar al que tendr&iacute;a si hubiera cargado la imagen de fondo.
+</p>
+<br>
+
+<li><b>TEXT="..."</b> 
+<p>
+Es un atributo de la directiva &lt;BODY&gt;, que nos permite modificar el color del TEXTO general que aparecer&aacute; en nuestro documento. Es decir, del total del texto que se muestre en la p&aacute;gina HTML que hagamos. Al igual que el color de fondo podemos definirlo del modo anterior: o bien en RGB o bien con el nombre en ingles del color.
+</p>
+
+<p>
+Por defecto, si no definimos el color del texto, se mostrar&aacute; el color <b>NEGRO</b> (por defecto).
+</p>
+<br>
+
+<li><b>LINK="..."</b>
+<p>
+Este atributo define el color de cualquier enlace que aparezca en el documento. Se define al igual que los atributos anteriores. Por defecto el color ser&aacute; <font  color="#0000ff"><b><u>AZUL</u></b></font>.
+</p>
+<br>
+
+<li><b>VLINK="..."</b>
+<p>
+Este atributo define el color de cualquier enlace ya visitado que aparezca en el documento. Se define al igual que los atributos anteriores. Por defecto el color ser&aacute; <font  color="#FF80C0"><b><u>VIOLETA</u></b></font>.
+</p>
+<br>
+
+<li><b>ALINK="..."</b>
+<p>
+Este atributo define el color de cualquier enlace sobre el que mantengamos pulsado el rat&oacute;n sin soltar, es decir manteniendo sobre el enlace el rat&oacute;n con el bot&oacute;n pulsado (lo que har&iacute;a que se habriera ese enlace en otra ventana). Se define al igual que los atributos anteriores. Por defecto el color ser&aacute; <font  color="#ff0000"><b><u>ROJO</u></b></font>.
+</p>
+<br>
+
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual01.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual03.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+
+</BODY>
+</HTML>

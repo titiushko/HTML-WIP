@@ -1,0 +1,270 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 6 (2/3)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La segunda parte del sexto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,codificación de caracteres,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 6 (2/3)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La segunda parte del sexto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-12-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/6/2" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="1.htm" tppabs="http://html.conclase.net/tutorial/html/6/1" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Consejos antes de publicar la página (II)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/6/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/6/3">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Bien. Al subir tus páginas a la Web es posible que te encuentres con un pequeño problema.</p>
+<p class="a">- ¡No me digas! ¿Cuál?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Que desaparezcan todos los acentos. A veces pasa. La ñ se convierte en q, la í se convierte en m, el signo ¿ se convierte en ?, etc. Sería un poco largo de explicar ahora, tiene algo que ver con las codificaciones de caracteres, y todo eso. De todas formas, lo importante es que tiene fácil arreglo.</p>
+<p class="a">- Ah, bueno, entonces...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¿Te acuerdas de cuando hablamos sobre referencias a entidades de caracteres?</p>
+<p class="a">- Mmmm, la verdad es que no...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí hombre, lo vimos <a href="../4/2.htm" tppabs="http://html.conclase.net/tutorial/html/4/2">en el tutorial cuarto</a>. Son códigos especiales que empiezan con un &amp; y terminan con un punto y coma, y te puse como ejemplo el código para el símbolo del copyright, &amp;copy;</p>
+<p class="a">- Ah, sí, es verdad.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien, pues con estos códigos podemos poner caracteres acentuados y otros símbolos especiales sin miedo a que desaparezcan al subir la página a la Web.</p>
+<p class="a">- ¿Quieres decir que hay un código para cada carácter acentuado?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, hay muchos códigos. Puedes ver <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/sgml/entities.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/sgml/entities.html'" tppabs="http://html.conclase.net/w3c/html401-es/sgml/entities.html">la lista completa</a> en la especificación de <abbr>HTML</abbr>. Pero si escribes en castellano con estos te valdrán:</p>
+<table class="p" cellspacing="0" width="80%">
+<col width="15%" /><col width="35%" /><col width="15%" /><col width="35%" />
+<tr><th>á</th><td>&amp;aacute;</td><th>Á</th><td>&amp;Aacute;</td></tr>
+<tr><th>é</th><td>&amp;eacute;</td><th>É</th><td>&amp;Eacute;</td></tr>
+<tr><th>í</th><td>&amp;iacute;</td><th>Í</th><td>&amp;Iacute;</td></tr>
+<tr><th>ó</th><td>&amp;oacute;</td><th>Ó</th><td>&amp;Oacute;</td></tr>
+<tr><th>ú</th><td>&amp;uacute;</td><th>Ú</th><td>&amp;Uacute;</td></tr>
+<tr><th>ñ</th><td>&amp;ntilde;</td><th>Ñ</th><td>&amp;Ntilde;</td></tr>
+<tr><th>¿</th><td>&amp;iquest;</td><th>¡</th><td>&amp;iexcl;</td></tr>
+<tr><th>ü</th><td>&amp;uuml;</td><th>Ü</th><td>&amp;Uuml;</td></tr>
+<tr><th>&lt;</th><td>&amp;lt;</td><th>&gt;</th><td>&amp;gt;</td></tr>
+<tr><th>&amp;</th><td>&amp;amp;</td><th>&nbsp;</th><td>&nbsp;</td></tr>
+</table>
+<p class="a">- O sea que cada vez que quiera escribir á tengo que poner &amp;aacute; ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, en teoría no debería ser necesario, aunque como te he dicho es la mejor manera de asegurarte de que tu documento se verá lo mejor posible. De todos modos lo recomendable, si ves que tu servidor se come los acentos, es convertir los caracteres a sus referencias antes de subir el documento a la Web. O sea, escribes normalmente, conviertes los caracteres con el editor (con la función de reemplazar) y entonces lo subes.</p>
+<p class="a">- Ajá, entiendo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Además habría que decirle al navegador qué codificación de caracteres estamos usando, que es nuestro casos erá la ISO-8859-1...</p>
+<p class="a">- ¡Alto ahí! Tradúceme eso al castellano.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Es algo un poco difícil de explicar, y es un poco lioso. ¿De verdad quieres que te lo
+explique?</p>
+<p class="a">- Sí, por favor.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Muy bien. En primer lugar, existe una cosa llamada <dfn>Conjunto Universal de Caracteres</dfn>, o en inglés <em xml:lang="en">Universal Character Set</em> (<abbr>UCS</abbr>). En teoría, contiene todos los posibles caracteres que se pueden escribir en todos los idiomas.</p>
+<p class="a">- Impresionante.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¿Verdad que sí? Bueno, en segundo lugar, existe otra cosa que se llama <dfn>Conjunto de
+Caracteres del <abbr>HTML</abbr></dfn>, que son todos los caracteres que entiende un intérprete de <abbr>HTML</abbr>. Pues bien, resulta que el conjunto de caracteres del <abbr>HTML</abbr> es igual que el conjunto de universal caracteres.</p>
+<p class="a">- Entonces, ¿podría escribir mi documento <abbr>HTML</abbr> en hebreo, o en chino?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, perfectamente, pero antes tienes que avisar al navegador de que vas a utilizar
+cosas raras. Tienes que elegir una codificación de caracteres.</p>
+<p class="a">- Pero ¿por qué? Si me acabas de decir que el <abbr>HTML</abbr> lo entiende todo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Como sabes, la memoria de los ordenadores sólo acepta números. De modo que para almacenar
+la letra á, por ejemplo, lo que guarda él es el número 0225, que es el código de la letra á.</p>
+<p class="a">- Ya me estoy perdiendo, pero bueno. O sea, que cada letra corresponde a un número, ¿no?.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí. Pero resulta que en el alfabeto griego, el número 0225 corresponde a la letra alpha.
+Entonces, si tú escribes tu documento en griego, y quieres que salgan letras griegas,
+tienes que decir que has utilizado la codificación griega de caracteres. Así, cuando al
+agente de usuario le llega el código 0225, no lo transforma en la letra á, sino en la
+letra griega alpha.</p>
+<p class="a">- O sea, que la codificación de caracteres le dice al agente de usuario a qué letra del
+conjunto universal de caracteres corresponde cada código numérico.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Exactamente. En nuestro caso, como nosotros escribimos en castellano, y tenemos acentos,
+eñes y toda la pesca, tenemos que utilizar la codificación ISO-8859-1.</p>
+<p class="a">- ¿Y cuál es la codificación griega?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- La ISO-8859-7. ¿Y tú para qué quieres la codificación griega?</p>
+<p class="a">- No, nada, pura curiosidad.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, el caso es que existen varias maneras de declarar la codificación, algunas mejores que otras. Lo mejor es configurar al servidor para que sea él el que anuncie la codificación usada. De hecho es muy probable que ya esté configurado para ello. Pero para estar completamente seguros, y como eso probablemente no podrás hacerlo tú ahora, lo puedes hacer en <abbr>HTML</abbr> sin mucho peligro. Simplemente has de poner este elemento <code>META</code> en el <code>HEAD</code> del documento, justo después de la etiqueta <code>&lt;head&gt;</code>:</p>
+<p class="p"><samp>&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</samp></p>
+<p class="a">- ¡Qué cosas más raras me haces hacer!</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- No es culpa mía. Bueno, como ves la cuestión de los caracteres especiales en la Web es bastante compleja. De momento nosotros nos vamos a parar aquí y no vamos a complicar las cosas más. ¿Seguimos?</p>
+<p class="a">- Sigamos, sigamos.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/6/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/6/3">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/12/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - HTML, SGML, XHTML y XML</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Artículo que explica las relaciones entre HTML, SGML, XHTML y XML y explica brevemente qué es XML" />
+<meta name="Keywords"    content="HTML,CSS,SGML,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - HTML, SGML, XHTML y XML" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="HTML, SGML, XHTML y XML" />
+<meta name="DC.Description"       content="Artículo que explica las relaciones entre HTML, SGML, XHTML y XML y explica brevemente qué es XML" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/xml" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t01"><abbr xml:lang="en" title="HyperText Markup Language">HTML</abbr>, <abbr xml:lang="en" title="Standard Generalized Markup Language">SGML</abbr>, <abbr xml:lang="en" title="Extensible HyperText Markup Language">XHTML</abbr>, <abbr xml:lang="en" title="Extensible Markup Language">XML</abbr>...</h2>
+
+<p id="p01">Probablemente hayas leído que <a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/'" tppabs="http://www.w3.org/MarkUp/"><abbr>HTML</abbr></a> es una aplicación de <a href="javascript:if(confirm('http://xml.coverpages.org/sgml.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xml.coverpages.org/sgml.html'" tppabs="http://xml.coverpages.org/sgml.html"><abbr>SGML</abbr></a>, y probablemente no sepas muy bien qué significa eso. También habrás leído sobre otros lenguajes más "exóticos" como <a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/#xhtml1'" tppabs="http://www.w3.org/MarkUp/#xhtml1"><abbr>XHTML</abbr></a> y <a href="javascript:if(confirm('http://www.w3.org/XML/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/XML/'" tppabs="http://www.w3.org/XML/"><abbr>XML</abbr></a>, y probablemente también te estarás preguntando qué son exactamente.</p>
+
+<h3 id="t02"><abbr>SGML</abbr> y <abbr>HTML</abbr></h3>
+
+<p id="p02"><abbr>SGML</abbr> significa <em xml:lang="en">Standard Generalized Mark-up Language</em>, algo así como <em>Lenguaje Generalizado Estándar para el Formato de Documentos</em> ("<dfn><a href="javascript:if(confirm('http://dictionary.reference.com/search?q=mark-up  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dictionary.reference.com/search?q=mark-up'" tppabs="http://dictionary.reference.com/search?q=mark-up">mark-up</a></dfn>" es un término de imprenta que significa <em>el conjunto de instrucciones estilísticas detalladas escritas en un manuscrito que debe ser tipografiado</em>). Es un <a href="javascript:if(confirm('http://www.w3.org/MarkUp/SGML/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/SGML/'" tppabs="http://www.w3.org/MarkUp/SGML/">estándar internacional</a> que permite definir lenguajes para dar formato a documentos (<em xml:lang="en">mark-up languages</em>). Por ejemplo, el <abbr>HTML</abbr>, es un lenguaje de formato de documentos definido de acuerdo con <abbr>SGML</abbr> (o en otras palabras <em>una aplicación de <abbr>SGML</abbr></em>) para dar formato a documentos de <a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/#historical'" tppabs="http://www.w3.org/MarkUp/#historical">hipertexto</a>.</p>
+
+<p id="p03">El <abbr>HTML</abbr> es un lenguaje muy simple. El formato de los documentos se marca mediante etiquetas (<em xml:lang="en">tags</em>) que indican el comienzo y el final de los elementos que componen el documento. Cada uno de estos elementos tiene un significado estructural diferente. Por ejemplo, el elemento <samp>p</samp> contiene un párrafo de texto. El comienzo del párrafo se marca con la etiqueta <samp>&lt;p&gt;</samp> y el final del párrafo se marca (opcionalmente) con la etiqueta <samp>&lt;/p&gt;</samp>. El elemento <samp>h1</samp> contiene un encabezado (por ejemplo, el título de un capítulo) y está delimitado por las etiquetas <samp>&lt;h1&gt;</samp> y <samp>&lt;/h1&gt;</samp>. El elemento <samp>a</samp> indica un hipervínculo (o más concretamente el origen o el destino de un hipervínculo, según cómo se marque en el documento), etc.</p>
+
+<p id="p04">En teoría, el código <abbr>HTML</abbr> sólo contiene por tanto información sobre la estructura de los contenidos. Si escribimos, por ejemplo, el siguiente párrafo:</p>
+
+<pre>
+&lt;p&gt;Esto es un párrafo.
+
+Aunque haga un salto de línea, seguirá siendo un párrafo.&lt;/p&gt;
+</pre>
+
+<p>se representará como un solo párrafo; porque así es como está marcado, como un párrafo. En tu navegador se representa así:</p>
+
+<p>Esto es un párrafo.
+
+Aunque haga un salto de línea, seguirá siendo un párrafo.</p>
+
+<p id="p05">La simplicidad del <abbr>HTML</abbr> es un punto a su favor: como los contenidos están estructurados de manera lógica, pueden ser representados de acuerdo con esa estructura por cualquier navegador, según sus capacidades. Él mismo se encargará de escribir los títulos con un tipo más grande que el de los párrafos, de poner el espacio entre párrafos, de dibujar los marcadores de las listas, de dibujar las líneas entre las celdas de una tabla, etc., sin que nosotros tengamos que preocuparnos de esos aspectos.</p>
+
+<p id="p06">Sin embargo, los documentos así obtenidos carecen de atractivo visual. Hoy es posible utilizar <a href="javascript:if(confirm('http://www.w3.org/Style/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/Style/'" tppabs="http://www.w3.org/Style/">hojas de estilo</a> para especificar la apariencia de los elementos, pero durante varios años ha sido necesario recurrir a trucos y a elementos inventados para ello: por ejemplo, <a href="javascript:if(confirm('http://www.mcsr.olemiss.edu/~mudws/font.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mcsr.olemiss.edu/~mudws/font.html'" tppabs="http://www.mcsr.olemiss.edu/~mudws/font.html">el elemento <samp>font</samp></a> para cambiar la fuente de un elemento, la <a href="javascript:if(confirm('http://www.htmlhelp.com/faq/html/tables.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlhelp.com/faq/html/tables.html#table-problems'" tppabs="http://www.htmlhelp.com/faq/html/tables.html#table-problems">utilización de tablas</a> para colocar los elementos en la pantalla en lugar de para contener datos tabulares, o la división de un mismo documento en <a href="javascript:if(confirm('http://www.webreference.com/html/tutorial14/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webreference.com/html/tutorial14/'" tppabs="http://www.webreference.com/html/tutorial14/">marcos</a>. Todo ello introdujo rápidamente problemas: el <abbr>HTML</abbr> se complicó y <a href="javascript:if(confirm('http://www.w3.org/WAI/GL/central.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/WAI/GL/central.htm#TABLE.table'" tppabs="http://www.w3.org/WAI/GL/central.htm#TABLE.table">los documentos se hicieron menos accesibles</a>: los navegadores más antiguos ya no eran capaces de entender la estructura de los nuevos documentos al estar ésta mezclada con los elementos presentacionales. De hecho los documentos perdieron su estructura, lo cual era la base misma del <abbr>HTML</abbr>.</p>
+
+<p id="p07">La última especificación de <abbr>HTML</abbr>, la <a href="javascript:if(confirm('http://www.w3.org/TR/html4/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/html4/'" tppabs="http://www.w3.org/TR/html4/"><abbr>HTML</abbr> 4.01</a> de 1997, declaró todos los elementos presentacionales como <a href="javascript:if(confirm('http://www.w3.org/TR/html4/conform.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/html4/conform.html#deprecated'" tppabs="http://www.w3.org/TR/html4/conform.html#deprecated"><em>desaprobados</em></a>, es decir, en riesgo de ser declarados como obsoletos en próximas especificaciones, de modo que los nuevos navegadores no se verían obligados a soportarlos. En su lugar, deberían utilizarse hojas de estilo.</p>
+
+<h3 id="t03"><abbr>SGML</abbr> y <abbr>XML</abbr></h3> 
+
+<p id="p08">Como hemos visto, desde su creación, el <abbr>HTML</abbr> ha ido aumentando su complejidad para responder a las demandas de los usuarios de la Web. Al principio era suficiente para los físicos nucleares para los que iba a servir, pero hoy los documentos <abbr>HTML</abbr> tienen gráficos, animaciones, música; cada día llega a tecnologías diferentes (dispositivos portátiles, teléfonos móviles) y algún día se convertirá en una Web realmente interactiva. El lenguaje de la Web necesita seguir evolucionando.</p>
+
+<p id="p09"><abbr>XML</abbr> es una respuesta a esta necesidad. <abbr>XML</abbr> no es un nuevo lenguaje que vaya a suplantar a <abbr>HTML</abbr>. En realidad es, como el <abbr>SGML</abbr>, un lenguaje para definir lenguajes. Es <a href="javascript:if(confirm('http://www.w3.org/TR/NOTE-sgml-xml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/NOTE-sgml-xml'" tppabs="http://www.w3.org/TR/NOTE-sgml-xml">una versión de <abbr>SGML</abbr></a>, más sencilla y más fácil de aplicar que el <abbr>SGML</abbr>, diseñada precisamente para hacer frente a los problemas de compatibilidad y adaptabilidad de las nuevas tecnologías a Internet.</p>
+
+<p id="p10"><abbr>XML</abbr> significa "<em xml:lang="en">Extensible Mark-up Language</em>". En <abbr>XML</abbr> no hay elementos. Cada usuario (o grupo de usuarios) puede crear su propio lenguaje para el formato de datos y documentos, su propio <em>vocabulario</em>, según sus necesidades, siguiendo las reglas de <abbr>XML</abbr>. Por ejemplo, si quieres crear una lista de libros, puedes definir tus propios elementos, encerrados entre las etiquetas correspondientes: <samp>&lt;titulo&gt;</samp>, <samp>&lt;autor&gt;</samp>, <samp>&lt;precio&gt;</samp>, <samp>&lt;editorial&gt;</samp>, etc. A partir de ahí, podrías definir una hoja de estilo para definir la presentación de cada tipo de elemento en un navegador visual o en una salida impresa; pero también podrías utilizar una aplicación (tal vez una de las muchas aplicaciones ya existentes para el manejo de documentos <abbr>XML</abbr>) para buscar libros por autor, para ordenarlos, etc. Si por ejemplo quisieras vender tus libros por Internet podrías utilizar estas aplicaciones para permitir a tus clientes realizar búsquedas y hacer pedidos.</p>
+
+<p id="p11">Por supuesto, la idea no es que cada usuario se cree su propio lenguaje, sino que haya estándares generales, y que se escojan los apropiados combinándolos entre sí si es necesario. La <em>extensibilidad</em> se refiere precisamente a eso. Hay muchos lenguajes definidos de acuerdo con las reglas de <abbr>XML</abbr> (<a href="javascript:if(confirm('http://www.oasis-open.org/cover/xml.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.oasis-open.org/cover/xml.html#applications'" tppabs="http://www.oasis-open.org/cover/xml.html#applications">aplicaciones <abbr>XML</abbr></a>). Por ejemplo, <a href="javascript:if(confirm('http://www.docbook.org/tdg/en/html/docbook.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.docbook.org/tdg/en/html/docbook.html'" tppabs="http://www.docbook.org/tdg/en/html/docbook.html"><acronym>DocBook</acronym></a> es un lenguaje para el formato de libros electrónicos. <a href="javascript:if(confirm('http://www.w3.org/Math/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/Math/'" tppabs="http://www.w3.org/Math/"><abbr>MathML</abbr></a> es un lenguaje para el formato de ecuaciones matemáticas. En <acronym>DocBook</acronym> hay un elemento para párrafos (<samp>&lt;Para&gt;</samp>). En <abbr>MathML</abbr> hay definidos elementos útiles para las fórmulas matemáticas, como sumatorios (<samp>&lt;sum&gt;</samp>), exponenciales (<samp>&lt;exp&gt;</samp>), etc., pero no hay un elemento para párrafos.</p>
+
+<p id="p12">Esto permite crear lenguajes específicos para cada aplicación o para cada tecnología, lo cual finalmente puede simplificar las cosas. Por ejemplo, los teléfonos móviles tienen una capacidad de procesamiento mucho menor que la de los ordenadores personales. Como el <abbr>HTML</abbr> es demasiado complicado para ellos, se desarrolló un nuevo lenguaje simplificado llamado <a href="javascript:if(confirm('http://www.wapforum.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.wapforum.org/'" tppabs="http://www.wapforum.org/"><abbr>WAP</abbr></a> específico para teléfonos móviles. Desgraciadamente, <a href="javascript:if(confirm('http://www.w3.org/TR/NOTE-WAP  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/NOTE-WAP'" tppabs="http://www.w3.org/TR/NOTE-WAP"><abbr>WAP</abbr> no es una aplicación <abbr>XML</abbr></a>. En el futuro se espera que los teléfonos móviles <a href="javascript:if(confirm('http://press.nokia.com/PR/200103/813123_5.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://press.nokia.com/PR/200103/813123_5.html'" tppabs="http://press.nokia.com/PR/200103/813123_5.html">soporten <abbr>XML</abbr></a>, pero esto va a suponer esperar un tiempo de adaptación que se podría haber evitado. Vemos aquí un ejemplo de cómo los estándares pueden ayudar a facilitar la adaptación de nuevas tecnologías a la Web.</p>
+
+<h3 id="t04"><abbr>XML</abbr> y <abbr>XHTML</abbr></h3>
+
+<p id="p13">Si con <abbr>XML</abbr> se pueden definir lenguajes para formato de documentos, ¿se podría definir <abbr>HTML</abbr> como aplicación de <abbr>XML</abbr>? Sí. Es más, ya lo hicieron, y lo llamaron <a href="javascript:if(confirm('http://www.w3.org/MarkUp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/MarkUp/#xhtml1'" tppabs="http://www.w3.org/MarkUp/#xhtml1"><abbr>XHTML</abbr> 1.0</a>. El <abbr>XHTML</abbr> 1.0 es exactamente igual que el <abbr>HTML</abbr> 4, excepto en que sigue las reglas de <abbr>XML</abbr>, que son más estrictas que las de <abbr>SGML</abbr>. Por ejemplo, en <abbr>HTML</abbr> el elemento <samp>p</samp> no necesita la etiqueta final <samp>&lt;/p&gt;</samp>. En <abbr>XHTML</abbr> sí: todos los elementos necesitan una etiqueta inicial y otra final. En <abbr>HTML</abbr> puedes escribir <samp>&lt;p&gt;</samp> o <samp>&lt;P&gt;</samp>, no importa. En <abbr>XHTML</abbr>, las etiquetas tienen que ir obligatoriamente en minúsculas.</p>
+
+<p id="p14">Como ves, son diferencias formales. Las capacidades de <abbr>XHTML</abbr> 1.0 son exactamente las mismas que las de <abbr>HTML</abbr> 4.</p>
+
+<p id="p15">¿Es necesario entonces escribir las nuevas páginas en <abbr>XHTML</abbr>? Realmente no, no va a haber ninguna diferencia. El <abbr>XHTML</abbr> fue en el fondo la forma que tuvo el <acronym>W3C</acronym> de dar entender que habían decidido apostar por la implementación de <abbr>XML</abbr>.</p>
+
+<p id="p16">Pero ése es el motivo de fondo por el que el <acronym>W3C</acronym> creó <abbr>XHTML</abbr>: el posibilitar en el futuro la modularización del <abbr>HTML</abbr>. Hemos visto que para algunas aplicaciones conviene definir un subconjunto simplificado del <abbr>HTML</abbr>; para otras podría ser interesante ampliarlo con nuevas capacidades. Una solución es dividir el <abbr>HTML</abbr> en partes o <em>módulos</em> independientes y que cada navegador tome los que necesite según sus capacidades: un módulo de texto, un módulo de imágenes, un módulo de scripts, un módulo de formularios, etc.</p>
+
+<p id="p17">Hoy <a href="javascript:if(confirm('http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/'" tppabs="http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/"><abbr>XHTML</abbr> ya es modular</a>. Es de esperar que en el futuro existan aplicaciones que permitan crear fácilmente documentos <abbr>XHTML</abbr>, utilizando los módulos necesarios. Pero <abbr>HTML</abbr> no va a desaparecer de golpe. Los millones de páginas web que existen hoy son <abbr>HTML</abbr>. Los navegadores seguirán entendiendo <abbr>HTML</abbr>. La modularización de <abbr>XHTML</abbr> se ha hecho con vistas a las nuevas tecnologías, y hasta que no haya editores capaces de crear documentos eficientemente, no deberíamos preocuparnos en exceso. Sin embargo las cosas evolucionan muy rápido, así que nunca está de más mantenerse al día.</p>
+
+<h3 id="t05">Más información</h3>
+<ul>
+<li>Sobre XML y otros estándares: <a href="javascript:if(confirm('http://www.oasis-open.org/cover/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.oasis-open.org/cover/'" tppabs="http://www.oasis-open.org/cover/">The XML cover pages.</a></li>
+<li>Sobre XML: <a href="javascript:if(confirm('http://tech.irt.org/articles/xml.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tech.irt.org/articles/xml.htm'" tppabs="http://tech.irt.org/articles/xml.htm">Artículos sobre XML de irt.org</a></li>
+</ul>
+
+<p class="copy">&copy; 2001-2003, Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a id="actual" title="Los sucesores de HTML">&raquo;&nbsp;XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

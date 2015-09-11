@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Leccion #6 (Aprender HTML)</title>
+</head>
+
+<body bgcolor=#FDFFF2 >
+
+<h2><center><font face="ARIAL">Direccionando con Imagenes.</font></center></h2>
+</p>
+<tt><center>por: <a href=personal.html>L.J.Berdugo</a></center></tt>
+<hr><p>
+
+<h3>Resumen de leccion Anterior</h3>
+En la <a href=leccion5.htm>lección anterior</a> aprendió a usar Iconos, Gráficos y 
+animaciones.<br>
+También se tocó el tema de como colocar un papel tapiz a su Home Page.<br>
+Hoy aprenderemos a Direccionar con las imagenes y a colocar Texto al rededor de ellas.<p>
+<a name="6_1">
+<h2>Direccionando a la misma Página</h2>
+
+Los Iconos son archivos de Imagenes, a los cuales se le añade la caracteristica de contener una dirección
+a otra página.<br>
+En la lección #4, se estudió como se hace un direccionamiento a otra página.<br>
+Para recordar, el formato general es el siguiente;<p>
+
+<center><b>< A Href="Direccion" ><IMG SRC="imagen.gif">< /A ></b></center><p>
+
+Por ejemplo seleccione a YOSHI y verá que lo llevará al inicio de esta lección.<p>
+
+<center><a href=#lcn_6 ><IMG src=yoshi.gif ></a></center><p>
+
+Si nota alguna diferencia entre los Yoshi´s es que al yoshi anterior se le
+aplicó la caracteristica de enviarnos a otra dirección, recuerde que el comando de dirección
+subraya el contenido, así sucede con las imagenes.<br>
+Este borde se puede eliminar agregando el parametro <b>Border=0</b> al comando <b>IMG</b>.<p>
+
+El siguiente es una muestra del comando IMG con el parametro <b>Border</b>.<p>
+
+<center><a href=#lcn_6 ><IMG Border=0 src=yoshi.gif ></a></center><p>
+
+Si desea incluir una Imagen del tipo JPG, tenga en cuenta que debe escribir la extensión del archivo.<br>
+Por ejemplo; "image.jpg".<p>
+
+Para direcionar a otra página, se debe colocar la Direccion completa de la página, en lugar de la Etiqueta.<p>
+<a name="6_2">
+<h2>Justificando Imagenes.</h2>
+
+Al igual que a los textos, a las imagenes o graficos se les puede dar formato.<br>
+Se pueden Justificar a la Izquierda, por defecto, a la derecha y al centro.<br>
+También se puede escribir texto al rededor de las mismas, cambiarles el tamaño, etc.
+Los efectos de justificación de imagenes, se consiguen con el parametro <b>ALIGN</b>, dentro 
+del comando <b>IMG</b>.  Los valores que toma ALIGN para justificar son <b>Left</b>, <b>Right</b> y <b>Center</b>.<br>
+Veamos un Ejemplo;<p>
+
+<img align="middle" src=yoshi.gif align="right"><center><b>< img align="Right" src="imagen.gif" ></b></center><p>
+
+En los ejemplos anteriores use el comando <b>Center</b>, para centrar las imagenes al igual que en los Textos.<p>
+También con el parametro Align, se puede alinear Textos al lado de las imagenes, por defecto los browser muestran las
+imagenes en una linea y saltan a la otra para colocar los textos, 
+creando un espacio a la izquierda o a la derecha de la imagen.<br>
+Los valores que toma ALIGN en este caso son <b>Top</b>, <b>Middle</b> y <b>Bottom</b>.
+He aquí un ejemplo del parametro ALIGN con los valores Top, Middle y Bottom:<p>
+
+<center><b>< img align="Top" src="imagen.gif" > Texto, Texto, Texto</b></center><p>
+<center><b>< img align="Middle" src="imagen.gif" > Texto, Texto, Texto</b></center><p>
+<center><b>< img align="Bottom" src="imagen.gif" > Texto, Texto, Texto</b></center><p>
+
+El resultado es el siguiente;<p>
+<img align="Top" src=yoshi.gif> Texto colocado con el parametro ALIGN=Top. <b>Yoshi.gif</b><p>
+<img align="middle" src=yoshi.gif> Texto colocado con el parametro ALIGN=Middle. <b>Yoshi.gif</b><p>
+<img align="Bottom" src=yoshi.gif> Texto colocado con el parametro ALIGN=Bottom. <b>Yoshi.gif</b><p>
+<a name="6_3">
+<h2>Cambiando Tamaño a las Imagenes.</h2>
+
+Las imagenes en computador, son un conjunto de puntos, llamados "Pixel", estos puntos indican el tamaño de la imagen y su resolución.
+Por ejemplo, una imagen de 200x100 significa que tiene 200 puntos horizontales por 100 verticales, esto define su tamaño, pues una imagen 
+de 100x100 es mas pequeña que otra de 400x200.<p>
+El html permite "Cambiar" este tamaño, en realidad,se agregan o disminuyen puntos a las imagenes, sin importar como se vea el contenido.<br>
+Con el comando IMG las imagenes son mostradas en su tamaño normal, para modificar su tamaño se usan los pararmetros,
+<b>HEIGHT</b> y <b>WIDTH</b>, la sintaxis es la siguiente;<p>
+
+<center><b>< img height="xx" Width="xx" Src="imagen.gif" > </b></center><p>
+
+Donde xx representa el numero de Puntos, height para el alto y Width para el ancho.<p>
+
+<center>Tamaño Normal<br>
+<img src=felix01.gif><p>
+Tamaño 50x20<br>
+<img height=20 width=50 src=felix01.gif><p>
+Tamaño 100x100<br>
+<img height=100 width=100 src=felix01.gif><p>
+</center>
+Como puede observar, al cambiar el tamaño de las imagenes se cambia la resolución de las mismas.<p>
+
+Lo espero en la <a href=leccion7.htm>sigiente lección</a> donde encontrará la manera de publicar su
+propia página. <p>
+
+<a href=mailto:jberdugo@metrotel.net.co><img border=0 align=middle src=e-mail.gif></a>No olvide <a href=mailto:jberdugo@metrotel.net.co>escribirme</a>, para enterarme como le parece el curso.
+<hr>
+
+
+<center>
+<b>This page hosted by
+<a href=/><img src= /pictures/gc_icon.gif  border=0
+align=middle></a>
+Get your own <a href=/>Free Home Page</a></b></center>
+
+<hr WIDTH=50% size=5%>
+
+<p align="center"><font size=-2><b>© 1997 J&J Berdugo, Barranquilla-Colombia </b>
+</font></p>
+
+</body>
+</html>

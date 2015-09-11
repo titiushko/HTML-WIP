@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Leccion #3 (Aprender HTML)</title>
+</head>
+<body  bgcolor=#FEE2F4>
+<basefont name="ARIAL">
+<h2><center><font face="ARIAL">Edición de Texto 2.</font></center></h2>
+</p>
+<tt><center>por: <a href=personal.html>L.J.Berdugo</a></center></tt>
+<hr>
+<h4>Resumen Lección Antereior</h4>
+<p> 
+En la <a href=leccion2.htm>lección anterior</a> aprendío a dar formato 
+con los comandos <b>Negrita</b>, <i>Italica</i> y <tt>Letra Pequeña</tt>.<br>
+Que los comandos del HTML van encerrados entre <b>< ></b> sin excepción.<br> 
+Además que los comandos encierran el parrafo o las palabras a las que le vamos a dar formato. <br>
+Que algunos comandos no necesitan del cierre de comandos, asi como el < br > y el < p >.<br>
+Ahora veremos algunos otros comandos que afectan la presentación de los textos.</p>
+<a name="3_1">
+<h3>Comandos para Encabezados de Texto.</h3>
+
+Los comandos para encabezados se usan en la mayoría de paginas.
+Los hay de diferentes tamaños, (6) en total y su estructura es muy facil, por ejemplo:<p>
+< h1 > hasta < h6 >, donde el < h1 > es el encabezado más grande y el
+< h6 > es el más pequeño.<p>
+Los enacbezados en Html se generan en Negritas y tambien se le puede aplicar el formato de Italicas,
+el uso es mu sencillo, solo tiene que colocar el comando con la letra "h#" con el numero de encabezado.
+Los encabezados siempre llevan consigo un comando < p > ,por eso dejan una líne en blanco debajo de ellos.<p>
+<center>
+<h1>< h1 >Este es el mas grande < /h1 ></h1>
+<h3>< h3 >Este es el Mediano < /h3 ></h3>
+<h6>< h6 >Este es el más pequeño < /h6 ></h6>
+</center>
+<p>
+<a name="3_2">
+<h3>Comandos para Cambiar tamaño de Texto</h3>
+
+Así como hay tamaños para los encabezados Ud. puede cambiar el tamaño del texto que ud desee,
+para eso debe usar el comando < Font Size >, para ello cuenta con (12) doce tamaños
+diferentes desde el -1 hasta el +6.<br>
+Lo anterior se conoce como tamaños relativos, donde el -6 es el
+más pequeño y el +6 es el más grande.<br>
+El comando < Font Size > se cierra con el comando < /Font > al cual no se incluye el Size.
+Veamos un ejemplo:<p>
+<center>
+<Font Size="+3">< Font Size="+3" >Tamaño="+3"< /font ></font><p>
+<Font Size="+1">< Font Size="+1" >Tamaño="+1"< /font ></font><p>
+<Font Size="-1">< Font Size="-1" >Tamaño="-1"< /font ></font><P>
+<Font Size="-3">< Font Size="-3" >Tamaño="-3"< /font ></font><p>
+</center>
+
+Que observó del ejemplo anterior?. Algunos comandos del HTML tiene argumentos.<br>
+Los argumentos son comandos dentro del comando, el cual imparte una caracteristica
+adicional al comando que lo lleva, asi como el comoando < Font > lleva el argumento "size=",
+hay otros comandos del HTML que llevan otros tipos de argumentos, los cuales veremos más adelante.<p>
+<a name="3_3">
+<h3>Comandos para Cambiar Tipo de Texto.</h3>
+
+Los comandos para cambiar el tipo de texto, depende de los tipos de letra instaladas en su  sistema,
+por ejemplo, en windows hay tipos de letra que se llaman "ARIAL", "COURIER", etc.<br>
+Estos tipos de letra es a lo que me refiero, ud puede cambiar el tipo de Texto a sus documentos con el
+comando "Face=", que es un argumento de < Font >.<p>
+
+<Center>
+<font face="ARIAL">< Font Face="ARIAL" >Tipo Arial < /Font ></font><p>
+<font face="COURIER">< Font Face="COURIER" >Tipo Courier < /Font ></font><p>
+< Font Face="SYMBOL" >Tipo Symbol <font face="SYMBOL"> abcdefgh </font></Font ><p>
+<font face="TIMES">< Font Face="TIMES" >Tipo Times < /Font ></font><p>
+<font face="HELVET">< Font Face="HELVET" >Tipo Helvetica < /Font ></font><p>
+<font face="ROMAN">< Font Face="ROMAN" >Tipo Roman < /Font ></font><p>
+</center><p>
+
+Los valores pasados a los argumentos deben estar encerrados entre comillas (" ").<br>
+Los comados para formatear texto se pueden combinar para dar una mejor presentación a su
+documento.
+<a name="3_4">
+<h3>Comandos para Centrar Texto.</h3>
+
+Habrá notado ud. que todos los ejemplos que hemos usado están centrados?<br>
+Pués bien, el HTML tambien incluye comandos para la alineación de Textos.<br>
+El comando para centrar textos es el < Center > y < /center >, el siguiente
+es un ejemplo de los anterior:<p>
+<center>< Center ><p>
+Este texto esta Centrado<p>
+< /Center >
+</center><p>
+
+Por defecto todos los Browser alinean los textos a la izquierda.<br>
+Para alinearlos a la derecha se usa el comando <b>< p Align="Right" > </b>y <b>< /p ></b>.<br>
+El Argumento "ALIGN" puede tomar varios valores a saber:<br>  
+<b>Left</b>, Para justificar a la Izquierda (por Defecto)<br>
+<b>Right</b>, Para Justificar a la derecha y, <br>
+<b>Center</b>, para Justificar al centro.<br>
+Veamos un ejemplo:<p>
+< p align="left" >Justificado a la Izquierda. < /p >
+<p align="Center">< p align="Center" >Justificado al centro.< /p ></p>
+<p align="Right">< p align="Right" >Justificado a la derecha.< /p ></p><p>
+
+<center>
+<table border=1 >
+<td colspan=3 align="center"><b>Resumen Comandos para Formatear Textos</b><tr>
+<td align="center"><b>Comando</b>
+<td align="center"><b>Sintaxis</b>
+<td align="center"><b>Efecto</b><tr>
+<td>Encabezados
+<td>< h# >Encabezado< /h# >
+<td><h3>Encabezado=3</h3><tr>
+<td>Tamaño de Texto
+<td>< Font Size="+3" >Texto Tamaño 3< /Font >
+<td><Font Size="+3">Tamaño 3</Font><tr>
+<td>Tipo de Texto
+<td>< Font face="Arial" >Tipo Arial< /Font >
+<td><font face="ARIAL">Tipo Arial</Font><tr>
+<td>Centrar Texto
+<td>< Center >Centrar texto < /Center >
+<td Align="Center">Centrar texto<tr>
+<td>Justificar Texto.
+<td>< p align="Right" >A la Derecha< /p >
+<td align="Right">A la derecha<tr>
+</table></center>
+
+<ul><ul>
+<li>Algunos comandos del HTML tienen Argumentos.<br>
+<li>Los valores de los Argumentos van entre comillas (" ").<br>
+<li>El Argumento "ALIGN" soporta los valores Left, Center y Right.<br>
+<li>Los tipos de Letras son los disponibles en su Pc.<br>
+</ul></ul>
+ 
+Estimado amigo creo que está ud. en condiciones de cambiar el estilo 
+a sus páginas, recuerde que debe guardar los cambios en modo 
+Texto, y si no lo recuerda revise la <a href=leccion1.htm>lección #1</a> 
+de este tutor.<p>
+Si desea o tiene el tiempo suficiente revise la <a href=leccion4.htm>
+siguiente lección</a>.<p>
+No olvide Imprimir esta lección para futuras consultas, use <b>Ctrl+P</b>.<p>
+
+<hr>
+<p align="center"><a href=mailto:jberdugo@metrotel.net.co >Escribame</a> su  comentarios o inquietudes , le contestaré en cuanto pueda.</p>
+<hr size=5%>
+
+<center>
+<b>This page hosted by
+<a href=/><img src= /pictures/gc_icon.gif  border=0
+align=middle></a>
+Get your own <a href=/>Free Home Page</a></b></center>
+
+<hr WIDTH=50% size=5%>
+
+<p align="center"><font size=-2><b>© 1997 J&J Berdugo, Barranquilla-Colombia </b>
+</font></p>
+
+</body>
+</html>

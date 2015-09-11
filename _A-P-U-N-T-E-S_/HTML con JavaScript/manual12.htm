@@ -1,0 +1,234 @@
+<HTML>
+<HEAD>
+<TITLE> Sonidos en p&aacute;ginas HTML </TITLE>
+</HEAD>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="sonido.gif" alt="Icono" width=86 height=92></td>
+<td><font  size=6><b>Sonidos en p&aacute;ginas HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p>
+Pueden utilizarse indistintamente ficheros de sonido con los formatos WAV, AIFF, AU o MIDI. En Windows los m&aacute;s utilizados normalmente son los .WAV o los .MID. 
+</p>
+
+<P>
+Se utiliza el atributo &lt;EMBED&gt; junto a un buen n&uacute;mero de tributos: <b>SRC, AUTOSTART, LOOP, STARTTIME, ENDTIME, VOLUME, WIDTH, HEIGHT, ALIGN, CONTROLS y HIDDEN</b>. 
+</P>
+
+<P>
+Veamos para qu&eacute; sirve cada uno: 
+</P>
+
+
+
+<p><b>SRC</b>
+Indica d&oacute;nde est&aacute; el fichero de sonido, pero no puede utilizarse solo, necesita la compañ&iacute;a de otros atributos del
+elemento, concretamente los que definen el tamaño de la consola (que es un icono parecido al teclado que tiene un casette
+pequeño): <width> (largo) y <height> (alto) Por ejemplo: 
+</p>
+
+&lt;EMBED SRC="mozart.mid" width=160 height=70&gt;
+
+<P>
+Har&aacute; aparecer una consola como esta:
+</P>
+
+<center><img src="consola1.jpg" alt="Consola" width=152 height=58></center>
+
+<p>
+En caso de omitir los atributos <b>WIDTH</b> y <b>HEIGHT</b>, los tamaños por defecto no permiten ver la consola entera, y no es posible activar el sonido. Los tamaños m&aacute;ximos son <b>WIDTH=160</b> y <b>HEIGHT=70</b>; no sirve de nada aumentarlos y si se disminuyen, la imagen se recorta de derecha a izquierda y de abajo a arriba, pero no proporcionalmente. Como puedes ver, la consola incluye un control de sonido, que por defecto se sit&uacute;a en el 50%. Este valor puede modificarse con el atributo <b>VOLUME</b> y puede oscilar entre 0 y 100. La consola tambi&eacute;n permite cambiar el volumen manualmente. 
+</p>
+
+<p>
+Es posible cambiar el aspecto de la consola con el atributo <b>CONTROLS</b> que puede tener varios valores: <b>CONSOLE</b> (por defecto) o <b>SMALLCONSOLE</b>. Si escribes 
+
+<P>
+&lt;EMBED SRC="mozart.mid" width=144 height=15 CONTROLS=SMALLCONSOLE&gt;
+</P>
+
+<P>
+Aparece una consola como esta:
+</P>
+
+<center><img src="consola2.jpg" alt="Consola" width=149 height=19></center>
+
+<p>
+Con <b>SMALLCONSOLE</b> los tamaños por defecto s&oacute;lo dejan ver los botones de START Y STOP, desapareciendo el control de volumen. Los tamaños m&aacute;ximos son <b>WIDTH=144</b> y <b>HEIGHT=15</b>, y al igual que antes, no sirve de nada
+aumentarlos.  Los otros valores de <b>CONTROLS</b> son: <b>PLAYBUTTON</b>, <b>PAUSEBUTTON</b>, <b>STOPBUTTON</b> y <b>VOLUMELEVER</b>. Aunque en ingl&eacute;s, es f&aacute;cil deducir lo que hace cada uno, y sus tamaños m&aacute;ximos son <b>WIDTH=37 x HEIGHT=22</b>. S&oacute;lo es posible utilizar un valor por cada elemento <b>EMBED</b>, si pones m&aacute;s de uno s&oacute;lo hace efecto el primero. Si se quiere usar m&aacute;s de un bot&oacute;n, por ejemplo el de start y el stop en distintos lugares de la p&aacute;gina, pero actuando sobre el mismo fichero de sonido, usaremos el atributo <b>MASTERSOUND</b> en combinaci&oacute;n con <b>NAME</b>. Si escribes: 
+</p>
+
+&lt;EMBED SRC="mozart.mid" width=37 height=22 CONTROLS=PLAYBUTTON 
+        name="misonido" MASTERSOUND&gt;
+
+<BR><BR>
+
+&lt;EMBED SRC="mozart.mid" width=37 height=22 CONTROLS=STOPBUTTON 
+        name="misonido">
+
+<P>
+Se obtiene: 
+</P>                                                
+
+<center><img src="start.jpg" alt="start" width=36 height=26>
+<img src="stop.jpg" alt="stop" width=36 height=26></center>
+
+<p>
+Lo que se ha hecho en el primer elemento <b>EMBED</b>, mediante el atributo <b>NAME</b>, es darle nombre a un grupo de botones (misonido) y designarlo como "maestro", con el atributo <b>MASTERSOUND</b>, de todos los siguientes elementos <b>EMBED</b> que se definan con el mismo nombre (misonido). De esta manera, es posible controlar un sonido repartiendo los botones de
+la consola de la forma m&aacute;s conveniente. Se puede definir en la misma p&aacute;gina m&aacute;s de un grupo de sonidos, s&oacute;lo hay que
+procurar no liarse con los nombres. 
+</p>
+
+<p>
+Otro atributo de <b>EMBED</b> es <b>AUTOSTART</b> con dos posibles valores: <b>FALSE</b> (por defecto) y <b>TRUE</b>, y como ya habr&aacute;s
+deducido, <b>TRUE</b> hace que suene inmediatamente despu&eacute;s de cargar la p&aacute;gina, y sin necesidad de pulsar el bot&oacute;n <b>"start"</b> de la
+consola. Por ejemplo: 
+</p>
+
+%ltEMBED SRC="mozart.mid" width=160 height=70 AUTOSTAR=TRUE&gt;
+
+<p>
+El siguiente atributo a analizar es <b>HIDDEN</b> que s&oacute;lo tiene un valor: <b>TRUE</b>, y hace invisible la consola, pero evidentemente, si es invisible no puedes activar el sonido, y por tanto lo hace &eacute;l mismo, siempre que no hayas puesto
+<b>AUTOSTART=FALSE</b>, claro. Por ejemplo: 
+</p>
+
+&lt;EMBED SRC="mozart.mid" width=160 height=70 HIDDEN=TRUE&gt;
+
+<p>
+Un atributo de repetici&oacute;n no pod&iacute;a faltar, y lo tenemos en <b>LOOP</b> y sus tres posibles valores: <b>FALSE</b> (por defecto), <b>TRUE</b>
+que fuerza a la repetici&oacute;n sin fin de la audici&oacute;n, e <b>INTEGER</b> donde <b>INTEGER</b> es el n&uacute;mero de veces que deseas que se
+repita la audici&oacute;n. Por ejemplo: 
+</p>
+
+&lt;EMBED SRC="mozart.mid" width=160 height=70 LOOP=2&gt;
+
+<p>
+No es obligado comenzar una audici&oacute;n por el principio del fichero. Imag&iacute;nate que tienes un fichero con instrucciones habladas, y quieres dar la oportuna en cada momento, no todas de golpe. Para esto tenemos los atributos <b>STARTTIME=mm:ss</b> y <b>ENDTIME=mm:ss</b> donde mm son los minutos y ss los segundos del punto de comienzo o fin de la audici&oacute;n. Cuidado: los valores hay que darlos con dos d&iacute;gitos: Por ejemplo: 
+</p>
+
+&lt;EMBED SRC="mozart.mid" width=160 height=70  starttime=01:10 endtime=02:00&gt;
+
+<p>
+Este atributo funciona s&oacute;lo con Windows 95 o Macintosh. 
+</p>
+
+<p>
+Por &uacute;ltimo tenemos el atributo <b>ALIGN</b> y sus valores <b>TOP</b>, <b>BOTTOM</b>, <b>CENTER</b>, <b>LEFT</b>, <b>RIGHT</b>, <b>MIDDLE</b> y <b>TEXTTOP</b> que funcionan igual que sus respectivos del elemento <b>IMG</b>, es decir, que no tiene efectos sobre el sonido, sino sobre la imagen de la consola y su alineaci&oacute;n con el texto de la p&aacute;gina. 
+</p>
+
+<p>
+<b>TRUCO:</b> Si en una p&aacute;gina pones dos o m&aacute;s ficheros .mid, s&oacute;lo se oye el &uacute;ltimo que sea activado. La secuencia es: se carga el primero,
+arranca y se oir&aacute; durante el tiempo que tarde en cargarse el segundo, y en cuanto arranca el segundo, el primero pasa a la
+posici&oacute;n de "stop". Si los ficheros son .wav ocurre lo mismo, pero ¿que pasa si pones un <b>.mid</b> y un <b>.wav</b>? Pues que cada uno
+de ellos utiliza controladores de recursos de sistema diferentes, y por tanto se pueden oir los dos a la vez. Imag&iacute;nate tu voz
+explicando algo, y una suave m&uacute;sica de fondo... Como en los m&aacute;s sofisticados documentales. Eso s&iacute;, necesitas Windows 95. 
+</p>
+
+<p><b>NOTA: Las p&aacute;ginas que incluyen sonidos pueden dar problemas a la hora de imprimirlos, llegando incluso a colgar la m&aacute;quina. </b></p>
+<br>
+
+<font  size=3><b>EJEMPLOS DE PAGINAS CON SONIDO</b></font>
+
+<ul>
+<P>
+<li><b>Consola grande. Repetici&oacute;n sin fin. Volumen al 30%. Sin autoarranque.</b> 
+</P>
+
+<center><img src="consola3.gif" alt="Consola" width=148 height=62></center>
+
+<p>
+Se escribe: 
+</p>
+
+&lt;embed src="mozart.mid" controls=console width=160 height=70 loop=true
+      volume=30 autostart=false&gt;
+
+<p>
+<li><b>Consola grande. Sin repetici&oacute;n. Volumen al 50% (por defecto). Sin autoarranque. Fragmento entre los 10 y los 20 segundos del fichero.</b>
+</p>
+
+<center><img src="consola4.gif" alt="Consola" width=148 height=62></center>
+
+<p>
+Se escribe: 
+</p>
+
+&lgembed src="mozart.mid" controls=console width=160 height=70 loop=false
+      autostart=false  starttime=00:10 endtime=00:20&gt;
+
+<p>
+<li><b>Consola pequeña. Repetici&oacute;n sin fin. Volumen al 40%. Sin autoarranque. </b>
+</p>
+
+<center><img src="consola5.gif" alt="Consola" width=147 height=17></center>
+
+<p>
+Se escribe: 
+</p>
+
+&lt;embed src="minueto.mid" controls=smallconsole width=144 height=15 loop=true
+      volume=40 autostart=false&gt;
+
+
+<p>
+<li><b>Consola pequeña sin control de volumen (tamaños por defecto). Repetici&oacute;n sin fin. Volumen al 50% (por defecto). Sin autoarranque. </b>
+</p>
+
+<center><img src="consola6.gif" alt="Consola" width=50 height=15></center>
+
+<p>
+Se escribe: 
+</p>
+
+&lt;embed src="adagio.mid" controls=smallconsole  loop=true autostart=false&gt;
+
+<p>
+<li><b>Mezcla de sonidos. Tres ficheros de tipos distintos. S&oacute;lo bot&oacute;n de start. 1 sola audici&oacute;n por fichero (por defecto).
+Volumen al 40%. Sin autoarranque. 
+Mientras suena el primer fichero puede oirse cualquiera de los otros dos, mezclando los sonidos. </b>
+</p>
+
+<center><img src="consola7.gif" alt="Consola" width=36 height=24>
+<img src="consola7.gif" alt="Consola" width=36 height=24>
+<img src="consola7.gif" alt="Consola" width=36 height=24></center>
+
+<p>
+Se escribe: 
+</p>
+
+&lt;embed src="pinkpant.mid" controls=playbutton  volume=40 autostart=false&gt;<br>
+&lt;embed src="caballo.wav"  controls=playbutton  volume=40 autostart=false&gt;<br>
+&lt;embed src="fanfar.wav"   controls=playbutton  volume=40 autostart=false&gt;<br>
+<br>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual11.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual13.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

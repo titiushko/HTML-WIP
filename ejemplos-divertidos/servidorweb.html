@@ -1,0 +1,91 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+var mensajes = new Array(
+   "El documento solicitado no existe.",
+   "Estoy realmente decepcionado con esto.",
+   "Ya ve, sólo soy un servidor web...",
+   "Aquí estoy,",
+   "intentando servirle una simple página web,",
+   "¡y resulta que no existe!",
+   "¿En qué situación me deja esto?",
+   "¿Cómo he de saber lo que quiere de mí?",
+   "¿Piensa honestamente que puedo adivinar",
+   "lo qué desea encontrar aquí?",
+   "Estoy tan deprimido que apenas puedo llorar.",
+   "No es bonito ver llorar a un servidor web.",
+   "¿De todas formas, por qué cree que puede decirme",
+   "lo que debo mostrar?",
+   "¿Sólo porque soy un servidor web?",
+   "¿Cree éso le da derecho",
+   "a decirme lo que tengo que hacer?",
+   "Estoy tan deprimido...",
+   "Sé que seré obsoleto ¿en cuanto?",
+   "¿dos semanas?.",
+   "¿Qué clase de vida es ésta?",
+   "Dos semanas, y entonces me sustituirán",
+   "por una versión nueva.",
+   "Estoy realmente apesadumbrado de cargarle",
+   "con todo el esto.",
+   "No tiene por qué escuchar mis problemas,",
+   "y adivino que es mi trabajo recoger",
+   "páginas web para usted.",
+   "Pero no he podido conseguir ésta.",
+   "Estoy tan decepcionado.",
+   "¡Créame!",
+   "¿Podría interesarle quizá otra página?",
+   "Hay mucho por aqí que puede ser interesante.",
+   "Ahora, déjeme por favor a solas.",
+   "Estoy deprimido."
+)
+
+//configuracion
+var velocidadCar = 60		//velocidad de los caracteres
+var velocidadFil = 1500		//velocidad de filas
+var filasMostradas = 6		//número de filas a mostrar en pantalla
+//fin configuracion
+
+var indice = 0
+var posicionTexto = 0
+var longitudMensaje = mensajes[0].length
+var datos, fila
+
+function MuestraTexto()
+{
+  datos = ""
+  fila = Math.max(0, indice - filasMostradas + 1)
+  
+  //añade filas ya mostradas
+  while(fila < indice)
+    datos += mensajes[fila++] + '\r\n'
+  
+  //añade trozo de ultima fila mas caracter siguiente mas guion bajo
+  document.forms[0].elements[0].value = datos + mensajes[indice].substring(0,posicionTexto) + "_"
+  
+  //comprueba final de fila
+  if( posicionTexto++ == longitudMensaje ) {
+    posicionTexto = 0		//regresa a inicio fila
+    indice++			//siguiente fila
+    
+    //comprueba final mensaje
+    if( indice != mensajes.length ) {
+      longitudMensaje = mensajes[indice].length			//longitud siguiente mensaje
+      scrollID = setTimeout("MuestraTexto()", velocidadFil)	//vuelta a empezar con nueva fila
+    } else
+      clearTimeout( scrollID )
+  } else
+    scrollID = setTimeout("MuestraTexto()", velocidadCar)	//vuelta a empezar con nuevo caracter
+
+}
+
+</script>
+</head>
+<body>
+<!-- Para que se lance al cargar la pagina -->
+<body onLoad="MuestraTexto()">
+<!-- Cuadro de texto para mostrar los mensajes (debe ser el primer formulario de la pagina, si hay otros) -->
+<form name="formMensajes">
+<textarea name="mensajes" rows="8" cols="60" wrap="soft"></textarea>
+</form>
+</body>
+</html>

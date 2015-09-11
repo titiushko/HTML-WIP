@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Interfaz del usuario</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="tables.html">
+<link rel="next" href="aural.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="tables.html">anterior</a> &nbsp;
+<a href="aural.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">18 Interfaz del usuario</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="ui.html#cursor-props" class="tocxref">18.1 Cursores: la propiedad <span class="propinst-cursor">'cursor'</span></a>
+    <li class="tocline2"><a href="ui.html#system-colors" class="tocxref">18.2 Preferencias de color del usuario</a>
+    <li class="tocline2"><a href="ui.html#system-fonts" class="tocxref">18.3 Preferencias de fuentes del usuario</a>
+    <li class="tocline2"><a href="ui.html#dynamic-outlines" class="tocxref">18.4 Contornos dinámicos: la propiedad <span class="index-def" title="outline">'outline'</span></a>
+    <ul class="toc">
+      <li class="tocline3"><a href="ui.html#q5" class="tocxref">18.4.1 Contornos y foco</a>
+    </ul>
+    <li class="tocline2"><a href="ui.html#q6" class="tocxref">18.5 Amplificación</a>
+  </ul>
+</div>
+
+<H2>18.1 <a name="cursor-props">Cursores:</a> la propiedad <a href="ui.html#propdef-cursor" class="noxref"><span
+class="propinst-cursor">'cursor'</span></a></H2>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'cursor'"><a name="propdef-cursor" class="propdef-title"><strong>'cursor'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ [<a href="syndata.html#value-def-uri" class="noxref"><span class="value-inst-uri">&lt;uri&gt;</span></a> ,]* [ auto | crosshair | default | pointer | move | e-resize
+| ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize
+| w-resize| text | wait | help ] ] | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#interactive-media-group" class="noxref">interactivos</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica el tipo de cursor que será utilizado para el dispositivo señalador. Los valores tienen los siguientes significados:
+
+<dl>
+<dt><strong>auto</strong>
+<dd>La AU determina el cursor a mostrar basado en el contexto actual.
+
+<dt><strong>crosshair</strong>
+<dd>Una cruz simple (ej., segmentos cortos de línea semejantes a un signo "+").
+
+<dt><strong>default</strong>
+<dd>El cursor predeterminado dependiente de la plataforma. A menudo procesado como una flecha.
+
+<dt><strong>pointer</strong>
+<dd>El cursor es un puntero que indica un enlace.
+
+<dt><strong>move</strong>
+<dd>Indica que algo será movido.
+
+<dt><strong>e-resize, ne-resize, nw-resize, n-resize, se-resize,
+sw-resize, s-resize, w-resize</strong>
+
+<dd>Indica que algún borde será movido. Por ejemplo, el cursor 'se-resize' se usa cuando el movimiento comienza desde la esquina sudeste de la caja.
+
+<dt><strong>text</strong>
+<dd>Indica texto que puede seleccionarse. A menudo procesado como una barra-I.
+
+<dt><strong>wait</strong>
+<dd>Indica que el programa está ocupado y el usuario debe esperar. A menudo procesado como un reloj de pulsera o un reloj de arena.
+
+<dt><strong>help</strong>
+<dd>Hay ayuda disponible sobre el objeto señalado por el cursor. A menudo procesado como un signo de interrogación o un globo.
+					    
+<dt><a href="syndata.html#value-def-uri" class="noxref"><span class="value-inst-uri"><strong>&lt;uri&gt;</strong></span></a>
+
+<dd>La aplicación del usuario recupera el cursor de un recurso señalado por el URI. Si la aplicación del usuario no puede manejar el primero de una lista de cursores, debe intentar manejar el segundo, etc. Si la aplicación del usuario no puede manejar ningún cursor definido por el usuario, debe usar el cursor genérico al final de la lista.
+</dl>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+P { cursor : url("micursor.cur"), url("segundo.csr"), text; }
+</PRE>
+</div>
+
+<H2>18.2 <a name="system-colors">Preferencias de color del usuario</a></H2>
+
+<p>Además de poder asignar <a href="syndata.html#color-units">valores de color</a>predeterminados a los textos, fondos, etc., CSS2 permite a los autores especificar colores de manera que se integren con el entorno gráfico del usuario. Las reglas de estilo que tienen en cuenta de este modo las preferencias del usuario ofrecen las siguientes ventajas:
+	
+<ol>
+<li>Producen páginas que coinciden con un determinado aspecto y gusto del usuario.</li>
+<li>Producen páginas que pueden ser más accesibles en tanto las preferencias del usuario pueden estar relacionadas con una discapacidad.</li>
+</ol>
+
+<p>El conjunto de valores definidos para los colores del sistema intenta ser exhaustivo. Para los sistemas que no tienen los valores correspondientes, el valor especificado debe ser obtenido del atributo más cercano del sistema, o del color predeterminado.</p>
+
+<p>El siguiente es un listado de los valores adicionales para los atributos de CSS relacionados con el color y sus significados generales. Cualquier propiedad de color (por ej., <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> o <a href="colors.html#propdef-background-color" class="noxref"><span
+class="propinst-background-color">'background-color'</span></a>) puede tomar uno de los siguientes nombres. Aunque estos no distinguen entre mayúsculas y minúsculas, se recomienda que la mezcla de mayúsculas y minúsculas mostrada abajo sea utilizada para hacer más legibles los nombres.</p>
+
+<dl>
+<dt><strong>ActiveBorder</strong>
+<dd>Borde de la ventana activa.
+<dt><strong>ActiveCaption</strong>
+<dd>Título de la ventana activa.
+<dt><strong>AppWorkspace</strong>
+<dd>Color de fondo de una interfaz de documentos múltiples.
+<dt><strong>Background</strong>
+<dd>Fondo del escritorio.
+<dt><strong>ButtonFace</strong>
+<dd>Color de la cara de los elementos tridimensionales de la pantalla.
+<dt><strong>ButtonHighlight</strong>
+<dd>Sombra oscura de los elementos tridimensionales de la pantalla (para los bordes más alejados de la fuente luminosa).
+<dt><strong>ButtonShadow</strong>
+<dd>Color de la sombra de los elementos tridimensionales de la pantalla.
+<dt><strong>ButtonText</strong>
+<dd>Texto de los botones.
+<dt><strong>CaptionText</strong>
+<dd>Texto de los títulos, cajas de dimensiones y cajas de flechas de las barras de desplazamiento.
+<dt><strong>GrayText</strong>
+<dd>Texto grisado (deshabilitado). Este color es fijado en #000 si el manejador de pantalla actual no soporta un color gris sólido.
+<dt><strong>Highlight</strong>
+<dd>Item(s) seleccionados en un control.
+<dt><strong>HighlightText</strong>
+<dd>Texto del(los) item(s) seleccionados en un control.
+<dt><strong>InactiveBorder</strong>
+<dd>Borde de la ventana inactiva.
+<dt><strong>InactiveCaption</strong>
+<dd>Título de la ventana inactiva.
+<dt><strong>InactiveCaptionText</strong>
+<dd>Color del texto de un título inactivo.
+<dt><strong>InfoBackground</strong>
+<dd>Color de fondo de los controles de sugerencias (tooltip).
+<dt><strong>InfoText</strong>
+<dd>Color del texto de los controles de sugerencias (tooltip).
+<dt><strong>Menu</strong>
+<dd>Fondo del menu.
+<dt><strong>MenuText</strong>
+<dd>Texto de los menúes.
+<dt><strong>Scrollbar</strong>
+<dd>Area gris de la barra de desplazamiento.
+<dt><strong>ThreeDDarkShadow</strong>
+<dd>Sombra oscura de los elementos tridimensionales de pantalla.
+<dt><strong>ThreeDFace</strong>
+<dd>Color de la cara de los elementos tridimensionales de pantalla.
+<dt><strong>ThreeDHighlight</strong>
+<dd>Color resaltado de los elementos tridimensionales de pantalla.
+<dt><strong>ThreeDLightShadow</strong>
+<dd>Color claro de los elementos tridimensionales de pantalla (para los bordes enfrentados a la fuente luminosa).
+<dt><strong>ThreeDShadow</strong>
+<dd>Sombra oscura de los elementos tridimensionales de pantalla.
+<dt><strong>Window</strong>
+<dd>Fondo de la ventana.
+<dt><strong>WindowFrame</strong>
+<dd>Marco de la ventana.
+<dt><strong>WindowText</strong>
+<dd>Texto de las ventanas.
+</dl>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>Por ejemplo, para poner como colores de primer plano y de fondo de un párrafo los mismos colores de primer plano y de fondo que la ventana del usuario, escriba lo siguiente:
+
+<PRE>
+P { color: WindowText; background-color: Window }
+</PRE>
+</div>
+
+<H2>18.3 <a name="system-fonts">Preferencias de fuentes del usuario</a></H2>
+
+<P>De igual modo que para los colores, los autores pueden especificar las fuentes de manera de utilizar los recursos del sistema del usuario. Por favor, consulte la propiedad <a href="fonts.html#propdef-font" class="noxref"><span
+class="propinst-font">'font'</span></a> para más detalles.
+
+<h2>18.4 <a name="dynamic-outlines">Contornos dinámicos:</a> la propiedad <a name="x1"><span
+class="index-def" title="outline">'outline'</span></a></h2>
+
+<P>A veces, los autores de hojas de estilo pueden desear crear contornos alrededor de los objetos visuales como botones, campos activos de los formularios, mapas de imágenes, etc., para enfatizarlos. Los contornos de CSS difieren de los <a
+href="box.html#border-properties">borders</a> en los siguientes sentidos:</p>
+
+<ol>
+<li>Los contornos no ocupan espacio. 
+<li>Los contornos pueden ser no rectangulares. 
+</ol>
+
+<P>Las propiedades de los contorno controlan el estilo de estos contornos dinámicos.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'outline'"><a name="propdef-outline" class="propdef-title"><strong>'outline'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="ui.html#propdef-outline-color" class="noxref"><span class="propinst-outline-color">&lt;'outline-color'&gt;</span></a> || <a href="ui.html#propdef-outline-style" class="noxref"><span class="propinst-outline-style">&lt;'outline-style'&gt;</span></a> ||
+<a href="ui.html#propdef-outline-width" class="noxref"><span class="propinst-outline-width">&lt;'outline-width'&gt;</span></a> ] | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ver las propiedades individuales
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#interactive-media-group" class="noxref">interactivos</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'outline-width'"><a name="propdef-outline-width" class="propdef-title"><strong>'outline-width'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-width" class="noxref"><span class="value-inst-border-width">&lt;border-width&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>medium
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#interactive-media-group" class="noxref">interactivos</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'outline-style'"><a name="propdef-outline-style" class="propdef-title"><strong>'outline-style'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="box.html#value-def-border-style" class="noxref"><span class="value-inst-border-style">&lt;border-style&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#interactive-media-group" class="noxref">interactivos</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'outline-color'"><a name="propdef-outline-color" class="propdef-title"><strong>'outline-color'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-color" class="noxref"><span class="value-inst-color">&lt;color&gt;</span></a> | invert | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>invert
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#interactive-media-group" class="noxref">interactivos</a>
+</table>
+</dl>
+</div>
+
+<p>El contorno creado con las propiedades de contorno es dibujado "sobre" una caja, es decir, el contorno está siempre encima, y no influye en la posición o tamaño de la caja, o de ninguna otra caja. Por lo tanto, mostrar u ocultar los contornos no provoca el redibujado.
+
+<p>El contorno es dibujado comenzando junto fuera del <a href="box.html#border-edge">límite del borde</a>.
+
+<p>Los contornos pueden ser no rectangulares. Por ejemplo, si el elemento es dividido entre varias líneas, el contorno es el contorno mínimo que encierra a todas las cajas del elemento. En contraste con los <a href="box.html#border-properties">bordes</a>, el contorno no es abierto en la línea de finalización o comienzo de la caja, pero está siempre totalmente conectado.
+
+<p>La propiedad <a href="ui.html#propdef-outline-width" class="noxref"><span class="propinst-outline-width">'outline-width'</span></a> acepta los mismos valores que <a href="box.html#propdef-border-width" class="noxref"><span
+class="propinst-border-width">'border-width'</span></a>.  
+
+<P>La propiedad <a href="ui.html#propdef-outline-style" class="noxref"><span class="propinst-outline-style">'outline-style'</span></a> acepta los mismos valores que <a href="box.html#propdef-border-style" class="noxref"><span
+class="propinst-border-style">'border-style'</span></a>, excepto que 'hidden' no es un estilo de contorno lícito.
+
+<p>La propiedad <a href="ui.html#propdef-outline-color" class="noxref"><span class="propinst-outline-color">'outline-color'</span></a> acepta todos los colores, como así también la palabra clave <span class="index-def"
+title="invert"><a class="value-def" name="value-def-invert">'invert'</a></span>. Se espera que 'invert' produzca una inversión de color en los pixeles de la pantalla. Este es un truco común para asegurarse que el borde del foco sea visible, sin que importe el color de fondo. 
+
+<p>La propiedad <a href="ui.html#propdef-outline" class="noxref"><span class="propinst-outline">'outline'</span></a> es una propiedad resumida, y determina las tres de <a href="ui.html#propdef-outline-style" class="noxref"><span
+class="propinst-outline-style">'outline-style'</span></a>, <a href="ui.html#propdef-outline-width" class="noxref"><span
+class="propinst-outline-width">'outline-width'</span></a> y <a href="ui.html#propdef-outline-color" class="noxref"><span
+class="propinst-outline-color">'outline-color'</span></a>.
+
+<p class="note">Observe que el contorno es el mismo en todos los lados. Contrariamente a los bordes, no hay propiedades 'outline-top' o 'outline-left'.
+
+<p>Esta especificación no define cómo se dibujan los múltiples contornos solapados, o cómo los contornos son dibujados para las cajas que están parcialmente ocultas detrás de otros elementos.
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Como el contorno del foco no afecta al formato (es decir, no se deja ningún espacio para él en el modelo de caja), bien puede tapar otros elementos de la página.
+</em>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Aquí hay un ejemplo del dibujo de un contorno grueso alrededor del elemento BUTTON:
+
+<PRE>
+BUTTON { outline-width : thick }
+</PRE>
+
+<P>Los scripts pueden usarse para cambiar dinámicamente el ancho del contorno, sin provocar el redibujado.
+</div>
+
+<H3><a name="q5">18.4.1 Contornos y foco</a></h3>
+
+<P>Las interfaces gráficas del usuario pueden usar contornos alrededor de los elementos para indicarle al usuario qué elemento de la página tiene el <a name="x7"><span class="index-def" title="foco"><dfn>foco</dfn></span></a>. Estos contornos son sumados a cualquier borde, y pasar entre contornos activados y desactivados no debe provocar el redibujado del documento. El foco es el sujeto de la interacción del usuario con un documento (por ej., introduciendo texto, seleccionando un botón, etc.). Las aplicaciones del usuario que dan soporte a los <a href="media.html#interactive-media-group">grupos de medios interactivos</a> deben mantener identificada la ubicación del foco y también debe representar el foco. Esto puede realizarse utilizando contornos dinámicos junto con la pseudo-clase :focus.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Por ejemplo, para dibujar una línea negra gruesa alrededor de un elemento cuando éste tiene el foco, y una línea roja gruesa cuando está activado, pueden usarse las siguientes reglas:
+
+<pre>
+:focus  { outline: thick solid black }
+:active { outline: thick solid red }
+</pre>
+</div>
+
+<H2><a name="q6">18.5 Amplificación</a></H2> 
+
+<P>El grupo de trabajo de CSS considera que la amplificación de un documento o de partes de un documento de debe especificarse a través de las hojas de estilo. Las aplicaciones del usuario pueden dar soporte a tales amplificaciones de distintos modos (ej., imágenes más grandes, sonidos más fuertes, etc.).
+
+<P>Cuando amplía una página, las AU deben mantener las relaciones entre los elementos posicionados. Por ejemplo, una tira cómica puede estar compuesta de imágenes con elementos de texto superpuestos. Cuando amplía esta página, una aplicación del usuario debe mantener el texto dentro de los globos de la tira cómica.
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="tables.html">anterior</a> &nbsp;
+<a href="aural.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</html>

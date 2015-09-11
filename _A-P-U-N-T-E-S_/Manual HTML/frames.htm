@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Documentos con Frames</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000082" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>8 - Documentos con Frames</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Introducci&oacute;n</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con las frames es posible dividir la ventana
+del navegador en varias subregiones (<I>frames</I>), permitiendo mostrar
+una URL distinta en cada una de ellas. En cada frame se nos permite: </P>
+
+<UL>
+<LI>Mostar su propia URL, diferenciada del resto de las frames de la pantalla,
+de esta forma un hiperenlace puede tener como destino un documento y la
+frame en el que se mostrar&aacute;.</LI>
+
+<P> </P>
+
+<LI>Tendr&aacute;n asociado un nombre, que las distinguir&aacute;n del
+resto de las frames de la pantalla y permitir&aacute; usarlo en los hiperenlaces.</LI>
+
+<P> </P>
+
+<LI>En el caso que se cambie el tama&ntilde;o de la ventana, se podr&aacute;
+determinar si la frame se ajusta a este tama&ntilde;o o mantiene su tama&ntilde;o
+intacto.</LI>
+
+<P> </P>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esto permite crear nuevos tipos de documentos,
+en los que por ejemplo se mantendr&aacute; una regi&oacute;n est&aacute;tica
+(lista de enlaces, barra de botones, formulario) y otra zona din&aacute;mica
+en la que se mostrar&aacute; el resultado. De esta forma una de las principales
+utilidades de las frames es la creaci&oacute;n de p&aacute;ginas con un
+&iacute;ndice (por ejemplo un manual) o una cabecera est&aacute;tica, consiguiendo
+as&iacute; una mejora de la navegaci&oacute;n al poder acceder al &iacute;ndice
+de una manera m&aacute;s rapida y efectiva. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El uso de las frames es &uacute;til para
+cierto tipo de documentos, pero puede llegar a dificultar la navegaci&oacute;n,
+dentro de un documento con frames no tendr&aacute; utilidad los botones
+de documento previo <FONT COLOR="#008200">(back)</FONT> ni documento siguiente
+<FONT COLOR="#008200">(forward)</FONT>, ya que ambos nos trasladar&aacute;n
+fuera del documento con frames. Para ver el documento previo en una de
+las frames debemos utilizar el bot&oacute;n derecho del rat&oacute;n sobre
+ella y seleccionar la opci&oacute;n volver en el frame<FONT COLOR="#008200">
+(Back in Frame)</FONT>. Esto hace que cuando se utilicen frames haya que
+cuidar la correcta transici&oacute;n entre documentos. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No todos los navegadores pueden mostrar
+documentos con frames, solo son interpretables por el Netscape 2.0 o superior
+y el Internet Explorer 3.0. Por tanto en este caso si se quiere que el
+documento sea accesible por gran cantidad de usuarios de debe crear un
+documento con frames y otro sin ellas, usando la etiqueta <FONT COLOR="#008200">NOFRAMES</FONT>.
+<A NAME="a2"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Definici&oacute;n</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un documento con frames se define de manera
+diferente a un documento normal, siendo la estructura del documento distinta,
+en este caso no se define la etiqueta <FONT COLOR="#008200">BODY</FONT>.
+Su estructura es la siguiente: </P>
+
+<DL>
+<DD><B><FONT SIZE=+1>&lt;HTML&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT SIZE=+1>&lt;HEAD&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT SIZE=+1><FONT COLOR="#008200">Definiciones de la cabecera</FONT>
+</FONT></B></DD>
+</DL>
+
+<DD><B><FONT SIZE=+1>&lt;/HEAD&gt; </FONT></B></DD>
+
+<DD><B><FONT SIZE=+1>&lt;FRAMESET&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT SIZE=+1><FONT COLOR="#008200">Definici&oacute;n de las frames
+que forman el documento y de los fichero que incluye cada una.</FONT> </FONT></B></DD>
+</DL>
+
+<DD><B><FONT SIZE=+1>&lt;/FRAMESET&gt; </FONT></B></DD>
+
+<DD><B><FONT SIZE=+1>&lt;NOFRAMES&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT SIZE=+1><FONT COLOR="#008200">Instrucciones HTML que se mostrar&aacute;
+en los navegadores que no soporten frames.</FONT> </FONT></B></DD>
+</DL>
+
+<DD><B><FONT SIZE=+1>&lt;/NOFRAMES&gt; </FONT></B></DD>
+</DL>
+
+<DD><B><FONT SIZE=+1>&lt;/HTML&gt; </FONT></B></DD>
+</DL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dentro de la etiqueta NOFRAMES se podr&aacute;
+incluir una explicaci&oacute;n de que el documento solo es visible con
+el navegadores que soporten frames, o bien incluir una versi&oacute;n del
+documento que se muestre sin necesidad de frames. </P>
+
+<P><A NAME="frameset"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;FRAMESET
+...&gt; Definici&oacute;n de las frames.<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con esta instrucci&oacute;n definiremos
+las frames que formar&aacute;n el documento, su sintaxis es similar a la
+de las tablas, permitiendo definir muy distintos tipos de frames. Su formato
+es el siguiente: </P>
+
+<DL>
+<DD><B><FONT COLOR="#008200">&lt;FRAMESET ROWS=<I>Lista de las Filas</I>
+COLS=<I>Lista de las Columnas</I>&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT COLOR="#008200">&lt;FRAME SRC=<I>URL_1</I> NAME=&quot;<I>Nombre
+de la frame1</I>&quot;&gt; </FONT></B></DD>
+
+<DD><B><FONT COLOR="#008200">&lt;FRAME SRC=<I>URL_2</I> NAME=&quot;<I>Nombre
+de la frame1</I>&quot;&gt; </FONT></B></DD>
+
+<DD><B><FONT COLOR="#008200">. . . </FONT></B></DD>
+
+<DD><B><FONT COLOR="#008200">&lt;FRAME SRC=<I>URL_N</I> NAME=&quot;<I>Nombre
+de la frameN</I>&quot;&gt; </FONT></B></DD>
+</DL>
+
+<DD><B><FONT COLOR="#008200">&lt;/FRAMESET&gt; </FONT></B></DD>
+</DL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se definir&aacute; solo uno de los atributos,
+o la lista de filas (<B><FONT COLOR="#008200">ROWS</FONT></B>) o la lista
+de columnas (<B><FONT COLOR="#008200">COLS</FONT></B>). </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>ROWS:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se definir&aacute; separado por comas
+el tama&ntilde;o de cada una de las frames. De esta forma se dividir&aacute;
+la pantalla de forma horizontal, seg&uacute;n cada una de las filas definidas.
+El tama&ntilde;o de la frame, puede expresarse de las siguientes formas:
+</P>
+
+<UL>
+<LI>En valor absoluto, que indicar&aacute; el tama&ntilde;o en puntos de
+la pantalla. En este caso si todas las frames se indican de este modo,
+los valores se ajustar&aacute;n para que las frames ocupen la totalidad
+del espacio de la ventana del navegador, no guardando siempre la proporci&oacute;n
+con la que se definen las frames.</LI>
+
+<P> </P>
+
+<LI>En tanto por ciento sobre el tama&ntilde;o de la ventana, en este caso
+si los porcentajes suman un valor distinto del 100%, se ajustar&aacute;n
+para que coincidan con el tama&ntilde;o de la ventana. Se podr&aacute;
+combinar con el apartado anterior de forma que algunas frames se definan
+en valor absoluto y otras en porcentaje.</LI>
+
+<P> </P>
+
+<LI>De forma relativa con el s&iacute;mbolo * que indica el tama&ntilde;o
+restante de la ventana. Si se indica una frame como 2* y otra como *, la
+primera ocupar&aacute; dos tercios del espacio restante y la segunda un
+tercio del espacio restante. Se puede combinar con las definiciones anteriores.
+</LI>
+</UL>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra </TH>
+</TR>
+
+<TR>
+<TD width=90%><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAMESET ROWS=&quot;100,
+50%, *&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame1.htm&quot; NAME=&quot;frame1&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame2.htm&quot; NAME=&quot;frame2&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame3.htm&quot; NAME=&quot;frame3&quot;&gt;<BR>
+&lt;/FRAMESET&gt;</FONT></FONT></B><BR>
+</TD>
+
+<TD><IMG SRC="frames1.gif" HEIGHT=150 WIDTH=206> </TD>
+</TR>
+
+<TR>
+<TD colspan=2><FONT COLOR="#008200"><FONT SIZE=-1>Se definen tres frames
+horizontales, la primera (roja) ocupar&aacute; 100 puntos de la pantalla,
+la segunda (azul) el 50% del tama&ntilde;o de la ventana del navegador
+y la tercera (verde) el espacio restante, si se var&iacute;a el tama&ntilde;o
+de la ventana del navegador, cambiar&aacute; el tama&ntilde;o de las dos
+&uacute;ltimas. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>COLS:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toma los mismos posibles valores que <B><FONT COLOR="#008200">ROWS</FONT></B>,
+pero en este caso para las columnas, se definir&aacute;n las frames de
+forma vertical. </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra </TH>
+</TR>
+
+<TR>
+<TD width=90%><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAMESET COLS=&quot;100,
+50%, *&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame1.htm&quot; NAME=&quot;frame1&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame2.htm&quot; NAME=&quot;frame2&quot;&gt;<BR>
+&lt;FRAME SRC=&quot;frame3.htm&quot; NAME=&quot;frame3&quot;&gt;<BR>
+&lt;/FRAMESET&gt;</FONT></FONT></B><BR>
+</TD>
+
+<TD><IMG SRC="frames2.gif" HEIGHT=151 WIDTH=206> </TD>
+</TR>
+
+<TR>
+<TD colspan=2><FONT COLOR="#008200"><FONT SIZE=-1>En este caso se definen
+las frames de forma vertical, guardando la misma proporci&oacute;n que
+en el caso anterior. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez definida el n&uacute;mero de frames
+por fila o por columna se definir&aacute; el contenido de cada una de estas
+con la etiqueta <B><FONT COLOR="#008200">FRAME</FONT></B>, pero igualmente
+se podr&iacute;a definir frames dentro de frames, de forma que cada una
+de las definidas anteriormente podr&iacute;a estar divida en varias frames,
+esto se har&aacute; incluyendo dentro de la instrucci&oacute;n <B><FONT COLOR="#008200">FRAMESET</FONT></B>,
+nuevas instrucciones <B><FONT COLOR="#008200">FRAMESET</FONT></B> que dividir&aacute;n
+esta en las frames indicadas, como se ve en el siguiente ejemplo: </P>
+
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH>Inst. HTML</TH>
+
+<TH>Muestra </TH>
+</TR>
+
+<TR>
+<TD width=90%>
+<DL>
+<DT><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAMESET ROWS=&quot;100,
+50%, *&quot;&gt;</FONT></FONT></B><BR>
+</DT>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame1.htm&quot;
+NAME=&quot;frame1&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAMESET COLS=&quot;2*,*&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DL>
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame2.htm&quot;
+NAME=&quot;frame2&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame3.htm&quot;
+NAME=&quot;frame3&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+</DL>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/FRAMESET&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAMESET COLS=&quot;50%,
+30%, 20%&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DL>
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame4.htm&quot;
+NAME=&quot;frame4&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame5.htm&quot;
+NAME=&quot;frame5&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;FRAME SRC=&quot;frame6.htm&quot;
+NAME=&quot;frame6&quot;&gt;</FONT></FONT></B><BR>
+</DD>
+</DL>
+
+<DD><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/FRAMESET&gt;</FONT></FONT></B><BR>
+</DD>
+
+<DT><B><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/FRAMESET&gt;</FONT></FONT></B><BR>
+</DT>
+</DL>
+</TD>
+
+<TD><IMG SRC="frames3.gif" HEIGHT=150 WIDTH=204> </TD>
+</TR>
+
+<TR>
+<TD colspan=2><FONT COLOR="#008200"><FONT SIZE=-1>Tomando como base las
+frames que se definieron en un ejemplo anterior, hemos dividido dos de
+las frames en nuevas frames, formando en este caso un documento con 6 frames,
+en cada una se muestra un fichero distinto y tienen un nombre distinto.
+Dentro de las frames definidas se podr&iacute;an definir nuevas frames,
+pudiendo dividir la ventana, tantas veces como se desee. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="frame"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;FRAME
+...&gt; Definici&oacute;n de cada una de las frames<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como se ha visto en el apartado anterior
+con la etiqueta FRAME definiremos el documento que se mostrar&aacute; en
+la frame y su nombre. Esta etiqueta presenta adem&aacute;s algunos otros
+atributos: </P>
+
+<P><B><FONT COLOR="#008200">&lt;FRAME SRC=&quot;<I>URL</I>&quot; NAME=&quot;<I>Nombre
+de la frame</I>&quot; MARGINWIDTH=&quot;<I>ancho del margen</I>&quot; MARGINHEIGHT=&quot;<I>alto
+del margen</I>&quot; SCROLLING=YES | NO | AUTO NORESIZE&gt; </FONT></B></P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>URL:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como su nombre indica, especifica el documento
+HTML o fichero que se mostrar&aacute; en la frame definida. Si no se especifica
+documento alguno se mostrar&aacute; la frame vac&iacute;a. </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>NAME:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica el nombre de la frame, este nombre
+es importante ya que se usar&aacute; en los hiperenlaces (normalmente en
+los documentos de las otras frames) para indicar la frame de destino del
+documento. Si no se indica el nombre solo se podr&aacute; mostrar el documento
+actual, sin que sea posible cambiarlo mediante hiperenlaces. </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>MARGINWIDTH:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica el ancho del margen, este atributo
+es opcional y normalmente el navegador ajusta todos los m&aacute;rgenes
+al mismo tama&ntilde;o, si se especifica se valor ser&aacute; en puntos
+de la pantalla. </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>MARGINHEIGHT:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Igual que en el caso anterior pero para
+el alto de los m&aacute;rgenes. Lo normal es no especificar ninguno de
+estos dos atributos. </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>SCROLLING:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica si la frame tendr&aacute; o no
+una barra de scroll, la barra de scroll se muestra en el lateral y permite
+desplazarse por el documento, pulsando con el rat&oacute;n en ella. Si
+toma el valor <B><FONT COLOR="#008200">YES</FONT></B>, siempre se mostrar&aacute;
+esta barra, para el valor <B><FONT COLOR="#008200">AUTO</FONT></B> solo
+se mostrar&aacute; si el documento no cabe en la frame, si es necesaria.
+Y por &uacute;ltimo <B><FONT COLOR="#008200">NO</FONT></B> indica que en
+ning&uacute;n caso se muestre la barra de scroll. Si no se indica nada
+se toma por defecto el valor <B><FONT COLOR="#008200">AUTO</FONT></B>.
+</P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>NORESIZE:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica que la frame no debe ser variada
+de tama&ntilde;o por el usuario, se puede variar el tama&ntilde;o de una
+frame situando el cursor del rat&oacute;n encima y arrastrando en la direcci&oacute;n
+deseada. Con este atributo el usuario no podr&aacute; cambiar el tama&ntilde;o
+de la frame en ning&uacute;n caso. Por defecto todas las frames pueden
+variar su tama&ntilde;o. </P>
+
+<P><A NAME="target"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>TARGET:
+Atributo para indicar la frame de destino<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El uso de frames introduce un nuevo atributo
+a alguna de las etiquetas especificadas con anterioridad, este atributo
+es <B><FONT COLOR="#008200">TARGET</FONT></B> que indicar&aacute; la frame
+de destino de la operaci&oacute;n. Normalmente, en p&aacute;ginas sin frames,
+cuando se segu&iacute;a un hiperenlaces este se mostraba en la ventana
+del navegador sustituyendo el documento actual, con las frames se puede
+especificar que frame ser&aacute; la de destino, no siendo necesario que
+sea la frame del documento actual. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como nombre de la frame su usar&aacute;
+el nombre que se especifico en el atributo <B><FONT COLOR="#008200">NAME</FONT></B>
+de la etiqueta <B><FONT COLOR="#008200">FRAME</FONT></B>. Estas instrucciones
+se utilizar&aacute;n normalmente en los documentos que se incluyen dentro
+de las frames. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las etiquetas que permiten el uso de <B><FONT COLOR="#008200">TARGET</FONT></B>
+son las siguientes: </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>A:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En los <A HREF="enlaces.htm">hiperenlaces</A>
+indicar&aacute; la frames donde se mostrar&aacute; el documento, una vez
+que se siga el hiperenlace. </P>
+
+<P><B><FONT COLOR="#008200">&lt;A HREF=&quot;<I>url</I>&quot; TARGET=&quot;<I>frame</I>&quot;&gt;</FONT></B>
+</P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>BASE:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la frame en la que se
+mostrar&aacute; por defecto todos los hiperenlaces del documento actual.
+Se debe especificar en la cabecera del documento (<B><FONT COLOR="#008200">HEAD</FONT></B>).
+</P>
+
+<P><B><FONT COLOR="#008200">&lt;BASE TARGET=&quot;<I>frame</I>&quot;&gt;</FONT></B>
+</P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>AREA:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En la definici&oacute;n de <A HREF="imgsensi.htm#a3">im&aacute;genes
+sensibles en el cliente</A>, se indica la frame donde se ver&aacute; el
+documento que se activa en la zona correspondiente de la imagen. </P>
+
+<P><B><FONT COLOR="#008200">&lt;AREA SHAPE=RECT COORDS=&quot;<I>x,y,...</I>&quot;
+HREF=&quot;<I>url</I>&quot; TARGET=&quot;<I>frame</I>&quot;&gt;</FONT></B>
+</P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>FORM:</FONT></FONT> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la frame de destino del
+resultado del <A HREF="form.htm">formulario</A>. </P>
+
+<P><B><FONT COLOR="#008200">&lt;FORM ACTION=&quot;<I>url</I>&quot; TARGET=&quot;<I>frame</I>&quot;&gt;</FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen unos valores especiales de TARGET
+que nos permitir&aacute;n definir destinos distintos a las frames definidas.
+Estos valores son los siguientes: </P>
+
+<UL>
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>TARGET=&quot;_blank&quot;:</FONT></FONT>
+Indica que se muestre en una nueva ventana vac&iacute;a, para seguir el
+enlace se lanza otra ventana distinta del navegador.</LI>
+
+<P> </P>
+
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>TARGET=&quot;_self&quot;:</FONT></FONT>Se
+mostrar&aacute; en la misma ventana o frame que lo referencia, se puede
+usar para modificar el valor dado por <B><FONT COLOR="#008200">BASE</FONT></B>.</LI>
+
+<P> </P>
+
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>TARGET=&quot;_parent&quot;:</FONT></FONT>
+Se muestra en la frame o estructura de frames que llam&oacute; al documento
+actual.</LI>
+
+<P> </P>
+
+<LI><FONT COLOR="#FF0000"><FONT SIZE=+1>TARGET=&quot;_top&quot;:</FONT></FONT>
+Indica que se muestre en la ventana completa, eliminando la estructura
+de frames que tenga la ventana.</LI>
+
+<P> </P>
+</UL>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="cgi-bin.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="cgi-bin.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

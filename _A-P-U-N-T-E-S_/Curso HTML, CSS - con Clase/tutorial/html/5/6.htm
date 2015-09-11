@@ -1,0 +1,256 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 5 (6/13)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La sexta parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 5 (6/13)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La sexta parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-10-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/5/6" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5" />
+
+
+<link rel="Next"     href="7.htm" tppabs="http://html.conclase.net/tutorial/html/5/7" />
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Hojas de Estilo en Cascada, CSS1 (VI)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5">anterior</a> | <a href="7.htm" tppabs="http://html.conclase.net/tutorial/html/5/7">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Empezamos con las <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#propiedades-de-fuente'" tppabs="http://html.conclase.net/w3c/css1-es.html#propiedades-de-fuente">propiedades de fuente</a>. Se definen las siguientes propiedades:</p>
+<ul class="p">
+<li><code>font-family</code> : familia tipográfica (el nombre de la fuente)</li>
+<li><code>font-style</code> : estilo de fuente (normal, itálica, inclinada)</li>
+<li><code>font-variant</code> : variante (normal, versalitas)</li>
+<li><code>font-weight</code> : peso (normal, negrita)</li>
+<li><code>font-size</code> : tamaño de fuente</li>
+<li><code>font</code> : una propiedad abreviada, que permite resumir todas las anteriores en una sola regla</li>
+</ul>
+<p class="a">- Ok.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font-family'" tppabs="http://html.conclase.net/w3c/css1-es.html#font-family"><code>font-family</code></a> toma como valores nombre de fuentes, en orden de preferencia. Si el nombre de la fuente contiene espacios, se entrecomilla. Al final de la lista conviene siempre poner un nombre de familia genérica que actúa como "red de seguridad", y que se refiere a un tipo general de fuente. Por ejemplo:</p>
+<pre class="p"><code>font-family : Georgia, "Times New Roman", Times, serif;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+font-family : "Courier New", courier, monospace;</code></pre>
+<p class="p">Las familias genéricas son: 'serif' (p.ej. Times), 'sans-serif' (p.ej. Arial), 'cursive' (p.ej. Zapf-Chancery), 'fantasy' (p.ej. Western) y 'monospace' (p.ej. Courier).</p>
+<p class="a">- Bueno, vale...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Seguimos. <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font-style'" tppabs="http://html.conclase.net/w3c/css1-es.html#font-style"><code>font-style</code></a> permite especificar si queremos que la fuente esté en itálica. Puede tomar los valores <code>normal</code>, <code>italic</code> y <code>oblique</code>. Por ejemplo, ¿qué significa esto?</p>
+<pre class="p"><code>H1, H2, H3 { font-style: italic }
+H1 EM { font-style: normal }</code></pre>
+<p class="a">- Mmm, veamos, a ver si lo digo bien: que los contenidos de los elementos <code>H1</code>, <code>H2</code> y <code>H3</code> se representarán en itálica, excepto los contenidos de los elementos <code>EM</code> que sean descendientes de algún <code>H1</code>, que se verán normal.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¡Muy bien! Muy bien. <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font-variant'" tppabs="http://html.conclase.net/w3c/css1-es.html#font-variant"><code>font-variant</code></a> puede tomar los valores <code>normal</code> y <code>small-caps</code> (versalitas).</p>
+<p class="a">- ¿Qué es eso?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En una fuente con letras versalitas las letras minúsculas son similares a las mayúsculas, pero más pequeñas.</p>
+<p class="a">- Vale. Y con poner <code>font-variant : small-caps</code> vale, ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, si hay alguna fuente disponible en el sistema para ello sí. Si no, es posible que simplemente salgan todas las letras en mayúscula.</p>
+<p class="a">- Ok.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font-weight'" tppabs="http://html.conclase.net/w3c/css1-es.html#font-weight"><code>font-weight</code></a> puede tomar los valores <code>normal</code>, <code>bold</code> (negrita), <code>bolder</code> (más negrita que el padre), <code>lighter</code> (menos negrita que el padre), <code>100</code>, <code>200</code>, <code>300</code>, <code>400</code>, <code>500</code>, <code>600</code>, <code>700</code>, <code>800</code> ó <code>900</code>.</p>
+<p class="a">- Eso sí que es raro.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí. El valor <code>400</code> equivale a peso <code>normal</code>, y el valor <code>bold</code> equivale a <code>700</code>. Lo habitual es poner simplemente <code>normal</code> o <code>bold</code>.</p>
+<p class="a">- Me parece bien...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font-size'" tppabs="http://html.conclase.net/w3c/css1-es.html#font-size"><code>font-size</code></a> permite especificar el tamaño de la fuente. Aquí hay bastantes opciones. Puede tomar los siguientes valores:</p>
+<ul class="p">
+<li>un tamaño absoluto: <code>xx-small</code>, <code>x-small</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>x-large</code>, <code>xx-large</code>;</li>
+<li>un tamaño relativo (al elemento padre): <code>larger</code> (más grande), <code>smaller</code> (más pequeño)</li>
+<li>una longitud, por ejemplo, <code>2cm</code> (2 centímetros), <code>3em</code> (3 veces el tamaño normal), etc.</li>
+<li>un porcentaje (del tamaño de fuente del elemento padre): por ejemplo, <code>150%</code> equivale a <code>1.5em</code>, o 1,5 veces el tamaño normal.</li>
+</ul>
+<p class="p">Cuando hagas una hoja de estilo para pantallas, conviene usar valores que le resulten cómodos al usuario, porque como sabrás leer en la pantalla cansa más que leer de un papel. En general, lo mejor es no especificar ningún tamaño de fuente, y si especificas algo, que sea una medida relativa al tamaño normal: un múltiplo de <code>em</code>, para que el usuario pueda escalar fácilmente los textos.</p>
+<p class="a">- ¿Qué es un <code>em</code>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Es un término tipográfico. Simplificando, es la altura de la fuente.</p>
+<p class="a">- Ah.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En <abbr>CSS</abbr>, cuando hablamos de longitudes, hablamos de un número y su unidad. No puedes decir que algo mide 6. ¿6 qué? ¿6 centímetros, 6 metros?</p>
+<p class="a">- Hombre, claro.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Las unidades que se pueden usar son las siguientes: <code>em</code> (la altura de la fuente), <code>ex</code> (la altura de la letra x), <code>px</code> (píxeles de pantalla), <code>in</code> (pulgadas, una pulgada son 2,54cm), <code>cm</code> (centímetros), <code>mm</code> (milímetros), <code>pt</code> (puntos, 72 puntos son una pulgada), y <code>pc</code> (picas, 1pc=12pt). Para impresoras y otros medios las unidades absolutas son apropiadas (<code>in</code>, <code>cm</code>, <code>mm</code>, <code>pt</code>, <code>pc</code>), pero para pantallas lo mejor es usar <code>em</code> o medidas porcentuales, ya que no se sabe a cuántos píxeles equivale por ejemplo un centímetro. La unidad <code>px</code> es un híbrido de medida absoluta y relativa, y de momento es aconsejable no utilizarla.</p>
+<p class="a">- Bueno, entonces no me quedan muchas opciones...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- La sintaxis es siempre el número y pegado a él la unidad. Se usa un punto decimal, no una coma decimal. Y cuando el número sea el cero, no hace falta unidad.</p>
+<p class="a">- Mmm, bastante lógico, sí.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bueno, pues seguimos. Finalmente, la propiedad <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#font'" tppabs="http://html.conclase.net/w3c/css1-es.html#font"><code>font</code></a> es un compendio de las anteriores. Aquí tienes un ejemplo completo:</p>
+<pre class="p"><code>font : italic small-caps bold 1.5em/3em Arial, sans-serif</code></pre>
+<p class="p">Los tres primeros valores (<code>font-style</code>, <code>font-variant</code> y <code>font-weight</code>) son opcionales y pueden aparecer en cualquier orden. El cuarto (<code>font-size</code>) es obligatorio. El quinto (<code>line-height</code>, altura de línea) es opcional y si aparece debe estar precedido de una barra inclinada. Y al final se pone obligatoriamente la familia tipográfica (<code>font-family</code>). Otro ejemplo más simple:</p>
+<pre class="p"><code>font : 80% monospace</code></pre>
+<p class="a">- Muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Vamos al siguiente grupo de propiedades.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5">anterior</a> | <a href="7.htm" tppabs="http://html.conclase.net/tutorial/html/5/7">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/10/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

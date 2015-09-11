@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="eS">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Tipos de medios</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="cascade.html">
+<link rel="next" href="box.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="cascade.html">anterior</a> &nbsp;
+<a href="box.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">7 Tipos de medios</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="media.html#q1" class="tocxref">7.1 Introducción a los tipos de medios</a>
+    <li class="tocline2"><a href="media.html#q2" class="tocxref">7.2 Especificación de hojas de estilos dependientes de los medios</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="media.html#at-media-rule" class="tocxref">7.2.1 La regla @media</a>
+    </ul>
+    <li class="tocline2"><a href="media.html#media-types" class="tocxref">7.3 Tipos de medios reconocidos</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="media.html#media-groups" class="tocxref">7.3.1 Grupos de medios</a>
+    </ul>
+  </ul>
+</div>
+
+<H2><a name="q1">7.1 Introducción a los tipos de medios</a></H2>
+
+<P>Uno de los rasgos más importantes de las hojas de estilo es que especifican cómo debe ser presentado un documento en diferentes medios: en la pantalla, en papel, con un sintetizador de voz, con un dispositivo braille, etc.
+
+<P>Ciertas propiedades CSS son diseñadas sólo para ciertos medios (ej., la propiedad <a href="aural.html#propdef-cue-before" class="noxref"><span class="propinst-cue-before">'cue-before'</span></a> para las aplicaciones del usuario auditivas). En ocasiones, sin embargo, las hojas de estilo para diferentes tipos de medios pueden compartir una propiedad, pero requieren de valores diferentes para esa propiedad. Por ejemplo, la propiedad <a href="fonts.html#propdef-font-size" class="noxref"><span
+class="propinst-font-size">'font-size'</span></a> es útil para la pantalla y los medios impresos. Sin embargo, los dos medios son lo suficientemente diferentes como para requerir diferentes valores para la propiedad común; un documento necesitará típicamente una fuente  mayor en una pantalla de computadora que sobre papel. La experiencia también demuestra que las fuentes sans-serif son más fáciles de leer en pantalla, mientras que las fuentes con serif son más fáciles de leer sobre papel. Por estas razones, es necesario expresar que una hoja de estilo --o una sección de una hoja de estilo-- se aplica a ciertos tipos de medios.
+
+<H2><a name="q2">7.2 Especificación de hojas de estilos dependientes de los medios</a></H2>
+<P>Actualmente hay dos maneras de especificar la dependencia de las hojas de estilos:</p>
+
+<UL>
+
+<LI>Especificando el medio de destino desde una hoja de estilo con las reglas-arroba <a name="x0"><span
+	    class="index-inst" title="@media">@media</span></a> o <a name="x1"><span
+	    class="index-inst" title="@import">@import</span></a>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+@import url("loudvoice.css") aural;
+@media print {
+  /* la hoja de estilo para impresión va aquí */
+}
+</PRE>
+</div>
+
+<LI>Especificando el medio de destino dentro del lenguaje del documento. Por ejemplo, en HTML 4.0 (<a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>), el atributo "media" en el elemento LINK especifica el medio de destino de una hoja de estilo externa:
+
+<div class="html-example"><P>
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+   &lt;HEAD&gt;
+      &lt;TITLE&gt;Vínculo a un medio&lt;/TITLE&gt;
+      &lt;LINK rel="stylesheet" type="text/css" 
+	 media="print, handheld" href="foo.css"&gt;
+   &lt;/HEAD&gt;
+   &lt;BODY&gt;
+      &lt;P&gt;El cuerpo...
+   &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+</div>
+</UL>
+
+<p>La regla <a href="cascade.html#at-import">@import</a> es definida en el <a href="cascade.html">capítulo sobre cascada</a>.
+
+
+<H3>7.2.1 <a name="at-media-rule">La regla @media</a></H3> 
+
+<P>Una regla <a name="x2"><span class="index-def" title="medios">@media</span></a> especifica los <a href="#media-types">tipos de medios</a> de destino (separados por comas) de un juego de reglas (delimitadas por llaves).  La construcción <a name="x3"><span
+class="index-inst" title="@media">@media</span></a> le permite a la hoja de estilo reglas para distintos medios en la misma hoja de estilo:</P>
+
+<pre class="example">
+  @media print {
+    BODY { font-size: 10pt }
+  }
+  @media screen {
+    BODY { font-size: 12pt }
+  }
+  @media screen, print {
+    BODY { line-height: 1.2 }
+  }
+</pre>
+
+
+<H2>7.3 <a name="media-types">Tipos de medios reconocidos</a></H2> 
+
+<P>Un <a name="x4"><span class="index-def" title="tipo de medio"><dfn>tipo de medio</dfn></span></a> de CSS designa un juego de propiedades CSS. Una aplicación del usuario que aspira a dar soporte a un tipo de medio por nombre debe implementar todas las propiedades que se aplican a ese tipo de medio.
+
+<P>Los nombres elegidos para los tipos de medios de CSS reflejan los dispositivos de destino para los cuales las propiedades relevantes tienen sentido. En el siguiente listado de tipos de medios de CSS, las descripciones entre paréntesis no son normativas. Solamente brindan un sentido de la clase de dispositivo del tipo de medio a que se hace referencia.
+
+<dl>
+<dt><strong>all</strong>
+<dd>Apropiado para todos los dispositivos.
+
+<dt><strong>aural</strong> 
+<dd>Propuesto para los sintetizadores de voz. Ver la sección sobre <a href="./aural.html">hojas de estilo auditivas</a> para más detalles.
+
+<dt><strong>braille</strong>
+<dd>Propuesto para dispositivos táctiles braille.
+
+<dt><strong>embossed</strong>
+<dd>Propuesto para impresoras de páginas braille.
+
+<dt><strong>handheld</strong>
+<dd>Propuesto para dispositivos de mano (típicamente de pantalla pequeña, monocromos, de limitado ancho de banda).
+
+<dt><strong>print</strong> 
+<dd>Propuesto para material opaco en páginas y para documentos percibidos en pantalla en modo de vista previa a la impresión.  Por favor, consulte la sección sobre <a
+href="page.html">medios paginados</a> por información acerca de los formatos de publicación que son específicos de los medios paginados.
+
+<dt><strong>projection</strong>
+<dd>Propuesto para las presentaciones proyectadas, por ejemplo, proyectores o transparencias impresas. Por favor, consulte la sección sobre <a
+href="page.html">medios paginados</a> por información acerca de los formatos de publicación que son específicos de los medios paginados.
+
+<dt><strong>screen</strong> 
+<dd>Propuesto primariamente para pantallas de computadora a color. 
+
+<dt><strong>tty</strong>
+<dd>Propuesto para medios que usan una grilla de caracteres de espacio fijo, tales como teletipos, terminales o dispositivos portátiles con limitada capacidad del monitor. Los autores no deben usar las <a href="syndata.html#pixel-units">unidades en pixeles</a> con el tipo de medio "tty".
+
+<dt><strong>tv</strong>
+<dd>Propuesto para dispositivos de tipo televisión (baja resolución, color, pantalla con limitado desplazamiento, sonido disponible). 
+</dl>
+
+<P>Los nombres de los tipos de medios no diferencian entre mayúsculas y minúsculas. 
+
+<P>Debido al acelerado cambio de las tecnologías, CSS2 no especifica una lista definitiva de tipos de medios que pueden ser valores para <a name="x5"><span
+class="index-inst" title="@media">@media</span></a>.
+
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Las futuras versiones de CSS pueden extender esta lista. Los autores no deben contar con nombres de tipos de medios que aún no han sido definidos por una especificación CSS.
+</em>
+</div>
+
+<H3>7.3.1 <a name="media-groups">Grupos de medios</a></H3>
+
+<P>Cada definición de propiedad en CSS especifica los tipos de medios para los cuales la propiedad debe ser implementada por una <a
+href="conform.html#conformance">aplicación del usuario con conformidad</a>. Como las propiedades generalmente se aplican a varios medios, la sección "Se aplica a los medios" de cada definición de propiedad lista los <a name="x6"><span class="index-def"
+title="grupos de medios">grupos de medios</span></a> en vez de los tipos de medio individuales. Cada propiedad se aplica a todos los tipos de medio en los grupos de medios listados en su definición.
+
+<P>CSS2 define los siguientes grupos de medios: </P>
+<ul>
+<li>
+<span class="index-def" title="grupo de medios 'continuos'"><a
+name="continuous-media-group"><strong>contínuos</strong></a></span>
+o <span class="index-def" title="grupo de medios 'paginados'"><a
+name="paged-media-group"><strong>paginados</strong></a></span>.
+"Ambos" significa que la propiedad en cuestión se aplica a ambos grupos de medios.
+<li><span
+class="index-def" title="grupo de medios 'visuales'"><a
+name="visual-media-group"> <strong>visuales</strong></a>,</span> <span
+class="index-def" title="grupo de medios 'auditivos'"><a
+name="aural-media-group"><strong>auditivos</strong></a>,</span> o <span
+class="index-def" title="grupo de medios 'táctiles'"><a
+name="tactile-media-group"><strong>táctiles</strong></a></span>.
+<li><span
+class="index-def" title="grupo de medios 'grillas'"><a
+name="grid-media-group"><strong>grillas</strong></a></span> (para dispositivos de grilla de caracteres) o
+<span
+class="index-def" title="grupo de medios 'bitmap'"><a
+name="bitmap-media-group"><strong>bitmap</strong></a></span>.
+"Ambos" significa que la propiedad en cuestión se aplica a ambos grupos de medios.
+<li><span
+class="index-def" title="grupo de medios 'interactivos'"><a
+name="interactive-media-group"><strong>interactivos</strong></a></span> (para dispositivos que permiten la interacción con el usuario) o
+<span
+class="index-def" title="grupo de medios 'estáticos'"><a
+name="static-media-group"><strong>estáticos</strong></a></span> (para aquellos que no).
+"Ambos" significa que la propiedad en cuestión se aplica a ambos grupos de medios.
+<li><span class="index-def" title="grupo de medios 'todos'"> <a name="all-media-group"><strong>todos</strong></a></span>
+(incluye a todos los tipos de medios)
+</ul>
+
+<P>La siguiente tabla muestra la relación entre los grupos de medios y los tipos de medios:</P>
+
+<TABLE border 
+       summary="Relación entre los grupos de medios y los tipos de medios">
+<CAPTION>Relación entre los grupos de medios y los tipos de medios</CAPTION>
+<TR><TH>Tipos de Medios <TH colspan="4">Grupos de Medios
+<TR><TH>&nbsp;
+    <TH>contínuos/paginados
+    <TH>visuales/auditivos/táctiles
+    <TH>grillas/bitmap
+    <TH>interactivos/estáticos
+<TR><TH>aural<TD align="center">contínuos<TD align="center">auditivos<TD align="center">N/A<TD align="center">ambos</TR>
+<TR><TH>braille<TD align="center">contínuos<TD align="center">táctiles<TD align="center">grillas<TD align="center">ambos</TR>
+<TR><TH>emboss<TD align="center">paginados<TD align="center">táctiles<TD align="center">grillas<TD align="center">ambos</TR>
+<TR><TH>handheld<TD align="center">ambos<TD align="center">visuales<TD align="center">ambos<TD align="center">ambos</TR>
+<TR><TH>print<TD align="center">paginados<TD align="center">visuales<TD align="center">bitmap<TD align="center">estáticos</TR>
+<TR><TH>projection<TD align="center">paginados<TD align="center">visuales<TD align="center">bitmap<TD align="center">estáticos</TR>
+<TR><TH>screen<TD align="center">contínuos<TD align="center">visuales<TD align="center">bitmap<TD align="center">ambos</TR>
+<TR><TH>tty<TD align="center">contínuos<TD align="center">visuales<TD align="center">grillas<TD align="center">ambos</TR>
+<TR><TH>tv<TD align="center">ambos<TD align="center">visuales, auditivos<TD align="center">bitmap<TD align="center">ambos</TR>
+</TABLE>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="cascade.html">anterior</a> &nbsp;
+<a href="box.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</html>

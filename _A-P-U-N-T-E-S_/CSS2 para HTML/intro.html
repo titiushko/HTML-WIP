@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Introducción a CSS2</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="about.html">
+<link rel="next" href="conform.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="about.html">anterior</a> &nbsp;
+<a href="conform.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">2 Introducción a CSS2</H1> 
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="intro.html#q1" class="tocxref">2.1 Breve guía de CSS2 para HTML</a>
+    <li class="tocline2"><a href="intro.html#q2" class="tocxref">2.2 Breve guía de CSS2 para XML</a>
+    <li class="tocline2"><a href="intro.html#processing-model" class="tocxref">2.3 El modelo de procesamiento de CSS2</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="intro.html#q4" class="tocxref">2.3.1 El lienzo</a>
+      <li class="tocline3"><a href="intro.html#q5" class="tocxref">2.3.2 Modelo de destinatarios de CSS2</a>
+    </ul>
+    <li class="tocline2"><a href="intro.html#q6" class="tocxref">2.4 Reglas de diseño de CSS</a>
+  </ul>
+</div>
+
+<H2><a name="q1">2.1 Breve guía de CSS2 para HTML</a></H2>
+
+<P> En esta guía, le mostraremos cuán fácil puede ser diseñar unas simples hojas de estilo. Para esta guía, necesitará saber un poco del código HTML (ver <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>) y alguna terminología básica de composición gráfica.
+
+<P>Comenzamos con un pequeño documento HTML:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;La página de Bach&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;La página de Bach&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach fue un prolífico compositor.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>Para establecer el color azul para el texto de los elementos H1, puede escribir la siguiente regla CSS: 
+</P>
+
+<PRE class="example">
+  H1 { color: blue }
+</PRE>
+
+<P>Una regla CSS consta de dos partes principales: un <a
+href="selector.html">selector</a> ('H1') y una declaración ('color:
+blue'). La declaración tiene dos partes: una propiedad ('color') y un valor ('blue'). Con tal que el ejemplo anterior intente influir en una sola propiedad necesaria para el procesamiento de un documento HTML, ya lo califica como una hoja de estilo en sí mismo. Combinado con otras hojas de estilo (un rasgo fundamental de CSS es que las hojas de estilo se combinan) determinará la presentación final del documento.
+
+<P> La especificación HTML 4.0 define de qué manera las reglas de las hojas de estilo pueden especificarse para los documentos HTML: ya sea dentro del documento HTML o a través de una hoja de estilo externa. Para poner la hoja de estilo dentro del documento, use el elemento STYLE:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;La página de Bach&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    H1 { color: blue }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;La página de Bach&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach fue un prolífico compositor.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P> Para una mayor flexibilidad, recomendamos que los autores especifiquen hojas de estilo externas; ellas pueden cambiarse sin modificar el documento fuente HTML y pueden compartirse entre varios documentos. Para vincular una hoja de estilo externa puede usar el elemento LINK:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;La página de Bach&lt;/TITLE&gt;
+  &lt;LINK rel="stylesheet" href="bach.css" type="text/css"&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;La página de Bach&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach fue un prolífico compositor.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>El elemento LINK especifica:</p>
+
+<ul>
+<li> el tipo de vínculo: a una hoja de estilo ("stylesheet").
+<li> la ubicación de la hoja de estilo a través del atributo "href".
+<li> el tipo de hoja de estilo que se vincula: "text/css".
+</ul>
+
+<P> Para mostrar la íntima relación entre una hoja de estilo y el sistema estructurado de marcas, continuamos usando el elemento STYLE en esta guía. Agreguemos más colores:
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;La página de Bach&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    BODY { color: red }
+    H1 { color: blue }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;La página de Bach&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach fue un prolífico compositor.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>La hoja de estilo contiene ahora dos reglas: la primera establece el color del elemento BODY como 'red' , en tanto la segunda coloca el color del elemento H1 en 'blue'. Como no se ha especificado ningún valor para el color del elemento P, éste heredará el color de su elemento padre, es decir, BODY. El elemento H1 también es un elemento hijo de BODY pero la segunda regla reemplaza el valor heredado. En CSS existen a menudo tales conflictos entre diferentes valores y esta especificación describe cómo resolverlos.
+
+<P>CSS2 tiene más de 100 propiedades diferentes, incluyendo <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a>. Veamos algunos otros:
+
+<PRE class="example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;La página de Bach&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    BODY { 
+      font-family: "Gill Sans", sans-serif;
+      font-size: 12pt;
+      margin: 3em; 
+    }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;La página de Bach&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach fue un prolífico compositor.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>Lo primero que se puede observar es que varias declaraciones se agrupan en un bloque encerrado por llaves ({...}) y separado por un punto y coma, no obstante la última declaración también debe estar seguida por un punto y coma.
+
+<P> La primera declaración en el elemento BODY establece la familia de fuentes "Gill Sans". Si esa fuente no está disponible, la aplicación del usuario (a menudo llamada "browser" o navegador) usará la familia 'sans-serif' que es una de las cinco familias de fuentes genéricas que todas las aplicaciones del usuario reconocen. Los elementos hijos de BODY heredarán el valor de la propiedad <a href="fonts.html#propdef-font-family" class="noxref"><span
+class="propinst-font-family">'font-family'</span></a>.
+
+<P> La segunda declaración establece el tamaño de la fuente del elemento BODY en 12 puntos. La unidad de medida "punto" es normalmente usada en la tipografía impresa para indicar el tamaño de la fuente y otras dimensiones. Es un ejemplo de unidad de medida absoluta que no varía según el entorno.
+
+<P>La tercer declaración usa una unidad de medida relativa que varía de acuerdo a las circunstancias. La unidad "eme" está relacionada con el tamaño de la fuente del elemento. En este caso el resultado es que el margen alrededor del elemento BODY es tres veces mayor que el tamaño de la fuente.
+
+<H2><a name="q2">2.2 Breve guía de CSS2 para XML</a></H2>
+
+<P>CSS puede usarse con cualquier formato de documento estructurado, por ejemplo con aplicaciones del  eXtensible Markup Language <a href="refs.html#ref-XML10" rel="biblioentry" class="noxref"><span class="informref">[XML10]</span></a>. De hecho, XML depende más de las hojas de estilo que HTML puesto que los autores pueden construir elementos propios que las aplicaciones del usuario no saben como mostrar.
+
+<P>Este es un simple fragmento en XML:
+
+<PRE class="xml-example">
+&lt;ARTICULO&gt;
+  &lt;TITULO&gt;Federico el Grande se encuentra con Bach&lt;/TITULO&gt;
+  &lt;AUTOR&gt;Johann Nikolaus Forkel&lt;/AUTOR&gt;
+  &lt;PARRAFO&gt;
+    Una tarde, justo cuando preparaba su &lt;INSTRUMENTO&gt;flauta&lt;/INSTRUMENTO&gt; 
+    y sus músicos estaban dispuestos, un oficial le alcanzó una lista 
+    de los forasteros que habían arribado.
+  &lt;/PARRAFO&gt;
+&lt;/ARTICULO&gt;
+</PRE>
+
+<P>Para que este fragmento sea visualizado a modo de un documento, debemos declarar primero cuáles son los elementos a nivel de línea (es decir, que no dan lugar a saltos de líneas) y cuáles son a nivel de bloque (es decir, que producen saltos de línea).
+
+<PRE class="example">
+INSTRUMENTO { display: inline }
+ARTICULO, TITULO, AUTOR, PARRAFO { display: block }
+</PRE>
+
+<P>La primer regla declara que INSTRUMENTO será a nivel de línea y la segunda regla, con su lista de selectores separados por comas, declara que todos los demás elementos serán a nivel de bloque.
+
+<P>Una de las ideas de vincular una hoja de estilo a un documento XML es emplear una instrucción de procesamiento:
+
+<PRE class="xml-example">
+&lt;?XML:stylesheet type="text/css" href="bach.css"?&gt;
+&lt;ARTICULO&gt;
+  &lt;TITULO&gt;Federico el Grande se encuentra con Bach&lt;/TITULO&gt;
+  &lt;AUTOR&gt;Johann Nikolaus Forkel&lt;/AUTHR&gt;
+  &lt;PARRAFO&gt;
+    Una tarde, justo cuando preparaba su &lt;INSTRUMENTO&gt;flauta&lt;/INSTRUMENTO&gt; 
+    y sus músicos estaban dispuestos, un oficial le alcanzó una lista 
+    de los forasteros que habían arribado.
+  &lt;/PARRAFO&gt;
+&lt;/ARTICULO&gt;
+</PRE>
+
+<P>Una aplicación del usuario visual dará este formato al ejemplo anterior:
+
+<div class="figure">
+<p><img src="images/bach1.gif" alt="Ejemplo de procesamiento"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-bach1" href="images/longdesc/bach1-desc.html" title="Descripción extensa del primer ejemplo de procesamiento Bach/XML">[D]</A></SPAN>
+</div>
+
+<P>Observe que la palabra "flauta" permanece dentro del párrafo debido a que es el contenido del elemento a nivel de línea INSTRUMENTO.
+
+<P>Pero aún el texto no tiene el formato que se podría esperar. Por ejemplo, el tamaño de la fuente del título debería ser mayor que la del resto del texto y quizás se prefiera mostrar el nombre del autor en itálica:
+</P>
+
+<PRE class="example">
+INSTRUMENTO { display: inline }
+ARTICULO, TITULO, AUTOR, PARRAFO { display: block }
+TITULO { font-size: 1.3em }
+AUTOR { font-style: italic }
+ARTICULO, TITULO, AUTOR, PARRAFO { margin: 0.5em }
+</PRE>
+
+<P>Una aplicación del usuario visual dará este formato al ejemplo anterior:
+
+<div class="figure">
+<p><img src="images/bach2.gif" alt="Ejemplo de procesamiento"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-bach2" href="images/longdesc/bach2-desc.html" title="Descripción extensa del segundo ejemplo de procesamiento Bach/XML">[D]</A></SPAN>
+</div>
+
+<P>Agregando más reglas a la hoja de estilo le permitirá mejorar aún más la presentación del documento.
+
+<H2>2.3 <a name="processing-model">El modelo de procesamiento de CSS2</a></H2>
+
+<P>Esta sección presenta un posible modelo de cómo trabajan las aplicaciones del usuario que soportan CSS. Este es sólo un modelo conceptual; las implementaciones reales pueden variar.
+
+<P>En este modelo, una aplicación del usuario procesa una fuente atravesando los siguientes pasos:</P>
+
+<ol>
+<li>Analiza el documento fuente y crea una <a
+href="conform.html#doctree">estructura del documento</a>.</li>
+
+<li>Identifica el <a href="media.html">tipo de medio</a> al que está dirigido.
+
+<li>Recupera todas las hojas de estilo asociadas con el documento que se especifican para el <a href="media.html">tipo de medio</a> al que está dirigido.
+
+<li>Toma nota de cada elemento de la estructura del documento, asignando un valor individual a cada <a href="syndata.html#properties">propiedad</a> que es aplicable al <a href="media.html">tipo de medio</a> al que está dirigido. Los valores de las propiedades se asignan de acuerdo a los mecanismos descriptos en la sección de <a href="cascade.html">cascada y herencia</a>. 
+
+<P>Una parte del cálculo de los valores depende del algoritmo de procesamiento apropiado para el <a href="media.html">tipo de medio</a> al que está dirigido. Por ejemplo, si el medio al que se dirige es la pantalla, las aplicaciones del usuario aplican el <a href="visuren.html">modelo de composición visual</a>. Si el destino es la página impresa, las aplicaciones del usuario aplican el <a
+href="page.html#page-model">modelo de página</a>. Si el medio de destino es un dispositivo de procesamiento sonoro (ej., un sintetizador de palabras), las aplicaciones del usuario aplican el <a href="aural.html">modelo de procesamiento auditivo</a>.
+
+<li>De la estructura del documento registrada, genera una <span class="index-def" title="estructura del formato">
+<a name="formatting-structure"><dfn>estructura del formato</dfn></a></span>. A menudo, la estructura del formato se parece mucho a la estructura del documento, pero también puede diferir en forma significativa, especialmente cuando los autores hacen uso de pseudo-elementos y contenidos generados. Primero, la estructura del formato no necesita ser en forma de "árbol" --la naturaleza de la estructura depende de la implementación--. Segundo, la estructura del formato puede contener mayor o menor información que la estructura del documento. Por ejemplo, si un elemento en la estructura del documento tiene un valor de 'none' (nada) para la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a>, ese elemento no generará nada en la estructura del formato. Un elemento de lista, por otro lado, puede generar más información en la estructura del formato: el contenido del elemento y la información del estilo de lista (ej., la imagen de la viñeta).
+
+<P>Observe que las aplicaciones del usuario CSS no alteran la estructura del documento durante esta fase. En particular, el contenido generado por causa de las hojas de estilo no es enviado nuevamente al procesador del lenguaje del documento (ej., para un nuevo análisis).
+
+<li>Transfiere la estructura del formato al medio al que está dirigido (ej., imprime el resultado, lo muestra en pantalla, lo procesa como palabra, etc.).
+</ol>
+
+<P>El paso 1 está fuera del alcance de esta especificación (ver, por ejemplo, <a href="refs.html#ref-DOM" rel="biblioentry" class="noxref"><span class="informref">[DOM]</span></a>).
+
+<P>Los pasos 2-5 son tratados en el cuerpo principal de esta especificación.
+
+<P>El paso 6 está fuera del alcance de esta especificación.</p>
+
+<h3><a name="q4">2.3.1 El lienzo</a></h3>
+
+<P>En todos los medios, el término <span class="index-def" title="lienzo"> <a
+name="canvas"><dfn>lienzo</dfn></a></span> describe "el espacio donde la estructura del formato es procesada". El lienzo es infinito por cada dimensión del espacio, pero el procesamiento generalmente tiene lugar en una región limitada del lienzo, establecida por la aplicación del usuario de acuerdo con el medio al que está dirigido. Por ejemplo, las aplicaciones del usuario que procesan para pantalla, generalmente imponen un ancho mínimo y eligen un ancho inicial basado en las dimensiones del <a href="visuren.html#viewport">
+acceso visual</a>. Las aplicaciones del usuario que procesan una página generalmente imponen restricciones en el alto y el ancho. Las aplicaciones auditivas pueden imponer límites en el terreno del audio, pero no en el tiempo.
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+La traducción de <I>lienzo</I> es literal del inglés<I> "canvas"</I>. Por tratarse de un uso metafórico del término, no debe buscarse una relación muy estricta con la idea que describe.
+    </TD>
+  </TR>
+</TABLE>
+
+<h3><a name="q5">2.3.2 Modelo de destinatarios de CSS2</a></h3>
+
+<P> Los <a href="selector.html">selectores</a> CSS2 y las propiedades permiten a las hojas de estilo referirse a las siguientes partes de un documento o aplicación del usuario:</p>
+
+<ul>
+<li>Los elementos de la estructura del documento y ciertas relaciones entre ellos (ver la sección de <a href="selector.html">selectores</a>).
+
+<li>Los atributos de los elementos de la estructura del documento y los valores de esos atributos (ver la sección de <a
+href="selector.html#attribute-selectors">selectores de atributo</a>).
+
+<li>Algunas partes del contenido de un elemento (ver los pseudo-elementos <a
+href="selector.html#first-line">:first-line</a> y <a
+href="selector.html#first-letter">:first-letter</a>).
+
+<li>Los elementos de la estructura del documento cuando se encuentran en cierto estado (ver la sección de <a href="selector.html#pseudo-classes">pseudo-clases</a>).
+
+<li>Algunos aspectos del <a href="#canvas">lienzo</a> en el cual el documento será procesado.
+
+<li>Alguna información del sistema (ver la sección de <a href="ui.html">interfaz del usuario</a>).
+</ul>
+
+<H2><a name="q6">2.4 Reglas de diseño de CSS</a></H2>
+
+<P>CSS2, como fue antes CSS1, se basa en una serie de reglas de diseño:</p>
+
+<UL>
+
+<LI>
+<P><STRONG>Compatibilidad hacia atrás y hacia adelante.</STRONG> Las aplicaciones del usuario CSS2 serán capaces de entender las hojas de estilo CSS1. Las aplicaciones del usuario CSS1 podrán leer las hojas de estilo CSS2 y descartar las partes que no entienden. Además, las aplicaciones del usuario que no soporten CSS serán capaces de mostrar los documentos estilísticamente mejorados. Por supuesto, el efectos estilísticos hechos posible por CSS no serán procesados, pero todo el contenido será presentado.</P>
+</LI>
+
+<LI>
+<P><STRONG>Complementariedad con documentos estructurados</STRONG>. Las hojas de estilo complementan los documentos estructurados (ej., HTML  y aplicaciones XML) proveyendo información estilística del texto marcado. Debe ser fácil cambiar la hoja de estilo con poco o ningún impacto en el sistema de marcas.</P>
+</LI>
+
+<LI>
+<P><STRONG>Independencia del vendedor, la plataforma y el dispositivo</STRONG>. Las hojas de estilo permiten a los documentos permanecer independientes del vendedor, la plataforma y el dispositivo. Las mismas hojas de estilo son también independientes del vendedor y la plataforma, pero CSS2 permite dirigir una hoja de estilo a un grupo de dispositivos (ej., impresoras).
+</P>
+</LI>
+
+<LI>
+<P><STRONG>Mantenibilidad</STRONG>. Apuntando a una hoja de estilo desde los documentos, los responsables de los sitios en la Web pueden simplificar el mantenimiento y  conservar un estilo y un efecto consistente a todo lo largo del sitio. Por ejemplo, si el color del fondo de las páginas de una organización cambia, sólo un archivo necesita ser cambiado.</P>
+</LI>
+
+<LI>
+<P><STRONG>Simplicidad</STRONG>. CSS2 es más compleja que CSS1, pero sigue siendo un lenguaje de estilo simple que es humanamente legible y posible de escribir. Las propiedades CSS se mantienen independientes unas de otras en la medida de lo posible y generalmente sólo hay un modo de conseguir un efecto determinado.</P>
+</LI>
+
+<LI> 
+<P><STRONG>Rendimiento de la red</STRONG>. CSS proporciona una compacta codificación para presentar los contenidos. Comparado con los archivos de imágenes o de audio que son usados frecuentemente por los autores para conseguir ciertos efectos en el procesamiento, las hojas de estilo, la mayoría de las veces, disminuyen el tamaño del contenido. Además, menos conexiones de la red tienen que ser abiertas, lo cual ayuda a incrementar el rendimiento de la red.</P> </LI>
+
+<LI>
+<P><STRONG>Flexibilidad</STRONG>. Las CSS pueden ser aplicadas al contenido de varias maneras. La característica clave es la capacidad de formar una cascada de estilos con la información especificada en la hoja de estilo predeterminada (aplicación del usuario), las hojas de estilo del usuario, las hojas de estilo vinculadas, el encabezamiento del documento y en los atributos de los elementos que forman el cuerpo del documento.</P>
+</LI>
+
+<LI>
+<P><STRONG>Riqueza</STRONG>. 
+Proporcionando a los autores un abundante juego de efectos de procesamiento, aumenta la riqueza de la Web como medio de expresión. Los diseñadores han estado ambicionando la funcionalidad comúnmente encontrada en los programas de edición y de presentaciones gráficas. Algunos de los efectos requeridos entran en conflicto con la independencia del dispositivo, pero CSS2 llega muy lejos satisfaciendo las demandas de los diseñadores.</P>
+</LI>
+
+<LI>
+<P><STRONG>Combinación con lenguajes alternativos</STRONG>. El juego de propiedades de CSS descriptas en esta especificación conforman un sólido modelo de aplicación de formatos para presentaciones visuales y auditivas. Este modelo puede ser accedido mediante el lenguaje CSS, pero la combinación con otros lenguajes también es posible. Por ejemplo, un programa en JavaScript puede cambiar dinámicamente el valor de la propiedad <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> de un determinado elemento.</P>
+</LI>
+
+<LI>
+<P><STRONG>Accesibilidad</STRONG>. Varias características de CSS harán a la Web más accesible para los usuarios con discapacidades:</p>
+
+<UL>
+<LI>Las propiedades para controlar la apariencia de las fuentes permiten a los autores eliminar las inaccesibles imágenes de texto renderizado.
+<li>Las propiedades de posicionamiento permite a los autores eliminar los artilugios con el sistema de marcas (ej., imágenes invisibles) para forzar la composición.
+<LI>La semántica de las reglas
+<tt>!important</tt> indica que los usuarios con particulares requerimientos de presentación pueden suplantar las hojas de estilo del autor.
+<li>El nuevo valor 'inherit' (heredado) para todas las propiedades mejora la generalidad del funcionamiento en cascada y permite una más fácil y consistente sintonía en el estilo.
+<li>El avanzado soporte de medios, incluyendo grupos de medios y los tipos de medios braille, de relieve y tty permitirán a los usuarios y autores confeccionar páginas para esos dispositivos.
+<LI>Las propiedades auditivas ofrecen control sobre la salida de voz y audio.
+<LI>Los selectores de atributos, la función 'attr()' y la propiedad 'content' brindan acceso al contenido alterno.
+<LI>Los contadores y la numeración de secciones y párrafos pueden mejorar la navegabilidad del documento y economizar espacio de sangrado (importante en los dispositivos braille). Las propiedades 'word-spacing' y 'text-indent' también eliminan la necesidad de usar espacios en blanco extras en el documento.
+</UL>
+
+<div class="note"><P> <em><strong>Nota.</strong> Para mayor información acerca del diseño de documentos accesibles usando CSS y HTML, por favor, consulte <a href="refs.html#ref-WAI-PAGEAUTH" rel="biblioentry" class="noxref"><span class="informref">[WAI-PAGEAUTH]</span></a>.</em>
+</div>
+</UL>
+
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="about.html">anterior</a> &nbsp;
+<a href="conform.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</HTML>

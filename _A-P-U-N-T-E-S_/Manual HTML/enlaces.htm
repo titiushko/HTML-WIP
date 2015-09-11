@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Hiperenlaces </TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.7 - Hiperenlaces</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Hiperenlaces</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es la utilidad b&aacute;sica del hipertexto,
+permite indicar zonas de texto o im&aacute;genes que si son seleccionados
+por el lector del documento nos traslada a otros documentos HTML o otras
+zonas del documento actual. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para definir un hiperenlace podemos utilizar
+cualquier elemento HTML, no debe ser texto necesariamente, podemos usar,
+cabeceras (&lt;Hn&gt;), cualquiera de los estilos, una imagen, etc ....
+Un hiperenlace igualmente podr&aacute; definirse dentro de cualquier elemento
+HTML: listas, p&aacute;rrafos de texto, tablas, formularios. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El texto del hiperenlace aparece normalmente
+resaltado sobre el texto normal, en azul y subrayado, en el caso de las
+im&aacute;genes, si tienen definido un borde este aparecer&aacute; resaltado
+en color azul. La mayor&iacute;a de los navegadores cuando la zona por
+la que pasa el cursor es sensible, este cambia de aspecto indic&aacute;ndolo
+y en la parte baja de la pantalla se indica el hiperenlace que se activa
+al pulsar en esa zona. Mediante los <A HREF="body.htm#a2">atributos de
+BODY</A> es posible cambiar el color de los hiperenlaces. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El texto que define el hiperenlace debe
+ser clarificador sobre el documento al que referenciamos, debemos evitar
+referencias especificas que hagan al texto poco legible. Igualmente deber&aacute;
+concordar con el texto del p&aacute;rrafo donde se englobe, se debe evitar
+el uso de pulse aqu&iacute;. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por ejemplo: </P>
+
+<P><FONT COLOR="#008200">Puede encontrar mas informaci&oacute;n sobre vacas
+pulsando <A HREF="enlaces.htm">aqu&iacute;</A></FONT> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; se podr&iacute;a sustituir por: </P>
+
+<P><FONT COLOR="#008200">Disponible <A HREF="enlaces.htm">m&aacute;s informaci&oacute;n
+sobre vacas</A>.</FONT> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El usuario que lea el texto ya sabr&aacute;
+al verlo resaltado que puede pulsar ah&iacute;. <A NAME="ahref"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;A HREF=...&gt; Hiperenlace</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Son los enlaces con documentos externos
+al actual. En este caso se indicar&aacute; una <A HREF="url.htm">URL</A>
+que definir&aacute; el documento al que se accede si se sigue el enlace.
+La forma de indicarlo ser&aacute;: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;A HREF=&quot;<I>URL a la
+que se accede</I>&quot;&gt;<I>Texto del Hiperenlace</I>&lt;/A&gt;</FONT></FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El texto indicado entre las etiquetas
+de comienzo y de fin se presentar&aacute; de forma resaltada y en el caso
+de seleccionar este texto el documento actual cambiar&aacute; por el especificado
+en la URL. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Igualmente se puede indicar una imagen
+como enlace, en este caso entre las etiquetas del hiperenlace indicamos
+la inclusi&oacute;n de la imagen, tambi&eacute;n dentro de la etiqueta
+del hiperenlace se pueden incluir cualquiera de las etiquetas del lenguaje
+HTML para cambiar el aspecto del texto afectado por el hiperenlace. Un
+ejemplo ser&iacute;a: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;A HREF=&quot;URL a la que
+se accede&quot;&gt;&lt;IMG SRC=&quot;Imagen&quot;&gt; y tambi&eacute;n
+texto&lt;/A&gt;</FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso aparecer&aacute; la imagen
+con el borde resaltado para indicar que es un hiperenlace. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ademas de enlaces con el servicio http
+podremos utilizar cualquiera de los servicios de internet que se puede
+expresar en una URL. Es posible por tanto indicar enlaces a servidores
+FTP, servidores GOPHER o de NEWS, indicando como URL aquella que identifica
+al servidor que queremos acceder. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es importante indicar el nombre completo
+de la maquina a la que se accede, es decir el nombre y el dominio. Si se
+indica www, las maquinas de la red local si podr&aacute;n localizarlo,
+pero para maquinas externas la referencia podr&iacute;a ser a otra maquina.
+Por tanto se debe indicar www2.uca.es para asegurar que es accesible independientemente
+del lugar desde el que se conecte el cliente. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utilizaremos los hiperenlaces para dividir
+de forma conveniente la informaci&oacute;n. Hay que evitar los documentos
+excesivamente largos, estos se pueden dividir en distintos documentos a
+los que acceder por hiperenlaces, a partir de un &iacute;ndice. <A NAME="a3"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>URL absolutas y relativas</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para definir la <A HREF="url.htm">URL</A>
+podemos utilizar direcciones absolutas o relativas. Por direcciones absolutas
+entenderemos la URL completa, es decir, <B><FONT COLOR="#008200">http://maquina.dominio/camino/fichero.html.</FONT></B>
+En el caso de las relativas todo lo que no pongamos de la URL se tomar&aacute;
+de la URL del documento que contiene el hiperenlace, por ejemplo si no
+indicamos el servidor, se considerar&aacute; el actual y si solo indicamos
+un fichero html se considerar&aacute; que se encuentra en el servidor y
+directorio del documento que lo referencia. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una URL relativa comenzar&aacute; siempre
+por un nombre de directorio o por un fichero, ya que en este caso se asume
+que el servicio y el servidor - (<FONT COLOR="#008200">http://maquina.dominio</FONT>)
+- es el mismo del documento actual. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puede comenzar de alguna de las siguientes
+formas: </P>
+
+<UL>
+<LI>Por una barra <B><FONT COLOR="#008200">/</FONT></B>, que indica que
+el camino del fichero se especifica desde el directorio raiz del servidor.</LI>
+
+<P> </P>
+
+<LI>Por dos puntos y una barra <B><FONT COLOR="#008200">../</FONT></B>,
+significa subir en la estructura del directorio. Se considerar&aacute;
+a partir del directorio anterior.</LI>
+
+<P> </P>
+
+<LI>Por un nombre de fichero o directorio, considerandose este a partir
+del directorio actual.</LI>
+
+<P> </P>
+</UL>
+
+<P>Algunos ejemplos ser&iacute;an: <A NAME="ej1"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH colspan=2><FONT COLOR="#008200"><FONT SIZE=-1>Nos encontramos en el
+documento <I>http://www.uca.es/visita/cadiz.html</I> y en este se encuentran
+los siguientes hiperenlaces. </FONT></FONT></TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+rela<BR>
+tiva</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;../internet/internet.html&quot;&gt;
+.. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+que se<BR>
+activa</FONT></TH>
+
+<TD>http://www.uca.es/internet/internet.html </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso se indica la URL completa,
+por tanto no es relativa y no se podr&aacute; utilizar ning&uacute;n dato
+de la posici&oacute;n actual. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+rela<BR>
+tiva</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;/internet/internet.html&quot;&gt;
+.. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+que se<BR>
+activa</FONT></TH>
+
+<TD>http://www.uca.es/internet/internet.html </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso al no indicar el servidor
+tomaremos el servidor del documento donde estaba el hiperenlace: www.uca.es
+y al comenzar la directorio por / se indica que este se toma desde la ra&iacute;z
+del servidor, no siendo valido en este caso ning&uacute;n dato del directorio
+actual. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+rela<BR>
+tiva</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;bahia/cadiz.html&quot;&gt;
+... </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+que se<BR>
+activa</FONT></TH>
+
+<TD>http://www.uca.es/visita/bahia/cadiz.html </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso el directorio se toma
+desde el directorio actual al no comenzar con la barra &quot;/&quot;. Como
+comienza con un directorio, se considera que este se encuentra a partir
+del directorio donde est&aacute; el documento actual </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+rela<BR>
+tiva</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;bahia.html&quot;&gt;
+... </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>URL<BR>
+que se<BR>
+activa</FONT></TH>
+
+<TD>http://www.uca.es/visita/bahia.html </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso solo se indica un
+fichero HTML, por tanto se considera que este fichero se encuentra en el
+mismo directorio del documento que los referencia. Considerando por tanto
+el mismo servidor y el mismo camino, pero distinto directorio. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es una buena costumbre utilizar direcciones
+relativas, adem&aacute;s de ahorrar escritura, permite que la p&aacute;gina
+pueda ser cambiada de directorio o de servidor sin necesidad de cambiar
+todos los enlaces, haciendo por tanto al documento m&aacute;s portable.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como se vio en el capitulo dedicado a
+la cabecera de un documento HTML, la etiqueta <A HREF="head.htm#base">BASE</A>
+indica la direcci&oacute;n por defecto en los enlaces, esto tendr&aacute;
+efecto en las URL relativas, caso de indicarse se considerar&aacute; esta
+como direcci&oacute;n base y no la actual del documento. <A NAME="aname"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;A NAME=...&gt; Elemento Ancla</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sirve para indicar puntos de un documento
+que son accesibles directamente. Marcar&aacute; las distintas zonas de
+un documento. La forma de indicarlo es: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;A NAME=&quot;<I>Id. del ancla</I>&quot;&gt;Texto
+del ancla&lt;/A&gt; </FONT></FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A cada ancla se le dar&aacute; un nombre
+distinto que ser&aacute; el que se utilice luego para referenciarlo. El
+texto que define a la etiqueta no tendr&aacute; ning&uacute;n tipo de resalte,
+y solo se utiliza como punto de destino del hiperenlace. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La forma de especificar un enlace que
+acceda a un punto determinado del mismo documento es: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;A HREF=&quot;#<I>Id. del
+ancla</I>&quot;&gt;<I>Texto del enlace al ancla</I>&lt;/A&gt;</FONT></FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ser&aacute; un enlace a la zona del documento
+actual que se hab&iacute;a marcado con la etiqueta indicada. Tambi&eacute;n
+es posible acceder a un ancla de un documento externo de la forma: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;A HREF=&quot;<I>Direcci&oacute;n
+URL</I>#<I>Id. del ancla</I>&quot;&gt;<I>Texto del enlace al ancla</I>&lt;/A&gt;</FONT></FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De esta forma se podr&aacute; acceder
+a puntos determinados o secciones de un documento de forma directa. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La utilidad principal es la creaci&oacute;n
+de &iacute;ndices en documentos largos, al comienzo del documento se especifica
+el &iacute;ndice con enlaces a las distintas anclas y dentro del documento
+se indica el comienzo de cada apartado con el ancla que lo define. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="listas.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="listas.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="imagenes.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="imagenes.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

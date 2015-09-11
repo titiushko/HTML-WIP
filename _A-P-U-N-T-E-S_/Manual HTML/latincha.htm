@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Caracteres Latinos y especiales</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.2 - Caracteres latinos y especiales</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Como representar caracteres especiales</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los caracteres acentuados y algunos caracteres
+especiales que usa el lenguaje HTML para definir sus etiquetas no se pueden
+incluir en un documento de manera normal, se deben utilizar una serie de
+secuencias de escape que al mostrar el documento se sustituyen por el car&aacute;cter
+deseado. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estas secuencias de escape comienzan todas
+con el s&iacute;mbolo ampersand (&amp;), seguido de un texto (siempre en
+min&uacute;sculas) que define el car&aacute;cter deseado y termina con
+el s&iacute;mbolo punto y coma (;). El error m&aacute;s com&uacute;n cuando
+se usan estas secuencias de escape es no utilizar el punto y coma final,
+en cuyo caso se mostrar&aacute; el literal que define la secuencia, en
+lugar del car&aacute;cter deseado. No es necesario dejar espacios en blanco
+ni antes ni despu&eacute;s de los caracteres especiales, para que queden
+perfectamente encuadrados en la palabra. <A NAME="a2"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Elementos del lenguaje HTML</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si incluimos en el texto de un documento
+HTML el s&iacute;mbolo menor que (&lt;) o mayor que (&gt;) se interpretar&aacute;
+siempre como la definici&oacute;n de una etiqueta y por tanto no se mostrar&aacute;n
+al interpretar el documento. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para expresar estos s&iacute;mbolos y
+otros del lenguaje HTML usaremos las siguientes secuencias de escape: </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="80%" >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Simbolo </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;lt;</FONT> </TD>
+
+<TD>Signo &lt; (menor que) </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;gt; </FONT></TD>
+
+<TD>Signo &gt; (mayor que) </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;amp;</FONT> </TD>
+
+<TD>Signo &amp; (ampersand) </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;quot; </FONT></TD>
+
+<TD>Se mostrar&aacute; el signo de comillas &quot; </TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="a3"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Caracteres acentuados<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen una serie de etiquetas que nos
+permite mostrar los caracteres acentuados y caracteres latinos (&ntilde;).
+Estos caracteres si se incluyen en un documento HTML sin utilizar las secuencias
+de escape, se mostrar&aacute;n correctamente. Usted en su ordenador con
+su navegador podr&aacute; leer estos caracteres correctamente siempre y
+cuando tenga el mismo c&oacute;digo (espa&ntilde;ol) que el autor del documento.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Los primeros 127 caracteres del c&oacute;digo
+ASCII son comunes para todos los pa&iacute;ses e incluyen todas las letras
+del alfabeto, a partir del 128 son espec&iacute;ficos para cada lenguaje,
+entre estos se incluyen los caracteres acentuados y la letra &ntilde;,
+por tanto si alguien desde otro pa&iacute;s que tenga un c&oacute;digo
+incompatible intenta leer su documento, probablemente encuentre caracteres
+extra&ntilde;os que no sepa interpretar y por tanto no ser&aacute; capaz
+de leer los caracteres acentuados. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen diversas secuencias que definen
+los distintos tipos de acentos: agudo, grave o circunflejo. Para el acento
+agudo usaremos el literal <I>acute</I>, tanto para las may&uacute;sculas
+como para las min&uacute;sculas. Por tanto incluiremos el s&iacute;mbolo
+de ampersand (&amp;) la vocal que deseamos acentuar, la palabra <I>acute</I>
+y el s&iacute;mbolo punto y coma (;). Represent&aacute;ndose los acentos
+de la forma: </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Letra</TH>
+
+<TD></TD>
+
+<TH>Sec.Escape</TH>
+
+<TH>Letra </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;aacute;</FONT> </TD>
+
+<TD>&aacute;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Aacute;</FONT> </TD>
+
+<TD>&Aacute; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;eacute;</FONT> </TD>
+
+<TD>&eacute;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Eacute;</FONT> </TD>
+
+<TD>&Eacute; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;iacute;</FONT> </TD>
+
+<TD>&iacute;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Iacute; </FONT></TD>
+
+<TD>&Iacute; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;oacute; </FONT></TD>
+
+<TD>&oacute;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Oacute; </FONT></TD>
+
+<TD>&Oacute; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;uacute;</FONT> </TD>
+
+<TD>&uacute;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Uacute;</FONT> </TD>
+
+<TD>&Uacute; </TD>
+</TR>
+</TABLE></CENTER>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para la letra &ntilde; usaremos la secuencia
+<I>tilde</I>, del siguiente modo: </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Letra</TH>
+
+<TD></TD>
+
+<TH>Sec.Escape</TH>
+
+<TH>Letra </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;ntilde; </FONT></TD>
+
+<TD>&ntilde; </TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Ntilde; </FONT></TD>
+
+<TD>&Ntilde; </TD>
+</TR>
+</TABLE></CENTER>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para el acento grave usaremos <I>grave</I>,
+siendo en este caso la representaci&oacute;n: </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Letra</TH>
+
+<TD></TD>
+
+<TH>Sec.Escape</TH>
+
+<TH>Letra </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;agrave;</FONT> </TD>
+
+<TD>&agrave;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Agrave;</FONT> </TD>
+
+<TD>&Agrave; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;egrave;</FONT> </TD>
+
+<TD>&egrave;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Egrave;</FONT> </TD>
+
+<TD>&Egrave; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;igrave;</FONT> </TD>
+
+<TD>&igrave;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Igrave; </FONT></TD>
+
+<TD>&Igrave; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;ograve; </FONT></TD>
+
+<TD>&ograve;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Ograve; </FONT></TD>
+
+<TD>&Ograve; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;ugrave;</FONT> </TD>
+
+<TD>&ugrave;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Ugrave;</FONT> </TD>
+
+<TD>&Ugrave; </TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="a4"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Otros S&iacute;mbolos<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para expresar una car&aacute;cter por
+su valor en el c&oacute;digo ASCII, usaremos el s&iacute;mbolo <I>#</I>,
+seguido de su equivalente num&eacute;rico. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para el acento circunflejo utilizaremos
+el literal <I>circ</I> y para la di&eacute;resis utilizaremos el literal
+<I>uml</I>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para expresar los s&iacute;mbolos de apertura
+interrogaci&oacute;n, apertura de exclamaci&oacute;n y estos acentos usaremos:
+</P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Letra</TH>
+
+<TD></TD>
+
+<TH>Sec.Escape</TH>
+
+<TH>Letra </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;#191;</FONT> </TD>
+
+<TD>&iquest;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;#161;</FONT> </TD>
+
+<TD>&iexcl; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;uuml;</FONT> </TD>
+
+<TD>&uuml;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Uuml;</FONT> </TD>
+
+<TD>&Uuml; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;icirc;</FONT> </TD>
+
+<TD>&icirc;</TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Icirc; </FONT></TD>
+
+<TD>&Icirc; </TD>
+</TR>
+</TABLE></CENTER>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algunos otros s&iacute;mbolos especiales
+ser&aacute;n los siguientes. </P>
+
+<DL>
+<TABLE BORDER=5 CELLPADDING=5 >
+<TR>
+<TH>Sec. Escape</TH>
+
+<TH>Simbolo</TH>
+
+<TD></TD>
+
+<TH>Sec.Escape</TH>
+
+<TH>Simbolo </TH>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;ccedil;</FONT> </TD>
+
+<TD>&ccedil; </TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;Ccedil;</FONT> </TD>
+
+<TD>&Ccedil; </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;reg;</FONT> </TD>
+
+<TD>&reg; S&iacute;mbolo de registrado </TD>
+
+<TD></TD>
+
+<TD><FONT COLOR="#008200">&amp;copy;</FONT> </TD>
+
+<TD>&copy; S&iacute;mbolo de Copyright. </TD>
+</TR>
+
+<TR>
+<TD><FONT COLOR="#008200">&amp;#nnn;</FONT> </TD>
+
+<TD colspan=4>Donde nnn es un n&uacute;mero decimal, el car&aacute;cter
+nnn del c&oacute;digo ISO-8859-1 (ASCII). </TD>
+</TR>
+</TABLE>
+</DL>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="saltlin.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="saltlin.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="cabecer.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="cabecer.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

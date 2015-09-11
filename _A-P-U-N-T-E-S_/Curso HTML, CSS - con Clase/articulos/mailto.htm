@@ -1,0 +1,255 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Cómo no usar mailto</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Este artículo explica por qué es incorrecto usar una acción mailto en los formularios HTML, qué efectos puede tener y qué es lo correcto" />
+<meta name="Keywords"    content="mailto, email, subject, asunto, mailto action, HTML, CSS, XHTML, XML, CSS1, CSS2, páginas, web, diseño web, tutorial HTML, tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2002 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Cómo no usar mailto" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Por qué no se debe usar una acción mailto en los formularios HTM" />
+<meta name="DC.Description"       content="Este artículo explica por qué es incorrecto usar una acción mailto en los formularios HTML, qué efectos puede tener y qué es lo correcto" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/mailto" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2002 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t1">Cómo no usar mailto</h2>
+
+<p id="p01">Existen dos errores comunes en el diseño web relacionados con el esquema de <abbr>URLs</abbr> <code>mailto</code>. Además de ser errores muy comunes, sus consecuencias pueden ser bastante graves (incluso pueden perderse mensajes sin que nadie se entere), por lo que es importante saber cuáles son estos errores y cómo evitarlos.</p>
+
+<h3 id="t2">Error número 1: Poner parámetros en los <abbr>URLs</abbr> <code>mailto</code></h3>
+
+<p id="p02">Es muy normal encontrar páginas con cosas de este estilo:</p>
+<p><code>&lt;a href="mailto:info@example.com?subject='Mi casa'&amp;body=Telefono"&gt;Contacte con nosotros!&lt;/a&gt;</code></p>
+<p>Esto es incorrecto por el siguiente motivo:</p>
+
+<p id="p03">El elemento <code>A</code>, según las especificaciones de <code>HTML</code>, tiene un atributo opcional <code>HREF</code>, cuya función es la siguiente:</p>
+
+<blockquote cite="http://html.conclase.net/w3c/html401-es/struct/links.html#adef-href">
+<p>Este atributo especifica la localización de un recurso de la Web, definiendo así un vínculo entre el elemento actual (el origen del vínculo) y el destino del vínculo definido por este atributo. <em><a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/links.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/links.html#adef-href'" tppabs="http://html.conclase.net/w3c/html401-es/struct/links.html#adef-href">(http://html.conclase.net/w3c/html401-es/struct/links.html#adef-href)</a></em></p>
+</blockquote>
+
+<p id="p04">El valor de este atributo es un <abbr>URI</abbr> (identificador uniforme de recursos, ver <a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc2396.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc2396.txt'" tppabs="http://www.ietf.org/rfc/rfc2396.txt">http://www.ietf.org/rfc/rfc2396.txt</a> para su definición formal), el cual puede ser, por ejemplo, un <abbr>URL</abbr> tipo <code>mailto</code>. Naturalmente, éste debe ser un <abbr>URL</abbr> válido.</p>
+
+<p id="p05">Los <abbr>URLs</abbr> del tipo <code>mailto</code> están especificados, como el resto de <abbr>URLs</abbr>, en <span xml:lang="en">"Uniform Resource Locators (URL)"</span>, sección 3.5, que traduzco a continuación:</p>
+
+<blockquote>
+<p>3.5. MAILTO</p>
+<p>El esquema de <abbr>URLs</abbr> <code>mailto</code> se usa para designar una dirección de correo de Internet de un individuo o servicio. Aparte de una dirección de correo de Internet, no hay ninguna otra información adicional presente o implícita.</p>
+<p>Un <abbr>URL</abbr> <code>mailto</code> tiene la siguiente forma</p>
+<pre><code>mailto:&lt;rfc822-addr-spec&gt;</code></pre>
+<p>donde <code>&lt;rfc822-addr-spec&gt;</code> es (la codificación de un) <code>addr-spec</code>, según se especifica en RFC 822 [declarada obsoleta por RFC2822]. Dentro de un <abbr>URL</abbr> mailto no hay caracteres reservados.</p>
+<p>Obsérvese que el signo de tanto por ciento ("%") se usa normalmente dentro de direcciones RFC 822 y debe ser codificado.</p>
+<p>A diferencia de otros muchos <abbr>URLs</abbr>, el esquema <code>mailto</code> no representa un objeto de datos al que pueda accederse directamente; no designa un objeto en ningún sentido. Tiene una utilización diferente a la del tipo <abbr>MIME</abbr> <code>message/external-body</code>. <em><a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc1738.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc1738.txt'" tppabs="http://www.ietf.org/rfc/rfc1738.txt">(http://www.ietf.org/rfc/rfc1738.txt)</a></em></p>
+</blockquote>
+
+<p id="p06">En el RFC2822, "<span xml:lang="en">Internet Message Format</span>" se define un <code>addr-spec</code> del siguiente modo (sección 3.4.1):</p>
+
+<blockquote>
+<p>3.4.1. Especificación de <code>addr-spec</code></p>
+<p>Un <code>addr-spec</code> es un identificador específico de Internet que contiene una cadena interpretada localmente, seguida del símbolo arroba ("@", valor <abbr>ASCII</abbr> 64), seguida de un dominio de Internet. [...]</p>
+<pre><code>addr-spec       =       local-part "@" domain</code></pre>
+<p><em><a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc2822.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc2822.txt'" tppabs="http://www.ietf.org/rfc/rfc2822.txt">(http://www.ietf.org/rfc/rfc2822.txt)</a></em></p>
+</blockquote>
+
+<p id="p07">Es decir, un enlace <abbr>HTML</abbr> cuyo atributo <code>HREF</code> sea un <abbr>URL</abbr> del esquema <code>mailto</code> no puede contener más información que la dirección de correo electrónico vinculada: ni asunto, ni cuerpo, ni nada. Sólo la dirección de correo.</p>
+
+<p id="p08">El hecho de que funcione en algunas o en muchas combinaciones navegador web/cliente de correo, no quiere decir que funcione en todas, ni que tenga que funcionar, ni que vaya a funcionar en el futuro. Su comportamiento es esencialmente impredecible, porque es incorrecto. Lo que sí se puede esperar es que habrá situaciones en las que no funcionará.</p>
+
+<p id="p09">Además no tendría ninguna utilidad para usuarios que no utilicen un cliente de correo (por ejemplo porque usan correo web).</p>
+
+<h3 id="t3">Error número 2: Poner una acción <code>mailto</code> en los formularios <abbr>HTML</abbr></h3>
+
+<p id="p10">Esto no sólo está mal sino que existen tantos motivos para no hacerlo que el propio sentido común debería bastar para darse cuenta. Lamentablemente el 99,9% de los tutoriales de <abbr>HTML</abbr> siempre usan una acción <code>mailto</code> para explicar cómo funcionan los formularios.</p>
+
+<p id="p11">Formularios como éste son lo más normal del mundo:</p>
+<p><code>&lt;form action="mailto:info@example.com" enctype="text/plain" method="post"&gt;</code></p>
+
+<p id="p12">Esto está mal por dos motivos:</p>
+
+<ol>
+<li>Según la especificación de <abbr>HTML</abbr> 4, los dos únicos tipos de contenido que deben soportar los navegadores son "<code>application/x-www-form-urlencoded</code>" y "<code>multipart/form-data</code>". <q cite="http://html.conclase.net/w3c/html401-es/interact/forms.html#h-17.13.4">El comportamiento para otros tipos de contenido queda sin especificar.</q> Incluido naturalmente el tipo de contenido "<code>text/plain</code>" (ver <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/interact/forms.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/interact/forms.html#h-17.13.4'" tppabs="http://html.conclase.net/w3c/html401-es/interact/forms.html#h-17.13.4">http://html.conclase.net/w3c/html401-es/interact/forms.html#h-17.13.4</a>).</li>
+<li>El valor del atributo <code>ACTION</code> se refiere a un agente procesador del formulario que reside en el servidor. Según define la especificación <q cite="http://html.conclase.net/w3c/html401-es/interact/forms.html#adef-action">El comportamiento del agente de usuario frente a un valor diferente de un <abbr>URI</abbr> <abbr>HTTP</abbr> es indefinido.</q> (ver <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/interact/forms.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/interact/forms.html#adef-action'" tppabs="http://html.conclase.net/w3c/html401-es/interact/forms.html#adef-action">http://html.conclase.net/w3c/html401-es/interact/forms.html#adef-action</a>).</li>
+</ol>
+
+<p id="p13">De modo que para empezar es pura y llanamente <abbr>HTML</abbr> incorrecto. No hay ningún motivo para que un navegador que se atenga a las especificaciones haga con ese formulario lo que nosotros creemos que tendría que hacer. Es un error, y por tanto sus resultados son impredecibles. Al igual que antes, lo que sí se puede predecir es que habrá situaciones en que no funcionará.</p>
+
+<p id="p14">Por si eso no fuera poco, aquí hay una batería más de buenas razones:</p>
+
+<ul>
+<li id="p15">No es muy fiable. Puede que funcione en tu computadora, pero no sabes si funcionará en la de tus visitantes, porque depende de su cliente de correo y de la configuración de su sistema. Y tu visitante tampoco sabrá si funciona hasta que no pulse el botón de enviar, después de rellenar todos los campos. Bastante frustrante. O puede no suceder nada, y el visitante creería que te ha enviado algo cuando en realidad no lo ha hecho. O puede que la dirección esté mal formada y no llegue a enviarse o rebote y acabe donde no queremos que acabe (en el buzón de un <span xml:lang="en">postmaster</span>, por ejemplo, o perdido en el ciberespacio).</li>
+
+<li id="p16">¿Has leído el mensaje que da Internet Explorer?
+<blockquote>
+<p>Este formulario se está enviando por correo electrónico. El envío de este formulario revelará su dirección de correo electrónico, y no cifrará la información del formulario como medida de privacidad.</p>
+<p>Puede continuar o cancelar el envío.</p>
+<p>[Aceptar] [Cancelar]</p>
+</blockquote>
+<p>Después de leer tal mensaje, más de uno le dará a "cancelar", por si las moscas.</p></li>
+
+<li id="p17">Si el visitante usa correo web, el que se le abra un programa de correo (suponiendo que lo tenga) probablemente no le sirva para nada.</li>
+
+<li id="p18">El visitante podría estar en un cibercafé, usando una computadora sin programa de correo.</li>
+
+<li id="p19">Como inconveniente adicional, la dirección destino está en el código <abbr>HTML</abbr> y es accesible por los <span xml:lang="en">spambots</span>, pudiendo caer presa de los espámers. Con un programa propio, con la dirección en el código del programa, no existe este peligro.</li>
+</ul>
+
+<h3 id="t4">La solución</h3>
+
+<p id="p20">La única manera segura de generar un mensaje de correo emitido por el visitante de una página web es por medio de un formulario de correo que se ejecute en el servidor, ya sea en <abbr>CGI</abbr>, <abbr>PHP</abbr>, <abbr>ASP</abbr>, etc., no en el cliente.</p>
+
+<p id="p21">Aunque pueda parecer complicado, en realidad es muy sencillo y basta con ver un ejemplo para saber cómo se hace.</p>
+
+<p id="p22">Existen empresas que permiten utilizar gratuitamente o a cambio de publicidad sus servidores para la ejecución de estos formularios, por ejemplo:</p>
+<ul>
+<li><a href="javascript:if(confirm('http://www.melodysoft.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.melodysoft.com/'" tppabs="http://www.melodysoft.com/">http://www.melodysoft.com/</a></li>
+<li><a href="javascript:if(confirm('http://cgi.resourceindex.com/Remotely_Hosted/Form_Processing/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://cgi.resourceindex.com/Remotely_Hosted/Form_Processing/'" tppabs="http://cgi.resourceindex.com/Remotely_Hosted/Form_Processing/">http://cgi.resourceindex.com/Remotely_Hosted/Form_Processing/</a></li>
+</ul>
+
+<p id="p23">Muchas compañías de alojamiento web (incluso gratuitas) ponen a disposición de sus usuarios formularios de correo listos para usar.</p>
+
+<p id="p24">También es posible que puedas alojar tus propios scripts junto con tu página. Aquí tienes una lista con scripts para procesamiento de formularios, muchos de ellos de uso libre y gratuito:</p>
+
+<ul>
+<li>En Perl: <a href="javascript:if(confirm('http://cgi.resourceindex.com/Programs_and_Scripts/Perl/Form_Processing/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://cgi.resourceindex.com/Programs_and_Scripts/Perl/Form_Processing/'" tppabs="http://cgi.resourceindex.com/Programs_and_Scripts/Perl/Form_Processing/">http://cgi.resourceindex.com/Programs_and_Scripts/Perl/Form_Processing/</a></li>
+<li>En PHP: <a href="javascript:if(confirm('http://php.resourceindex.com/Complete_Scripts/Form_Processing/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://php.resourceindex.com/Complete_Scripts/Form_Processing/'" tppabs="http://php.resourceindex.com/Complete_Scripts/Form_Processing/">http://php.resourceindex.com/Complete_Scripts/Form_Processing/</a></li>
+</ul>
+
+<h3 id="t6">Más información</h3>
+
+<ul>
+<li><a href="javascript:if(confirm('http://www.isolani.co.uk/articles/mailto.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.isolani.co.uk/articles/mailto.html'" tppabs="http://www.isolani.co.uk/articles/mailto.html">http://www.isolani.co.uk/articles/mailto.html</a></li>
+<li><a href="javascript:if(confirm('http://www.allmyfaqs.com/cgi-bin/wiki.pl?Email_form_data  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.allmyfaqs.com/cgi-bin/wiki.pl?Email_form_data'" tppabs="http://www.allmyfaqs.com/cgi-bin/wiki.pl?Email_form_data">http://www.allmyfaqs.com/cgi-bin/wiki.pl?Email_form_data</a></li>
+<li><a href="javascript:if(confirm('http://www.htmlhelp.com/faq/html/forms.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlhelp.com/faq/html/forms.html#mailto-form'" tppabs="http://www.htmlhelp.com/faq/html/forms.html#mailto-form">http://www.htmlhelp.com/faq/html/forms.html#mailto-form</a></li>
+<li><a href="javascript:if(confirm('http://vortex-webdesign.com/help/faq.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://vortex-webdesign.com/help/faq.htm#mailtosubject'" tppabs="http://vortex-webdesign.com/help/faq.htm#mailtosubject">http://vortex-webdesign.com/help/faq.htm#mailtosubject</a></li>
+</ul>
+
+<p class="copy">&copy; 2002-2003 Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2002 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a id="actual" title="Cómo no usar los URLs tipo mailto">&raquo;&nbsp;Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

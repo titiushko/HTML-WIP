@@ -1,0 +1,24 @@
+<!-- html>(head>(title{Habilitar Campo}+style>)+script>)+body> -->
+<html>
+	<head>
+		<title>Habilitar Campo</title>
+		<link rel="stylesheet" href="estilo.css" type="text/css"></link>
+		<script type="text/javascript" src="prototype.js"></script>
+		<script type="text/javascript" src="funciones.js"></script>
+		<style></style>
+		<script></script>
+	</head>
+	<body>
+		<div class="centrar">
+			<form name="form" action="">
+				<div id="div-mostrar" class="visto" onclick="habilitar_editar(document.form.about);" onmouseover="mostrar_icono();" onmouseout="ocultar_icono();">
+					<p class="texto borde-texto editar-texto">I have been developing software since 1983. This has taken me from 8048 assembly coded embedded software through HPBASIC, developing embedded BIOS extensions all the way to developing java enterprise software, ios applications and android as well as native jni code. Server, client and embedded software interoperating and enhancing each other excites me. Currently I am very interested in mobile applications, browser applications and the corresponding server infrastructure to support their data, authentication and messaging needs. I am a committer on several open source projects. Most recently Calip.so which is hosted nodejitsu and located on github cliftonc/calipso There are also several other projects I am utilizing for various things and issuing pull requests or issue reports. Open source software is really exciting because it enables people to be part of something bigger without starting large. There are always new and interesting software frameworks, languages, patterns and projects which I would like to learn about and be involved in.</p>
+				</div>
+				<span id="icono" class="oculto">&#9998;</span>
+				<div id="div-editar" class="oculto">
+					<p><textarea class="texto" onblur="deshabilitar_editar();" name="about" id="about">I have been developing software since 1983. This has taken me from 8048 assembly coded embedded software through HPBASIC, developing embedded BIOS extensions all the way to developing java enterprise software, ios applications and android as well as native jni code. Server, client and embedded software interoperating and enhancing each other excites me. Currently I am very interested in mobile applications, browser applications and the corresponding server infrastructure to support their data, authentication and messaging needs. I am a committer on several open source projects. Most recently Calip.so which is hosted nodejitsu and located on github cliftonc/calipso There are also several other projects I am utilizing for various things and issuing pull requests or issue reports. Open source software is really exciting because it enables people to be part of something bigger without starting large. There are always new and interesting software frameworks, languages, patterns and projects which I would like to learn about and be involved in.</textarea></p>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,258 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 2 (2/6)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La segunda parte del segundo tutorial HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 2 (2/6)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La segunda parte del segundo tutorial HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-06-21" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/2/2" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="1.htm" tppabs="http://html.conclase.net/tutorial/html/2/1" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>La estructura de un documento HTML (II) </h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/2/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/2/3">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Veamos cómo te explico esto sin liarme mucho. Un documento <abbr>HTML</abbr> está formado por <dfn>elementos</dfn>. Ya hemos hablado de elementos. Por ejemplo, un elemento <samp>P</samp> representa un párrafo, un elemento <samp>OL</samp> representa una lista, un elemento <samp>TITLE</samp> representa el título del documento...</p>
+<p class="a">- Sí, todo eso ya lo hemos visto.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien. En general, cada elemento se divide en tres partes: una <dfn>etiqueta inicial</dfn>, el <dfn>contenido del elemento</dfn>, y una <dfn>etiqueta final</dfn>.</p>
+<p class="a">- Como por ejemplo <samp>&lt;p&gt;Esto es un párrafo.&lt;/p&gt;</samp>, ¿verdad?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Exacto. Y nunca confundas etiqueta con elemento. <strong>Un elemento no es una etiqueta</strong>. Una etiqueta es una parte de un elemento. Si los confundes todo el mundo sabrá que no sabes de qué estás hablando.</p>
+<p class="a">- Bueno, bueno, vale.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Unos elementos pueden contener a otros elementos. Por ejemplo, en el caso de nuestro ejemplo, el elemento <code>OL</code> contenía elementos <code>LI</code>. El elemento <code>OL</code> representa una lista, y cada elemento <code>LI</code> representa uno de los elementos de la lista.</p>
+<p class="a">- ¿No podríamos haber metido los elementos <code>LI</code> en el elemento <code>P</code>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- No, existen reglas que definen qué tipos de elementos puede contener cada tipo de elemento. Por ejemplo, un elemento <code>P</code> no puede contener a otros elementos <code>P</code>.</p>
+<p class="a">- Claro, es bastante lógico...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Otro ejemplo, un elemento <code>OL</code> sólo puede contener elementos <code>LI</code>. Así es como está definido. Cada tipo de elemento tiene sus reglas.</p>
+<p class="a">- ¿Y hay muchos tipos de elemento?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, pero no te preocupes, normalmente son reglas lógicas. El <abbr>HTML</abbr> es realmente sencillo. Pero a lo que íbamos.</p>
+<p class="a">- Sí, sí, la estructura del documento...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues bien, un documento <abbr>HTML</abbr> sólo puede contener un tipo de elemento: el elemento <code>HTML</code>.</p>
+<p class="a">- ¿Hein?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Como lo oyes. Es como si el documento fuera un gran elemento. A su vez, el tipo de elemento <code>HTML</code> puede contener dos tipos de elemento: un elemento <code>HEAD</code> y un elemento <code>BODY</code>, y sólo uno de cada. El elemento <code>HEAD</code> define la <dfn>cabecera</dfn> del documento, que contiene información sobre el documento, y el elemento <code>BODY</code> contiene el <dfn>cuerpo</dfn> del documento, lo que será representado por el navegador.</p>
+<p class="a">- Eso no me cuadra. En nuestro ejemplo no había nada de eso.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí lo había, pero no lo veías.</p>
+<p class="a">- ¿Eh? ¿Qué dices? No te entiendo nada.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Para algunos tipos de elementos, las etiquetas son opcionales. Para otros tipos, sólo la etiqueta final es opcional. Pero eso no quiere decir que el elemento no empiece y no termine. Lo primero que hace el analizador del código es buscar dónde empieza el elemento <code>HTML</code>. Si no encuentra la etiqueta inicial, supone dónde está.</p>
+<p class="a">- Un poco complicado, ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En principio no, pero se puede complicar bastante. Por eso yo te recomiendo que incluyas siempre todas las etiquetas aunque sean opcionales. Además, si en el futuro haces tus páginas en <abbr>XHTML</abbr> tendrás que incluir todas las etiquetas, porque allí no hay etiquetas opcionales.</p>
+<p class="a">- Muy bien, te haré caso, así lo haré.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- He vuelto a escribir el ejemplo del primer tutorial, pero con todas las etiquetas explícitas:</p>
+<pre class="p"><samp>&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;Primer ejemplo en HTML&lt;/title&gt;
+ &lt;/head&gt;
+
+ &lt;body&gt;
+  &lt;h1&gt;Mi colección de discos&lt;/h1&gt;
+
+  &lt;h2&gt;Horslips&lt;/h2&gt;
+  &lt;p>Este grupo irlandés nació en 1970, y en sus diez años de existencia, hasta su
+  separación en 1980, recorrieron Europa y América tocando en directo. Aunque su
+  música evolucionó sensiblemente en ese tiempo, siempre se caracterizó por imprimir
+  de manera única las raíces celtas y el sonido del rock. Horslips, sin haber
+  llegado a ser un fenómeno de masas, ha escrito algunas de las páginas más
+  brillantes de la música irlandesa reciente.&lt;/p&gt;
+  &lt;ol&gt;
+   &lt;li&gt;"Happy To Meet, Sorry To Part", 1972&lt;/li&gt;
+   &lt;li&gt;"The Táin", 1973&lt;/li&gt;
+   &lt;li&gt;Etcétera, no los pongo todos.&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;h2&gt;Gwendal&lt;/h2&gt;
+  &lt;p&gt;Gwendal es probablemente uno de los grupos de música celta más conocidos en
+  España. No en vano, su único disco en directo fue grabado en España. Este grupo
+  bretón, da a los temas tradicionales irlandeses un estilo único, mezclando
+  delicadeza, virtuosismo y energía de manera magistral.&lt;/p&gt;
+  &lt;ol&gt;
+   &lt;li&gt;"Gwendal", 1974&lt;/li&gt;
+   &lt;li&gt;"Gwendal 2", 1975&lt;/li&gt;
+   &lt;li&gt;Etcétera, tampoco los pongo todos&lt;/li&gt;
+  &lt;/ol&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</samp></pre>
+<p class="p">Cómo ves el elemento <code>TITLE</code> está contenido en <code>HEAD</code>, y todos los demás están contenidos en <code>BODY</code>.</p>
+<p class="a">- ¿Y no sería más lógico que los elementos <code>P</code> estuvieran contenidos en los elementos <code>H</code>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Probablemente sí, pero así es como está definido... Bueno, este documento es perfectamente válido, es decir, sigue todas las reglas sintácticas de <abbr>HTML</abbr>, pero normalmente los documentos son más complejos, y es fácil equivocarse. Por eso hay servicios que nos permiten validar nuestros documentos. Pero para eso hace falta un pequeño detalle más.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/2/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/2/3">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 21/06/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

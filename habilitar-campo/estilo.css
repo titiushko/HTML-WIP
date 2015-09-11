@@ -1,0 +1,55 @@
+body {
+	background-color: #dadada;
+}
+
+.centrar {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -250px;
+	margin-top: -150px;
+	/*
+	width: 400px;
+	height: 300px;
+    padding: 5px;
+    */
+}
+
+.texto {
+	color: #000000;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: justify;
+	width: 400px;
+	height: 400px;
+}
+
+.borde-texto, div#div-editar.visto p {
+	border: 2px solid #dadada;
+}
+
+.borde-texto:hover, .mostrar-icono {
+	border: 2px solid #808080;
+}
+
+.texto, .borde-texto, div#div-editar.visto p {
+	padding: 0px;
+	margin: 0px;
+}
+
+.editar-texto:hover {
+	background-color: #ebebeb;
+}
+
+.mostrar-icono {
+	padding: 0px 8px 0px 8px;
+	background-color: #c0c0c0;
+}
+
+.oculto {
+	display: none;
+}
+
+.visto {
+	display: inline;
+}

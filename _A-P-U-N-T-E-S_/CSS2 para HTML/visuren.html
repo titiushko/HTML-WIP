@@ -1,0 +1,1600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Modelo de formato visual</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="box.html">
+<link rel="next" href="visudet.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="box.html">anterior</a> &nbsp;
+<a href="visudet.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">9 Modelo de formato visual</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="visuren.html#q1" class="tocxref">9.1 Introducción al modelo de formato visual</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#q2" class="tocxref">9.1.1 El acceso visual</a>
+      <li class="tocline3"><a href="visuren.html#containing-block" class="tocxref">9.1.2 <span class="index-def"> Bloques de contención</span></a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#box-gen" class="tocxref">9.2 Control de la generación de cajas</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#q5" class="tocxref">9.2.1 Elementos a nivel de bloque y cajas de bloque</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="visuren.html#anonymous-block-level" class="tocxref"> Cajas de bloque anónimas</a>
+      </ul>
+      <li class="tocline3"><a href="visuren.html#q7" class="tocxref">9.2.2 Elementos a nivel de línea y cajas de línea</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="visuren.html#anonymous" class="tocxref"> Cajas de línea anónimas</a>
+      </ul>
+      <li class="tocline3"><a href="visuren.html#compact" class="tocxref">9.2.3 Cajas compact</a>
+      <li class="tocline3"><a href="visuren.html#run-in" class="tocxref">9.2.4 Cajas run-in</a>
+      <li class="tocline3"><a href="visuren.html#display-prop" class="tocxref">9.2.5 La propiedad <span class="propinst-display">'display'</span></a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#positioning-scheme" class="tocxref">9.3 Esquemas de posicionamiento</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#choose-position" class="tocxref">9.3.1 Elección de un esquema de posicionamiento: la propiedad <span class="propinst-position">'position'</span></a>
+      <li class="tocline3"><a href="visuren.html#position-props" class="tocxref">9.3.2 Desplazamiento de las cajas: <span class="propinst-top">'top'</span>, <span class="propinst-right">'right'</span>, <span class="propinst-bottom">'bottom'</span>, <span class="propinst-left">'left'</span></a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#normal-flow" class="tocxref">9.4 Flujo normal</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#block-formatting" class="tocxref">9.4.1 Contexto de formato de bloque</a>
+      <li class="tocline3"><a href="visuren.html#inline-formatting" class="tocxref">9.4.2 Contexto de formato de línea</a>
+      <li class="tocline3"><a href="visuren.html#relative-positioning" class="tocxref">9.4.3 Posicionamiento relativo</a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#floats" class="tocxref">9.5 Flotantes</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#float-position" class="tocxref">9.5.1 Posicionamiento del flotante: la propiedad <span class="propinst-float">'float'</span></a>
+      <li class="tocline3"><a href="visuren.html#flow-control" class="tocxref">9.5.2 Control del flujo al costado del flotante: la propiedad <span class="propinst-clear">'clear'</span></a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#absolute-positioning" class="tocxref">9.6 Posicionamiento absoluto</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#fixed-positioning" class="tocxref">9.6.1 Posicionamiento fijo</a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#q24" class="tocxref">9.7 Relaciones entre 'display', 'position' y 'float'</a>
+    <li class="tocline2"><a href="visuren.html#comparison" class="tocxref">9.8 Comparación entre flujo normal, flotantes y posicionamiento absoluto</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#q26" class="tocxref">9.8.1 Flujo normal</a>
+      <li class="tocline3"><a href="visuren.html#q27" class="tocxref">9.8.2 Posicionamiento relativo</a>
+      <li class="tocline3"><a href="visuren.html#q28" class="tocxref">9.8.3 Flotar una caja</a>
+      <li class="tocline3"><a href="visuren.html#q29" class="tocxref">9.8.4 Posicionamiento absoluto</a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#q30" class="tocxref">9.9 Presentación por capas</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="visuren.html#z-index" class="tocxref">9.9.1 Especificar el nivel de pila: la propiedad <span class="propinst-z-index">'z-index'</span></a>
+    </ul>
+    <li class="tocline2"><a href="visuren.html#direction" class="tocxref">9.10 Dirección del texto: las propiedades <span class="propinst-direction">'direction'</span> y <span class="propinst-unicode-bidi">'unicode-bidi'</span></a>
+  </ul>
+</div>
+
+<H2><a name="q1">9.1 Introducción al modelo de formato visual</a></H2>
+
+<P>Este capítulo y el siguiente describen el <a name="x0"><span class="index-def"
+title="modelo de formato visual">modelo de formato visual</span></a>: cómo las aplicaciones del usuario procesan la <a href="conform.html#doctree">estructura del documento</a> para los <a href="media.html">medios</a> visuales.
+
+<P>En este modelo de formato visual, cada elemento en la estructura del documento genera cero o más cajas de acuerdo al <a href="box.html">modelo de caja</a>. La composición de estas cajas se gobierna por:</p>
+
+<ul>
+<li><a href="box.html#box-dimensions">dimensiones de la caja</a> y <a
+href="#box-gen">tipo</a>.
+<li><a href="#positioning-scheme">esquema de posicionamiento</a> (flujo normal, flotante y absoluto).
+<li>relación entre los elementos de una <a href="conform.html#doctree">estructura del documento</a>.
+<li>información externa (ej., tamaño del acceso visual, dimensiones <a
+href="conform.html#intrinsic">intrínsecas</a> de las imágenes, etc.).
+</ul>
+
+<P>Las propiedades definidas en este capítulo y el siguiente se aplican a los <a href="media.html#continuous-media-group">medios contínuos</a> y a los <a href="media.html#paged-media-group">medios paginados</a>. Sin embargo, el significado de las <a href="box.html#margin-properties">propiedades del margen</a> varía cuando son aplicadas a los medios paginados (ver el <a href="page.html#page-model">modelo de página</a> para más detalles).
+
+<P>El modelo de formato visual no especifica todos los aspectos del formato (ej., no especifica un algoritmo para el espaciado entre letras). Las <a href="conform.html#conformance">aplicaciones del usuario con conformidad</a> pueden tener distintos comportamientos con aquellos formatos de composición no cubiertos por esta especificación.
+
+<h3><a name="q2">9.1.1 El acceso visual</a></h3>
+
+<P>Las aplicaciones del usuario para los <a
+href="media.html#continuous-media-group">medios contínuos</a> generalmente ofrecen a los usuarios un <span class="index-def" title="acceso visual"><a
+name="viewport"><dfn>acceso visual</dfn></a></span> (una ventana u otra área de visión en la pantalla) a través del cual los usuarios consultan un documento. Las aplicaciones del usuario pueden cambiar la composición del documento cuando el acceso visual es redimensionado (ver el <a
+href="#initial-containing-block">bloque de contención inicial</a>).  Cuando el acceso visual es más pequeño que el bloque de contención inicial de un documento, la aplicación del usuario debe ofrecer un mecanismo de desplazamiento. A lo sumo hay un acceso visual por <a href="intro.html#canvas">lienzo</a>, pero las aplicaciones del usuario pueden procesar más de un lienzo (ej., proporcionar diferentes vistas del mismo documento).
+
+
+<H3>9.1.2 <span class="index-def" title="bloques de contención">
+<a name="containing-block">Bloques de contención</a></span>
+</H3>
+
+<P>En CSS2, muchas posiciones y tamaños de cajas son calculados con respecto a los límites de una caja rectangular llamada <a name="x3"><span class="index-def"
+title="bloque de contención"><dfn>bloque de contención</dfn></span></a>. En general, las cajas generadas actúan como bloques de contención para las cajas descendientes; decimos que una caja "establece" el bloque de contención para sus descendientes. La frase "el bloque de contención de la caja" significa "el bloque de contención en el cuál la caja existe", no aquella que genera.
+
+<P>Cada caja tiene una posición dada con respecto a su bloque de contención, pero no está confinada a este bloque de contención; lo puede <a href="visufx.html#overflow">desbordar</a>.
+
+<P>La raíz de la <a href="conform.html#doctree">estructura del documento</a> genera una caja que sirve de <span class="index-def"
+title="bloque de contención inicial|bloque de contención::inicial"><a
+name="initial-containing-block"><dfn>bloque de contención inicial</dfn></a></span> para la composición subsecuente. 
+
+<P>El ancho del bloque de contención inicial puede ser especificado con la propiedad <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a> del elemento raíz. Si esta propiedad tiene el valor 'auto', la aplicación del usuario provee el ancho inicial (ej., la aplicación del usuario utiliza el ancho actual del <a href="#viewport">acceso visual</a>).
+
+<P>La altura del bloque de contención inicial puede ser especificada con la propiedad <a href="visudet.html#propdef-height" class="noxref"><span class="propinst-height">'height'</span></a> del elemento raíz. Si esta propiedad tiene el valor 'auto', la altura del bloque de contención aumentará para acomodar el contenido del documento.
+
+<P>El bloque de contención inicial no puede ser posicionado o flotar (es decir, las aplicaciones del usuario <a href="syndata.html#ignore">ignoran</a> las propiedades <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a> y <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a> para el elemento raíz).
+
+<P>Los <a href="visudet.html#containing-block-details">detalles</a> del modo en que las dimensiones de un bloque de contención son calculadas se describen en el <a href="visudet.html">capítulo siguiente</a>.
+
+<H2>9.2 <a name="box-gen">Control de la generación de cajas</a></h2>
+
+<P>Las siguientes secciones describen los tipos de cajas que pueden ser generadas en CSS2. Un tipo de caja afecta, en parte, su comportamiento en el modelo de formato visual. La propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a>, descripta abajo, especifica un tipo de caja.
+
+<H3><a name="q5">9.2.1 Elementos a nivel de bloque y cajas de bloques</a></h3>
+
+<P>Los <span class="index-def" title="elemento a nivel de bloque"><a name="block-level"><dfn>elementos a nivel de bloque</dfn></a></span> son aquellos elementos del documento fuente que son tratados visualmente como bloques (ej., párrafos). Algunos valores de la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> conforman un elemento a nivel de bloque: 'block', 'list-item', 'compact' y 'run-in' (algunas veces; ver <a href="#compact">compact boxes</a> y <a href="#run-in">run-in boxes</a>), y 'tabla'.
+
+<P>Los elementos a nivel de bloque generan una <span class="index-def"
+title="caja de bloque principal"><a name="principal-box"><dfn>caja de bloque principal</dfn></a></span> que sólo contiene <span class="index-def"
+title="caja de bloque"><a name="block-box"><dfn>cajas de bloque</dfn></a></span>. La caja de bloque principal establece el <a
+href="#containing-block">bloque de contención</a> para las cajas descendientes y el contenido generado y es también la caja involucrada en cada esquema de posicionamiento. Las cajas de bloque principales participan de un <a
+href="#block-formatting">contexto de formato de bloque</a>.
+
+<P>Algunos elementos a nivel de bloque generan cajas adicionales fuera de la caja principal: los elementos 'list-item' y aquellos con <A
+HREF="generate.html#markers">marcadores</A>. Estas cajas adicionales son situadas con respecto a la caja principal.
+
+<h4> <a name="anonymous-block-level">Cajas de bloque anónimas</a></h4>
+
+<p>En un documento como éste:
+
+<pre>
+&lt;DIV>
+  Un texto
+  &lt;P>Más texto
+&lt;/DIV>
+</pre>
+
+(y asumiendo que DIV y P tienen ambos 'display: block'), DIV parece tener un contenido de línea y un contenido de bloque. Para facilitar el formato, asumimos que existe una <em><a name="x9"><span
+class="index-def" title="anónimo">caja de bloque anónima</span></a></em> alrededor de "Un texto".
+
+<div class="figure">
+<p><img src="images/anon-block.gif" alt="diagrama ilustrando las tres cajas del ejemplo anterior"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-anon-block" href="images/longdesc/anon-block-desc.html" title="Descripción extensa de la caja de bloque anónima">[D]</A></SPAN> <p class="caption">Diagrama mostrando las tres cajas, una de las cuales es anónima, para el ejemplo de arriba.
+</div>
+
+<p>En otras palabras: si la caja de bloque (como las generadas por DIV, arriba) tiene otra caja de bloque en su interior (como la de P, arriba), entonces la forzamos a contener <em>sólo</em> cajas de bloque en su interior, envolviendo a las cajas de línea en una caja de bloque anónima.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>Este modelo se aplicaría en el próximo ejemplo si las siguientes reglas:</p>
+
+<PRE>
+/* Nota: las AU HTML pueden no respetar estas reglas */
+BODY { display: inline }
+P    { display: block }
+</PRE>
+
+<P>fueran usadas con este documento HTML:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Texto anónimo interrumpido por un bloque&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+<em>Este es el texto anónimo antes de P.</em>
+&lt;P&gt;Este es el contenido de P.&lt;/P&gt;
+<em>Este es el texto anónimo después de P.</em>
+&lt;/BODY&gt;
+</PRE>
+
+<P>El elemento BODY contiene un segmento (C1) de texto anónimo seguido por un elemento a nivel de bloque seguido por otro segmento (C2) de texto anónimo. Las cajas resultantes serían una caja de bloque anónima para BODY, conteniendo una caja de bloque anónima alrededor de C1, la caja de bloque para P y otra caja de bloque anónima alrededor de C2.
+</div>
+
+<p>Las propiedades de las cajas anónimas son heredadas de las cajas no-anónimas que las encierran (en el ejemplo: la de DIV). Las propiedades no heredadas tiene su valor inicial. Por ejemplo, la fuente de la caja anónima es heredada de DIV, pero los márgenes serán igual a 0.
+
+<H3><a name="q7">9.2.2 Elementos a nivel de línea y cajas de línea</a></h3>
+
+<P>Los <span class="index-def" title="elementos a nivel de línea">
+<a name="inline-level"><dfn>elementos a nivel de línea</dfn></a></span> son aquellos elementos del documento fuente que no forman nuevos bloques de contenido; el contenido es distribuido en líneas (ej., fragmentos de texto enfatizado dentro de un párrafo, imágenes en línea, etc.). Algunos valores de la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> conforman un elemento de línea: 'inline', 'inline-table', 
+'compact' y 'run-in' (algunas veces; ver cajas <a
+href="#compact">compact</a> y <a href="#run-in">run-in</a>). Los elementos a nivel de línea generan <a name="inline-box">cajas de línea</a>.
+
+<P>Las cajas de línea pueden participar de varios contextos de formato:</p>
+
+<ul>
+<li>Dentro de una caja de bloque, las cajas de línea participan de un <a href="#inline-formatting">contexto de formato de línea</a>.
+<li>Una caja de línea del tipo <a href="#compact">compact</a> se da en una posición en el margen de una caja de bloque.
+<li>Las cajas del tipo <a href="generate.html#markers">marcador</a> también se dan en posiciones fuera de una caja de bloque.
+</ul>
+
+<h4> <a name="anonymous">Cajas de línea anónimas</a></h4>
+
+<p>En un documento como éste:
+
+<pre>
+&lt;P>Algún &lt;EM>texto&lt;/em> enfatizado&lt;/P>
+</pre>
+
+<p>P genera una caja de bloque, con algunas cajas de línea dentro de ella. La caja para "texto" en una caja de línea generada por un elemento de línea (EM), pero las otras cajas ("Algún" y "enfatizado") son cajas de línea generadas por un elemento a nivel de bloque (P). Los últimos son denominados <a name="x11"><span
+class="index-def" title="cajas de línea anónimas">cajas de línea anónimas</span></a> porque no tienen un elemento a nivel de línea asociado.
+
+<p>Tales cajas de línea anónimas heredan las propiedades hereditarias de su caja de bloque padre. Las propiedades no hereditarias tienen su valor inicial. En el ejemplo, el color de las cajas de línea anónimas es heredado de P, pero el fondo es transparente.
+
+<p>Si queda claro en el contexto a qué tipo de caja anónima se refiere, las cajas de línea anónimas y las cajas de bloque anónimas son denominadas simplemente cajas anónimas en esta especificación.
+
+<p>Existen otros tipos de cajas anónimas que surgen en el formato de las <a href="tables.html#anonymous-boxes">tablas</a>.
+
+<H3>9.2.3 <a name="compact">Cajas compact</a></h3>
+
+<P>Una <a name="x12"><span class="index-def" title="caja compact"><dfn>caja compact</dfn></span></a> se comporta del siguiente modo:</p>
+
+<ul>
+<li>Si una caja de <a href="#block-box">bloque</a> (que no flota y no está <a href="#absolutely-positioned">posicionada absolutamente</a>) sigue a la caja compact, la caja compact es procesada como una caja de línea de una línea. El ancho de la caja resultante es comparada con uno de los márgenes laterales de la caja de bloque. La elección del margen izquierdo o derecho es determinada por la <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'dirección'</span></a> especificada para el elemento que produce el <a href="#containing-block">
+bloque de contención</a> de la caja compact y la caja siguiente. Si el ancho de la caja de línea es menor o igual al margen, la caja de línea se da en una posición en el margen como se describe inmediatamente abajo.
+
+<li>De lo contrario, la caja compact se convierte en una caja de bloque.
+</ul>
+
+<P>La caja compact se da en una posición en el margen como sigue: está fuera (a la izquierda o a la derecha) de la primer <a href="#line-box">caja de línea</a> del bloque, pero afecta el cálculo de la <a
+href="visudet.html#line-height">altura de la caja de línea</a>. La propiedad <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align'</span></a> de la caja compact determina la posición vertical de la caja compact con relación a esa caja de línea. La posición horizontal de la caja compact es siempre en el margen de la caja de bloque.
+
+<P>Un elemento que no puede ser compuesto en una línea no puede ser colocado en el margen del bloque siguiente. Por ejemplo, un elemento 'compact' en HTML que contiene un elemento BR siempre será compuesto como una caja de bloque (asumiendo el estilo predeterminado de BR, que inserta una nueva línea). Para posicionar textos formados por varias líneas en el margen, la propiedad <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a> es a menudo más conveniente.
+
+<div class="html-example">
+<p>El siguiente ejemplo ilustra una caja compact.
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Un ejemplo de caja compact&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      DT { display: compact }
+      DD { margin-left: 4em }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;DL&gt;
+      &lt;DT&gt;corta
+        &lt;DD&gt;&lt;P&gt;La descripción va aquí.
+      &lt;DT&gt;demasiado larga para el margen
+        &lt;DD&gt;&lt;P&gt;La descripción va aquí.
+    &lt;/DL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+</div>
+
+<P>Este ejemplo podría estructurarse como:
+
+<pre>
+<b>corta</b>    La descripción va aquí.
+
+<b>demasiado larga para el margen</b>
+         La descripción va aquí.
+</pre>
+
+<p>La propiedad <a href="text.html#propdef-text-align" class="noxref"><span class="propinst-text-align">'text-align'</span></a> puede ser usada para alinear los elementos compact dentro del margen: contra el borde izquierdo del margen ('left'), contra el borde derecho ('right') o centrado en el margen ('center'). El valor 'justify' no se aplica y es considerado como 'left' o 'right', dependiendo de la <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'dirección'</span></a> del elemento a nivel de bloque entre cuyos márgenes el elemento compact es procesado. ('left' si la dirección es 'ltr', 'right' si es 'rtl'.)
+
+<P>Por favor consulte la sección sobre <a href="generate.html#compact-run-in-gen">contenido generado</a> por información acerca de cómo las cajas compact interactúan con el contenido generado.
+
+<H3>9.2.4 <a name="run-in">Cajas run-in</a></h3>
+
+<P>Una <a name="x13"><span class="index-def" title="caja run-in"><dfn>caja run-in
+box</dfn></span></a> se comporta del siguiente modo:</p>
+
+<ul>
+<li>Si una caja de <a href="#block-box">bloque</a> (que no flota y no está <a href="#absolutely-positioned">posicionada absolutamente</a>) sigue a la caja run-in, la caja run-in se convierte en la primer caja de línea de la caja de bloque. 
+<li>De lo contrario, la caja run-in se convierte en una caja de bloque.
+</ul>
+
+<p>Una caja 'run-in' es útil para los encabezados run-in, como en este ejemplo:
+
+<div class="html-example">
+<P>
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Un ejemplo de caja run-in&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      H3 { display: run-in }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H3&gt;Un encabezado run-in.&lt;/H3&gt;
+    &lt;P&gt;Y un párrafo de texto que lo sigue.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+</div>
+
+<p>Este ejemplo podría ser procesado como:
+
+<pre>
+  <b>Un encabezado run-in.</b> Y un
+  párrafo de texto que 
+  lo sigue.
+</pre>
+
+<p>Las propiedades del elemento run-in son heredados de su padre en la estructura del documento, no de la caja de bloque de la cual visualmente se vuelve parte.
+
+<P>Por favor consulte la sección sobre <a href="generate.html#compact-run-in-gen">contenido generado</a> por información acerca de cómo las cajas run-in interactúan con el contenido generado.
+
+<h3>9.2.5 <a name="display-prop">La propiedad </a> <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'display'"><a name="propdef-display" class="propdef-title"><strong>'display'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>inline | block | list-item | run-in | compact | marker |
+table | inline-table | table-row-group | table-header-group |
+table-footer-group | table-row | table-column-group | table-column |
+table-cell | table-caption | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>inline
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#all-media-group" class="noxref">todos</a>
+</table>
+</dl>
+</div>
+
+<P>Los valores de esta propiedad tienen los siguientes significados:</P>
+
+<dl>
+<dt><span class="index-def" title="'block', definición de"><a
+name="value-def-block"><strong>block</strong></a></span>
+
+<dd>Este valor provoca que un elemento genere una caja de bloque principal.
+
+<dt><span class="index-def" title="'inline', definición de"><a
+name="value-def-inline"><strong>inline</strong></a></span>
+
+<dd>Este valor provoca que un elemento genere una o más cajas de línea.
+
+<dt><span class="index-def" title="'list-item', definición de"><a
+name="value-def-list-item"><strong>list-item</strong></a></span>
+<dd>Este valor provoca que un elemento (ej., LI en HTML) genere una caja de bloque principal y una caja de línea list-item. Por información acerca de las listas y ejemplos del formato de listas, por favor consulte la sección sobre <a href="generate.html#lists">listas</a>.
+
+<dt><span class="index-def" title="marker', definición de"><a
+name="value-def-marker"><strong>marker</strong></a></span> 
+<dd>Este valor declara que el <a href="generate.html">contenido generado</a> antes o después de una caja será un marcador. Este valor sólo debe usarse con los <a href="generate.html#before-after-content">pseudo-elementos :before y :after</a> vinculados a elementos a nivel de bloque. En otros caso, el valor es interpretado como 'inline'. Por favor consulte la sección sobre <a href="generate.html#markers">marcadores</a> para más información.
+
+<dt><strong>none</strong>
+
+<dd><a name="x19"><span class="index-def" title="'none'::como valor de display">Este valor</span></a> provoca que un elemento no genere <b>ninguna</b> caja en la <a href="intro.html#formatting-structure">estructura del formato</a> (es decir, el elemento no tiene ningún efecto sobre la composición).  Los elementos descendientes tampoco generan cajas; este comportamiento <strong>no puede</strong> alterarse poniendo la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> a los descendientes.
+
+<P>Por favor observe que un valor 'none' para display no crea una caja invisible; no crea ninguna caja en absoluto. CSS incluye mecanismos que permiten que un elemento genere cajas en la estructura del formato que afecten la composición pero que ellas mismas sean invisibles. Por favor consulte la sección sobre <a href="visufx.html#visibility">visibilidad</a> para más detalles.
+
+<dt><span class="index-def" title="'run-in', definición de"><a
+name="value-def-run-in"><strong>run-in</strong></a></span>
+y <span class="index-def" title="'compact', definición de"><a
+name="value-def-compact"><strong>compact</strong></a></span>
+<dd>Estos valores crean cajas de bloque o de línea, según el contexto. Las propiedades se aplican a las cajas run-in y compact en base a su condición final (a nivel de línea o a nivel de bloque). Por ejemplo, la propiedad <a href="text.html#propdef-white-space" class="noxref"><span
+class="propinst-white-space">'white-space'</span></a> sólo se aplica si la caja se convierte en una caja de bloque.
+
+<dt><span class="index-inst" title="'table'"><a
+name="value-inst-table"><strong>table</strong></a></span>, <span
+class="index-inst" title="'inline-table'"><a
+name="value-inst-inline-table"><strong>inline-table</strong></a></span>, <span
+class="index-inst" title="'table-row-group'"><a
+name="value-inst-table-row-group"><strong>table-row-group</strong></a></span>,
+<span class="index-inst" title="'table-column'"><a name="x25" href="tables.html#value-def-table-column" class="noxref"><span class="value-inst-table-column"><strong>table-column</strong></span></a></span>,
+<span class="index-inst" title="'table-column-group'"><a
+name="value-inst-table-column-group"><strong>table-column-group</strong></a></span>,
+<span class="index-inst" title="'table-header-group'"><a name="value-inst-table-header-group"><strong>table-header-group</strong></a></span>,
+<span class="index-inst" title="'table-footer-group'"><a name="value-inst-table-footer-group"><strong>table-footer-group</strong></a></span>,
+<span class="index-inst" title="'table-row'"><a
+name="value-inst-table-row"><strong><strong>table-row</strong></strong></a></span>, <span
+class="index-inst" title="'table-cell'"><a
+name="value-inst-table-cell"><strong><strong>table-cell</strong></strong></a></span> y <span
+class="index-inst" title="'table-caption'"><a
+name="value-inst-table-caption"><strong>table-caption</strong></a></span>
+<dd>Estos valores provocan que un elemento se comporte como un elemento tabla (sujeto a las restricciones descriptas en el capítulo sobre <a
+href="tables.html">tablas</a>).
+</dl>
+
+<P>Observe que aunque el <a href="cascade.html#initial-value">valor inicial</a> de <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> es
+'inline', las reglas de la <a
+href="cascade.html#default-style-sheet">hoja de estilo predeterminada</a> de la aplicación del usuario puede <a
+href="cascade.html">sustituir</a> este valor. Ver la <a
+href="sample.html">hoja de estilo de ejemplo</a> para HTML 4.0 en el apéndice.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<P>Aquí hay algunos ejemplos de la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a>:
+
+<PRE>
+P   { display: block }
+EM  { display: inline }
+LI  { display: list-item } 
+IMG { display: none }      /* No muestra las imágenes */
+</PRE>
+</div>
+
+<P>Las aplicaciones del usuario HTML con <span class="index-inst" title="conformidad"><a name="x32"
+href="conform.html#conformance">conformidad</a></span> pueden <span class="index-inst" title="ignorar"><a name="x33"
+href="syndata.html#ignore">ignorar</a></span> la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a>.
+
+<h2>9.3 <a name="positioning-scheme">Esquemas de posicionamiento</a></h2>
+
+<P>En CSS2, una caja puede situarse según tres <a name="x34"><span
+class="index-def" title="esquema de posicionamiento"><dfn>esquemas de posicionamiento</dfn></span></a>:</p>
+
+<ol>
+<li><a href="#normal-flow">Flujo normal</a>. En CSS2, el flujo normal incluye el <a href="#block-formatting">formato de bloque</a> de cajas de <a href="#block-box">bloque</a>, el
+<a href="#inline-formatting">fomato de línea</a>
+de cajas de  <a href="#inline-box">línea</a>, el <a
+href="#relative-positioning">posicionamiento relativo</a> de cajas de bloque o de línea, y el posicionamiento de cajas <a href="#compact">compact</a> y <a href="#run-in">run-in</a>.
+
+<li><a href="#floats">Flotantes</a>. En el modelo flotante, un caja se sitúa primero según el flujo normal, luego se saca del flujo y se mueve a la izquierda o a la derecha tanto como sea posible. El contenido puede fluir a lo largo del costado del flotante. 
+
+<li><a href="#absolute-positioning">Posicionamiento absoluto</a>. En el modelo de posicionamiento absoluto, una caja es quitada completamente del flujo normal (no tiene ningún impacto sobre los hermanos siguientes) y se le asigna una posición con respecto al bloque de contención.
+</ol>
+
+<div class="note">
+<em><strong>Nota.</strong> Los esquemas de posicionamiento de CSS2 ayudan a que los autores hagan sus documento más accesibles permitiéndoles evitar los artilugios (ej., imágenes invisibles) usados para los efectos de composición.
+</em>
+</div>
+
+<h3>9.3.1 <a name="choose-position">Elección de un esquema de posicionamiento: la propiedad </a> <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a></h3>
+
+<P>Las propiedades <a href="visuren.html#propdef-position" class="noxref"><span class="propinst-position">'position'</span></a> y <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a> determinan qué algoritmo de posicionamiento CSS2 se usa para calcular la posición de una caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'position'"><a name="propdef-position" class="propdef-title"><strong>'position'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>static | relative | absolute | fixed | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>static
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos, pero no al contenido generado
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Los valores de esta propiedad tiene los siguientes significados:</P>
+
+<dl>
+<dt><strong>static</strong>
+
+<dd>La caja es una caja normal, situada de acuerdo al <a
+href="#normal-flow">flujo normal</a>. Las propiedades 'top', 'right', 'bottom' y 'left' no se aplican. 
+
+<dt><strong>relative</strong>
+
+<dd>La posición de la caja se calcula de acuerdo al <a
+href="#normal-flow">flujo normal</a> (ésta se llama la posición en el flujo normal). Luego la caja se desplaza de modo <a
+href="#relative-positioning">relativo</a> a su posición normal. Cuando una caja B es posicionada relativamente, la posición de la caja siguiente se calcula como si B no se hubiera desplazado.
+
+<dt><strong>absolute</strong>
+<dd> La posición de la caja (y posiblemente el tamaño) se especifica con las propiedades <a href="visuren.html#propdef-left" class="noxref"><span class="propinst-left">'left'</span></a>,
+<a href="visuren.html#propdef-right" class="noxref"><span class="propinst-right">'right'</span></a>, 
+<a href="visuren.html#propdef-top" class="noxref"><span class="propinst-top">'top'</span></a>,
+y <a href="visuren.html#propdef-bottom" class="noxref"><span class="propinst-bottom">'bottom'</span></a>. Estas propiedades especifican los desplazamientos con respecto al
+<a href="#containing-block">bloque de contención</A> de la caja. Las cajas posicionadas absolutamente son quitadas del flujo normal. Esto significa que ellas no tienen ningún impacto sobre la composición de los hermanos siguientes. También, aunque las cajas <a href="#absolutely-positioned">posicionadas absolutamente</a> tiene márgenes, no se <a href="box.html#collapsing-margins">cierran</a> con ningún otro margen.
+
+<dt><strong>fixed</strong>
+<dd> La posición de la caja se calcula de acuerdo al modelo 'absolute', pero además, la caja se <a
+href="#fixed-positioning">fija</a> con respecto a alguna referencia. En el caso de los <a href="media.html#continuous-media-group">medios contínuos</a>, la caja se fija con respecto al <a
+href="#viewport">acceso visual</A> (y no se mueve cuando se realiza un desplazamiento). En el caso de los <a href="media.html#paged-media-group">medios paginados</a>, la caja se fija con respecto a la página, aún cuando esa página se vea a través de un <a href="#viewport">acceso visual</A> (en el caso de la previsualización de un impreso, por ejemplo). Los autores pueden preferir especificar 'fixed' de un modo dependiente de los medios. Por ejemplo, un autor puede desear que una caja permanezca en la parte superior del <a href="#viewport">acceso visual</A> en la pantalla, pero no al comienzo de cada página impresa. Las dos especificaciones pueden ser separadas utilizando una <a href="media.html#at-media-rule">regla @media</a>, como en:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>   
+@media screen { 
+  H1#first { position: fixed } 
+}
+@media print { 
+  H1#first { position: static }
+}
+</PRE>   
+</div>
+</dl>
+
+<H3>9.3.2 <a name="position-props">Desplazamiento de las cajas</a>: <a href="visuren.html#propdef-top" class="noxref"><span
+class="propinst-top">'top'</span></a>, <a href="visuren.html#propdef-right" class="noxref"><span
+class="propinst-right">'right'</span></a>, <a href="visuren.html#propdef-bottom" class="noxref"><span
+class="propinst-bottom">'bottom'</span></a>, <a href="visuren.html#propdef-left" class="noxref"><span
+class="propinst-left">'left'</span></a></H3>
+
+<P>Se dice que un elemento está <span class="index-def" title="elemento/caja posicionado/a"><a name="positioned-element"><dfn>posicionado</dfn></a></span>
+si su propiedad <a href="visuren.html#propdef-position" class="noxref"><span class="propinst-position">'position'</span></a> tiene un valor distinto a 'static'. Los elementos posicionados generan cajas posicionadas, situadas de acuerdo a cuatro propiedades:</p>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'top'"><a name="propdef-top" class="propdef-title"><strong>'top'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> | <a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;porcentaje&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos posicionados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>referidos a la altura del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica cuán lejos se desplaza el margen superior del contenido de la caja por debajo del borde superior del <a href="#containing-block">bloque de contención</a> de la caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'right'"><a name="propdef-right" class="propdef-title"><strong>'right'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> | <a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;porcentaje&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos posicionados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>referidos al ancho del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Esta propiedad especifica cuán lejos se desplaza el margen derecho del contenido de la caja hacia la izquierda del borde derecho del <a
+href="#containing-block">bloque de contención</a> de la caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'bottom'"><a name="propdef-bottom" class="propdef-title"><strong>'bottom'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> | <a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;porcentaje&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos posicionados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>referidos a la altura del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+
+<P>Esta propiedad especifica cuán lejos es desplazado el margen inferior del contenido de la caja por sobre la base del <a href="#containing-block">bloque de contención</a> de la caja.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'left'"><a name="propdef-left" class="propdef-title"><strong>'left'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> | <a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;porcentaje&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos posicionados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>referidos al ancho del bloque de contención
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica cuán lejos se desplaza el margen izquierdo del contenido de la caja hacia la derecha del borde izquierdo del <a
+href="#containing-block">bloque de contención</a> de la caja.
+
+<P>Los valores para las cuatro propiedades tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a></strong>
+<dd>El desplazamiento es una distancia fija desde el borde de referencia.
+
+<dt><strong><a href="syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;porcentaje&gt;</span></a></strong>
+
+<dd>El desplazamiento es un porcentaje del ancho (para <a href="visuren.html#propdef-left" class="noxref"><span class="propinst-left">'left'</span></a> o <a href="visuren.html#propdef-right" class="noxref"><span
+class="propinst-right">'right'</span></a>) o de la altura (para <a href="visuren.html#propdef-top" class="noxref"><span
+class="propinst-top">'top'</span></a> y <a href="visuren.html#propdef-bottom" class="noxref"><span
+class="propinst-bottom">'bottom'</span></a>) del bloque de contención. Para 'top' y 'bottom', si la altura del bloque de contención no está especificada explícitamente (es decir, depende de la altura del contenido), el valor del porcentaje es interpretado como 'auto'.
+<dt><strong>auto</strong>
+<dd>El efecto de este valor depende de cuáles de las propiedades relacionadas tienen también el valor 'auto'. Ver la sección sobre el <a href="visudet.html#abs-non-replaced-width">ancho</a>
+y la <a href="visudet.html#abs-non-replaced-height">altura</a>
+de los elementos no reemplazados <a href="#absolutely-positioned">posicionados absolutamente</a>, para más detalles.
+</dl>
+
+<P>Para las cajas <a href="#absolutely-positioned">posicionadas absolutamente</a>, el desplazamiento es con respecto al <a
+href="#containing-block">bloque de contención</a> de la caja. Para las cajas posicionadas relativamente, el desplazamiento es con respecto al borde externo de la propia caja (es decir, a la caja se le da una posición dentro del flujo normal, entonces se desplaza de esa posición de acuerdo a estas propiedades).
+
+<H2>9.4 <a name="normal-flow">Flujo normal</a></H2> 
+
+<P>Las cajas dentro del flujo normal pertenecen al <a name="x41"><span class="index-def"
+title="contexto del formato">contexto del formato</span></a>, que puede ser de bloque o de línea, pero no ambos simultáneamente. Las cajas de <a
+href="#block-box">bloque</a> participan de un contexto de <a
+href="#block-formatting">formato de bloque</a>.  Las <a
+href="#inline-box">cajas de línea</a> participan en un contexto de <a
+href="#inline-formatting">formato de línea</a>.
+
+<h3>9.4.1 <a name="block-formatting">Contexto de formato de bloque</a></h3> 
+
+<P>En un contexto de formato de bloque, las cajas se colocan una después de otra, verticalmente, comenzando desde lo alto de un bloque de contención. La distancia vertical entre dos cajas hermanas es determinada por las propiedades <a href="box.html#propdef-margin" class="noxref"><span
+class="propinst-margin">'margin'</span></a>. Los márgenes verticales entre cajas de bloque adyacentes en un contexto de formato de bloque se <a
+href="box.html#collapsing-margins">cierran</a>.
+
+<P>En un contexto de formato de bloque, cada borde izquierdo externo de la caja toca el borde izquierdo del bloque de contención (para la composición de derecha a izquierda, los bordes derechos se tocan). Esto es así aún en presencia de flotantes (aunque el área del <em>contenido</em> de una caja puede encogerse debido a los flotantes)
+
+<P>Para información acerca de los saltos de página en los medios paginados, por favor consulte la sección sobre <a href="page.html#allowed-page-breaks">saltos de página permitidos</a>.
+
+<H3>9.4.2 <a name="inline-formatting">Contexto de formato de línea</a></H3>
+
+<P>En un contexto de formato de línea, las cajas son colocadas horizontalmente, una después de otra, comenzando desde lo alto de un bloque de contención. Los márgenes horizontales, bordes y relleno son respetados entre estas cajas. Las cajas puede ser alineadas verticalmente de maneras diferentes: pueden alinearse por su parte superior o inferior, o por las líneas de base del texto en su interior. El área rectangular que contiene las cajas que forman una línea es llamada una <span class="index-def" title="caja de línea"><a
+name="line-box"><dfn>caja de línea</dfn></a></span>. 
+
+<P>El ancho de una caja de línea es determinado por un <A
+HREF="#containing-block">bloque de contención</A>. La altura de una caja de línea es determinada por las reglas establecidas en la sección sobre <a
+href="visudet.html#line-height">cálculo de la altura de la línea</a>. Una caja de línea es siempre suficientemente alta para todas las cajas que contiene. Sin embargo, puede ser mayor que la caja más alta que contiene (si, por ejemplo, las cajas son alineadas de manera que sus líneas de base queden en línea). Cuando la altura de una caja B es menor que la altura de la caja de línea que la contiene, la alineación vertical de B dentro de la caja de línea es determinada por la propiedad <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align'</span></a>.
+
+<P>Cuando varias cajas de línea no pueden ajustarse horizontalmente dentro de una sola caja de línea, son distribuidas entre dos o más cajas de línea apiladas verticalmente. De este modo, un párrafo es una pila vertical de cajas de líneas. Las cajas de línea son apiladas sin ninguna separación vertical y nunca se superponen.
+
+<P>En general, el borde izquierdo de una caja de línea toca el borde izquierdo de su bloque de contención y el borde derecho toca el borde derecho de su bloque de contención. Sin embargo, las cajas flotantes pueden interponerse entre el borde del bloque de contención y el borde de la caja de línea. Así, aunque las cajas de línea en el mismo contexto de formato de línea generalmente tienen igual ancho (el del bloque de contención), pueden variar en su ancho si el espacio horizontal disponible es reducido por los <a
+href="#floats">flotantes</a>. Las cajas de línea en el mismo contexto de formato de línea generalmente varían en altura (ej., una línea podría contener una imagen muy alta mientras que las otras contienen sólo texto).
+
+<P>Cuando el ancho total de las cajas de línea en una línea es menor que el ancho de la caja de línea que las contiene, su distribución horizontal dentro de la caja de línea es determinada por la propiedad <a href="text.html#propdef-text-align" class="noxref"><span
+class="propinst-text-align">'text-align'</span></a>. Si esa propiedad tiene el valor 'justify', la aplicación del usuario puede estirar también las cajas de línea.
+
+<P>Puesto que una caja de línea no puede exceder el ancho de una caja de línea, las cajas de línea largas son divididas en varias cajas y éstas distribuidas en varias cajas de línea. Cuando una caja de línea es dividida, los márgenes, bordes y relleno no tienen ningún efecto visual donde se produce la división. El formato de los márgenes, bordes y relleno puede no ser completamente definido si la división se produce dentro de una incrustación bidireccional.
+
+<P>Las cajas de línea pueden también dividirse en varias cajas <em>dentro de la misma caja de línea</em> debido al <a href="#direction">procesamiento del texto bidirecional</a>.
+
+<div class="html-example"><P> Aquí hay un ejemplo de construcción de una caja de línea. El siguiente párrafo (creado por el elemento HTML a nivel de bloque P) contiene texto anónimo mezclado con los elementos EM y STRONG:
+
+<PRE>
+&lt;P&gt;Algunas &lt;EM&gt;palabras con énfasis&lt;/EM&gt; aparecen
+&lt;STRONG&gt;en esta&lt;/STRONG&gt; oración, querida.&lt;/P&gt;
+</PRE>
+
+<P>El elemento P genera una caja de bloque que contiene cinco cajas de línea, tres de las cuáles son anónimas:</p>
+
+<ul>
+<li>Anónimo: "Algunas"
+<li>EM: "palabras con énfasis"
+<li>Anónimo: "aparecen"
+<li>STRONG: "en esta"
+<li>Anónimo: "oración, querida."
+</ul>
+ 
+<P>Para dar formato al párrafo, la aplicación del usuario fluye las cinco cajas dentro de cajas de línea. En este ejemplo, la caja generada por el elemento P establece el bloque de contención para las cajas de línea. Si el bloque de contención es suficientemente ancho, todas las cajas de línea encajarán en una sola caja de línea:
+
+<PRE>
+ Algunas <EM>palabras con énfasis</EM> aparecen <STRONG>en esta</STRONG> oración, querida.
+</PRE>
+
+<P>Si no, las cajas de línea serán divididas y distribuidas en varias cajas de línea. El párrafo anterior podría dividirse como sigue:
+
+<PRE>
+Algunas <EM>palabras con énfasis</EM> aparecen
+<STRONG>en esta</STRONG> oración, querida.
+</PRE>
+
+o así:
+
+<PRE>
+Algunas <EM>palabras</EM>  
+<EM>con énfasis</EM> aparecen
+<STRONG>en esta</STRONG> oración,
+querida.
+</PRE>
+
+</div>
+
+<P>En el ejemplo anterior, la caja EM se dividió en dos cajas EM (llamémoslas "split1" y "split2"). Los márgenes, bordes y relleno, o las decoraciones del texto no tiene efecto visible después de split1 o antes de split2.
+
+<div class="html-example"><P>
+Considere el ejemplo siguiente:
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Ejemplo de flujo en línea sobre varias líneas&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      EM {
+        padding: 2px; 
+        margin: 1em;
+        border-width: medium;
+        border-style: dashed;
+        line-height: 2.4em;
+      }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;Algunas &lt;EM&gt;palabras con énfasis&lt;/EM&gt; aquí.&lt;/P&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>Dependiendo del ancho de P, las cajas pueden distribuirse como sigue:</P>
+
+<div class="figure">
+<P><img src="./images/inline-layout.gif"
+     alt="Imagen ilustrando el efecto del salto de línea en la visualización de los márgenes, bordes y relleno."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-inline-layout" href="images/longdesc/inline-layout-desc.html" title="Descripción extensa para la ilustración del comportamiento del margen/borde en una caja de línea dividida">[D]</A></SPAN></p>
+</div>
+
+<ul>
+<li> El margen se inserta antes de "palabras" y después de "énfasis". 
+
+<li> El relleno se inserta antes, sobre y debajo de "palabras", y después, sobre y debajo de "con énfasis". Un borde con líneas cortadas es procesado en los tres lados en cada caso.
+</ul>
+</div>
+
+<H3>9.4.3 <a name="relative-positioning">Posicionamiento relativo</a></H3>  
+
+<P>Una vez que la caja es situada de acuerdo al <a
+href="#normal-flow">flujo normal</a>, puede moverse con relación a su posición. A esto se le llama <a name="x43"><span class="index-def" title="posicionamiento relativo"><dfn>posicionamiento relativo</dfn></span></a>. Desplazando una caja (B1) de esta manera no conlleva ningún efecto sobre la caja (B2) que le sigue: a B2 se le da una posición como si B1 no hubiera sido desplazada y B2 no es reposicionada después de que el desplazamiento de B1 ha sido aplicado. Esto implica que el posicionamiento relativo puede ocasionar que las cajas se superpongan. 
+
+<p>Las cajas posicionadas relativamente mantienen su tamaño de flujo normal, incluyendo los saltos de línea y el espacio originalmente reservado para ellos. Una caja posicionada relativamente establece un nuevo <a
+href="#containing-block">bloque de contención</a> para los hijos con flujo normal y los descendientes posicionados.
+
+<P>Una caja posicionada relativamente es generada cuando la propiedad <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a> de un elemento contiene el valor 'relative'.  El desplazamiento es especificado con las propiedades <a href="visuren.html#propdef-top" class="noxref"><span
+class="propinst-top">'top'</span></a>, <a href="visuren.html#propdef-bottom" class="noxref"><span
+class="propinst-bottom">'bottom'</span></a>, <a href="visuren.html#propdef-left" class="noxref"><span
+class="propinst-left">'left'</span></a> y <a href="visuren.html#propdef-right" class="noxref"><span
+class="propinst-right">'right'</span></a>.
+
+<P>El movimiento dinámico de cajas posicionadas relativamente puede producir efectos de animación en entornos de scripts (ver también la propiedad <a href="visufx.html#propdef-visibility" class="noxref"><span
+class="propinst-visibility">'visibility'</span></a>). El posicionamiento relativo también puede usarse como una forma general de producir subíndices y superíndices excepto que la altura de la línea no es automáticamente ajustada para tomar en consideración el posicionamiento. Ver la descripción del <a
+href="visudet.html#line-height">cálculo de la altura de la línea</a> para más información.
+
+<P>Ejemplos de posicionamiento relativo se proporcionan en la sección sobre <a
+href="#comparison">comparación entre flujo normal, flotantes y posicionamiento absoluto</a>.
+
+<H2>9.5 <a name="floats">Flotantes</a></H2>
+
+<P>Un flotante es una caja que es desplazada a la izquierda o a la derecha en la línea actual. La característica más interesante de un flotante (o "flotador" o caja "flotante") es que el contenido puede fluir por su costado (o estar impedido de hacerlo mediante la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a>). El contenido fluye por el costado derecho de una caja flotante a la izquierda y por el lado izquierdo de una caja flotante a la derecha. La siguiente es una introducción al posicionamiento flotante y al flujo del contenido; las <a href="#float-rules">reglas</a> precisas que gobiernan el comportamiento flotante se dan en la descripción de la propiedad <a href="visuren.html#propdef-float" class="noxref"><span class="propinst-float">'float'</span></a>.
+
+<P>Una caja flotante debe tener un ancho explícito (asignado a través de la propiedad <a href="visudet.html#propdef-width" class="noxref"><span
+class="propinst-width">'width'</span></a>, o un ancho <a
+href="conform.html#intrinsic">intrínseco</a> en el caso de los <a href="conform.html#replaced-element">elementos reemplazados</a>). Cualquier caja flotante se convierte en una <a href="#block-box">caja de bloque</a> que se desplaza hacia la izquierda o derecha hasta que su borde externo toca el borde del bloque de contención o el borde externo de otro flotante. La parte superior de la caja flotante se alínea con la parte superior de la caja de línea actual (o la parte inferior de la caja de bloque precedente si no existe ninguna caja de línea). Si no hay suficiente espacio horizontal en la línea actual para el flotante, es desplazado hacia abajo, línea por línea, hasta una línea que tenga espacio para él.
+
+<P>Puesto que un flotante no está en el flujo, las cajas de bloque no posicionadas creadas antes y después de la caja flotante fluyen verticalmente como si el flotante no existiera. Sin embargo, las cajas de línea creadas al lado del flotante son acortadas para darle espacio a la caja flotante. Cualquier contenido en la línea actual antes de una caja flotante se vuelve a hacer fluir en la primer línea disponible al otro lado del flotante.
+
+<P>Varios flotantes pueden ser adyacentes, y este modelo también se aplica a flotantes adyacentes en la misma línea.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>La siguiente regla hace flotar todas las cajas IMG con <samp>class="icon"</samp> a la izquierda (y pone el margen izquierdo en '0'):</p>
+
+<PRE>
+IMG.icon { 
+  float: left;
+  margin-left: 0;
+}
+</PRE>
+</div>
+
+<div class="html-example"><P>Considere la siguiente fuente HTML y hoja de estilo:</p>
+
+<PRE>  
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Ejemplo de flotante&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      IMG { float: left }
+      BODY, P, IMG { margin: 2em }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;&lt;IMG src=img.gif alt="Esta imagen ilustrará un flotante"&gt;
+       Un texto de ejemplo que no tiene otro...
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>La caja IMG flota hacia la izquierda. El contenido que le sigue es compuesto a la derecha del flotante, comenzando en la misma línea que el flotante. Las cajas de línea a la derecha del flotante son acortadas debido a la presencia del flotante, pero retoman su ancho "normal" (el del bloque de contención establecido por el elemento P) después del flotante. Este documento podría componerse como:</P>
+
+<div class="figure">
+<P><img src="./images/floateg.gif"
+     alt="Imagen ilustrando cómo las cajas flotantes interactúan con los márgenes."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-floateg" href="images/longdesc/floateg-desc.html" title="Descripción extensa del ejemplo de flotante y flujo de texto">[D]</A></SPAN></p>
+</div>
+
+<P>El formato habría sido exactamente el mismo si el documento hubiera sido:
+
+<PRE>
+&lt;BODY&gt;
+  &lt;P&gt;Un texto de ejemplo
+  &lt;IMG src=img.gif alt="Esta imagen ilustrará un flotante"&gt;
+           que no tiene otro...
+&lt;/BODY&gt;
+</PRE>
+
+<P>debido a que el contenido a la izquierda del flotante es desplazado por el flotante y vuelto a fluir por su lado derecho.
+</div>
+
+<P>Los márgenes de las cajas flotantes nunca se <a
+href="box.html#collapsing-margins">cierran</a> con los márgenes de las cajas adyacentes. De este modo, en el ejemplo anterior, los mágenes verticales no se <a href="box.html#collapsing-margins">cierran</a> entre la caja de P y la caja flotante de IMG.
+
+<P>Un flotante puede superponerse con otras cajas en el flujo normal (ej., cuando una caja de flujo normal al lado de un flotante tiene márgenes negativos). Cuando una caja de línea se superpone con un flotante, el contenido, fondo y bordes de la caja de línea son procesados delante del flotante. Cuando una caja de bloque se superpone, el fondo y los bordes de la caja de bloque son procesados detrás del flotante y son solamente visibles cuando la caja es transparente. El contenido de la caja de bloque es procesado delante del flotante.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Aquí hay otra ilustración que muestra lo que sucede cuando un flotante se superpone con los bordes de elementos en el flujo normal.
+
+<div class="figure">
+<p><img src="images/float2p.gif" alt="Imagen que muestra una imagen flotante que se superpone con los bordes de dos párrafos: los bordes son interrumpidos por la imagen."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-float2p" href="images/longdesc/float2p-desc.html" title="Descripción extensa de cómo los flotantes se superponen con cajas en el flujo normal">[D]</A></SPAN>
+
+<p class="caption">Una imagen flotante oculta los bordes de las cajas de bloque con los que se superpone.
+</div>
+</div>
+
+<P>El ejemplo siguiente ilustra el uso de la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a> para impedir que el contenido fluya al costado de un flotante.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Asumiendo una regla como ésta:
+
+<pre>
+P { clear: left }
+</pre>
+
+<P>el formato podría parecerse a esto:
+
+<div class="figure">
+<p><img src="images/floatclear.gif" alt="Imagen mostrando una imagen flotante y el efecto de 'clear: left' en los dos párrafos."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-floatclear" href="images/longdesc/floatclear-desc.html" title="Descripción extensa de cómo el flotante se superpone con las cajas en el flujo normal">[D]</A></SPAN>
+
+<p class="caption">Ambos párrafos tienen especificado 'clear: left', lo que provoca que el segundo párrafo sea "empujado" a una posición debajo del flotante --su margen superior se expande para conseguir esto (ver la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a>)--.
+</div>
+</div>
+
+
+<h3>9.5.1 <a name="float-position">Posicionamiento del flotante:</a> la propiedad
+<a href="visuren.html#propdef-float" class="noxref"><span class="propinst-float">'float'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'float'"><a name="propdef-float" class="propdef-title"><strong>'float'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>left | right | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos menos los elementos posicionados y el contenido generado
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica si una caja debe flotar a la izquierda, derecha o no debe flotar en absoluto. Puede especificarse para los elementos que generan cajas que no están <a href="#absolutely-positioned">posicionadas absolutamente</a>. Los valores de esta propiedad tiene los siguientes significados:</p>
+
+<dl>
+<dt><strong>left</strong>
+
+<dd>El elemento genera una caja de <a href="#block-box">bloque</a> que flota a la izquierda. El contenido fluye sobre el costado derecho de la caja, comenzando en la parte superior (sujeto a la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a>). La propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> es ignorada, a menos que tenga el valor 'none'.
+
+<dt><strong>right</strong>
+
+<dd>Igual que 'left', pero el contenido fluye sobre el costado izquierdo de la caja, comenzando en la parte superior.
+
+<dt><strong>none</strong>
+
+<dd>La caja no es flotante.
+</dl>
+
+<P><span class="index-def" title="reglas de los flotantes"><a
+name="float-rules">Aquí están las reglas precisas</a></span> que gobiernan el comportamiento de los flotantes:</p>
+
+<OL>
+<LI> El <a href="box.html#outer-edge">borde exterior</a> izquierdo de una caja flotante a la izquierda no puede estar a la izquierda del borde izquierdo de su <a
+href="#containing-block">bloque de contención</a>. Una regla análoga se establece para los elementos flotantes a la derecha.
+
+<LI> Si la caja actual es flotante a la izquierda y hay cualquier otra caja flotante a la izquierda generada por elementos que aparecen antes en el documento fuente, entonces para cada una de tales cajas anteriores, o el <a
+href="box.html#outer-edge">borde exterior</a> izquierdo de la caja actual debe estar a la derecha del <a href="box.html#outer-edge">borde exterior</a> derecho de la caja anterior, o su parte superior deber estar más abajo que la parte inferior de la caja anterior. Reglas análogas se establecen para las cajas flotantes a la derecha.
+
+<LI>El <a href="box.html#outer-edge">borde exterior</a> derecho de una caja flotante a la izquierda no puede estar a la derecha del <a
+href="box.html#outer-edge">borde exterior</a> izquierdo de ninguna caja flotante a la derecha que se encuentra a su derecha. Reglas análogas se establecen para los elementos flotantes a la derecha.
+
+<LI>El <a href="box.html#outer-edge">borde exterior</a> superior de una caja flotante no puede estar a mayor altura que la parte superior de su <a
+href="#containing-block">bloque de contención</a>.
+
+<LI> El <a href="box.html#outer-edge">borde exterior</a> superior de una caja flotante no puede estar a mayor altura que el borde exterior superior de ninguna caja de <a
+href="#block-box">bloque</a> o <a
+href="#floats">flotante</a> generada por un elemento que aparece antes en el documento fuente.
+
+<LI>El <a href="box.html#outer-edge">borde exterior</a> superior de la caja flotante de un elemento no puede estar a mayor altura que la parte superior de ninguna <span
+class="index-inst" title="caja de línea"><a name="x46"
+href="#line-box">caja de línea</a></span> que contiene una caja generada por un elemento que aparece antes en el documento fuente.
+
+<LI>Una caja flotante a la izquierda que tiene otra caja flotante a la izquierda a su izquierda no puede tener su borde exterior derecho a la derecha de borde derecho de su bloque de contención. (En síntesis: un flotante izquierdo no puede estar pegado al borde derecho a menos que ya se encuentre tan a la izquierda como le sea posible). Una regla análoga se sostiene para los elementos flotantes a la derecha.
+
+<LI> Una caja flotante debe colocarse tan alta como sea posible.
+
+<LI> Una caja flotante a la izquierda debe ponerse tan a la izquierda como sea posible, una caja flotante a la derecha tan a la derecha como sea posible. Una posición más alta es preferible a una que se encuentre más a la izquierda/derecha.
+</OL>
+
+<H3>9.5.2 <a name="flow-control">Control del flujo al costado del flotante:</a> la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span class="propinst-clear">'clear'</span></a></H3> 
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'clear'"><a name="propdef-clear" class="propdef-title"><strong>'clear'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>none | left | right | both | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad indica cuál de los lados de la(s) caja(s) de un elemento <em>no</em> puede quedar adyacente a una caja flotante anterior. (Puede suceder que el propio elemento tenga descendientes flotantes; la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a> no tiene ningún efecto sobre estos.)
+
+<p>Esta propiedad sólo puede especificarse para elementos a <a
+href="#block-level">nivel de bloque</a> (incluyendo los flotantes). Para las cajas <a href="#compact">compact</a> y <a href="#run-in">run-in</a>, esta propiedad se aplica a la caja de bloque final al que la caja compact o run-in pertenece.
+
+<P>Los valores tienen los siguientes significados cuando se aplican a cajas de bloque no flotantes:</P>
+
+<dl>
+<dt><strong>left</strong>
+
+<dd>El margen superior de la caja generada se aumenta lo suficiente para que el borde exterior superior quede debajo del borde exterior inferior de cualquier caja flotante a la izquierda que sea el resultado de elementos que aparecen antes en el documento fuente.
+
+<dt><strong>right</strong>
+
+<dd>El margen superior de la caja generada se aumenta lo suficiente para que el borde exterior superior quede debajo del borde exterior inferior de cualquier caja flotante a la derecha que sea el resultado de elementos que aparecen antes en el documento fuente.
+
+<dt><strong>both</strong>
+
+<dd>La caja generada se mueve debajo de todas las cajas flotantes que aparecen antes en el documento fuente.
+
+<dt><strong>none</strong>
+
+<dd>Ninguna restricción a la posición de la caja con respecto a los flotantes.
+</dl>
+
+<p>Cuando la propiedad se determina para elementos flotantes, se produce una modificación en las <a href="#float-rules">reglas</a> para el posicionamiento del flotante. Una restricción adicional (#10) es agregada:
+
+<ul>
+<li>El <a href="box.html#outer-edge">borde exterior</a> superior del flotante debe quedar debajo del borde exterior inferior de todas las cajas anteriores flotantes a la izquierda (en el caso de 'clear: left'), o de todas las cajas anteriores flotantes a la derecha (en el caso de 'clear: right'), o ambas ('clear: both').
+</ul>
+ 
+<H2>9.6 <a name="absolute-positioning">Posicionamiento absoluto</a></H2>
+
+<P>En el modelo de posicionamiento absoluto, una caja es explícitamente desplazada con respecto a su bloque de contención. Es quitada del flujo normal completamente (no tiene ningún impacto sobre los hermanos siguientes). Una caja absolutamente posicionada establece un nuevo bloque de contención para los hijos en el flujo normal y los descendientes posicionados. Sin embargo, el contenido de un elemento absolutamente posicionado no fluye alrededor de ninguna otra caja. Ellos pueden o no tapar el contenido de otra caja, dependiendo del <a href="#stack-level">nivel de pila</a> de las cajas solapadas.
+
+<P>Las referencias en esta especificación a un <span class="index-def"
+title="elemento absolutamente posicionado">
+<a name="absolutely-positioned"><dfn>elemento absolutamente posicionado</dfn></a></span> (o su caja) implica que la propiedad <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a> del elemento tiene el valor 'absolute' o 'fixed'.
+
+<H3>9.6.1 <a name="fixed-positioning">Posicionamiento fijo</a></H3>
+
+<P>El posicionamiento fijo es una subcategoría del posicionamiento absoluto. La única diferencia es que para una caja posicionada de modo fijo, el bloque de contención es establecido por el <a href="#viewport">acceso visual</A>. Para los <a
+href="media.html#continuous-media-group">medios contínuos</a>, las cajas fijas no se mueven cuando el documento es desplazado. En este aspecto, son similares a las <a href="colors.html#background-properties">imágenes fijas de fondo</a>. Para los <a href="page.html">medios paginados</a>, las cajas con posiciones fijas son repetidas en cada página. Esto resulta útil para poner, por ejemplo, una firma al pie de cada página.
+
+<div class="html-example">
+<P>Los autores pueden usar el posicionamiento fijo para crear presentaciones al estilo de los marcos. Considere la siguiente composición con marcos:</P>
+
+<div class="figure">
+<P><img src="./images/frame.gif"
+     alt="Imagen ilustrando una composición al estilo de los marcos con position='fixed'."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-frame" href="images/longdesc/frame-desc.html" title="Descripción extensa para el ejemplo de composición con marcos">[D]</A></SPAN></p>
+</div>
+
+<P>Esto podría lograrse con el siguiente documento HTML y sus reglas de estilo:</P>
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Un documento con marcos con CSS2&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      BODY { height: 8.5in } /* Requerido para los porcentajes de altura usados abajo */
+      #cabecera {
+        position: fixed;
+        width: 100%;
+        height: 15%;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+      }
+      #lateral {
+        position: fixed;
+        width: 10em;
+        height: auto;
+        top: 15%;
+        right: auto;
+        bottom: 100px;
+        left: 0;
+      }
+      #principal {
+        position: fixed;
+        width: auto;
+        height: auto;
+        top: 15%;
+        right: 0;
+        bottom: 100px;
+        left: 10em;
+      }
+      #pie {
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;DIV id="cabecera"&gt; ...  &lt;/DIV&gt;
+    &lt;DIV id="lateral"&gt; ...  &lt;/DIV&gt;
+    &lt;DIV id="principal"&gt; ...  &lt;/DIV&gt;
+    &lt;DIV id="pie"&gt; ...  &lt;/DIV&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+</DIV>
+
+<h2><a name="q24">9.7 Relaciones entre 'display', 'position' y 'float'</a></h2>
+
+<P>Las tres propiedades que afectan a la generación de cajas y a la composición --<a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a>, <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a> y <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a>-- interactúan del siguiente modo:</p>
+
+<ol>
+<li>Si <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> tiene el valor 'none', las aplicaciones del usuario deben <a href="syndata.html#ignore">ignorar</a>
+<a href="visuren.html#propdef-position" class="noxref"><span class="propinst-position">'position'</span></a> y
+<a href="visuren.html#propdef-float" class="noxref"><span class="propinst-float">'float'</span></a>. En este caso, el elemento no genera ninguna caja.
+
+<li>De otro modo, si <a href="visuren.html#propdef-position" class="noxref"><span class="propinst-position">'position'</span></a>
+tiene como valor 'absolute' o 'fixed', <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> es definido como 'block' y <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a> como 'none'. La posición de la caja será determinada por las propiedades <a href="visuren.html#propdef-top" class="noxref"><span
+class="propinst-top">'top'</span></a>, <a href="visuren.html#propdef-right" class="noxref"><span
+class="propinst-right">'right'</span></a>, <a href="visuren.html#propdef-bottom" class="noxref"><span
+class="propinst-bottom">'bottom'</span></a> y <a href="visuren.html#propdef-left" class="noxref"><span
+class="propinst-left">'left'</span></a> y el bloque de contención de la caja.
+
+<li>De otro modo, si <a href="visuren.html#propdef-float" class="noxref"><span class="propinst-float">'float'</span></a> tiene un valor distinto a 'none', <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> es definida como 'block' y la caja es flotante.
+
+<li>De otro modo, las restantes propiedades <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> se aplican como están especificadas.
+</ol>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> CSS2 no especifica un comportamiento para la composición cuando los valores para estas propiedades son cambiados mediante un lenguaje de scripts. Por ejemplo, ¿qué sucede cuando un elemento que tiene 'width: auto' es reposicionado? ¿El contenido vuelve a volcarse en el flujo o mantiene su formato original? La respuesta está fuera del alcance de este documento y tal comportamiento probablemente difiera en las implementaciones iniciales de CSS2.
+</em>
+</div>
+
+<H2>9.8 <a name="comparison">Comparación entre flujo normal, flotantes y posicionamiento absoluto</a></H2>
+<P>Para ilustrar la diferencia entre flujo normal, posicionamiento relativo, flotantes y posicionamiento absoluto, proporcionamos una serie de ejemplos basados en el siguiente fragmento HTML:
+
+<pre class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Comparación entre esquemas de posicionamiento&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;El comienzo del contenido.
+      &lt;SPAN id="externo"&gt; Este es el tema externo.
+      &lt;SPAN id="interno"&gt; Tema interno.&lt;/SPAN&gt;
+      Fin del tema interno.&lt;/SPAN&gt;
+      El final del contenido.
+    &lt;/P&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<P>En este documento, asumimos las siguientes reglas:</p>
+
+<PRE class="example">
+BODY { display: block; line-height: 200%; 
+       width: 400px; height: 400px }
+P    { display: block }
+SPAN { display: inline }
+</PRE>
+
+<p>La posición final de las cajas generadas por los elementos <em>externo</em> e <em>interno</em> varía en cada ejemplo. En cada ilustración, los números a la izquierda de la ilustración indican la posición en el <a href="#normal-flow">flujo normal</a> de las líneas con doble espacio (para mayor claridad). (Nota: las ilustraciones usan diferentes escalas horizontales y verticales.)</p>
+
+<H3><a name="q26">9.8.1 Flujo normal</a></H3>
+
+<p>Considere las siguientes declaraciones CSS para <em>externo</em> e <em>interno</em> que no alteran el <a href="#normal-flow">flujo normal</a> de las cajas:</p>
+
+<PRE class="example">
+#externo { color: red }
+#interno { color: blue }
+</PRE>
+
+<P>El elemento P posee todo su contenido a nivel de línea: <a
+href="#anonymous">texto de línea anónimo</a> y dos elementos SPAN. Por lo tanto, todo el contenido será colocado en un contexto de formato de línea, con un bloque de contención establecido por el elemento P, produciendo algo similar a:</p>
+
+<div class="figure">
+<P><img src="./images/flow-generic.gif"
+     alt="Imagen ilustrando el flujo normal de texto entre cajas padre y hermanas."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-generic" href="images/longdesc/flow-generic-desc.html" title="Descripción extensa para el ejemplo de flujo normal">[D]</A></SPAN></p>
+</div>
+
+<H3><a name="q27">9.8.2 Posicionamiento relativo</a></H3>
+
+<P>Para ver el efecto del <a href="#relative-positioning">posicionamiento relativo</a>, especificamos:</P>
+
+<PRE class="example">
+#externo { position: relative; top: -12px; color: red }
+#interno { position: relative; top: 12px; color: blue }
+</PRE>
+
+<p>El texto fluye normalmente hasta el elemento <em>externo</em>.  El texto <em>externo</em> fluye entonces dentro de la posición y dimensiones de su flujo normal al final de la línea 1. Luego, la cajas de línea que contienen el texto (distribuido en tres líneas) son movidas como una unidad en '-12px' (hacia arriba).
+
+<P>El contenido de <em>interno</em>, como hijo de <em>externo</em>, debería fluir inmediatamente después de las palabras "es el tema externo" (en la línea 1.5). Sin embargo, el propio contenido <em>interno</em> está desplazado con respecto al contenido <em>externo</em> en '12px' (hacia abajo), regresando a su posición original en la línea 2.
+
+<P>Observe que el contenido que sigue a <em>externo</em> no es afectado por el posicionamiento relativo de <em>externo</em>.</P>
+
+<div class="figure">
+<P><img src="./images/flow-relative.gif"
+     alt="Imagen ilustrando el efecto del posicionamiento relativo sobre el contenido de la caja."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-relative" href="images/longdesc/flow-relative-desc.html" title="Descripción extensa para el ejemplo de flujo relativo">[D]</A></SPAN></p>
+</div>
+
+<P>Observe que si el desplazamiento de <em>externo</em> hubiera sido de '-24px', el texto de <em>externo</em> y el texto del contenido se habrían encimado.
+
+<H3><a name="q28">9.8.3 Flotar una caja</a></H3>
+
+<P>Ahora considere el efecto de <a href="#floats">flotar</a> el texto del elemento <em>interno</em> a la derecha por medio de las siguientes reglas:
+
+<PRE class="example">
+#outer { color: red }
+#inner { float: right; width: 130px; color: blue }
+</PRE>
+
+<P>El texto fluye normalmente hasta la caja de <em>interno</em>, la que es empujada fuera del flujo y flotada sobre el margen derecho (su propiedad <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a> ha sido asignada explícitamente). Las cajas de línea sobre la izquierda son acortadas y el texto del documento restante fluye dentro de ellas.</p>
+
+<div class="figure">
+<P><img src="./images/flow-float.gif"
+     alt="Imagen ilustrando el efecto de flotar una caja."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-float" href="images/longdesc/flow-float-desc.html" title="Descripción extensa para el ejemplo ilustrando un flotante">[D]</A></SPAN></p>
+</div>
+
+<P>Para mostrar el efecto de la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'</span></a> agregamos un elemento <em>hermano</em> al ejemplo:
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Comparación entre esquemas de posicionamiento&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;El comienzo del contenido.
+      &lt;SPAN id=externo&gt; Este es el tema externo.
+      &lt;SPAN id=interno&gt; Tema interno.&lt;/SPAN&gt;
+      &lt;SPAN id=hermano&gt; Tema hermano.&lt;/SPAN&gt;
+      Fin del tema interno.&lt;/SPAN&gt;
+      El final del contenido.
+    &lt;/P&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>Las siguientes reglas:
+
+<PRE class="example">
+#interno { float: right; width: 130px; color: blue }
+#hermano { color: red }
+</PRE>
+
+<P>provocan que la caja de <em>interno</em> flote a la derecha como antes y el texto del documento restante fluye dentro del espacio vacante:</P>
+
+<div class="figure">
+<P><img src="./images/flow-clear.gif"
+     alt="Imagen ilustrando el efecto de flotar una caja sin especificar la propiedad 'clear' para controlar el flujo de texto alrededor de la caja."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-clear" href="images/longdesc/flow-clear-desc.html" title="Descripción extensa del ejemplo ilustrando un flotante sin 'clear'">[D]</A></SPAN></p>
+</div>
+
+<P>Sin embargo, si la propiedad <a href="visuren.html#propdef-clear" class="noxref"><span class="propinst-clear">'clear'</span></a> en el elemento <em>hermano</em> es puesta como 'right' (es decir, la caja <em>hermana</em> generada no aceptará una posición al lado de las cajas flotantes a su derecha), el contenido de <em>hermano</em> comienza a fluir debajo del flotante:
+
+<PRE class="example">
+#interno { float: right; width: 130px; color: blue }
+#hermano { clear: right; color: red }
+</PRE>
+
+<div class="figure">
+<P><img src="./images/flow-clear2.gif" 
+alt="Imagen ilustrando el efecto de flotar un elemento usando la propiedad 'clear' para controlar el flujo del texto alrededor del elemento."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-clear2" href="images/longdesc/flow-clear2-desc.html" title="Descripción extensa del ejemplo ilustrando un flotante con 'clear'">[D]</A></SPAN></p>
+</div>
+
+<H3><a name="q29">9.8.4 Posicionamiento absoluto</a></H3>
+
+<p>Finalmente, consideramos el efecto del <a
+href="#absolute-positioning">posicionamiento absoluto</a>. Considere las siguientes declaraciones CSS para <em>externo</em> e <em>interno</em>:</p>
+
+<PRE class="example">
+#externo { 
+    position: absolute; 
+    top: 200px; left: 200px; 
+    width: 200px; 
+    color: red;
+}
+#interno { color: blue }
+</PRE>
+
+<P>que provocan que el lado superior de la caja de <em>externo</em> sea posicionada con respecto a su bloque de contención. El bloque de contención para una caja posicionada se establece por el antepasado posicionado más cercano (o, si no existe ninguno, el <a href="#initial-containing-block">bloque de contención inicial</a>, como en nuestro ejemplo). El lado superior de la caja de <em>externo</em> está '200px' debajo de la parte superior del bloque de contención y el lado izquierdo está a '200px' del lado izquierdo. La caja hija de <em>externo</em> fluye normalmente con respecto a su padre.</P>
+
+<div class="figure">
+<P><img src="./images/flow-absolute.gif"
+   alt="Imagen ilustrando el efecto del posicionamiento absoluto de una caja."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-absolute" href="images/longdesc/flow-absolute-desc.html" title="Descripción extensa para el ejemplo ilustrando el posicionamiento absoluto">[D]</A></SPAN></p>
+</div>
+
+<p>El siguiente ejemplo muestra una caja posicionada absolutamente que es hija de una caja relativamente posicionada. Aunque la caja padre <em>externo</em> no está realmente desplazada, poniendo su propiedad <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a> como 'relative' significa que su caja puede servir como bloque de contención para los descendientes posicionados. Como la caja de <em>externo</em> es una caja de línea que está dividida entre varias líneas, los bordes superior e izquierdo de la primer caja de línea (señalados con líneas cortadas gruesas en la ilustración de abajo) sirven como referencia para los desplazamientos de <a href="visuren.html#propdef-top" class="noxref"><span class="propinst-top">'top'</span></a> y
+<a href="visuren.html#propdef-left" class="noxref"><span class="propinst-left">'left'</span></a>.
+
+<PRE class="example">
+#externo { 
+  position: relative; 
+  color: red 
+}
+#interno { 
+  position: absolute; 
+  top: 200px; left: -100px; 
+  height: 130px; width: 130px; 
+  color: blue;
+}
+</PRE>
+
+<p>Esto da como resultado algo similar a lo siguiente:</p>
+
+<div class="figure">
+<P><img src="./images/flow-abs-rel.gif"
+     alt="Imagen ilustrando el efecto de posicionar absolutamente una caja con respecto a su bloque de contención."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-abs-rel" href="images/longdesc/flow-abs-rel-desc.html" title="Descripción extensa para el ejemplo ilustrando el posicionamiento con respecto a un antepasado posicionado">[D]</A></SPAN></p>
+</div>
+
+<P>Si no posicionamos la caja de <em>externo</em>:</P>
+
+<PRE class="example">
+#externo { color: red }
+#interno {
+  position: absolute; 
+  top: 200px; left: -100px; 
+  height: 130px; width: 130px; 
+  color: blue;
+}
+</PRE>
+
+<P>el bloque de contención para <em>interno</em> es ahora el <a
+href="#initial-containing-block">bloque de contención inicial</a> (en nuestro ejemplo). La siguiente ilustración muestra donde acabaría la caja de <em>interno</em> en este caso.</P>
+
+<div class="figure">
+<P><img src="./images/flow-static.gif"
+     alt="Imagen ilustrando el efecto de posicionar absolutamente una caja con respecto a un bloque de contención establecido por un padre posicionado normalmente."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-flow-static" href="images/longdesc/flow-static-desc.html" title="Descripción extensa para la ilustración del posicionamiento absoluto con respecto al bloque de contención inicial">[D]</A></SPAN></p>
+</div>
+
+<div class="html-example"><P>El posicionamiento relativo y absoluto puede utilizarse para implementar barras de cambio, como se muestra en el siguiente ejemplo. El documento que sigue:
+
+<pre>
+&lt;P style=&quot;position: relative; margin-right: 10px; left: 10px;&quot;&gt;
+Uso dos guiones rojos para que actúen como barra de cambio.
+Ellos &quot;flotan&quot; a la izquierda de la línea que contiene ESTA
+&lt;SPAN style=&quot;position: absolute; top: auto; left: -1em; color: red;&quot;&gt;--&lt;/SPAN&gt;
+palabra.&lt;/P&gt;
+</pre>
+
+<p>resultaría en algo como:</p>
+
+<div class="figure">
+<P><img src="./images/changebar.gif"
+     alt="Imagen ilustrando el uso de flotantes para crear el efecto de una barra de cambio."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-changebar" href="images/longdesc/changebar-desc.html" title="Descripción extensa para el ejemplo de la barra de cambio">[D]</A></SPAN></p>
+</div>
+
+<P>Primero, el párrafo (cuyos lados del bloque de contención son mostrados en la ilustración) fluye normalmente. Entonces es desplazado '10px' desde el borde izquierdo de su bloque de contención (así también, un margen derecho de '10px' ha sido reservado en anticipación al desplazamiento). Los dos guiones que actúan como barras de cambio son sacadas del flujo y posicionadas en la línea actual (debido a 'top: auto'), '-1em' desde el margen izquierdo de su bloque de contención (establecido por P en su posición final). El resultado es que la barra de cambio parece "flotar" a la izquierda de la línea actual.</p>
+</div>
+
+<H2><a name="q30">9.9 Presentación por capas</a></H2>
+<P><em>En la siguiente sección, la expresión "en frente de" significa más cercano al usuario considerando como el usuario enfrenta a la pantalla.</em></P>
+
+<P>En CSS2, cada caja tiene una posición en tres dimensiones. Además de su posición horizontal y vertical, las cajas se ubican a lo largo de un eje "z" y son procesadas una encima de otra. Las posiciones en el eje Z son particularmente relevantes cuando las cajas se superponen visualmente. Esta sección trata de cómo las cajas pueden ser posicionadas a lo largo del eje z.
+
+<P>Cada caja pertenece a un <a name="x49"><span class="index-def" title="contexto de pila"><dfn>contexto de pila</dfn></span></a>. Cada caja en un contexto de pila dado tiene un entero como <span class="index-def" title="nivel de pila"><a name="stack-level"><dfn>nivel de pila</dfn></a></span>, el cuál es su posición en el eje z en relación a otras cajas en el mismo contexto de pila. Las cajas con niveles de pila mayores son siempre procesados en frente de las cajas con niveles de pila menores. Las cajas pueden tener niveles de pila negativos. Las cajas con el mismo nivel de pila en un contexto de pila son apiladas de abajo hacia arriba de acuerdo al orden en la estructura del documento.
+
+<P>El elemento <a href="conform.html#root">raíz</a> crea un <a name="x51"><span
+class="index-def" title="contexto de pila raíz"><dfn>contexto de pila raíz</dfn></span></a>, pero otros elementos pueden establecer <a name="x52"><span
+class="index-def" title="contextos de pila locales"><dfn>contextos de pila locales</dfn></span></a>. Los contextos de pila son heredados. Un contexto de pila local es atómico; las cajas en otros contextos de pila no pueden aparecer entre ninguna de sus cajas.
+
+<P>Un elemento que establece un contexto de pila local genera una caja que tiene dos niveles de pila: uno para el contexto de pila que él crea (siempre '0') y uno para el contexto de pila al cual pertenece (dado por la propiedad <a href="visuren.html#propdef-z-index" class="noxref"><span class="propinst-z-index">'z-index'</span></a>).
+
+<P>La caja de un elemento tiene el mismo nivel de pila que la caja de su padre a menos que se le dé un nivel de pila diferente con la propiedad <a href="visuren.html#propdef-z-index" class="noxref"><span
+class="propinst-z-index">'z-index'</span></a>.
+
+<H3>9.9.1 <a name="z-index">Especificar el nivel de pila</a>: la propiedad <a href="visuren.html#propdef-z-index" class="noxref"><span
+class="propinst-z-index">'z-index'</span></a></H3> 
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'z-index'"><a name="propdef-z-index" class="propdef-title"><strong>'z-index'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>auto | <a href="syndata.html#value-def-integer" class="noxref"><span class="value-inst-integer">&lt;entero&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos posicionados
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<p>Para una caja posicionada, la propiedad <a href="visuren.html#propdef-z-index" class="noxref"><span
+class="propinst-z-index">'z-index'</span></a> especifica:
+
+<ol>
+<li>El nivel de pila de la caja en el contexto de pila actual.
+<li>Si la caja establece un contexto de pila local.
+</ol>
+
+<P>Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><span class="index-inst" title="&lt;entero&gt;"><a name="x54" href="syndata.html#value-def-integer" class="noxref"><span
+class="value-inst-integer"><strong>&lt;entero&gt;</strong></span></a></span>
+<dd>Este entero es el nivel de pila de la caja generada en el contexto de pila actual. La caja también establece un contexto de pila local en el cual su nivel de pila es '0'.
+<dt><strong>auto</strong>
+<dd>El nivel de pila de la caja generada en el contexto de pila actual es el mismo que el de la caja de su padre. La caja no establece un nuevo contexto de pila local.
+</dl>
+
+<div class="html-example"><P>
+<P>En el siguiente ejemplo, los niveles de pila de las cajas (nombradas con sus atributos "id") son: 
+"texto2"=0, "imagen"=1, "texto3"=2 y "texto1"=3. El nivel de pila de "texto2" es heredado de la caja raíz. Los otros son especificados con la propiedad <a href="visuren.html#propdef-z-index" class="noxref"><span
+class="propinst-z-index">'z-index'</span></a>.
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Posiciones en el orden Z&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      .pila { 
+        position: absolute; 
+        left: 2in; 
+        top: 2in; 
+        width: 3in; 
+        height: 3in; 
+      }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;
+      &lt;IMG id="imagen" class="pila" 
+           src="mariposa.gif" alt="La imagen de una mariposa"
+           style="z-index: 1"&gt;
+
+    &lt;DIV id="texto1" class="pila" 
+         style="z-index: 3"&gt;
+      Este texto quedará arriba de la imagen de la mariposa.
+    &lt;/DIV&gt;
+
+    &lt;DIV id="texto2"&gt;
+      Este texto quedará abajo de todo.
+    &lt;/DIV&gt;
+
+    &lt;DIV id="texto3" class="pila" 
+         style="z-index: 2"&gt;
+      Este texto quedará abajo del texto1,  pero encima de la imagen de la mariposa.
+    &lt;/DIV&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+</div>
+
+<p>Este ejemplo demuestra la noción de <em>transparencia</em>. El comportamiento predeterminado de una caja es permitir que las cajas que quedan detrás sean visibles a través de las áreas transparentes en su contenido. En el ejemplo, cada caja se superpone transparentemente con las cajas debajo de ellas. Este comportamiento puede ser anulado usando una las <a href="colors.html#background-properties">
+propiedades del fondo</a> existentes.
+
+<h2>9.10 <a name="direction">Dirección del texto:</a>
+las propiedades <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a>
+y <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span class="propinst-unicode-bidi">'unicode-bidi'</span></a>
+</h2>
+
+<P>Los caracteres en ciertas escrituras se escriben de derecha a izquierda. En algunos documentos, en particular aquellos escritos en Arabe o en Hebreo, y en algunos contextos de lenguaje mixto, el texto de un único (mostrado visualmente) bloque puede aparecer con direccionalidad mixta. Este fenómeno se llama <a name="x55"><span class="index-def" title="bidireccionalidad (bidi)"><dfn>bidireccionalidad</dfn></span></a>, o
+"bidi" para abreviar.
+
+<P>El estándar Unicode (<a href="refs.html#ref-UNICODE" rel="biblioentry" class="noxref"><span class="normref">[UNICODE]</span></a>, sección 3.11) define un complejo algoritmo para determinar la direccionalidad correcta del texto. El algoritmo se compone de una parte implícita basada en las popiedades de los caracteres, como así también de controles explícitos para las incrustaciones y sustituciones. CSS2 confía en este algoritmo para lograr un adecuado procesamiento bidireccional. Las propiedades <a href="visuren.html#propdef-direction" class="noxref"><span
+class="propinst-direction">'direction'</span></a> y <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> permiten a los autores especificar cómo los elementos y atributos del lenguaje de un documento se vinculan con este algoritmo.
+
+<P>Si un documento contiene caracteres de derecha a izquierda, y si la aplicación del usuario muestra esos caracteres (con los signos apropiados, no con sustitutos arbitrarios como un signo de interrogación, un código hexadecimal, una caja negra, etc.), la aplicación del usuario debe aplicar el algoritmo bidireccional. Este requisito aparentemente parcial refleja el hecho de que, aunque no todos los documentos en Hebreo o Arabe contienen texto de direccionalidad mixta, tales documentos son mucho más propensos a contener texto de izquierda a derecha (ej., números, texto en otros lenguajes) que los documentos escritos en lenguajes de izquierda a derecha.
+
+<P>Debido a que la direccionalidad de un texto depende de la estructura y semántica del lenguaje del documento, estas propiedades deben en la mayoría de los casos ser usadas por los diseñadores de descripciones del tipo de documento (DTD), o autores de documentos especiales. Si una hoja de estilo predeterminada especifica estas propiedades, los autores y usuarios no deben especificar reglas para sustituirlas. Una excepción típica sería sustituir el comportamiento bidi en una aplicación del usuario si esa aplicación del usuario translitera el Yiddish (usualmente escrito con letras del hebreo) con caracteres latinos a pedido del usuario.
+
+<P>La especificación HTML 4.0 ([HTML40], sección 8.2) define el comportamiento de la bidireccionalidad en los elementos HTML. Las aplicaciones del usuario HTML <a
+href="conform.html#conformance">con conformidad</a> pueden por  lo tanto ignorar las propiedades <a href="visuren.html#propdef-direction" class="noxref"><span
+class="propinst-direction">'direction'</span></a> y <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> en las hojas de estilo de los autores y usuarios. Las reglas de hojas de estilo que conseguirían el comportamiento bidi especificado en <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a> están dadas en <a
+href="sample.html#bidi">el ejemplo de hoja de estilo</a>. La especificación HTML 4.0 también contiene más información acerca del tema de la bidireccionalidad.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'direction'"><a name="propdef-direction" class="propdef-title"><strong>'direction'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>ltr | rtl | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>ltr
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos, pero ver el texto
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica la dirección básica de escritura de los bloques y la dirección de las incrustaciones y sustituciones (ver <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a>) para el algoritmo bidireccional de Unicode. Además, especifica la dirección de la composición de las columnas en una <a
+href="tables.html">tabla</a>, la dirección del <a href="visufx.html#overflow">desbordamiento</a> horizontal y la posición de una última línea incompleta de un bloque en el caso de 'text-align:
+justify'.
+
+<P>Los valores para esta propiedad tiene los siguientes significados:</P>
+
+<dl>
+<dt><strong>ltr</strong> 
+<dd>Dirección de izquierda a derecha (Left-To-Right).
+<dt><strong>rtl</strong>
+<dd>Dirección de derecha a izquierda (Right-To-Left).
+</dl>
+
+<P>Para que la propiedad <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a> tenga algún efecto en los elementos a nivel de línea, el valor de la propiedad <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> debe ser 'embed' u 'override'.
+
+<div class="note"><P>
+<em><strong>Nota.</strong> 
+La propiedad <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a>, cuando se especifica para las columnas de una tabla, no es heredado por las celdas de la columna ya que las columnas no existen en la estructura del documento. Debido a eso, CSS no puede capturar fácilmente las reglas de herencia del atributo "dir" descriptas en <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a>, sección 11.3.2.1.
+</em>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'unicode-bidi'"><a name="propdef-unicode-bidi" class="propdef-title"><strong>'unicode-bidi'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>normal | embed | bidi-override | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>normal
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos, pero ver más adelante
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Los valores para esta propiedad tiene los siguientes significados:</p>
+
+<dl>
+<dt><strong>normal</strong>
+<dd>El elemento no abre un nivel adicional de incrustación con respecto al algoritmo bidireccional. Para los elementos a nivel de línea, el reordenamiento implícito  funciona a través de todos los límites del elemento.
+
+<dt><strong>embed</strong>
+
+<dd>Si el elemento es a nivel de línea, este valor abre un nivel adicional de incrustación con respecto al algoritmo bidireccional. La dirección de este nivel de incrustación está dada por la propiedad <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a>. Dentro del elemento, el reordenamiento está dado implícitamente. Esto corresponde a agregar LRE (U+202A; para 'direction: ltr') o RLE
+(U+202B; para 'direction: rtl') al comienzo del elemento y PDF
+(U+202C) al final del elemento.
+
+<dt><strong>bidi-override</strong>
+
+<dd>Si el elemento es a nivel de línea o es un elemento a nivel de bloque que sólo contiene elementos a nivel de línea, crea una sustitución. Esto significa que dentro del elemento, el reordenamiento es estrictamente en secuencia de acuerdo a la propiedad <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a>; la parte implícita del algoritmo bidireccional se ignora. Esto corresponde a agregar LRO (U+202D; para 'direction: ltr') o RLO (U+202E; para 'direction: rtl') al comienzo del elemento y PDF
+(U+202C) al final del elemento.
+
+</dl>
+
+<P>El orden final de los caracteres en cada elemento a nivel de bloque es el mismo que si los códigos de control bidi se hubieran agregado como se describe arriba, las marcas se hubieran quitado y la secuencia de caracteres resultante hubiera pasado a una implementación del algoritmo bidireccional de Unicode para un texto puro que produce los mismos saltos de línea que el texto con estilo. En este proceso, la entidades no textuales como las imágenes son tratadas como caracteres neutros, a menos que su propiedad <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> tenga un valor distinto a 'normal', en cuyo caso son tratadas como caracteres gruesos en la <a href="visuren.html#propdef-direction" class="noxref"><span class="propinst-direction">'direction'</span></a> especificada para el elemento.
+
+<P>Por favor observe que para conseguir un flujo de las cajas de línea con dirección uniforme (ya sea completamente de izquierda a derecha o completamente de derecha a izquierda), pueden crearse más cajas de línea (incluyendo cajas de línea anónimas) y algunas cajas de línea pueden tener que ser divididas y reordenadas antes de fluir.
+
+<P>Debido a que el algoritmo de Unicode tiene un límite de 15 niveles de incrustación, se debe cuidar de no usar <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> con un valor distinto a 'normal' a menos que sea apropiado. En particular, un valor de 'inherit' debería usarse con extrema precaución. Sin embargo, para los elementos que son, en general, pensados para ser mostrados como bloques, se prefiere una definición de 'unicode-bidi: embed' para mantener el elemento junto en caso de que la visualización cambie a nivel de línea (ver el ejemplo de abajo).
+
+<p>El siguiente ejemplo muestra un documento XML con texto bidireccional. Ilustra un importante principio de diseño: los diseñadores de <a name="x58"><span
+class="index-inst" title="DTD">DTD</span></a> deben tomar en cuenta la bidireccionalidad en el propio lenguaje (elementos y atributos) y en cualquier hoja de estilo que acompañe. Las hojas de estilo deben ser diseñadas de manera tal que las reglas bidi queden separadas de las otras reglas de estilo. Las reglas bidi no deben ser sustituidas por otras hojas de estilo de modo que el comportamiento de la bidireccionalidad del lenguaje del documento o la DTD sea preservada.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+En este ejemplo, las letras en minúsculas se usan para los caracteres de izquierda a derecha heredados y las mayúsculas representan los caracteres de derecha a izquierda heredados:
+
+<pre class="xml-example">
+&lt;HEBREO&gt;
+  &lt;PAR&gt;HEBREO1 HEBREO2 español3 HEBREO4 HEBREO5&lt;/PAR&gt;
+  &lt;PAR&gt;HEBREO6 &lt;ENF&gt;HEBREO7&lt;/ENF&gt; HEBREO8&lt;/PAR&gt;
+&lt;/HEBREO&gt;
+&lt;ESPAÑOL&gt;
+  &lt;PAR&gt;español9 español10 español11 HEBREO12 HEBREO13&lt;/PAR&gt;
+  &lt;PAR&gt;español14 español15 español16&lt;/PAR&gt;
+  &lt;PAR&gt;español17 &lt;HE-CITA&gt;HEBREO18 español19 HEBREO20&lt;/HE-CITA&gt;&lt;/PAR&gt;
+&lt;/ESPAÑOL&gt;
+</pre>
+
+<p>Como esto es XML, la hoja de estilo es la responsable de definir la dirección de escritura. Esta es la hoja de estilo:</p>
+
+<pre class="example">
+/* Reglas para bidi */
+HEBREO, HE-CITA  {direction: rtl; unicode-bidi: embed}
+ESPAÑOL         {direction: ltr; unicode-bidi: embed} 
+
+/* Reglas para la presentación */
+HEBREO, ESPAÑOL, PAR  {display: block}
+ENF                  {font-weight: bold}
+</pre>
+
+<p>El elemento HEBREO es un bloque con una dirección básica de derecha a izquierda, el elemento ESPAÑOL es un bloque con una dirección básica de izquierda a derecha. Los PAR son bloques que heredan la dirección básica de sus padres. Así, los primeros dos PAR se leen comenzando desde arriba a la derecha, los tres finales se leen comenzando desde arriba a la izquierda. Por favor, observe que HEBREO y ESPAÑOL son elegidos como nombres de los elementos solamente por ser más explícitos, los nombres de los elementos pueden proporcionar la estructura sin referencia al idioma.
+
+<p>El elemento ENF es a nivel de línea y como su valor para <a href="visuren.html#propdef-unicode-bidi" class="noxref"><span
+class="propinst-unicode-bidi">'unicode-bidi'</span></a> es 'normal' (el valor inicial), no tiene ningún efecto en el ordenamiento del texto. El elemento HE-CITA, por otra parte, crea una incrustación.
+
+<p>El formato de este texto podría parecerse a esto si la línea es larga:
+
+<pre class="ascii-art">
+               5OERBEH 4OERBEH español3 2OERBEH 1OERBEH
+
+                                8OERBEH <b>7OERBEH</b> 6OERBEH
+
+español9 español10 español11 13OERBEH 12OERBEH
+
+español14 español15 español16
+
+español17 20OERBEH español19 18OERBEH
+</pre>
+
+<p>Observe que la incrustación HE-CITA provoca que HEBREO18 quede a la derecha de español19.
+
+<p>Si las líneas tienen que ser cortadas, sería más como esto:
+
+<pre class="ascii-art">
+       2OERBEH 1OERBEH
+  -EH 4OERBEH español3
+                 5OERB
+
+   -EH <b>7OERBEH</b> 6OERBEH
+                 8OERB
+
+español9 español10 es-
+pañol11 12OERBEH
+13OERBEH
+
+español14 español15
+español16
+
+español17 18OERBEH
+20OERBEH español19
+</pre>
+
+<p>Como HEBREO18 debe leerse antes que español19, está en la línea encima de español19. Sólo cortando la línea larga de formato anterior no hubiera funcionado. Vea también que la primer sílaba de español19 podría caber en la línea anterior, pero el silabeo de las palabras de izquierda a derecha en un contexto de derecha a izquierda, y viceversa, es normalmente suprimido para evitar tener de mostrar un guión en el medio de la línea.
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="box.html">anterior</a> &nbsp;
+<a href="visudet.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</HTML>

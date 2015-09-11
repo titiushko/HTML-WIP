@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Tablas</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.11 - TABLAS </H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<P><A NAME="a1"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Introducci&oacute;n<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Permite la representaci&oacute;n de datos
+por filas y columnas, en forma tabular. La definici&oacute;n es muy flexible
+indicando solo los elementos que forman cada fila y columna, calcul&aacute;ndose
+de forma autom&aacute;tica el tama&ntilde;o que deben tener las celdas.
+En una tabla podemos introducir todo tipo de elementos del lenguaje HTML
+como imagenes, enlaces, texto, listas, cabeceras, formularios, etc. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No es necesario definir inicialmente el
+n&uacute;mero de filas o columnas ya que estas se calculan seg&uacute;n
+se va definiendo la tabla. En el caso que una fila tenga m&aacute;s columnas
+que otra, en las otras filas las columnas se representar&aacute;n vacias,
+no siendo necesario que todas las filas sean iguales. </P>
+
+<P><A NAME="table"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;TABLE&gt;
+Definici&oacute;n de la Tabla<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para definir una tabla usaremos la etiqueta
+<FONT COLOR="#008200">&lt;TABLE&gt;</FONT>, que tiene el siguiente formato:
+</P>
+
+<P><B><FONT COLOR="#008200">&lt;TABLE BORDER=&quot;<I>tama&ntilde;o del
+borde</I>&quot; &gt;<BR>
+</FONT></B><FONT COLOR="#008200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>
+... Definici&oacute;n de la tabla ...<BR>
+&lt;/TABLE&gt;</B> </FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En la etiqueta inicial <FONT COLOR="#008200">TABLE</FONT>
+definiremos los atributos que afectar&aacute;n a toda la tabla, todos los
+atributos son opcionales. Todo lo que se incluya dentro de la instrucci&oacute;n
+de tabla se considerar&aacute; como tal, pudiendo definir tablas anidadas
+(tablas dentro de tablas). </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej1">Ejemplo de tabla 1</A></FONT></P>
+
+<P> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puede presentar los siguientes atributos:
+</P>
+
+<UL>
+<LI><A NAME="border"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>BORDER
+=n</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si se especifica se dibujar&aacute; un
+borde alrededor de la tabla y separanado los distintos campos que presenta.
+Indicaremos un n&uacute;mero que especificar&aacute; el tama&ntilde;o del
+borde, por defecto ser&aacute; 0, es decir, no se dibujar&aacute; ning&uacute;n
+borde. Aunque no se dibuje el borde s&iacute; se mantendr&aacute; el espaciado
+los elementos de la tabla. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej4">Ejemplo de tabla 4</A></FONT></P>
+
+<P> <FONT SIZE=+1><A HREF="ejemptab.htm#ej5">Ejemplo de tabla 5</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="cellspacing"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>CELLSPACING=n</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica el espacio que debe existir entre
+las distintas celdas de la tabla. Por defecto ser&aacute; 2. Si se indica
+0 no habr&aacute; ning&uacute;n espacio entre las celdas. </P>
+
+<UL>
+<LI><A NAME="cellpadding"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>CELLPADDING=n</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es la cantidad de espacio entre el borde
+de la celda y el contenido de esta, por defecto es 1. Si se indica 0 las
+celdas aparecer&aacute;n sin separaci&oacute;n. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej6">Ejemplo de tabla 6</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="width"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>WIDTH=valor
+o porcentaje%:</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ser&aacute; el ancho de la tabla, se puede
+indicar como valor absoluto o como porcentaje del ancho del documento.
+En el primer caso se definir&aacute; en puntos y en el segundo en funci&oacute;n
+del tama&ntilde;o del documento (tama&ntilde;o de la ventana del visualizador).
+Se recomienda utilizar tama&ntilde;os de tabla en porcentaje del documento,
+ya que de esta forma la tabla queda perfectamente ajustada para cualquier
+tama&ntilde;o del documento. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej9">Ejemplo de tabla 9</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="height"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>HEIGHT=valor
+o porcentaje%</FONT></FONT></B><BR>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definir&aacute; el alto de la tabla, a
+igual que <FONT COLOR="#008200">WIDTH</FONT>, se puede indicar en valor
+absoluto o en porcentaje. En este caso es m&aacute;s recomendado en valor
+absoluto ya que el alto es m&aacute;s dificil que pueda coincir con el
+tama&ntilde;o de la ventana. </P>
+
+<P>Dentro de la instrucci&oacute;n de la tabla se incluir&aacute;n los
+diversas etiquetas que defininen el contenido de la tabla. </P>
+
+<P><A NAME="caption"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;CAPTION&gt;
+Titulo de la tabla<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Especifica el titulo de la tabla, este
+se mostrar&aacute; resaltado en la parte superior externa de la tabla.
+Siempre se mostrar&aacute; centrado horizontalmente. </P>
+
+<P><B><FONT COLOR="#008200">&lt;CAPTION ALIGN=TOP|BOTTOM&gt;Titulo de la
+tabla&lt;/CAPTION &gt;</FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con el atributo <FONT COLOR="#008200">ALIGN</FONT>
+indicaremos si el titulo debe aparecer arriba (<FONT COLOR="#008200">TOP</FONT>)
+o debajo (<FONT COLOR="#008200">BOTTOM</FONT>) de la tabla. </P>
+
+<P><A NAME="tr"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;TR&gt; Fila
+de la tabla<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definir&aacute; cada una de las filas
+de la tabla y especificar&aacute; los par&aacute;metros que afectar&aacute;n
+a todas las celdas de la fila. Por cada elemento <FONT COLOR="#008200">TR</FONT>
+que se incluya se crear&aacute; una fila de la tabla. No es necesario indicar
+la etiqueta de cierre <FONT COLOR="#008200">&lt;/TR&gt;</FONT>. En caso
+de tablas anidadas ser&aacute; necesario incluir la etiqueta de cierre.
+</P>
+
+<P><B><FONT COLOR="#008200">&lt;TR ALIGN= LEFT &oacute; CENTER &oacute;
+RIGHT VALIGN= TOP &oacute; MIDDLE &oacute; BOTTOM &gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se podr&aacute; especificar por defecto
+la alineaci&oacute;n que tendr&aacute;n los elementos dentro de las celdas.
+</P>
+
+<UL>
+<LI><A NAME="align"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>ALIGN =
+LEFT &oacute; CENTER &oacute; RIGHT</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica la alineaci&oacute;n del elemento
+dentro de la celda, en este caso afectar&aacute; a todos los valores situados
+en la fila actual, tambien se podr&aacute; indicar individualmente en los
+elementos TD. Puede tomar uno de los siguientes valores: </P>
+
+<DL>
+<DL>
+<UL>
+<LI><B><FONT COLOR="#008200">LEFT:</FONT></B> Alineaci&oacute;n a la izquierda
+de la celda. Este el valor que se toma por defecto </LI>
+
+<LI><B><FONT COLOR="#008200">RIGHT:</FONT></B> Alineaci&oacute;n a la derecha.
+</LI>
+
+<LI><B><FONT COLOR="#008200">CENTER:</FONT></B> Indicar&aacute; centrado.
+</LI>
+</UL>
+</DL>
+</DL>
+
+<UL>
+<LI><A NAME="valign"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>VALIGN
+= TOP &oacute; MIDDLE &oacute; BOTTOM:</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la alineaci&oacute;n vertical
+del dato dentro de la celda. Se podr&aacute; especificar donde se colocar&aacute;n
+los datos dentro de la celda. Afectar&aacute;n a toda la fila. Los valores
+que puede tomar son: </P>
+
+<DL>
+<DL>
+<UL>
+<LI><B><FONT COLOR="#008200">TOP:</FONT></B> Parte superior de la celda.
+</LI>
+
+<LI><B><FONT COLOR="#008200">MIDDLE:</FONT></B> Centrado verticalmente
+dentro de la celda. </LI>
+
+<LI><B><FONT COLOR="#008200">BOTTOM: </FONT></B>En la parte baja de la
+celda. </LI>
+</UL>
+</DL>
+</DL>
+
+<UL>
+<LI><A NAME="rowspan"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>BGCOLOR:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; el color de fondo que
+tendr&aacute;n todas las celda de la fila de la tabla. El formato para
+<A HREF="body.htm#colores">definir los colores</A> es el mismo al que se
+usa para los atributos de BODY. Esta etiqueta solo es valida para el <I>Internet
+Explorer de Microsoft</I> y el <I><A HREF="http://www.uca.es/servicios/actuali-soft/software.html">Netscape
+3.0</A></I> o superior. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej10">Ejemplo de tabla 10</A></FONT></P>
+
+<P> </P>
+
+<P><A NAME="th"></A><A NAME="td"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;TH&gt;
+y &lt;TD&gt; Una celda de la tabla<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define cada una de las celdas de una fila
+de la tabla, <FONT COLOR="#008200">TH</FONT> se usar&aacute; para definir
+una celda de tipo cabecera, en este caso se mostrar&aacute;n destacados
+en negrita y <FONT COLOR="#008200">TD</FONT> para definir una celda de
+datos. Estos elementos deben aparecer tras los elementos <FONT COLOR="#008200">TR</FONT>
+para definir cada una de las columnas de la fila. Existir&aacute; una columna
+por cada elemento <FONT COLOR="#008200">TD</FONT> &oacute; <FONT COLOR="#008200">TH</FONT>
+que se defina. Aunque se puede indicar la etiqueta de cierre, no es necesario
+al tomarse implicitamente. Utilizaremos los elementos <FONT COLOR="#008200">TH</FONT>
+para los titulos de las filas o columnas y los elementos <FONT COLOR="#008200">TD</FONT>
+para los datos. </P>
+
+<P><B><FONT COLOR="#008200">&lt;TH ALIGN= (LEFT | CENTER | RIGHT | JUSTIFY
+| DECIMAL ) VALIGN= ( TOP | MIDDLE | BOTTOM | BASELINE ) WIDTH=<I>Tama&ntilde;o</I>
+BGCOLOR=<I>color</I> ROWSPAN=“<I>Filas que debe contener la celda</I>”
+COLSPAN= “<I>Columnas que ocupa la celda</I>” NOWRAP &gt;</FONT></B> </P>
+
+<P><B><FONT COLOR="#008200">&lt;TD ALIGN= (LEFT | CENTER | RIGHT | JUSTIFY
+) VALIGN= ( TOP | MIDDLE | BOTTOM ) WIDTH=<I>Tama&ntilde;o</I> BGCOLOR=<I>color</I>
+ROWSPAN=“<I>Filas que debe contener la columna</I>” COLSPAN= “<I>Columnas
+que ocupa la celda</I>” NOWRAP&gt;</FONT></B> </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej3">Ejemplo de tabla 3</A></FONT></P>
+
+<P> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pueden presentar los siguientes atributos:
+</P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000"><FONT SIZE=+1>ALIGN:</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica la alineaci&oacute;n horizontal
+del dato dentro de la celda, se especificar&aacute; individualmente para
+cada una de las celdas. Su significado es igual que el expresado para la
+etiqueta <FONT COLOR="#008200">TR</FONT>. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej7">Ejemplo de tabla 7</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><B><FONT COLOR="#FF0000"><FONT SIZE=+1>VALIGN:</FONT></FONT></B> </LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; la alineaci&oacute;n vertical
+del dato dentro de la celda. Se especifica individualmente para cada celda,
+el formato es el mismo que el expresado para <FONT COLOR="#008200">TR</FONT>.
+</P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej8">Ejemplo de tabla 8</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="rowspan"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>WIDTH:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especifica el ancho que tendra la columna
+de la tabla, se puede especificar eln valor absoluto, en puntos de la pantalla
+o en tanto por ciento del tama&ntilde;o de la tabla. </P>
+
+<UL>
+<LI><A NAME="rowspan"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>BGCOLOR:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; el color de fondo que
+tendr&aacute; la celda de la tabla. El color hay que indicarlo independientemente
+para cada una de las celdas de la columna. El formato para <A HREF="body.htm#colores">definir
+los colores</A> es el mismo al que se usa para los atributos de BODY. Esta
+etiqueta solo es valida para el <I>Internet Explorer de Microsoft</I> y
+el <I><A HREF="http://www.uca.es/servicios/actuali-soft/software.html">Netscape
+3.0</A></I> o superior. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej10">Ejemplo de tabla 10</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="rowspan"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>ROWSPAN:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; el n&uacute;mero de filas
+que ocupar&aacute; est&aacute; celda en la misma fila. En este caso la
+celda se expandir&aacute; ocupando tantas celdas de la tabla inicial como
+se especifique. Esto permite definir por ejemplo celdas de cabecera que
+afecten a varias celdas de la tabla, &oacute; bien, crear una fila que
+ocupen toda la tabla. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej2">Ejemplo de tabla 2</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="colspan"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>COLSPAN:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Indicar&aacute; el n&uacute;mero de columnas
+que ocupar&aacute; la celda actual, obtendremos una celda que ocupa varias
+columnas. Igual que el anterior pero para el caso de las columnas. </P>
+
+<P><FONT SIZE=+1><A HREF="ejemptab.htm#ej2">Ejemplo de tabla 2</A></FONT></P>
+
+<P> </P>
+
+<UL>
+<LI><A NAME="nowrap"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>NOWRAP:</FONT></FONT></B>
+</LI>
+</UL>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Se usar&aacute; para que no se divida
+la l&iacute;nea por defecto. Si la usamos las l&iacute;neas de texto no
+se dividir&aacute;n dentro de la celda en varias l&iacute;neas. Por tanto
+si la linea es muy larga la columna de la tabla ser&aacute; tan ancha como
+la l&iacute;nea, solo se dividir&aacute; si se usa el elemento <BR>
+. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="multimed.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="multimed.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="form.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="form.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

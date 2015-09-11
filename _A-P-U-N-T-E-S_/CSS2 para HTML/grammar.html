@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Apéndice D: La gramática de CSS2</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="notes.html">
+<link rel="next" href="refs.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="notes.html">anterior</a> &nbsp;
+<a href="refs.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">Apéndice D: La gramática de CSS2</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="grammar.html#q1" class="tocxref">D.1 Gramática</a>
+    <li class="tocline2"><a href="grammar.html#q2" class="tocxref">D.2 Scanner de léxico</a>
+    <li class="tocline2"><a href="grammar.html#tokenizer-diffs" class="tocxref">D.3 Comparación de los comandos en CSS2 y CSS1</a>
+  </ul>
+</div>
+<P><em>Este apéndice es normativo.</em>
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+Este apéndice es normativo, por lo que recuerdo a los programadores que la única versión aceptada está en <a href="http://www.w3.org/TR/1998/REC-CSS2-19980512">http://www.w3.org/TR/1998/REC-CSS2-19980512</a> por lo que deberán recurrir a ella si desean asegurarse el cumplimiento de las condiciones de <a href="conform.html#conformance">conformidad</a>.
+    </TD>
+  </TR>
+</TABLE>
+
+
+<P>La gramática de abajo define la sintaxis de CSS2. Sin embargo, es en cierto sentido un superconjunto de CSS2 puesto que impone restricciones semánticas adicionales no expresadas en esta gramática. Una aplicación del usuario conformada debe también adherir a las <a href="./syndata.html#syntax">reglas de análisis con compatibilidad futura</a>, la <a
+href="./about.html#property-defs">notación de propiedades y valores</a> y la unidad de notación. Además, el lenguaje del documento puede imponer restricciones, por ej., HTML impone restricciones a los posibles valores del atributo "class".
+
+<h2><a name="q1">D.1 Gramática</a></h2>
+
+<P>La gramática de abajo es <a name="x0"><span class="index-inst" title="LL(1)">LL(1)</span></a> (pero observe que la mayoría de la AU no debe utilizarla directamente, debido a que no expresa las <a href="syndata.html#parsing-errors">convenciones de análisis</a>, sólo la sintaxis de CSS2).  El formato de las producciones está optimizado para el uso humano y se usa alguna notación  abreviadas más allá de Yacc (ver <a href="refs.html#ref-YACC" rel="biblioentry" class="noxref"><span class="normref">[YACC]</span></a>):</P>
+
+<ul>
+<li><strong>*</strong>: 0 o más
+<li><strong>+</strong>: 1 o más
+<li><strong>?</strong>: 0 o 1 
+<li><strong>|</strong>: separa alternativas 
+<li><strong>[&nbsp;]</strong>: agrupa
+</ul>
+
+<p>Las producciones son:
+
+<pre>
+stylesheet
+  : [ CHARSET_SYM S* STRING S* ';' ]?
+    [S|CDO|CDC]* [ import [S|CDO|CDC]* ]*
+    [ [ ruleset | media | page | font_face ] [S|CDO|CDC]* ]*
+  ;
+import
+  : IMPORT_SYM S*
+    [STRING|URI] S* [ medium [ ',' S* medium]* ]? ';' S*
+  ;
+media
+  : MEDIA_SYM S* medium [ ',' S* medium ]* '{' S* ruleset* '}' S*
+  ;
+medium
+  : IDENT S*
+  ;
+page
+  : PAGE_SYM S* IDENT? pseudo_page? S*
+    '{' S* declaration [ ';' S* declaration ]* '}' S*
+  ;
+pseudo_page
+  : ':' IDENT
+  ;
+font_face
+  : FONT_FACE_SYM S*
+    '{' S* declaration [ ';' S* declaration ]* '}' S*
+  ;
+operator
+  : '/' S* | ',' S* | /* vacío */
+  ;
+combinator
+  : '+' S* | '>' S* | /* vacío */
+  ;
+unary_operator
+  : '-' | '+'
+  ;
+property
+  : IDENT S*
+  ;
+ruleset
+  : selector [ ',' S* selector ]*
+    '{' S* declaration [ ';' S* declaration ]* '}' S*
+  ;
+<a name="x1"><span class="index-inst" title="selector">selector</span></a>
+  : simple_selector [ combinator simple_selector ]*
+  ;
+simple_selector
+  : element_name? [ HASH | class | attrib | pseudo ]* S*
+  ;
+class
+  : '.' IDENT
+  ;
+element_name
+  : IDENT | '*'
+  ;
+attrib
+  : '[' S* IDENT S* [ [ '=' | INCLUDES | DASHMATCH ] S*
+    [ IDENT | STRING ] S* ]? ']'
+  ;
+pseudo
+  : ':' [ IDENT | FUNCTION S* IDENT S* ')' ]
+  ;
+declaration
+  : property ':' S* expr prio?
+  | /* vacío */
+  ;
+prio
+  : IMPORTANT_SYM S*
+  ;
+expr
+  : term [ operator term ]*
+  ;
+term
+  : unary_operator?
+    [ NUMBER S* | PERCENTAGE S* | LENGTH S* | EMS S* | EXS S* | ANGLE S* |
+      TIME S* | FREQ S* | function ]
+  | STRING S* | IDENT S* | URI S* | RGB S* | UNICODERANGE S* | hexcolor
+  ;
+function
+  : FUNCTION S* expr ')' S*
+  ;
+/*
+ * Hay una restricción en el <a name="x2"><span class="index-inst" title="color">color</span></a> que debe tener
+ * 3 o 6 dígitos hexadecimales (es decir, [0-9a-fA-F])
+ * después de "#"; ej., "#000" está bien, pero "#abcd" no.
+ */
+hexcolor
+  : HASH S*
+  ;
+</pre>
+
+<h2><a name="q2">D.2 Scanner de léxico</a></h2>
+
+<p>La siguiente es la definición de los comandos (<a name="x3"><span class="index-def"
+title="tokenizer">tokenizer</span></a>) escrito en notación Flex (ver <a href="refs.html#ref-FLEX" rel="biblioentry" class="noxref"><span class="normref">[FLEX]</span></a>). Es sensible a la diferencia entre mayúsculas y minúsculas.
+
+<p>Las dos apariciones de "\377" representan el número de carácter más alto que la versión actual de Flex puede manejar (decimal 255). Debe leerse como "\4177777" (decimal 1114111), que es el punto de código más alto posible en <a name="x4"><span class="index-inst" title="unicode">Unicode</span></a>/<a name="x5"><span class="index-inst" title="iso-10646">ISO-10646</span></a>.
+
+
+<pre>
+%option case-insensitive
+
+h		[0-9a-f]
+nonascii	[\200-\377]
+unicode		\\{h}{1,6}[ \t\r\n\f]?
+escape		{unicode}|\\[ -~\200-\377]
+nmstart		[a-z]|{nonascii}|{escape}
+nmchar		[a-zA-Z0-9]|{nonascii}|{escape}
+string1		\"([\t !#$%&amp;(-~]|\\{nl}|\'|{nonascii}|{escape})*\"
+string2		\'([\t !#$%&amp;(-~]|\\{nl}|\"|{nonascii}|{escape})*\'
+
+ident		{nmstart}{nmchar}*
+name		{nmchar}+
+num		[0-9]+|[0-9]*"."[0-9]+
+string		{string1}|{string2}
+url		([!#$%&amp;*-~]|{nonascii}|{escape})*
+w		[ \t\r\n\f]*
+nl		\n|\r\n|\r|\f
+range		\?{1,6}|{h}(\?{0,5}|{h}(\?{0,4}|{h}(\?{0,3}|{h}(\?{0,2}|{h}(\??|{h})))))
+
+%%
+
+[ \t\r\n\f]+		{return S;}
+
+\/\*[^*]*\*+([^/][^*]*\*+)*\/	/* ignore comments */
+
+"&lt;!--"			{return CDO;}
+"-->"			{return CDC;}
+"~="			{return INCLUDES;}
+"|="			{return DASHMATCH;}
+
+{string}		{return STRING;}
+
+{ident}			{return IDENT;}
+
+"#"{name}		{return HASH;}
+
+"@import"		{return IMPORT_SYM;}
+"@page"			{return PAGE_SYM;}
+"@media"		{return MEDIA_SYM;}
+"@font-face"		{return FONT_FACE_SYM;}
+"@charset"		{return CHARSET_SYM;}
+"@"{ident}		{return ATKEYWORD;}
+
+"!{w}important"		{return IMPORTANT_SYM;}
+
+{num}em			{return EMS;}
+{num}ex			{return EXS;}
+{num}px			{return LENGTH;}
+{num}cm			{return LENGTH;}
+{num}mm			{return LENGTH;}
+{num}in			{return LENGTH;}
+{num}pt			{return LENGTH;}
+{num}pc			{return LENGTH;}
+{num}deg		{return ANGLE;}
+{num}rad		{return ANGLE;}
+{num}grad		{return ANGLE;}
+{num}ms			{return TIME;}
+{num}s			{return TIME;}
+{num}Hz			{return FREQ;}
+{num}kHz		{return FREQ;}
+{num}{ident}		{return DIMEN;}
+{num}%			{return PERCENTAGE;}
+{num}			{return NUMBER;}
+
+"url("{w}{string}{w}")"	{return URI;}
+"url("{w}{url}{w}")"	{return URI;}
+{ident}"("		{return FUNCTION;}
+
+U\+{range}		{return UNICODERANGE;}
+U\+{h}{1,6}-{h}{1,6}	{return UNICODERANGE;}
+
+.			{return *yytext;}
+</pre>
+
+<h2>D.3 <a name="tokenizer-diffs">Comparación de los comandos en CSS2 y CSS1</a></h2>
+
+<p>Hay algunas diferencias en la sintaxis especificada en la recomendación CSS1 (<a href="refs.html#ref-CSS1" rel="biblioentry" class="noxref"><span class="informref">[CSS1]</span></a>) y la de más arriba. La mayoría de éstas se deben a los nuevos comandos en CSS2 que no existían en CSS1. Otras son debido a que la gramática ha si reescrita para que sea más legible. Sin embargo, hay algunos cambios incompatibles, en lo que se consideró eran errores en la sintaxis de CSS1. Están explicados abajo.
+
+<ul>
+<li>Las hojas de estilo CSS1 sólo podían estar en una codificación de 1 byte por carácter, tal como ASCII e ISO-8859-1. CSS2 no tiene tal limitación. En la práctica, había algunas pequeñas dificultades en extrapolar los comandos de CSS1, y algunas AU han aceptado la codificación de 2 bytes.
+
+<li>CSS1 sólo permitía cuatro dígitos hexadecimales después de la barra invertida (\) para referirse a los caracteres de Unicode, CSS2 <a href="syndata.html#escaped-characters">permite seis</a>. Además, CSS2 permite una carácter de espacio en blanco para delimitar la secuencia de escape. Ej., de acuerdo a CSS1, la cadena "\abcdef" tiene 3 letras (\abcd, e, y f), de acuerdo a CSS2 tiene solamente una (\abcdef).
+
+<li>El carácter de tabulador (ASCII 9) no estaba permitido en las cadenas. Sin embargo, como las cadenas en CSS1 sólo eran usadas para los nombres de las fuentes y para los URL, la única forma de que esto pueda conducir a la incompatibilidad entre CSS1 y CSS2 es que una hoja de estilo contenga una familia de fuentes con un tabulador en su nombre.
+
+<li>De modo similar, los saltos de línea (<a href="syndata.html#strings">escapadas con una barra invertida</a>) no estaban permitidas en las cadenas en CSS1.
+
+<li>CSS2 analiza un número seguido inmediatamente por un identificador como un comando DIMEN (es decir, una unidad desconocida), CSS1 lo analizaba como un número y un identificador. Eso significa que en CSS1, la declaración 'font: 10pt/1.2serif' era correcta, como lo era 'font: 10pt/12pt serif'; en CSS2, se requiere un espacio antes de "serif". (Algunas AU han aceptado el primer ejemplo, pero no el segundo.)
+
+<li>En CSS1, un nombre de clase podía comenzar con un dígito (".55ft"), a menos que fuera una dimensión (".55in"). En CSS2, tales clases son analizadas como dimensiones desconocidas (para permitir futuros agregados de nuevas unidades). Para convertir ".55ft" en una clase válida, CSS2 requiere que el primer dígito sea escapado (".\35 5ft" ).
+</ul>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="notes.html">anterior</a> &nbsp;
+<a href="refs.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</body>
+</html>

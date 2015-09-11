@@ -1,0 +1,557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Listas</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.6 - Definici&oacute;n de Listas</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Las listas en HTML</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; El lenguaje HTML proporciona un modo
+sencillo de representar elementos en forma de lista. Dentro de una lista
+de puede incluir cualquiera de los elementos HTML, e igualmente una lista
+puede incluirse dentro de formularios, tablas, etc. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existen principalmente tres tipos de listas:
+las listas no ordenadas, las listas ordenadas y las listas de definiciones.
+<A NAME="ul"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;UL&gt; Listas no ordenadas</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este tipo de lista se usan para enumerar
+elementos que no tengan un orden definido. Se especificar&aacute; con el
+elemento &lt;UL&gt;, todo lo que se incluya dentro de esta etiqueta y la
+de cierre formar&aacute; la lista. Con los elementos &lt;LI&gt; se indicar&aacute;n
+cada uno de los componentes de la lista. El formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt;UL TYPE = DISK &oacute; CIRCLE &oacute;
+SQUARE &gt; <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LH&gt; <I>Titulo de la lista</I>
+&lt;/LH&gt;<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento 1</I> <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento 2</I> <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; . .
+.<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento n <BR>
+</I>&lt;/UL&gt; </FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para marcar los distintos elementos de
+la lista se usar&aacute;n unos s&iacute;mbolos, que pueden ser un disco
+(DISK), un circulo (CIRCLE) &oacute; un cuadrado (SQUARE), seleccionables
+con el atributo TYPE. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con la etiqueta <B><FONT COLOR="#008200">&lt;LH&gt;</FONT></B>
+definiremos el titulo de la lista, este es opcional y aparecer&aacute;
+en la parte superior de esta. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Igualmente es posible definir listas de
+varios niveles, que ser&aacute; listas anidadas, listas dentro de listas.
+Y combinar este tipo de lista con las que se explicar&aacute;n en los proximos
+apartados. </P>
+
+<P><A NAME="ej1"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;UL &gt; <BR>
+&lt;LH&gt; Titulo &lt;/LH&gt;<BR>
+&lt;LI&gt; Elemento 1 <BR>
+&lt;LI&gt; Elemento 2 <BR>
+&lt;LI&gt; Elemento 3<BR>
+&lt;/UL&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<UL>
+<P><LH>Titulo </P>
+
+<LI>Elemento 1 </LI>
+
+<LI>Elemento 2 </LI>
+
+<LI>Elemento 3 </LI>
+</UL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Este ser&aacute; el caso b&aacute;sico
+de lista no ordenada. Se podr&aacute;n incluir tantos elementos como se
+deseen y estos podr&aacute;n ser texto normal, texto resaltado con alguno
+de los estilos, im&aacute;genes, etc ... </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD>
+<DL>
+<DT><FONT COLOR="#008200"><FONT SIZE=-1>&lt;UL TYPE=SQUARE&gt; </FONT></FONT></DT>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 1 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 2 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;UL TYPE=CIRCLE&gt; </FONT></FONT></DD>
+
+<DL>
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 3.1 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 3.2 </FONT></FONT></DD>
+</DL>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/UL&gt; </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 4 </FONT></FONT></DD>
+
+<DT><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/UL&gt; </FONT></FONT></DT>
+</DL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<UL type=square>
+<LI>Elemento 1 </LI>
+
+<LI>Elemento 2 </LI>
+
+<UL type=circle>
+<LI>Elemento 3.1 </LI>
+
+<LI>Elemento 3.2 </LI>
+</UL>
+
+<LI>Elemento 4 </LI>
+</UL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Ahora definimos una lista anidada,
+es decir una lista dentro de una lista, basta con incluir el nuevo elemento
+UL dentro del elemento UL de la lista original. En este ejemplo tambi&eacute;n
+usamos distintos elementos definibles con TYPE, para indicar los componentes
+de la lista. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="ol"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;OL&gt; Listas ordenadas</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estas listas ser&aacute;n similares al
+caso anterior pero en este se usa un n&uacute;mero para indicar el orden
+de cada elemento de la lista. El ser ordenada no significa que ordene los
+elementos alfab&eacute;ticamente sino que los elementos guardan un orden
+que es el n&uacute;mero que indexa la lista. </P>
+
+<P><B><FONT COLOR="#008200">&lt;OL START = <I>n</I> TYPE = A <I>&oacute;</I>
+a <I>&oacute;</I> I <I>&oacute;</I> i <I>&oacute;</I> 0 &gt; <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LH&gt; <I>Titulo de la lista</I>
+&lt;/LH&gt;<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento 1<BR>
+</I>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento 2<BR>
+</I>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+. . .<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;LI&gt; <I>Elemento n<BR>
+</I>&lt;/OL&gt;</FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El punto de comienzo siempre ser&aacute;
+el 1 si no se indica en <FONT COLOR="#008200">START</FONT> con otro valor
+de comienzo y el tipo de numeraci&oacute;n puede seleccionarse con el atributo
+<FONT COLOR="#008200">TYPE</FONT>. Sus posibles valores son: </P>
+
+<UL>
+<LI><FONT COLOR="#008200">A :</FONT> Letras may&uacute;sculas. </LI>
+
+<LI><FONT COLOR="#008200">a :</FONT> Letras min&uacute;sculas. </LI>
+
+<LI><FONT COLOR="#008200">I :</FONT> N&uacute;mero romanos en may&uacute;sculas.
+</LI>
+
+<LI><FONT COLOR="#008200">i :</FONT> N&uacute;mero romanos en min&uacute;sculas.
+</LI>
+
+<LI><FONT COLOR="#008200">0 :</FONT> N&uacute;meros (es por defecto por
+tanto no hay que indicarlo). </LI>
+</UL>
+
+<P><A NAME="ej2"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;OL &gt; <BR>
+&lt;LI&gt; Elemento 1<BR>
+&lt;LI&gt; Elemento 2 <BR>
+&lt;LI&gt; Elemento 3<BR>
+&lt;/OL&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<OL>
+<LI>Elemento 1 </LI>
+
+<LI>Elemento 2 </LI>
+
+<LI>Elemento 3 </LI>
+</OL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Este ser&aacute; el caso b&aacute;sico
+de lista ordenada. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD>
+<DL>
+<DT><FONT COLOR="#008200"><FONT SIZE=-1>&lt;OL TYPE=I&gt; </FONT></FONT></DT>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 1 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 2 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;OL TYPE=a&gt; </FONT></FONT></DD>
+
+<DL>
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 3.1 </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 3.2 </FONT></FONT></DD>
+</DL>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/OL&gt; </FONT></FONT></DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;LI&gt; Elemento 4 </FONT></FONT></DD>
+
+<DT><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/OL&gt; </FONT></FONT></DT>
+</DL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<OL type=I>
+<LI>Elemento 1 </LI>
+
+<LI>Elemento 2 </LI>
+
+<OL type=a>
+<LI>Elemento 3.1 </LI>
+
+<LI>Elemento 3.2 </LI>
+</OL>
+
+<LI>Elemento 4 </LI>
+</OL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Ahora definimos una lista anidada
+y usamos distintos elementos para la numeraci&oacute;n de las opciones.
+</FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="dl"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;DL&gt; Listas de definiciones</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En esta lista existir&aacute;n dos elementos
+la definici&oacute;n y el termino, se usar&aacute; principalmente para
+listas en las que se incluir&aacute;n una palabra o frase y su definici&oacute;n
+(diccionario). El termino aparecer&aacute; pegado en el borde izquierdo
+y la definici&oacute;n aparecer&aacute; ligeramente tabulada a partir del
+borde izquierdo. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se puede usar de forma separada la definici&oacute;n
+y el termino, pudiendo por tanto incluir solo definiciones o solo t&eacute;rminos.
+El incluir solo t&eacute;rminos podr&iacute;a usarse para sangrar el comienzo
+de un p&aacute;rrafo. </P>
+
+<P><B><FONT COLOR="#008200">&lt;DL&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;LH&gt;<I>Titulo de la lista</I> &lt;/LH&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DT&gt;<I>Termino 1<BR>
+</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DD&gt;<I>Definici&oacute;n 1<BR>
+</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DT&gt;<I>Termino 2<BR>
+</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DD&gt;<I>Definici&oacute;n 2<BR>
+</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. . .<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DD&gt;<I>Termino N<BR>
+</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DT&gt;<I>Definici&oacute;n N<BR>
+</I>&lt;/DL&gt;</FONT></B><BR>
+</P>
+
+<P>El titulo de las lista <B><FONT COLOR="#008200">&lt;LH&gt;</FONT></B>
+como en los casos anteriores es opcional. </P>
+
+<P><A NAME="ej3"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;DL &gt; <BR>
+&lt;DT&gt; Coche<BR>
+&lt;DD&gt; Vehiculo de cuatro ruedas<BR>
+&lt;DT&gt; Moto<BR>
+&lt;DD&gt; Vehiculo de dos ruedas<BR>
+&lt;/DL&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<DL>
+<DT>Coche </DT>
+
+<DD>Vehiculo de cuatro ruedas </DD>
+
+<DT>Moto </DT>
+
+<DD>Vehiculo de dos ruedas </DD>
+</DL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve se coloca en una posici&oacute;n
+la definici&oacute;n y en otra el termino. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD>
+<DL>
+<P><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dl&gt; </FONT></FONT></P>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;font SIZE=+1&gt;&lt;img
+src=&quot;/servicios/iconos/confis.gif&quot; align=middle border=0&gt;
+Conexi&oacute;n a la Red.&lt;/font&gt;&lt;/A&gt;</FONT></FONT><BR>
+<BR>
+</DD>
+
+<DL>
+<P><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dl&gt;</FONT></FONT><BR>
+</P>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/conecfisica/Normativ.html&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;
+Normativa de conexi&oacute;n a Red.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/conecfisica/software.htm&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;
+Instalaci&oacute;n de Software de Comunicaciones.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/solicitud.htm&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;
+Solicitud de Servicios de Comunicaciones.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/conecfisica/proxy.html&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;
+Servidores Proxy.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+</DL>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/dl&gt;</FONT></FONT><BR>
+<BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;a href=&quot;/servicios/actuali-soft/software.html&quot;&gt;&lt;dd&gt;&lt;font
+SIZE=+1&gt;&lt;img src=&quot;http://www2.uca.es/iconos/icono541.gif&quot;
+align=middle border=0&gt; Actualizaci&oacute;n del Software de Comunicaciones.&lt;/font&gt;&lt;/a&gt;&lt;p&gt;</FONT></FONT><BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A NAME=&quot;correo&quot;&gt;&lt;dd&gt;&lt;font
+SIZE=+1&gt;&lt;a HREF=&quot;http://www.uca.es/servicios/correo/correo.htm&quot;&gt;&lt;img
+src=&quot;/servicios/iconos/mail.gif&quot; align=middle border=0&gt; Mensajer&iacute;a
+Electr&oacute;nica.&lt;/a&gt;&lt;/font&gt;&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+
+<DL>
+<P><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dl&gt;</FONT></FONT><BR>
+</P>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/correo/prac-eudora/portada.html&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;Manual
+Pr&aacute;ctico de Eudora.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;dd&gt;&lt;A HREF=&quot;/servicios/correo/mensaje_institu.html&quot;&gt;&lt;img
+src=&quot;http://www2.uca.es/iconos1/redstar.gif&quot; align=middle border=0&gt;Mensajer&iacute;a
+Institucional.&lt;/A&gt;</FONT></FONT><BR>
+</DD>
+</DL>
+
+<DD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/dl&gt; </FONT></FONT></DD>
+</DL>
+
+<P><FONT COLOR="#008200"><FONT SIZE=-1>&lt;/dl&gt; </FONT></FONT></P>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<DL>
+<DD><A NAME="conecfis"></A></DD>
+
+<DD><IMG SRC="confis.gif" HEIGHT=32 WIDTH=32 ALIGN=CENTER><FONT SIZE=+1>
+Conexi&oacute;n a la Red.</FONT> </DD>
+
+<DL>
+<DD><A HREF="http://www.uca.es/servicios/conecfisica/Normativ.html"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/conecfisica/Normativ.html">
+Normativa de conexi&oacute;n a Red.</A> </DD>
+
+<DD><A HREF="http://www.uca.es/servicios/conecfisica/software.htm"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/conecfisica/software.htm">
+Instalaci&oacute;n de Software de Comunicaciones.</A> </DD>
+
+<DD><A HREF="http://www.uca.es/servicios/solicitud.htm"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/solicitud.htm">
+Solicitud de Servicios de Comunicaciones.</A> </DD>
+
+<DD><A HREF="http://www.uca.es/servicios/conecfisica/proxy.html"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/conecfisica/proxy.html">
+Servidores Proxy.</A> </DD>
+</DL>
+
+<DD><A HREF="http://www.uca.es/servicios/actuali-soft/software.html"><IMG SRC="icono541.gif" BORDER=0 HEIGHT=32 WIDTH=32 ALIGN=CENTER></A><FONT SIZE=+1><A HREF="http://www.uca.es/servicios/actuali-soft/software.html">
+Actualizaci&oacute;n del Software de Comunicaciones.</A></FONT></DD>
+
+<P> </P>
+
+<DD><A NAME="correo"></A></DD>
+
+<DD><A HREF="http://www.uca.es/servicios/correo/correo.htm"><IMG SRC="mail.gif" BORDER=0 HEIGHT=32 WIDTH=32 ALIGN=CENTER></A><FONT SIZE=+1><A HREF="http://www.uca.es/servicios/correo/correo.htm">
+Mensajer&iacute;a Electr&oacute;nica.</A></FONT> </DD>
+
+<DL>
+<DD><A HREF="http://www.uca.es/servicios/correo/prac-eudora/portada.html"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/correo/prac-eudora/portada.html">Manual
+Pr&aacute;ctico de Eudora.</A> </DD>
+
+<DD><A HREF="http://www.uca.es/servicios/correo/mensaje_institu.html"><IMG SRC="redstar.gif" BORDER=0 HEIGHT=21 WIDTH=22 ALIGN=CENTER></A><A HREF="http://www.uca.es/servicios/correo/mensaje_institu.html">Mensajer&iacute;a
+Institucional.</A> </DD>
+</DL>
+</DL>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este ejemplo utilizaremos solo
+los elementos DD (definiciones) para crear un menu, en el que se incluyen
+tanto im&aacute;genes como texto. La lista de definiciones se utiliza para
+mostrar el menu de forma correcta con sus correspondientes niveles y subniveles.
+</FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es posible anidar cualquier tipo de lista
+entre s&iacute;, incluso listas de distinto tipo. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="estilos.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="estilos.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="enlaces.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="enlaces.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

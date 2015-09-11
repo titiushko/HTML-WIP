@@ -1,0 +1,915 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Sintaxis y tipos básicos de datos en CSS2</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="conform.html">
+<link rel="next" href="selector.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="conform.html">anterior</a> &nbsp;
+<a href="selector.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">4 Sintaxis y tipos básicos de datos en CSS2</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="syndata.html#syntax" class="tocxref">4.1 Sintaxis</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="syndata.html#tokenization" class="tocxref">4.1.1 Comandos</a>
+      <li class="tocline3"><a href="syndata.html#keywords" class="tocxref">4.1.2 Palabras clave</a>
+      <li class="tocline3"><a href="syndata.html#q4" class="tocxref">4.1.3 Caracteres y mayúsculas/minúsculas</a>
+      <li class="tocline3"><a href="syndata.html#q5" class="tocxref">4.1.4 Estamentos</a>
+      <li class="tocline3"><a href="syndata.html#at-rules" class="tocxref">4.1.5 <span class="index-def" title="Regla-arroba"> Reglas-arroba</span></a>
+      <li class="tocline3"><a href="syndata.html#block" class="tocxref">4.1.6 Bloques</a>
+      <li class="tocline3"><a href="syndata.html#q8" class="tocxref">4.1.7 Juegos de reglas, bloques de declaraciones y selectores</a>
+      <li class="tocline3"><a href="syndata.html#declaration" class="tocxref">4.1.8 Declaraciones y propiedades</a>
+      <li class="tocline3"><a href="syndata.html#comments" class="tocxref">4.1.9 Comentarios</a>
+    </ul>
+    <li class="tocline2"><a href="syndata.html#parsing-errors" class="tocxref">4.2 Reglas para el manejo de errores en el análisis</a>
+    <li class="tocline2"><a href="syndata.html#values" class="tocxref">4.3 Valores</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="syndata.html#q13" class="tocxref">4.3.1 Enteros y números reales</a>
+      <li class="tocline3"><a href="syndata.html#length-units" class="tocxref">4.3.2 Medidas</a>
+      <li class="tocline3"><a href="syndata.html#percentage-units" class="tocxref">4.3.3 Porcentajes</a>
+      <li class="tocline3"><a href="syndata.html#uri" class="tocxref">4.3.4 URL + URN = URI</a>
+      <li class="tocline3"><a href="syndata.html#counter" class="tocxref">4.3.5 Contadores</a>
+      <li class="tocline3"><a href="syndata.html#color-units" class="tocxref">4.3.6 Colores</a>
+      <li class="tocline3"><a href="syndata.html#q19" class="tocxref">4.3.7 Angulos</a>
+      <li class="tocline3"><a href="syndata.html#q20" class="tocxref">4.3.8 Tiempos</a>
+      <li class="tocline3"><a href="syndata.html#q21" class="tocxref">4.3.9 Frecuencias</a>
+      <li class="tocline3"><a href="syndata.html#strings" class="tocxref">4.3.10 Cadenas</a>
+    </ul>
+    <li class="tocline2"><a href="syndata.html#q23" class="tocxref">4.4 Representación de los documentos CSS</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="syndata.html#q24" class="tocxref">4.4.1 Referencias a caracteres no representados en una codificación de caracteres</a>
+    </ul>
+  </ul>
+</div>
+<H2>4.1 <a name="syntax">Sintaxis</a></H2>
+
+<P>Esta sección describe una gramática (y reglas de <a name="x0"><span class="index-def"
+title="análisis con compatibilidad futura"><dfn>análisis con compatibilidad futura</dfn></span></a>) común a cualquier versión de CSS (incluyendo CSS2). Las futuras versiones de CSS adherirán a esta sintaxis central, aunque pueden agregar restricciones sintácticas adicionales.
+
+<P>Estas descripciones son normativas. También están complementadas por las reglas normativas de gramática presentadas en el <a
+href="grammar.html">Apéndice D</a>.
+
+<H3>4.1.1 <a name="tokenization">Comandos</a></H3>
+
+<P>Todos los niveles de CSS --nivel 1, nivel 2 y cualquier futuro nivel-- usan la misma sintaxis central. Esto permite a las AU analizar (aún cuando no las entiendan completamente) las hojas de estilo escritas en niveles de CSS que no existían en el momento en que la AU fue creada. Los diseñadores pueden usar esta característica para crear hojas de estilo que funcionen con aplicaciones de usuario antiguas, mientras ejercitan también las posibilidades de los niveles más nuevos de CSS.
+
+<P>A nivel de léxico, las hojas de estilo CSS consisten de una secuencia de comandos. La lista de comandos para CSS2 es la que sigue. Las definiciones usan expresiones regulares al estilo de Lex. Los códigos octales se refieren a ISO 10646 (<a href="refs.html#ref-ISO10646" rel="biblioentry" class="noxref"><span class="normref">[ISO10646]</span></a>). Como en Lex, en caso de múltiples equivalencias, la equivalencia más larga determina el comando.
+
+<TABLE>
+<THEAD>
+<TR><TH>Comando		<TH>Definición
+</THEAD>
+<TR><TD colspan=2><HR>
+<TR><TD>IDENT		<TD><code><var>{ident}</var></code>
+<TR><TD>ATKEYWORD	<TD><code>@<var>{ident}</var></code>
+<TR><TD>STRING		<TD><code><var>{string}</var></code>
+<TR><TD>HASH		<TD><code>#<var>{name}</var></code>
+<TR><TD>NUMBER		<TD><code><var>{num}</var></code>
+<TR><TD>PERCENTAGE	<TD><code><var>{num}</var>%</code>
+<TR><TD>DIMENSION	<TD><code><var>{num}{ident}</var></code>
+<TR><TD>URI		<TD><code>url\(<var>{w}{string}{w}</var>\)<br>
+		|url\(<var>{w}</var>([!#$%&amp;*-~]|<var>{nonascii}</var>|<var>{escape}</var>)*<var>{w}</var>\)</code>
+<TR><TD>UNICODE-RANGE	<TD><code>U\+[0-9A-F?]{1,6}(-[0-9A-F]{1,6})?</code>
+<TR><TD>CDO		<TD><code>&lt;!--</code>
+<TR><TD>CDC		<TD><code>--&gt;</code>
+<TR><TD>;		<TD><code>;</code>
+<TR><TD>{		<TD><code>\{</code>
+<TR><TD>}		<TD><code>\}</code>
+<TR><TD>(		<TD><code>\(</code>
+<TR><TD>)		<TD><code>\)</code>
+<TR><TD>[		<TD><code>\[</code>
+<TR><TD>]		<TD><code>\]</code>
+<TR><TD>S		<TD><code>[ \t\r\n\f]+</code>
+<TR><TD>COMMENT		<TD><code>\/\*[^*]*\*+([^/][^*]*\*+)*\/</code>
+<TR><TD>FUNCTION	<TD><code><var>{ident}</var>\(</code>
+<TR><TD>INCLUDES	<TD><code>~=</code>
+<TR><TD>DASHMATCH	<TD><code>|=</code>
+<TR><TD>DELIM		<TD><var>cualquier otro carácter no equivalente con las reglas anteriores</var>
+</TABLE>
+
+<P>Las macros entre llaves ({}) arriba son definidas como sigue:
+
+<TABLE>
+<THEAD>
+<TR><TH>Macro	<TH>Definición
+</THEAD>
+<TR><TD colspan=2><HR>
+<TR><TD>ident	<TD><code><var>{nmstart}{nmchar}*</var></code>
+<TR><TD>name	<TD><code><var>{nmchar}+</var></code>
+<TR><TD>nmstart	<TD><code>[a-zA-Z]|<var>{nonascii}</var>|<var>{escape}</var></code>
+<TR><TD>nonascii<TD><code>[^\0-\177]</code>
+<TR><TD>unicode	<TD><code>\\[0-9a-f]{1,6}[ \n\r\t\f]?</code>
+<TR><TD>escape	<TD><code><var>{unicode}</var>|\\[ -~\200-\4177777]</code>
+<TR><TD>nmchar	<TD><code>[a-zA-Z0-9]|<var>{nonascii}</var>|<var>{escape}</var></code>
+<TR><TD>num	<TD><code>[0-9]+|[0-9]*\.[0-9]+</code>
+<TR><TD>string	<TD><code><var>{string1}</var>|<var>{string2}</var></code>
+<TR><TD>string1	<TD><code>\"([\t !#$%&amp;(-~]|\\{nl}|\'|<var>{nonascii}</var>|<var>{escape}</var>)*\"</code>
+<TR><TD>string2	<TD><code>\'([\t !#$%&amp;(-~]|\\{nl}|\"|<var>{nonascii}</var>|<var>{escape}</var>)*\'</code>
+<TR><TD>nl	<TD><code>\n|\r\n|\r|\f</code>
+<TR><TD>w	<TD><code>[ \t\r\n\f]*</code>
+</TABLE>
+
+<P>Abajo está la sintaxis central para CSS. Las secciones siguientes describen cómo usarla. El <a href="grammar.html">Apéndice D</a> describe una gramática más restrictiva que es más cercana al lenguaje de CSS nivel 2.
+
+<PRE>
+hoja de estilo : [ CDO | CDC | S | estamento ]*;
+estamento      : regla | regla-arroba;
+regla-arroba   : ATKEYWORD S* otros* [ bloque | ';' S* ];
+bloque         : '{' S* [ otros | bloque | ATKEYWORD S* | ';' ]* '}' S*;
+regla          : selector? '{' S* declaración? [ ';' S* declaración? ]* '}' S*;
+selector       : otros+;
+declaración    : propiedad ':' S* valor;
+propiedad      : IDENT S*;
+valor          : [ otros | bloque | ATKEYWORD S* ]+;
+otros          : [ IDENT | NUMBER | PERCENTAGE | DIMENSION | STRING
+                 | DELIM | URI | HASH | UNICODE-RANGE | INCLUDES
+                 | FUNCTION | DASHMATCH | '(' otros* ')' | '[' otros* ']' ] S*;
+</PRE>
+
+<P>Los comandos <a name="comment">COMMENT</a> no aparecen en la gramática (para mantenerla legible), pero cualquier cantidad de estos comandos pueden aparecer en cualquier lugar entre otros comandos.
+
+<p>El comando S en la gramática anterior está colocado para los <A
+name="whitespace">espacios en blanco</a>. Solamente los caracteres "espacio" (código 32 en Unicode), "tabulador" (9), "avance de línea" (10), "retorno de carro" (13) y
+"avance de hoja" (12) pueden aparecer en los espacios en blanco. Otros caracteres que producen espacios, tales como "espacio eme" (8195) y "espacio ideográfico" (12288) nunca forman parte de los espacios en blanco.
+
+<H3>4.1.2 <a name="keywords">Palabras clave</a></H3>
+
+<P>Las palabras clave toman la forma de identificadores. Las palabras clave no deben ir entre comillas ("..." o '...'). De este modo,
+
+<pre>
+red
+</pre>
+
+<p>es una palabra clave, pero
+
+<pre>
+"red"
+</pre>
+
+no lo es. (Es una <a href="#strings">cadena</a>.) Otros ejemplos ilícitos:
+
+<div class="illegal-example"><P style="display:none">Ejemplo(s) ilícito(s):</P><P>
+<pre>
+width: "auto";
+border: "none";
+font-family: "serif";
+background: "red";
+</pre>
+</div>
+
+
+<H3><a name="q4">4.1.3 Caracteres y mayúsculas/minúsculas</a></H3>
+<P> Las reglas siguientes siempre sostienen:</p>
+
+<UL>
+    <LI> Todas las hojas de estilo CSS son <a name="x1"><span class="index-inst" title="insensibilidad a mayúsculas/minúsculas">insensibles a las mayúsculas/minúsculas</span></a>, excepto para las partes que no están bajo el control de CSS. Por ejemplo, la diferenciación entre mayúsculas y minúsculas en los valores de los atributos HTML "id" y "class", los nombres de las fuentes y los URI está fuera del alcance de esta especificación. Advierta en particular que los nombres de los elementos en HTML no hacen distinción entre mayúsculas y minúsculas, pero sí lo hacen en XML.
+
+    <LI> En CSS2, los <span class="index-def"
+    title="identificador|identificador, definición de"><a
+    name="value-def-identifier"><dfn>identificadores</dfn></a></span>
+    (incluyendo los nombres de los elementos, clases e ID de los <a href="selector.html">selectores</a>) pueden contener sólo caracteres [A-Za-z0-9] y los caracteres 161 en adelante en ISO 10646, más el guión (-); no pueden comenzar con un guión o un número. También pueden contener caracteres con escape y cualquier carácter de ISO 10646 en forma de código numérico (ver el siguiente ítem). <span class="example">Por ejemplo, el identificador "B&amp;W?" puede escribirse como "B\&amp;W\?" o "B\26 W\3F".</span>
+    <P>Observe que Unicode es simétricamente equivalente a  ISO 10646 (ver
+    <a href="refs.html#ref-UNICODE" rel="biblioentry" class="noxref"><span class="normref">[UNICODE]</span></a> e <a href="refs.html#ref-ISO10646" rel="biblioentry" class="noxref"><span class="normref">[ISO10646]</span></a>).
+
+    <LI> En CSS2, una barra invertida (\) indica tres tipos de
+    <span class="index-def" title="escape con barra invertida">
+    <a name="escaped-characters">caracteres de escape</a></span>.
+
+    <P>Primero, dentro de una <a href="#strings">cadena</a>, una barra invertida seguida de una nueva línea es ignorada (es decir, la cadena se evalúa para no contener la barra invertida o la nueva línea).
+
+    <P>Segundo, cancela el significado de los caracteres especiales de CSS. Cualquier carácter (excepto un número hexadecimal) puede ser escapado con una barra invertida para quitar su significado especial. Por ejemplo, <samp>"\""</samp> es una cadena consistente en una comilla doble. Los pre-procesadores de las hojas de estilo no deben quitar estas barras invertidas de una hoja de estilo debido a que ello puede cambiar el significado de la misma.
+
+    <P>Tercero, el escape con barra invertida permite a los autores referirse a caracteres que no pueden ponerse fácilmente en un documento. En este caso, la barra invertida es seguida por hasta seis números hexadecimales (0..9A..F), que representan el carácter en ISO 10646 (<a href="refs.html#ref-ISO10646" rel="biblioentry" class="noxref"><span class="normref">[ISO10646]</span></a>) con ese número. Si un número o letra sigue al número hexadecimal, el final del número debe ser aclarado. Hay dos maneras de hacer eso:
+
+    <ol>
+    <li>con un espacio (u otro carácter de espacio en blanco): "\26 B" ("&amp;B")
+    <li>proporcionando exactamente 6 números hexadecimales: "\000026B" ("&amp;B")
+    </ol>
+
+    <p>De hecho, estos dos métodos puede combinarse. Sólo un carácter de espacio en blanco es ignorado después del escape hexadecimal. Advierta que esto significa que un espacio "real" después de la secuencia de escape debe ir él mismo con escape o duplicado.
+
+    <LI>Los escapes con barra invertida son siempre considerados como parte de un <a href="#value-def-identifier">identificador</a> o de una cadena (i.e., "\7B" no es una puntuación, aún cuando "{" sí lo es, y "\32" está permitido al comienzo el nombre de una clase, aunque "2" no lo está).
+  </UL>
+
+<H3><a name="q5">4.1.4 Estamentos</a></H3>
+
+<P> Una hoja de estilo CSS, en cualquier versión de CSS, consiste de un listado de <a name="x5"><span class="index-inst" title="estamentos"><em>estamentos</em></span></a>
+(ver la gramática arriba).  Hay dos clases de estamentos: <a name="x6"><span
+class="index-inst" title="reglas-arroba"><em>reglas-arroba</em></span></a>
+y <a name="x7"><span class="index-inst" title="juegos de reglas"><em>juegos de reglas</em></span></a>. Puede haber <a href="#whitespace">espacios en blanco</a>
+alrededor de los estamentos.
+
+<P>En esta especificación, la expresiones "inmediatamente ante" o "inmediatamente después" significan sin ninguna interposición de espacios en blanco o comentarios.
+
+<H3>4.1.5 <span class="index-def" title="Regla-arroba">
+<a name="at-rules">Reglas-arroba</a></span></H3>
+
+<P> Las Reglas-arroba comienzan con una <DFN>palabra clave-arroba</DFN>, un carácter '@' seguido inmediatamente por un <a
+href="#value-def-identifier">identificador</a> (por ejemplo, '@import',
+'@page').
+
+<P> Una regla-arroba consiste en todo lo que hay hasta, e incluyendo, el siguiente punto y coma (;) o el siguiente <a href="#block">bloque,</a> cualquiera sea lo primero en aparecer. Una aplicación del usuario CSS que encuentra una regla-arroba irreconocible debe <span class="index-inst" title="ignorar"><a name="x9" href="#ignore">ignorar</a></span> la totalidad la regla-arroba y continuar el análisis después de ella.
+
+<P>Las aplicaciones del usuario deben <span class="index-inst" title="ignorar"><a name="x10"
+href="#ignore">ignorar</a></span> cualquier regla <a
+href="cascade.html#at-import">'@import'</a> que aparezca dentro de un <a
+href="#block">bloque</a> o que no preceda a todos los juegos de reglas.
+
+<div class="illegal-example"><P style="display:none">Ejemplo(s) ilícito(s):</P><P> Asumiendo, por ejemplo, que el analizador CSS2 encuentra esta hoja de estilo:
+
+<PRE>
+@import "subs.css";
+H1 { color: blue }
+@import "list.css";
+</PRE>
+
+<P> La segunda '@import' es ilícita de acuerdo a CSS2. El analizador CSS2 <span class="index-inst" title="ignorar"><a name="x11" href="#ignore">ignora</a></span> la regla-arroba completa, reduciendo de hecho la hoja de estilo a:
+
+<PRE>
+@import "subs.css";
+H1 { color: blue }
+</PRE>
+</div>
+
+<div class="illegal-example"><P style="display:none">Ejemplo(s) ilícito(s):</P><P> En el ejemplo siguiente, la segunda regla '@import' no es válida, por cuanto aparece dentro de un <a href="#block">bloque</a> '@media'.
+
+<PRE>
+@import "subs.css";
+@media print {
+  @import "print-main.css";
+  BODY { font-size: 10pt }
+}
+H1 {color: blue }
+</PRE>
+</div>
+
+<H3>4.1.6 <a name="block">Bloques</a></H3>
+
+<P> Un <a name="x12"><span class="index-inst" title="bloque"><em>bloque</em></span></a> comienza con una llave ({) y termina con la correspondiente llave hacia la derecha (}). En medio puede entrar cualquier carácter, excepto que los paréntesis ((&nbsp;)), los corchetes ([&nbsp;]) las llaves ({&nbsp;}) deben aparecer siempre con el par correspondiente y pueden anidarse. Las comillas simples (') y dobles (") también deben ir de a pares, y los caracteres encerrados por ellas son analizados como una <a name="x13"><span class="index-inst" title="cadena">cadena</span></a>.
+Ver los <a href="#tokenization">Comandos</a> arriba por la definición de una cadena.
+
+
+<div class="illegal-example"><P style="display:none">Ejemplo(s) ilícito(s):</P>
+<P> Aquí hay un ejemplo de bloque. Observe que la llave derecha entre las comillas dobles no se corresponden con la llave de apertura del bloque, y que la segunda comilla simple es un <a href="#escaped-characters">carácter con escape</a>, y de este modo no se corresponde con la primer comilla simple:
+
+<PRE>
+{ causta: "}" + ({7} * '\'') }
+</PRE>
+
+<P>Advierta que la regla anterior no es válida en CSS2, pero aún sigue siendo un bloque tal como se define arriba.
+</div>
+
+<H3><a name="q8">4.1.7 Juegos de reglas, bloques de declaraciones y selectores</a></H3>
+
+<P> Un juego de reglas (también llamado "regla") consiste de un selector seguido de un bloque de declaraciones.
+
+<P> Un <a name="x14"><span class="index-def"
+title="bloque de declaraciones"><dfn>bloque de declaraciones</dfn></span></a> (también llamado bloque-{} en el siguiente texto) comienza con una llave izquierda ({) y termina con la llave derecha (}) correspondiente. En medio de ellas debe haber una lista de cero o más declaraciones separadas por punto y coma (;).
+
+<P>El <a name="x15"><span class="index-def"
+title="selector"><em>selector</em></span></a> (ver también la sección sobre <a
+href="selector.html">selectores</a>) consiste en todo lo que hay hasta (pero sin incluir) la primer llave izquierda ({). Un selector siempre va junto con un bloque-{}. Cuando una aplicación del usuario no puede analizar el selector (es decir, no es un CSS2 válido), debe <span class="index-inst" title="ignorar"><a name="x16"
+href="#ignore">ignorar</a></span> también el bloque-{}.
+
+<P>CSS2 le da un significado especial a la coma (,) en los selectores. Sin embargo, como se desconoce si la coma puede adquirir otros significados en las versiones futuras de CSS, el estamento entero debe ser <span class="index-inst" title="ignorar"><a name="x17"
+href="#ignore">ignorado</a></span> si hay un error en cualquier parte del selector, aún cuando el resto del selector pueda parecer razonable en CSS2.
+
+<DIV class=illegal-example><P style="display:none">Ejemplo(s) ilícito(s):</P>
+<P>Por ejemplo, como el "&amp;" no es un comando válido en un selector CSS2, la aplicación del usuario CSS2 debe <span class="index-inst" title="ignorar"><a name="x18" href="#ignorar">ignorar</a></span> la segunda línea completa y no poner el color de H3 como rojo:
+
+<PRE>
+H1, H2 {color: green }
+H3, H4 &amp; H5 {color: red }
+H6 {color: black }
+</PRE>
+</DIV>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<P>Aquí hay un ejemplo más complejo. Los primeros dos pares de llaves están dentro de una cadena y no señalan el cierre del selector. Este es un estamento CSS2 válido.
+
+<PRE>
+P[ejemplo="public class foo\
+{\
+    private int x;\
+\
+    foo(int x) {\
+        this.x = x;\
+    }\
+\
+}"] { color: red }
+</PRE>
+</div>
+
+<H3>4.1.8 <a name="declaration">Declaraciones</a> y <a
+name="properties">propiedades</a></H3>
+
+<P> Una <a name="x19"><span class="index-def"
+title="declaración"><dfn>declaración</dfn></span></a> puede ser vacía o consistir en una <a name="x20"><span class="index-inst"
+title="propiedad">propiedad</span></a>, seguida por dos puntos (:), seguidos por un valor. Alrededor de cada uno de estos pueden haber <a
+href="#whitespace">espacios en blanco</a>.
+
+<p>Debido a la manera en que trabajan los selectores, las declaraciones múltiples para el mismo selector pueden organizarse en grupos separados por punto y coma (;).</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p>
+De este modo, las siguientes reglas:</p>
+<pre>
+H1 { font-weight: bold }
+H1 { font-size: 12pt }
+H1 { line-height: 14pt }
+H1 { font-family: Helvetica }
+H1 { font-variant: normal }
+H1 { font-style: normal }
+</pre>
+
+<p>son equivalentes a:</p>
+
+<pre>
+H1 {
+  font-weight: bold;
+  font-size: 12pt;
+  line-height: 14pt;
+  font-family: Helvetica;
+  font-variant: normal;
+  font-style: normal
+}
+</pre>
+</div>
+
+<P>Una propiedad es un <a
+href="#value-def-identifier">identificador</a>. Cualquier carácter puede aparecer en el valor, pero los paréntesis ("(&nbsp;)"), los corchetes ("[&nbsp;]"),
+las llaves ("{&nbsp;}"), las comillas simples (') y las comillas dobles (") deben ir con su par correspondiente, y los punto y coma que no formen parte de una cadena deben ir con <a
+href="#escaped-characters">escape</a>. Los paréntesis, los corchetes y las llaves pueden anidarse. Dentro de las comillas, los caracteres son tomados como una cadena.
+
+<P>La sintaxis de los <a name="x21"><span class="index-def" title="valores">valores</span></a> se especifica separadamente para cada propiedad, pero en todos los casos, los valores están compuestos de identificadores, cadenas, números, medidas, porcentajes, URI, colores, ángulos, tiempos y frecuencias. 
+
+<P>Una aplicación del usuario debe <span class="index-inst" title="ignorar"><a name="x22"
+href="#ignore">ignorar</a></span> una declaración con un nombre de propiedad no válido o un valor ilícito. Cada propiedad CSS2 tiene sus propias restricciones sintácticas y semánticas para los valores que acepta.
+
+<div class="illegal-example"><P style="display:none">Ejemplo(s) ilícito(s):</P><P> Por ejemplo, asumiendo que un analizador CSS2 encuentra esta hoja de estilo:
+
+<PRE>
+H1 { color: red; font-style: 12pt }  /* Valor ilícito: 12pt */
+P { color: blue;  font-vendor: any;  /* Propiedad no válida: font-vendor */
+    font-variant: small-caps }
+EM EM { font-style: normal }
+</PRE>
+
+<P> La segunda declaración en la primer línea contiene un valor ilícito: '12pt'. La segunda declaración en la segunda línea contiene una propiedad indefinida 'font-vendor'. El analizador CSS2 <span
+class="index-inst" title="ignorar"><a name="x23" href="#ignorar">ignorará</a></span> estas declaraciones, reduciendo de hecho la hoja de estilo a:
+
+<PRE class="example">
+H1 { color: red; }
+P { color: blue;  font-variant: small-caps }
+EM EM { font-style: normal }
+</PRE>
+</div>
+
+<H3>4.1.9 <a name="comments">Comentarios</a></H3>
+
+<P>Los <a name="x24"><span class="index-inst" title="comentarios">comentarios</span></a> comienzan con los caracteres "/*" y terminan con los caracteres "*/". Pueden aparecer en cualquier lugar entre los comandos y su contenido no tiene ninguna influencia en el procesamiento. Los comentarios no pueden anidarse.
+
+<P>CSS también permite los delimitadores de comentarios de SGML ("&lt;!--" y "--&gt;") en determinados lugares, pero estos no delimitan comentarios CSS. Están permitidos para que los reglas de estilo que aparecen en un documento fuente HTML (en el elemento STYLE) puedan ocultarse en las aplicaciones del usuario anteriores a HTML 3.2. Ver la especificación HTML 4.0 (<a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>) para más información.
+
+
+<H2>4.2 <a name="parsing-errors">Reglas para el manejo de errores en el análisis</a></H2>
+
+<P>En algunos casos, las aplicaciones del usuario deben ignorar parte de una hoja de estilo ilícita. Esta especificación utiliza el término <span class="index-def"
+title="ignorar"><a name="ignore"><dfn>ignorar</dfn></a></span> para indicar que la aplicación del usuario analice la parte ilícita (con el fin de localizar su comienzo y su final) pero que por otro lado actúe como si allí no hubiera nada.
+
+<P>Para asegurarse de que nuevas propiedades y nuevos valores para las propiedades existentes puedan agregarse en el futuro, se exige a las aplicaciones del usuario cumplir con las siguientes reglas cuando se encuentren con estos casos:</p>
+
+<UL>
+<LI><strong>Propiedades desconocidas.</strong> Las aplicaciones del usuario deben <span
+class="index-inst" title="ignorar"><a name="x26" href="#ignore">ignorar</a></span> una <a
+href="syndata.html#declaration">declaración</a> con una propiedad desconocida. Por ejemplo, si la hoja de estilo es:
+
+<PRE class="illegal-example">
+H1 { color: red; rotation: 70minutes }
+</PRE>
+
+<P> la aplicación del usuario tratará esto como si la hoja de estilo hubiera sido
+
+<PRE class="example">
+H1 { color: red }
+</PRE>
+
+<LI><strong>Valores ilícitos.</strong> Las aplicaciones del usuario deben ignorar una declaración con un valor ilícito. Por ejemplo:
+
+<PRE class="illegal-example">
+IMG { float: left }       /* correcto en CSS2 */
+IMG { float: left here }  /* "here" no es un valor de 'float' */
+IMG { background: "red" } /* las palabras clave no pueden ir entre comillas en CSS2 */
+IMG { border-width: 3 }   /* debe especificarse la unidad en los valores de medida */
+</PRE>
+
+Un analizador CSS2 admitirá la primer regla e <span class="index-inst" title="ignorar"><a name="x27" href="#ignore">ignorará</a></span> el resto, como si la hoja de estilo hubiera sido:
+
+<PRE class="example">
+IMG { float: left }
+IMG { }
+IMG { }
+IMG { }
+</PRE>
+
+<P>Una aplicación del usuario que conforma a una especificación de CSS futura puede aceptar una o más de las otras reglas también.</P>
+
+<LI><strong>Palabras clave-arroba inválidas.</strong> Las aplicaciones del usuario deben <span
+class="index-inst" title="ignorar"><a name="x28" href="#ignore">ignorar</a></span> una palabra clave-arroba no válida junto con todo lo que le sigue hasta (e incluyendo) el punto y coma (;) o bloque ({...}) siguientes, cualquiera sea el que aparezca primero. Por ejemplo, considere lo siguiente:
+
+<PRE class="illegal-example">
+@three-dee {
+  @background-lighting {
+    azimuth: 30deg;
+    elevation: 190deg;
+  }
+  H1 { color: red }
+}
+H1 { color: blue }
+</PRE>
+
+<P> La regla-arroba '@three-dee' no forma parte de CSS2. Por consiguiente, la regla-arroba entera (hasta, e incluyendo, la tercer llave derecha) es <span
+class="index-inst" title="ignorar"><a name="x29" href="#ignore">ignorada.</a></span> Una aplicación del usuario CSS2 la <span class="index-inst" title="ignorar"><a name="x30"
+href="#ignore">ignora</a></span>, reduciendo de hecho la hoja de estilo a:</P>
+
+<PRE class="example">
+H1 { color: blue }
+</PRE>
+
+</UL>
+
+
+<H2>4.3 <a name="values">Valores</a></H2>
+
+<H3><a name="q13">4.3.1 Enteros y números reales</a></H3>
+
+<P>Algunos tipos de valores pueden tener valores enteros (denotados por <span
+class="index-def" title="&lt;entero&gt;::definición de"><a
+name="value-def-integer" class="value-def">&lt;entero&gt;</a></span>) o por valores con números reales (denotados por <span class="index-def"
+title="&lt;número&gt;::definición de"><a name="value-def-number"
+class="value-def">&lt;número&gt;</a></span>). Los números reales y los enteros se especifican en notación decimal solamente. Un &lt;entero&gt; consiste en uno o más dígitos de "0" a "9". Un &lt;número&gt; puede ser un &lt;entero&gt; o puede ser cero o más dígitos seguidos por un punto (.) seguido por uno o más dígitos. Ambos, enteros y números reales, pueden estar precedidos por un "-" o "+" para indicar su signo.
+
+<P>Advierta que muchas propiedades que permiten un entero o un número real como valor, en realidad restringen el valor a cierto rango, a menudo a un valor no negativo.
+
+<H3>4.3.2 <A NAME="length-units">Medidas</A></H3>
+
+<P>Las medidas se refieren a las dimensiones horizontales y verticales.
+
+<P> El formato de un valor de medida (denotado por <span class="index-def"
+title="&lt;medida&gt;::definición de"><a name="value-def-length"
+class="value-def">&lt;medida&gt;</a></span> en esta especificación) es un signo opcional ('+' o '-', siendo '+' el predeterminado) seguido inmediatamente por un <a href="syndata.html#value-def-number" class="noxref"><span
+class="value-inst-number">&lt;número&gt;</span></a> (con o sin punto decimal) seguido inmediatamente por un identificador de la unidad (ej., px, deg, etc.). Después de la medida '0', el identificador de la unidad es opcional.
+
+<P> Algunas propiedades permiten valores de medida negativos, pero esto puede complicar el modelo del formato y pueden existir limitaciones propias de la implementación. Si un valor de medida negativo no es soportado, debe ser convertido al valor más cercano que pueda ser soportado.
+
+<P><a name="absrel-units">Hay dos tipos de unidades de medida: relativas y absolutas. Las unidades de </a> <a name="x34"><span class="index-def" title="unidades relativas"><em>medidas relativas</em></span></a> especifican una medida en relación a otra propiedad de medida. Las hojas de estilo que utilizan unidades relativas modificarán su escala de un medio a otro más fácilmente (ej., de un monitor de computadora a una impresora laser).
+
+<P>Las unidades relativas son:
+<ul>
+<li><strong>em</strong>: el tamaño (<a href="fonts.html#propdef-font-size" class="noxref"><span class="propinst-font-size">'font-size'</span></a>) de la fuente relevante
+<li><strong>ex</strong>: la <span class="descinst">'altura de la x'</span> de la fuente relevante
+<li><strong>px</strong>: pixeles, relacionado con los dispositivos visuales
+</ul>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+H1 { margin: 0.5em }      /* em */
+H1 { margin: 1ex }        /* ex */
+P  { font-size: 12px }    /* px */
+</PRE>
+</div>
+
+<P>La unidad <span class="index-def" title="em (unidad)|cuadratín"><a
+name="em-width">'em'</a></span> es igual al valor computado de la propiedad <a href="fonts.html#propdef-font-size" class="noxref"><span class="propinst-font-size">'font-size'</span></a> del elemento en el que se usa. La excepción es cuando 'em' aparece en el valor de la propiedad 'font-size' en sí misma, en cuyo caso se refiere al tamaño de la fuente del elemento padre. Puede usarse para longitudes verticales u horizontales. (Esta unidad también es denominada cuadratín en los textos sobre tipografía.)
+
+<p>La unidad <span class="index-def" title="x-height|ex (unidad)"><a
+name="ex">'ex'</a></span> es definida por la propiedad <a href="fonts.html#descdef-x-height" class="noxref"><span
+class="descinst-x-height">'x-height'</span></a> de la fuente. La altura de la x es denominada así debido a que es igual a la altura de la letra "x" minúscula. Sin embargo, 'ex' es definida aún para aquellas fuentes que no contienen la letra "x".
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>La regla:
+
+<PRE>
+H1 { line-height: 1.2em }
+</PRE>
+
+<P>significa que la altura de línea de los elementos H1 será un 20% mayor que el tamaño de fuente de los elementos H1. Por otro lado:
+
+<PRE>
+H1 { font-size: 1.2em }
+</PRE>
+
+<P>significa que la propiedad font-size de los elementos H1 será un 20% mayor que el tamaño de fuente heredado por los elementos H1.
+</div>
+
+<P>Cuando se especifica en la raíz de la <a href="conform.html#doctree">
+estructura del documento</a> (ej., "HTML" en HTML), 'em' y 'ex'  se refieren al <a href="cascade.html#initial-value">valor inicial</a> de la propiedad.
+
+<P>Las <a name="pixel-units">unidades pixeles</a> están relacionadas con la resolución de los dispositivos visuales, esto es, la mayoría de las veces un monitor de computadora. Si la densidad de pixeles del dispositivo de salida es muy diferente de un típico monitor de computadora, la aplicación del usuario debe re-escalar los valores de los pixeles. Se recomienda que el <a name="x39"><span class="index-def"
+title="pixel de referencia|pixel"><EM>pixel de referencia</EM></span></a> sea el ángulo visual de un pixel en un dispositivo con una densidad de pixeles de 90dpi y una distancia al lector del largo de su brazo. Para una longitud nominal del brazo de 28 pulgadas, el ángulo visual es de aproximadamente 0.0227 grados.
+
+<p>Para una distancia de lectura de la longitud de un brazo, 1 px corresponde aproximadamente a 0.28&nbsp;mm
+(1/90&nbsp;pulgadas). Cuando se imprime en una  impresora laser, con una distancia de lectura un poco menor a la longitud del brazo (55&nbsp;cm, 21&nbsp;pulgadas), 1 px es aproximado a 0.21&nbsp;mm. En una impresora de 300 puntos por pulgada (dpi), puede redondearse en 3 puntos (0.25&nbsp;mm); en una impresora de 600&nbsp;dpi, puede redondearse en 5 puntos.
+
+<p>Las dos imágenes de abajo ilustran el efecto de la distancia de lectura en el tamaño del pixel y el efecto de la resolución de un dispositivo. En la primer imagen, una distancia de lectura de 71&nbsp;cm (28&nbsp;pulgadas) resulta en un px de 0.28&nbsp;mm, mientras que una distancia de lectura de 3.5&nbsp;m (12&nbsp;pies) requiere un px de 1.4&nbsp;mm. </p>
+
+<div class="figure">
+<p><img src="images/pixel1.gif" alt="Demostración de que los pixeles deben ir aumentando su tamaño a medida que se incrementa la distancia de lectura"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-pixel1" href="images/longdesc/pixel1-desc.html" title="Descripción extensa de la ilustración sobre la definición de un pixel">[D]</A></SPAN> </p>
+</div>
+
+<P>En la segunda imagen, un área de 1px por 1px es cubierta por un solo punto en un dispositivo de baja resolución (una pantalla de computadora), mientras que la misma área es cubierta por 16 puntos en un dispositivo de alta resolución (tal como una impresora laser de 400&nbsp;dpi).</p>
+
+<div class="figure">
+<P><img
+src="images/pixel2.gif" alt="Demostración de que se necesitan más pixeles (puntos) del dispositivo para cubrir un área de 1px por 1px en un dispositivo de alta resolución que en uno de baja resolución"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-pixel2" href="images/longdesc/pixel2-desc.html" title="Descripción extensa para la ilustración del pixel de referencia vs. el pixel del dispositivo">[D]</A></SPAN></p>
+</div>
+
+<P>Los elementos hijos no heredan los valores relativos especificados para sus padres; ellos (generalmente) heredan los <a
+href="cascade.html#computed-value">valores computados</a>.</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> En las siguientes reglas, el valor computado de <a href="text.html#propdef-text-indent" class="noxref"><span
+class="propinst-text-indent">'text-indent'</span></a> de los elementos H1 será de 36pt, no de 45pt, si H1 es un hijo del elemento BODY.
+
+<PRE>
+BODY {
+  font-size: 12pt;
+  text-indent: 3em;  /* i.e., 36pt */
+}
+H1 { font-size: 15pt }
+</PRE>
+</div>
+
+<P> La unidades de <a name="x41"><span class="index-def" title="medidas absolutas"><em>medida absoluta</em></span></a> son útiles solamente cuando la propiedades físicas del medio de salida son conocidas. Las unidades absolutas son:
+
+<UL>
+<LI><STRONG>in</STRONG>: inches -- 1 inch (pulgada) es igual a 2.54 centímetros.
+<LI><STRONG>cm</STRONG>: centímetros
+<LI><STRONG>mm</STRONG>: milímetros
+<LI><STRONG>pt</STRONG>: puntos -- los puntos usados por CSS2 equivalen a un 1/72 de pulgada. 
+<LI><STRONG>pc</STRONG>: picas -- 1 pica es igual a 12 puntos.
+</UL>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+H1 { margin: 0.5in }      /* inches (pulgadas) */
+H2 { line-height: 3cm }   /* centímetros */
+H3 { word-spacing: 4mm }  /* milímetros */
+H4 { font-size: 12pt }    /* puntos */
+H4 { font-size: 1pc }     /* picas */
+</PRE>
+</div>
+
+<P> En caso de que la medida especificada no pueda ser soportada, las aplicaciones del usuario deben aproximarla al valor real.
+
+<H3>4.3.3  <A NAME="percentage-units">Porcentajes</A></H3>
+
+<P> El formato de un valor en porcentaje (denotado por <span
+class="index-def" title="&lt;porcentaje&gt;::definición de"><a
+name="value-def-percentage"
+class="value-def">&lt;porcentaje&gt;</a></span> en esta especificación) es un signo opcional ('+' o '-', siendo '+' el predeterminado) seguido inmediatamente por un <span class="index-inst"
+title="&lt;número&gt;"><a name="x43" href="syndata.html#value-def-number" class="noxref"><span
+class="value-inst-number">&lt;número&gt;</span></a></span> seguido inmediatamente por '%'.
+
+<P> Los valores expresados en porcentajes son siempre relativos a otro valor, por ejemplo una medida. Cada propiedad que admite porcentajes también define el valor al cual se refiere el porcentaje. El valor puede ser aquel de otra propiedad para el mismo elemento, una propiedad para un elemento antepasado o un valor en el contexto del formato (por ejemplo, el ancho de un <a
+href="visuren.html#containing-block">bloque de contención</a>). Cuando un porcentaje es atribuido a una propiedad del elemento <a
+href="conform.html#root">raíz</a> y el porcentaje es definido en referencia al valor heredado de alguna propiedad, el valor resultante es la cantidad del porcentaje del <a
+href="cascade.html#initial-value">valor inicial</a> de esta propiedad.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Como los elementos hijos (generalmente) heredan los <a
+href="cascade.html#computed-value">valores computados</a> de sus padres, en el siguiente ejemplo, el hijo del elemento P heredará un valor de 12pt para <a href="visudet.html#propdef-line-height" class="noxref"><span
+class="propinst-line-height">'line-height'</span></a>, no el valor del porcentaje (120%):
+
+<PRE>
+P { font-size: 10pt }
+P { line-height: 120% }  /* 120% de 'font-size'  */
+</PRE>
+</div>
+
+<H3>4.3.4 <A NAME="uri">URL + URN = URI</A></H3>
+
+<P>Los <a name="x44"><span class="index-def" title="Uniform Resource Locator (URL)|URL
+(Uniform Resource Locator)">URL</span></a> (de "Uniform Resource Locators", Localizadores Uniformes de Recursos, ver <a href="refs.html#ref-RFC1738" rel="biblioentry" class="noxref"><span class="normref">[RFC1738]</span></a> y <a href="refs.html#ref-RFC1808" rel="biblioentry" class="noxref"><span class="normref">[RFC1808]</span></a>) proporciona la dirección de un recurso en la Web. Una nueva forma en perspectiva para identificar recursos es llamada <a name="x46"><span
+class="index-def" title="URN (Uniform Resource Name)|Uniform Resource
+Name (URN)">URN</span></a> (de "Uniform Resource Name", Nombre Uniforme de Recurso). Juntos son llamados <a name="x48"><span class="index-def" title="Resource Identifier (URI)|URI
+(Uniform Resource Identifier)">URI</span></a> (de "Uniform Resource
+Identifiers", Identificadores Uniformes de Recursos, ver <a href="refs.html#ref-URI" rel="biblioentry" class="noxref"><span class="normref">[URI]</span></a>). Esta especificación usa el término URI.
+
+<P> Los valores de los URI en esta especificación son denotados por <span
+class="index-def" title="&lt;uri&gt;::definición de"><a
+name="value-def-uri" class="value-def">&lt;uri&gt;</a></span>. La expresión funcional usada para designar los URI en los valores de la propiedad es "url()", como en:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+BODY { background: url("http://www.bg.com/pinkish.gif") }
+</PRE>
+</div>
+
+<P> El formato del valor de un URI es 'url(' seguido de un <a
+href="#whitespace">espacio en blanco</a> opcional, seguido de una comilla simple (') o comilla doble (") opcional, seguida por el URI propiamente dicho, seguido de una comilla simple (') o comilla doble (") opcional, seguida por un espacio en blanco opcional, seguido de ')'. Las dos comillas tienen que ser las mismas.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>Un ejemplo sin comillas:
+<PRE>
+LI { list-style: url(http://www.redballs.com/redball.png) disc }
+</PRE>
+</div>
+
+<P> Los paréntesis, las comas, los espacios en blanco, las comillas simples (') y las comillas dobles (") que aparecen en un URI deben ir escapadas con una barra invertida: '\(', '\)', '\,'.
+
+<P> Dependiendo del tipo de URI, se podría escribir los caracteres de arriba como escapes en el URI (donde "(" = %28, ")" = %29, etc.)
+como se describe en <a href="refs.html#ref-URI" rel="biblioentry" class="noxref"><span class="normref">[URI]</span></a>.
+
+<P> Con el fin de crear hojas de estilo modulares que no sean dependientes de la posición absoluta de un recurso, los autores pueden usar URI relativos. Los URI relativos (como se define en <a href="refs.html#ref-RFC1808" rel="biblioentry" class="noxref"><span class="normref">[RFC1808]</span></a>) son convertidos a URI completos usando un URI de base. La RFC&nbsp;1808, sección&nbsp;3, define el algoritmo normativo para este proceso. Para las hojas de estilo CSS, el URI de base es aquel de la hoja de estilo, no el del documento fuente.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>Por ejemplo, suponga que la siguiente regla:</p>
+
+<PRE>
+BODY { background: url("yellow") }
+</PRE>
+
+<P>está localizada en una hoja de estilo designada por el URI:</p>
+
+<PRE>http://www.myorg.org/style/basic.css</PRE>
+
+<P>El fondo de BODY en el documento fuente será un mosaico de cualquier imagen que sea descripta por el recurso designado por el URI
+
+<PRE>http://www.myorg.org/style/yellow</PRE>
+</div>
+
+<P>Las aplicaciones del usuario pueden variar el modo de manejar los URI que designan recursos no disponibles o inaplicables.
+
+<H3>4.3.5 <a name="counter">Contadores</a></h3>
+
+<p>Los <span class="index-def" title="&lt;contadores&gt;, definición de"><a
+name="value-def-counter">contadores</a></span> son denotados por identificadores (ver las propiedades <a href="generate.html#propdef-counter-increment" class="noxref"><span
+class="propinst-counter-increment">'counter-increment'</span></a> y
+<a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a>). Para referirse al valor de un contador, se usa la notación <a name="x52"><span class="index-def" title="counter()">
+'counter(&lt;identificador&gt;)'</span></a> o 'counter(&lt;identificador&gt;,
+&lt;estilo-de-lista&gt;)'. El estilo predeterminado es 'decimal'.
+
+<p>Para referirse a una secuencia de contadores anidados del mismo nombre, la notación es 'counters(&lt;identificador&gt;, &lt;cadena&gt;)' o
+'counters(&lt;identificador&gt;, &lt;cadena&gt;,
+&lt;estilo-de-lista&gt;)'. Ver <a href="generate.html#scope">"Contadores anidados y área de alcance"</a> en el capítulo sobre <a
+href="generate.html">contenido generado</a>.
+
+<p>En CSS2, el valor de los contadores sólo puede ser referenciado desde la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a>. Note que 'none' es un posible &lt;estilo-de-lista&gt;: 'counter(x,
+none)' genera una cadena vacía.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Aquí hay una hoja de estilo que numera los párrafos (P) para cada capítulo (H1). Los párrafos son numerados con números romanos, seguidos por un punto y un espacio:
+
+<pre>
+P {counter-increment: par-num}
+H1 {counter-reset: par-num}
+P:before {content: counter(par-num, upper-roman) ". "}
+</pre>
+</div>
+
+<p>Los contadores que no están en el <a
+href="generate.html#scope">área de alcance</a> de ningún 'counter-reset', se asume que han sido reiniciados a 0 por un 'counter-reset' en el elemento raíz.
+
+<H3>4.3.6 <a name="color-units">Colores</a></H3>
+
+Un <span class="index-def" title="&lt;color&gt;::definición de"><a
+name="value-def-color" class="value-def">&lt;color&gt;</a></span> es o una palabra clave o una especificación numérica RGB.
+
+<P> Las lista de los nombres de las palabras clave es: aqua, black, blue, fuchsia,
+gray, green, lime, maroon, navy, olive, purple, red, silver, teal,
+white y yellow. Estos 16 colores son definidos en HTML 4.0
+(<a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>). Además de estas palabras clave de colores, los usuarios pueden especificar palabras clave que corresponden a los colores usados por ciertos objetos en el entorno del usuario. Por favor, consulte la sección sobre los <a
+href="./ui.html#system-colors">colores del sistema</a> para más información.
+
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+BODY {color: black; background: white }
+H1 { color: maroon }
+H2 { color: olive }
+</PRE>
+</div>
+
+<P>El modelo de color RGB es usado en la especificación numérica del color. Todos estos ejemplos especifican el mismo color:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+EM { color: #f00 }              /* #rgb */
+EM { color: #ff0000 }           /* #rrggbb */
+EM { color: rgb(255,0,0) }      /* rango de enteros 0 - 255 */
+EM { color: rgb(100%, 0%, 0%) } /* rango flotante 0.0% - 100.0% */
+</PRE>
+</div>
+
+<P> El formato de un valor RGB en notación hexadecimal es un '#' seguido inmediatamente por tres o seis caracteres hexadecimales. La notación RGB de tres dígitos (#rgb) es convertida en la forma de seis dígitos (#rrggbb) por repetición de dígitos, no por la adición de ceros. Por ejemplo, #fb0 se expande a #ffbb00. Esto garantiza que el blanco (#ffffff) pueda ser especificado con la forma reducida (#fff) y quitar cualquier dependencia con la profundidad de color del monitor.
+
+<P> El formato de un valor RGB en la notación funcional es 'rgb(' seguido por una lista separada por comas de tres valores numéricos (ya sean tres valores enteros o tres valores de porcentajes) seguidos de ')'. El valor entero 255 corresponde a 100%, y a F o FF en la notación hexadecimal: rgb(255,255,255) = rgb(100%,100%,100%) =
+#FFF. Los <a href="#whitespace">espacios en blanco</a> son permitidos alrededor de los valores numéricos.
+
+<P>Todos los colores RGB son especificados en el espacio de color sRGB (ver
+<a href="refs.html#ref-SRGB" rel="biblioentry" class="noxref"><span class="normref">[SRGB]</span></a>). Las aplicaciones del usuario pueden variar en la fidelidad con la que representan estos colores, pero el uso de sRGB proporciona una definición mensurable, objetiva y sin ambigüedades, de lo que debe ser el color, el cual puede ser relacionado con estándares internacionales (ver <a href="refs.html#ref-COLORIMETRY" rel="biblioentry" class="noxref"><span class="normref">[COLORIMETRY]</span></a>).
+
+<P>Las aplicaciones del usuario con conformidad pueden limitar su esfuerzo en el despliegue del color para realizar una corrección de gama en los mismos. sRGB especifica una gama de monitor de 2.2 bajo ciertas condiciones de percepción. Las aplicaciones del usuario deben ajustar los colores dados en CSS de manera tal que, en combinación con una gama de monitor "natural" en el dispositivo de salida, se produzca una gama de monitor efectiva de 2.2. Ver la sección sobre <a
+href="colors.html#gamma-correction">corrección de gama</a> por más detalles. Advierta que sólo los colores especificados en CSS son afectados; ej., se espera que las imágenes contengan su propia información de color.
+
+<P>Los valores fuera de la gama del dispositivo deben ser recortados: los valores de rojo, verde y azul tienen que ser cambiados para adecuarlos al rango soportado por el dispositivo. Para un monitor CRT típico, cuya gama es la misma que sRGB, las tres reglas de abajo son equivalentes:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+EM { color: rgb(255,0,0) }       /* rango de enteros 0 - 255 */
+EM { color: rgb(300,0,0) }       /* recortado a rgb(255,0,0) */
+EM { color: rgb(255,-10,0) }     /* recortado a rgb(255,0,0) */
+EM { color: rgb(110%, 0%, 0%) }  /* recortado a rgb(100%,0%,0%) */
+</PRE>
+
+<p>Otros dispositivos, tales como impresoras, tiene gamas distintas a sRGB; algunos colores fuera del rango 0...255 de sRGB serán representables (dentro de la gama del dispositivo), mientras que otros colores dentro del rango 0...255 de sRGB estarán fuera de la gama del dispositivo y de ese modo serán recortados.
+</div>
+
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Si bien los colores pueden agregar una significativa cantidad de información al documento y los hacen más legible, considere por favor que ciertas combinaciones de color pueden causar problemas a los usuarios con ceguera para los colores. Si usa una imagen de fondo o pone un color de fondo, por favor ajuste sus colores adecuadamente.
+</em>
+</div>
+
+
+<H3><a name="q19">4.3.7 Angulos</a></H3>
+<P>Los valores de ángulos (denotados por <span class="index-def"
+title="&lt;ángulo&gt;::definición de"><a
+name="value-def-angle">&lt;ángulo&gt;</a></span> en el texto) son usados con las <a href="./aural.html">hojas de estilo auditivas</a>.
+
+<P>Su formato es un signo opcional ('+' o '-', siendo '+' el predeterminado) seguido inmediatamente por un <span class="index-inst"
+title="&lt;número&gt;"><a name="x55" href="syndata.html#value-def-number" class="noxref"><span
+class="value-inst-number">&lt;número&gt;</span></a></span> seguido inmediatamente por un identificador de la unidad del ángulo.
+
+<P>Los identificadores de la unidad de ángulo son:</p>
+
+<ul>
+<li><strong>deg</strong>: degrees (grados)
+<LI><strong>grad</strong>: grads
+<LI><strong>rad</strong>: radianes
+</UL>
+
+<p>Los valores de ángulos pueden ser negativos. Deben ser normalizados en un rango de 0-360deg por la aplicación del usuario. Por ejemplo, -10deg y 350deg son equivalentes.
+
+<P>Por ejemplo, un ángulo derecho es de '90deg' o '100grad' o '1.570796326794897rad'.
+
+<H3><a name="q20">4.3.8 Tiempos</a></H3>
+
+<P>Los valores de tiempo (denotados por <span class="index-def" title="&lt;tiempo&gt;::definición de"><a name="value-def-time">&lt;tiempo&gt;</a></span> en el texto) son usados con las <a href="./aural.html">hojas de estilo auditivas</a>.
+
+<P>Su formato es un <span class="index-inst"
+title="&lt;número&gt;"><a name="x57" href="syndata.html#value-def-number" class="noxref"><span
+class="value-inst-number">&lt;número&gt;</span></a></span> seguido inmediatamente por un identificador de la unidad de tiempo.
+
+<P>Los identificadores para la unidad de tiempo son:</p>
+
+<UL>
+<LI><strong>ms</strong>: milisegundos
+<LI><strong>s</strong>: segundos
+</UL>
+
+<p>Los valores de tiempo no pueden ser negativos.
+
+<H3><a name="q21">4.3.9 Frecuencias</a></H3>
+
+<P>Los valores de la frecuencia (denotados por <span class="index-def"
+title="&lt;frecuencia&gt;::definición de"><a
+name="value-def-frequency">&lt;frecuencia&gt;</a></span> en el texto) son usados con las <a href="./aural.html">hojas de estilo en cascada auditivas</a>.
+
+<P>Su formato es un <span class="index-inst"
+title="&lt;número&gt;"><a name="x59" href="syndata.html#value-def-number" class="noxref"><span
+class="value-inst-number">&lt;número&gt;</span></a></span> seguido inmediatamente por un identificador de la unidad de frecuencia.
+
+<p>Los identificadores de la unidad de frecuencia son:</p>
+
+<ul>
+<li><strong>Hz</strong>: Hertz
+<li><strong>kHz</strong>: kilo Hertz
+</ul>
+
+<p>Los valores de la frecuencia no pueden ser negativos.
+
+<P> Por ejemplo, 200Hz (o 200hz) es un sonido bajo y 6kHz (o 6khz) es un sonido agudo.
+
+<h3>4.3.10 <a name="strings">Cadenas</a></H3>
+
+<P>Las <span class="index-def" title="&lt;cadena&gt;, definición de"><a
+name="value-def-string">cadenas</a></span> pueden escribirse con comillas dobles o con comillas simples. Las comillas dobles no pueden aparecer dentro de comillas dobles, a menos que sean escapadas (como "\"" o como "\22"). Igualmente para las comillas simples ('\'' o '\27').
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<pre>
+"ésta es una 'cadena'"
+"ésta es una \"cadena\""
+'ésta es una "cadena"'
+'ésta es una \'cadena\''
+</pre>
+</div>
+
+<P>Una cadena no puede contener una <a name="x61"><span class="index-inst"
+title="nueva línea">nueva línea</span></a> directamente. Para incluir una nueva línea en una cadena, use el escape "\A (la A hexadecimal es el carácter para el avance de línea en Unicode, pero representa la noción genérica de "nueva línea" en CSS). Ver la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a> por un ejemplo.
+
+<p>Es posible separar las cadenas en varias líneas, por razones estéticas u otras razones, pero en tales casos la nueva línea tiene que ser escapada con la barra invertida (\). Por ejemplo, los siguientes dos selectores son exactamente lo mismo:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<PRE>
+A[TITLE="un título n\
+o demasiado largo"] {/*...*/}
+A[TITLE="un título no demasiado largo"] {/*...*/}
+</pre>
+</div>
+
+<H2><a name="q23">4.4 Representación de los documentos CSS</a></H2>
+
+<P>Una hoja de estilo CSS es una secuencia de caracteres del Conjunto Universal de Caracteres (Universal
+Character Set) (ver <a href="refs.html#ref-ISO10646" rel="biblioentry" class="noxref"><span class="normref">[ISO10646]</span></a>). Para su transmisión y almacenamiento, estos caracteres deben ser <a name="x62"><span class="index-def"
+title="codificación de caracteres">codificados</span></a> por una codificación de caracteres que soporte el conjunto de caracteres disponibles en US-ASCII (ej., ISO
+8859-x, SHIFT JIS, etc.).  Por una buena introducción a los juegos de caracteres y las codificaciones de caracteres, por favor consulte la especificación HTML 4.0 (<a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="informref">[HTML40]</span></a>, capítulo 5). Ver también la especificación XML 1.0 (<a href="refs.html#ref-XML10" rel="biblioentry" class="noxref"><span class="informref">[XML10]</span></a>, secciones 2.2 y 4.3.3, y Apéndice F.
+
+<P>Cuando una hoja de estilo está incrustada en otro documento, tal como en el elemento STYLE o el atributo "style" de HTML, la hoja de estilo comparte la misma codificación de caracteres que todo el documento.
+
+<P>Cuando una hoja de estilo reside en un archivo separado, las aplicaciones del usuario deben observar las siguientes <a name="x63"><span class="index-inst" title="codificación de caracteres::determinación por las aplicaciones del usuario de">prioridades</span></a> cuando determinan la <a name="x64"><span class="index-inst" title="codificación de caracteres::predeterminada|predeterminada::codificación de caracteres">codificación de caracteres</span></a> de un documento (de la prioridad más alta a la más baja):</p>
+
+<ol>
+<li>Un parámetro HTTP "charset" en un campo "Content-Type".
+<li>La regla-arroba <a name="x66"><span class="index-def" title="@charset">@charset</span></a>.
+<li>Mecanismos del lenguaje del documento referenciado (ej., en HTML, el atributo "charset" del elemento LINK).
+</ol>
+
+<P>A lo sumo una regla @charset puede aparecer en una hoja de estilo externa --<em>no</em> debe aparecer en una hoja de estilo incrustada-- y debe aparecer bien al comienzo del documento, sin ser precedida por ningún carácter. Después de "@charset", los autores especifican el nombre de una codificación de caracteres. El nombre debe ser un nombre de conjunto de caracteres como son descriptos en el registro IANA (Ver <a href="refs.html#ref-IANA" rel="biblioentry" class="noxref"><span class="normref">[IANA]</span></a>. También, vea <a href="refs.html#ref-CHARSETS" rel="biblioentry" class="noxref"><span class="informref">[CHARSETS]</span></a> por una lista completa de conjuntos de caracteres). Por ejemplo:</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+@charset "ISO-8859-1";
+</div>
+
+<P>Esta especificación no ordena cuáles codificaciones de caracteres deben soportar las aplicaciones del usuario.
+
+<P>Note que la confianza en la estructura de @charset teóricamente plantea un problema debido a que no hay información <em>a priori</em> sobre cómo está codificada. En la práctica, sin embargo, las codificaciones de uso generalizado en Internet están basadas en ASCII, UTF-16, UCS-4, o (raramente) en EBCDIC. Esto significa que, en general, los valores del byte inicial de un documento habilitan a la aplicación del usuario para detectar la familia de codificación fidedignamente, lo cual provee suficiente información para decodificar la regla @charset, la que a su vez determina la codificación de caracteres exacta.
+
+
+
+
+
+<h3><a name="q24">4.4.1 Referencias a caracteres no representados en una codificación de caracteres</a></h3>
+
+<P>Una hoja de estilo puede tener que referirse a caracteres que no pueden ser representados en la actual codificación de caracteres. Estos caracteres deben ser escritos como referencias <a href="#escaped-characters">escapadas</a> a los caracteres ISO 10646. Estos escapes sirven al mismo propósito que los caracteres numéricos referenciados en los documentos HTML o XML (ver <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a>,
+capítulos 5 y 25).
+
+<P>El mecanismo de escape de caracteres debería ser usado sólo cuando unos pocos caracteres deben representarse de este modo. Si la mayor parte del documento requiere de escapes, los autores deberían codificarlo con una codificación más apropiada (ej., si el documento contiene una gran cantidad de caracteres en griego, los autores podrían usar "ISO-8859-7" o "UTF-8").
+
+<P>Los procesadores intermedios que utilizan una codificación de caracteres diferente pueden traducir estas secuencias con escape a secuencias de bytes de esa codificación. Los procesadores intermedios no deben, por otro lado, alterar las secuencias de escape que cancelen el significado especial de un carácter en ASCII.
+
+<P>Las <a href="conform.html#conformance">aplicaciones del usuario con conformidad</a> deben asignar en Unicode a todos los caracteres en cualquier codificación de caracteres que reconozca (o debe comportarse como si lo hubiera hecho).
+
+<P>Por ejemplo, un documento transmitido como ISO-8859-1
+(Latin-1) no puede contener directamente las letras griegas:
+"&#954;&#959;&#965;&#961;&#959;&#962;" (griego: "kouros") tiene que escribirse como "\3BA\3BF\3C5\3C1\3BF\3C2".
+
+<div class="note"><P>
+<em><strong>Nota.</strong> En HTML 4.0, las referencias con caracteres numéricos son interpretadas en los valores del atributo "style" pero no en el contenido del elemento STYLE. Debido a esta asimetría, recomendamos que los autores utilicen el mecanismo de escape de caracteres de CSS en lugar de referencias con caracteres numéricos para ambos, el atributo "style" y el elemento STYLE. Por ejemplo, recomendamos:</em></p>
+
+<pre class="html-example">
+&lt;SPAN style="voice-family: D\FC rst"&gt;...&lt;/SPAN&gt;
+</pre>
+
+<P><em>en lugar de:</em></p>
+
+<pre class="html-example">
+&lt;SPAN style="voice-family: D&amp;#252;rst"&gt;...&lt;/SPAN&gt;
+</pre>
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="conform.html">anterior</a> &nbsp;
+<a href="selector.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</html>

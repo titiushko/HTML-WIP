@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+  <head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+    <title>Descripción extensa para el ejemplo mostrando cómo las celdas estructuralmente superpuestas son procesadas</title>
+  </head>
+
+  <body>
+      <h1>Descripción extensa para el ejemplo mostrando cómo las celdas estructuralmente superpuestas son procesadas</h1>
+
+<P>Este ejemplo muestra la diferencia entre el modelo de tabla CSS para HTML y para otros formatos de documento. Primero, en HTML,  el ejemplo definido por HTML sería ilícito, puesto que habría conducido a la superposición de las celdas si se hubieran seguido las reglas de composición de HTML. Las reglas CSS se aplican a otros formatos aparte de HTML y no presentan este problema.
+
+<P>El diagrama muestra cómo los dos ejemplos, el de HTML y el casi idéntico no HTML, podrían ser procesados. El procesamiento del ejemplo HTML es indefinido, y se muestra un posible procesamiento, en la mitad izquierda de la figura: tiene dos celdas que se superponen. El procesamiento del ejemplo no HTML está a la derecha, sigue las reglas CSS y en consecuencia las celdas no se superponen.
+
+<p>En ambas tablas, las celdas tienen un fondo gris y un borde negro. Cada una contiene un solo número como identificador. Las celdas se separan unas de otras por un espacio entre celdas. 
+
+<P>La tabla de la izquierda tiene una fila superior de cuatro celdas, conteniendo respectivamente los números "1", "2", "3" y "4". La segunda de estas celdas, aquella con el número "2", se extiende sobre la fila de abajo. La segunda fila de la tabla contiene una celda, que contiene el número "5", y abarca las columnas uno y dos. Así, la celda marcada "2" y la celda marcada "5" se superponen en la segunda fila, segunda columna. La superposición es mostrada con un fondo gris oscuro.
+
+<P>La tabla de la derecha tiene la misma fila superior de cuatro celdas, marcadas "1", "2", "3" y "4". La segunda celda nuevamente abarca las filas uno y dos. La segunda fila de la tabla contiene una celda, que tiene el número "5", que abarca las columnas tres y cuatro. Así, las celdas no se superponen, pero la primer celda de la segunda fila es dejada vacía.
+
+<P><a href="../../tables.html#img-table-overlap">Volver a la imagen.</a> 
+
+  </body>
+</html>

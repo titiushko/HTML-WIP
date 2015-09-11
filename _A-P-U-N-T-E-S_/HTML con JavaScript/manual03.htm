@@ -1,0 +1,439 @@
+<HTML>
+<HEAD><TITLE>Formateado de Texto en HTML</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<center>
+<table cellpadding=3 cellspacing=3 width=700 >
+<tr><td>
+<font size="3" face="Arial">
+
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="texto.gif" alt="Icono" width=70 height=70></td>
+<td><font  size=6><b>Formateado de Texto en HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+Tras haber visto la estrucuta b&aacute;sica de un documento HTML, pasamos ahora a ver la parte que hace referencia a lo que es el cuerpo del documento, donde ir&aacute; incluido tanto texto, como im&aacute;genes, com tablas... y los distintos componentes que queramos añadir a nuestras p&aacute;ginas, y la forma de modificarlos.
+</p>
+
+<pre>
+&lt;HTML&gt;
+     &lt;HEAD&gt;
+     &lt;TITLE&gt; Javier G&oacute;rriz &lt;/TITLE&gt;
+     &lt;/HEAD&gt;
+     &lt;BODY&gt;
+     ...
+     &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<p>
+Tanto texto como im&aacute;genes, com tablas, como enlaces, etc... si queremos que sean visualizados, deben de ir entre la directiva &lt;BODY&gt;...&lt;/BODY&gt;, de lo contrario no se visualizar&aacute;n y no tendr&aacute;n efectos sobre el documento.
+</p>
+
+<ul>
+<li><b>Saltos de l&iacute;nea</b>
+
+<p>
+En los documentos HTML, hay una peculiaridad con respecto a los editores de texto, Debemos de indicar con directivas, tanto los retornos de carro (ENTER’s) como los p&aacute;rrafos, como la negrilla, cursiva, subrayado, etc... de forma que si no lo hacemos, por mucho texto que escribamos, no veremos los retornos de carro ni dem&aacute;s si no se lo especificamos. Un ejemplo ser&iacute;a:
+</p>
+
+<pre>
+&lt;BODY&gt;
+Esto es un texto
+que muestra como los
+retornos de carro que pongo
+no se respetan en el
+navegador
+&lt;/BODY&gt;
+</pre>
+
+<p>
+¿Por qu&eacute; no respeta las retornos de carro?; porque nosotros no se los hemos especifiado, con la directiba &lt;BR&gt; (Break Return). De lo contrario, el navegador adaptar&aacute; el texto al ancho de ventana de visualizaci&oacute;n que posea, y retornara las l&iacute;neas cual &eacute;l crea conveniente, o mejor dicho, cuando el final de ventana haga forzoso el retorno de carro. La directiva &lt;BR&gt; no hace m&aacute;s que indicar al navegador que debe de efectuar un retorno de carro, es decir pasar a escribir en la l&iacute;nea siguiente:
+</p>
+
+<pre>
+&lt;BODY&gt;
+Esto es un texto&lt;BR&gt;
+que muestra como los&lt;BR&gt;
+retornos de carro que pongo&lt;BR&gt;
+si se respetan en el&lt;BR&gt;
+navegador&lt;BR&gt;
+&lt;/BODY&gt;
+</pre>
+
+<p>
+Como vemos &lt;BR&gt; es una directiva abierta, ya que no requiere de otro &lt;/BR&gt; para su finalizaci&oacute;n global de la orden. En este caso, si que se respetan los retornos de carro que hemos definido en el documento.
+</p>
+<br>
+
+<li><b>Peculiaridades de &lt;BR&gt;</b>
+
+<p>
+En Netscape, la directiva &lt;BR&gt; puede presentar algunos atributos que van incluidos nre los simbolos &lt;...&gt; y tras la directiva (en este caso BR). Dichos atributos son los relacionados con <b>CLEAR</b>.
+</p>
+
+<p>
+Su uso se justifica cuando interaccionan texto e im&aacute;genes (s&oacute;lo en Netscape) y s&oacute;lo cuando hay una considerable cantidad de texto. Este atributo tiene 3 posibles valores:
+</p>
+
+<p>
+<i><b>CLEAR=LEFT</b></i> finaliza la l&iacute;nea y comienza la siguiente en la primera l&iacute;nea disponible desde el margen izquierdo, respetando el margen dejado por la imagen.
+</p>
+
+<p>
+<i><b>CLEAR=RIGHT</b></i> finaliza la l&iacute;nea y comienza la siguiente en la primera l&iacute;nea disponible desde el margen derecho, respetando el margen dejado por la imagen.
+</p>
+
+<p>
+<i><b>CLEAR=ALL</b></i> produce el mismo efecto sobre los 2 m&aacute;rgenes
+</p>
+
+<p>
+Netscape cuenta tambi&eacute;n  con otras 2 directivas que son <b>&lt;NOBR&gt;</b> y <b>&lt;WBR&gt;</b>, ambas directivas abiertas. &lt;NOBR&gt; delimita un bloque de texto, que no puede ser dividido, por ejemplo una direcci&oacute;n URL (http://.../.../.../). &lt;WBR&gt; es una directiva vac&iacute;a que indica dentro de un bloque &lt;NOBR&gt; d&oacute;nde se puede establecer la divisi&oacute;n del texto.
+</p>
+<br>
+
+<li><b>P&aacute;rrafos</b>
+
+<p>
+Si nosotros queremos escribir un p&aacute;rrafo grande, y no nos importa que los retornos de carro sean aleatorios (dependiendo del tipo de navegador y de la resoluci&oacute;n de la pantalla en el que se est&eacute; visualizando el documento), pero sin embargo queremos que haya una separaci&oacute;n entre p&aacute;rrafo y p&aacute;rrafo, poseemos una directiva cerrada en HTML, que nos solucionar&aacute; el problema: &lt;P&gt;...&lt;/P&gt;
+</p>
+
+<pre>
+&lt;BODY&gt;
+&lt;P&gt;
+En este ejemplo se muestra como pese a que no nos importe el poder ver los retornos de carro en distintas
+posiciones, la directiva de p&aacute;rraf&oacute;, lo que hace es que cuando finaliza el ancho de pantalla de que dispone,
+realiza un retorno de carro y contin&uacute;a con el texto en la siguiente l&iacute;nea. Si reducimos el ancho de la 
+pantalla del visualizador, veremos como la directiva de p&aacute;rrafo se adapta a este ancho, dando un formato
+distinto al texto.
+&lt;/P&gt;
+&lt;/BODY&gt;
+</pre>
+
+<p>
+Con esta directiva, adem&aacute;s de poner el texto en modo p&aacute;rrafo, lo que hace al finalizar con &lt;/P&gt; es hacer un salto de l&iacute;nea, entre la finalizaci&oacute;n del p&aacute;rrafo, y el siguiente texto, imagen, table, lista, etc... que nosotros tuvieramos en el documento, de forma que quede visiblemente separado con una l&iacute;na en blanco.
+</p>
+</ul>
+<BR>
+
+<b><font  size=5>TEXTO PREFORMATEADO</font></b>
+
+<p>
+Cuando habl&eacute; de los retornos de carro, dije que para pdoer ser visualizados, deber&iacute;amos colocar la directiva &lt;BR&gt; al final de la l&iacute;nea para poder visualizarlos correctamente en el navegador.
+</p>
+
+<p>
+Esto no es del todo cierto, ya que hay una directiva cerrada (<b>&lt;PRE&gt;...&lt;/PRE&gt;</b>) que permite visualizar el texto tal y como se encuentre colocado entre estas 2 directivas, con el formato que deseemos y con los retornos de carro sin ser especificador por &lt;BR&gt;.
+</p>
+
+<ul>
+<li><b>&lt;PRE&gt;...&lt;/PRE&gt;</b>
+
+<P>
+Todo el texto que vaya entre estas 2 directivas, se mostrar&aacute; tal y como lo escribamos, incluyendo las tabulaciones y los retornos de carro.
+</P>
+
+<P>
+<b>NOTA:</b> En lugar de tabulaciones, es preferible poner separadoreso espacios, ya que no todos los browsers tiene por defecto el mismo espacio definido en el tabulado y podr&iacute;a modificarnos el texto dependiendo del navegador en pleado para su posterior visualizaci&oacute;n.
+</P>
+
+<P>
+Al finalizar un bloque delimitado por las directivas &lt;PRE&gt;...&lt;/PRE&gt; se incorpora autom&aacute;ticamente un salto visible d l&iacute;nea, OJO pero en este caso no se deja una l&iacute;na en blanco con respecto al siguiete elemento.
+</p>
+
+<pre>
+&lt;BODY&gt;
+&lt;PRE&gt;
+
+LUNES | MARTES | MIERCOLES | JUEVES | VIERNES
+------------------------------------------------------------------------------
+100       | 200         | 200               | 150        | 500
+------------------------------------------------------------------------------
+
+&lt;/PRE&gt;
+&lt;/BODY&gt;
+</pre>
+
+<p>
+Este cuadro aparecer&aacute; tal cual lo podemos visualizar aqu&iacute; en el navegador. Esta directiva tiene un atributo WIDTH que se emplea para indicar al navegador el tamaño m&aacute;ximo de cada l&iacute;na del texto preformateado, aunque no todos los visualizadores la reconocen y los que no, la ignoran tomando todo el ancho de la pantalla. El <b>WIDTH</b> de la tabla lo podemos expresar en pixel poniendo directamente el n&uacute;mero de ellos (&lt;PRE WIDTH=500&gt;...&lt;/PRE&gt;), o bien en tanto por ciento de ancho de pantalla (&lt;PRE WIDTH=50%&gt;...&lt;/PRE&gt;).
+</p>
+</ul>
+<br>
+
+<font  size=5><b>ESTILOS DE TEXTO</b></font>
+
+<p>
+Los estilos de texto sirven para modificar la apariencia o aspecto final del texto en la pantalla del navegador cuando vemos el documento, (negrita, bubrayado, tachado, ...). Hay 2 tipos de estilos, los <b>f&iacute;sicos</b> y los <b>l&oacute;gicos</b>. (tanto unos como otros son directivas cerradas).
+</p>
+
+<ul>
+<li><u><b>Estilos F&iacute;sicos</b></u>
+
+<p>
+Se trata de la forma habitual de describir estilos en los programas detratamiento de texto y especifican seg&uacute;n las directivas:
+</p>
+
+<ul type="round">
+<li><b>Negrita &lt;B&gt;...&lt;/B&gt;</b> el bloque de texto entre ambas directivas aparece con un tipo de letra m&aacute;s gruesa.<br><br>
+
+<li><b>Cursiva &lt;I&gt;...&lt;/I&gt;</b> el bloque de texto entre ambas directivas aparece con un tipo de letra inclinada hacia la derecha.<br><br>
+
+<li><b>Subrayado &lt;U&gt;...&lt;/U&gt;</b> el bloque de texto entre ambas directivas aparece subrayado con una l&iacute;nea horizontal.<br><br>
+
+<li><b>Texto de Terminal &lt;TT&gt;...&lt;/TT&gt;</b> el bloque de texto entre ambas directivas aparece con letra tipogr&aacute;fica al estilo de los terminales de texto antiguos. Se usa una letra similar al del texto preformateado con &lt;PRE&gt;...&lt;/PRE&gt;.<br><br>
+
+<li><b>Letra grande &lt;BIG&gt;...&lt;/BIG&gt;</b><br><br>
+
+<li><b>Letra pequeña &lt;SMALL&gt;...&lt;/SMALL&gt;</b><br><br>
+
+<li><b>Letra tachada &lt;S&gt;...&lt;/S&gt;</b><br><br>
+
+<li><b>Subindice &lt;SUB&gt;...&lt;/SUB&gt;</b><br><br>
+
+<li><b>Super&iacute;ndice &lt;SUP&gt;...&lt;/SUP&gt;</b><br><br>
+</ul>
+
+<p>
+El efecto de los estilos se acumula, lo que quiere decir que dentro de, por ejemplo, un bloque de negrita, se puede incluir un bloque de texto en cursiva, de modo que el texto aparecer&iacute;a con 2 estilos de letra diferentes.
+</p>
+<br>
+
+<li><u><b>Estilos L&oacute;gicos</b></u><br><br>
+
+<ul type="circle">
+<li><b>Negrita &lt;STRONG&gt;...&lt;/STRONG&gt;</b> “fuerte” o marcado, se identifica con negrita.<br><br>
+
+<li><b>Enfatizado &lt;EM&gt;...&lt;/EM&gt;</b> se indentifica con  el estilo de cursiva.<br><br>
+
+<li><b>Cita o texto literal &lt;CITE&gt;...&lt;/CITE&gt;</b> se indentifica con  el estilo de texto citado textualmente.<br><br>
+
+<li><b>Texto de Terminal &lt;KBD&gt;...&lt;/KBD&gt;</b> similar a &lt;TT&gt;...&lt;/TT&gt;.<br><br>
+
+<li><b>C&oacute;digo &lt;CODE&gt;...&lt;/CODE&gt;</b> c&oacute;digo que normalmente se emplea para representar un elemento HTML.<br><br>
+
+<li><b>Definici&oacute;n &lt;DFN&gt;...&lt;/DFN&gt;</b>.<br><br>
+
+<li><b>Ejemplo &lt;SAMP&gt;...&lt;/SAMP&gt;</b>.<br><br>
+
+<li><b>Texto indentado &lt;BLOCKQUOTE&gt;...&lt;/BLOCKQUOTE&gt;</b>.<br><br>
+
+<li><b>Variable &lt;VAR &gt;...&lt;/VAR&gt;</b>.<br><br>
+</ul>
+
+<p>
+No se puede decir ni dar una indicaci&oacute;n de c&oacute;mo se visualizar&aacute; el texto marcado con estas directivas pues cada navegador usa una convenci&oacute;n diferente, que adem&aacute;s puede ser modificada libremente por el usuario.
+</p>
+
+<p>
+En <b>HTML 3.0</b> se definen (al menos en teor&iacute;a) 8 estilos m&aacute;s de letra, que son:
+</p>
+
+<ul type="square">
+<li>&lt;LANG&gt;...&lt;/LANG&gt; de idioma.
+
+<li>&lt;AU&gt;...&lt;/AU&gt; de autor.
+
+<li>&lt;PERSON&gt;...&lt;/PERSON&gt; de persona.
+
+<li>&lt;ACRONYM&gt;...&lt;/ACRONYM&gt; de acr&oacute;nimo.
+
+<li>&lt;ABBREV&gt;...&lt;/ABBREV&gt; de acr&oacute;nimo.
+
+<li>&lt;INS&gt;...&lt;/INS&gt; texto insertado.
+
+<li>&lt;DEL&gt;...&lt;/ DEL &gt; texto borrado.
+</ul>
+</ul>
+<br>
+
+<b><font  size=5>TAMAÑO Y COLOR DE LETRA</font></b>
+
+<p>
+Para cambiar el tamaño de la letra, existen 2 formas de hacerlo; una de ellas es la directiva cerrada <b>&lt;FONT&gt;...&lt;/FONT&gt;</b> y los atributos que posee, y otra es con las cabeceras que se ver&aacute;n m&aacute;s en profundidad en adelante.
+</p>
+
+<p>
+Los visualizadores como Netscape o Explorer, adoptan por defecto un valor de 3 puntos de valor, como tamaño de letra, valor que para resoluciones muy grandes de pantalla, puede dejarnos ciegos al intentar leerla. Este valor de puntos no se relaciona con un valor de pixes, ni dots sino con un valor propio que el navegador posee.
+</p>
+
+<p>
+Otra forma de cambiar el tamaño de letra, es con la directiva abierta <b>&lt;BASEFONT SIZE=“valor n&uacute;merico”&gt;</b>, que nos permite modificar el valor predeterminado del tamaño de letra en el documento completo, desde donde coloquemos esta directiva, hasta el final del documento.
+</p>
+
+<p>
+<b>&lt;BASEFONT SIZE=“5”&gt;</b> hace que el documento adopte un tamaño de letra de 5 puntos por defecto para todo el texto que aparezca despu&eacute;s de esta directiva. Si lo ponemos despu&eacute;s de la directiva &lt;BODY&gt; (inmediatamente despu&eacute;s a &eacute;sta), la modificaci&oacute;n del tamaño de letra afecta a todo el documento:
+</p>
+
+<pre>
+&lt;BODY&gt;
+     &lt;BASEFONT SIZE=“5”&gt;
+     ...
+</pre>
+<br>
+
+<ul>
+<li><b>&lt;FONT&gt;...&lt;/FONT&gt;</b>
+
+<p>
+Esta directiva cerrada, a diferencia de &lt;BASEFONT SIZE=“valor num&eacute;rico”&gt;, lo que hace es delimitar un espacio de texto restringido, en lugar de modificar la letra de todo el documento. Para ello cuenta con 3 atributos:
+</p>
+
+<ul type="square">
+<li><b>SIZE=“valor num&eacute;rico”</b>
+
+</p>
+Se fuerza a que el bloque de texto delimitado tome ese valor como tamaño de letra. Otra forma de hacer que el tamaño de letra cambie, esusando valores relativos.Antes dijimos que por defecto el valor de tamaño de texto era de 3 puntos, por lo que si definimos el valor relativo de texto sobre el valor de 3 que tienen por defecto la mayor&iacute;a de los navegadores:
+</p>
+
+&lt;FONT SIZE=“4”&gt;...&lt;/FONT&gt;<br>
+&lt;FONT SIZE=“+1”&gt;...&lt;/FONT&gt;
+
+<p>
+dejar&iacute;an el tamaño de texto al mismo valor de tamaño de punto, es decir a 4 puntos de tamaño. El primer ejemplo es un ejemplo de definici&oacute;n de tamaño con valor absoluto (el m&aacute;s recomendado), ya que hace referencia a un valor total y que no depende del definido por defecto en el navegador que estemos empleando; mientras que en el segundo ejemplo (+1), al tamaño por defecto del navegador añadimos 1 punto. Podemos definir tambi&eacute;n valores relativos negativos
+</p>
+
+&lt;FONT SIZE=“-1”&gt;...&lt;/FONT&gt;
+
+<p>
+lo que nos dar&iacute;a un valor de 2. Debemos de percatarnos, que si el valor de tamaño de letra por defecto de nuestro navegador es distinto a 3 no sabremos con absoluta certeza como aparecer&iacute;a en ese tipo de navegadores. Por ello es m&aacute;s recomendable el emplear valores absolutos de letra y no relativos.
+</p>
+
+<p>
+Entre las directivas de &lt;FONT&gt;...&lt;/FONT&gt; podemos incluir tambi&eacute;n directivas de estilos de texto como negrita, subrayado, etc... de forma que definimos tamaño y estilo de texto al mismo tiempo. Esta particularidad fue introducida por netscape, por lo que no aseguro que funcione en el resto de navegadores.
+</p>
+
+<li><b>COLOR=“nombre o peso”</b>
+
+<p>
+Esta caracter&iacute;stica ya la incluye Netscape versi&oacute;n 1.1. Lo &uacute;nico que hace es cambiar el color del texto que es delimitado por las directivas, de forma que el resto permanece con el color que hayamos definido por defecto, o que, sino lo hemos definido, ser&aacute; el negro en la mayor&iacute;a de los navegadores.
+</p>
+
+<p>
+El color al igual que el atributo de &lt;BODY&gt;, se puede definir por medio de un nombre de color en ingles o por medio de su “peso” o valor RGB en hexadecimal. Los nombreshacen siempre referencia a los nombre ingleses, por lo que:
+</p>
+
+<pre><b>
+“black”=negro          “green”=verde
+“red”=Rojo               “white”=blanco
+“yellow”=amarillo    “blue”=azul
+...
+</b></pre>
+<br>
+
+<p>
+El peso, viene dado por el formato RGB que indica el “peso” o valor a cada uno de los 3 colores que forman este formato (Red, Green y Blue, Rojo, Verde y Azul). Estos valores se indican con 2 d&iacute;gitos hexagesimales, por lo que cada color se compone de 6 d&iacute;gitos precedidos de una almohadilla, que indica al navegador de que se trata de un n&uacute;mero hexagesimal (#).
+</p>
+
+&lt;FONT COLOR=“#000000”&gt;...&lt;/FONT&gt;	Negro<br>
+&lt;FONT COLOR=“#FFFFFF”&gt;...&lt;/FONT&gt;	Blanco<br>
+&lt;FONT COLOR=“#FF0000”&gt;...&lt;/FONT&gt;	Rojo<br>
+...<br><br>
+
+<li><b>FACE=“nombre de letra”</b>
+
+<p>
+Esta es una de las caracter&iacute;sticas m&aacute;s interesantes a mi entender a la hora de dar el format de texto deseado a nuestro documento. Este atributo lo que hace es definir el estilo o nombre de letra con el que queremos que aparezca nuestro texto. Por defecto el valor de este valor en todos los navegadores (creo), es el del tipo “Times New Roman”, pero que nosotros podemos modificar indicando un nombre distinto de letra. Por ejemplo, si quisieramos que la letra apareciera con formato de letra estilo “Arial”, lo &uacute;nico ue tendr&iacute;amos que definir es el nombre de letra seg&uacute;n:
+</p>
+
+&lt;FONT FACE=“arial”&gt;...&lt;/FONT&gt;
+
+<p>
+lo que har&iacute;a que el bloque te texto entre las directivas tuviera el formato de texto “Arial” y no “Times new Roman” que aparecer&iacute;a por defecto. Se pueden definir varios tipos en el mismo atributo de la forma:
+<p>
+
+&lt;FONT FACE=“arial, courier”&gt;...&lt;/FONT&gt;
+
+<p>
+siendo preferente la primera que coloquemos y la segunda en el supuesto de que nuestro usuario no tuviera la primera instalada en su equipo local. Esto por lo tanto, limita el tipo de letras a las que nuestro usuario visitante, tenga instaladas en su equipo, siendo limitada la lista de letras que se instalan por defecto (por ejemplo), en el sistema operativo que emplee (Windows, MacOS, OS/2, UNIX, Linux....) por lo que por ello se suelen definir 2 letras, y en el supueto de que no tuviera ninguna de las especificadas, se tomar&iacute;a la de defecto del navegador que no es otra que la ya nombrada “Times New Roman”. “Arial” suele ser un valor v&aacute;lido para los distintas plataformas de navegaci&oacute;n.
+</p>
+</ul>
+
+<p>
+El atributo <b>COLOR</b>, <b>SIZE</b> o <b>FACE</b> pueden incluirse conjuntamente en la directiva <b>&lt;FONT&gt;...&lt;/FONT&gt;</b> y si alguno de ellos no se especificara, se tomar&iacute;a por defecto el valor predeterminado por el navegador empleado (seg&uacute;n los distintos navegadores).
+</p>
+
+</p>
+El cerrar este tipo de directivas, no fuerza ni el retorno de carro, y la l&iacute;nea en blanco con el siguiente elemento HTML, por lo que, de no especificar lo contrario, tras estas directivas, el texto, o imagen o el elemento que sea, aparecer&aacute; a continuaci&oacute;n del texto formateado con estas directivas.
+</p>
+</ul>
+<br>
+
+<b><font  size=5>CABECERAS</font></b>
+
+<p>
+Al margen de estas directivas, HTML emplea otro medio de modificar el tamaño de texto desde sus primeras versiones (por lo que es reconocido por cualquier navegador).
+</p>
+
+<p>
+Son las denominadas “Headings” o cabeceras <b>&lt;Hn&gt;...&lt;/Hn&gt;</b>, donde <b>n</b> indica un n&uacute;mero desde 1 hasta (en un principio), 6, siendo el 1 el m&aacute;s grande de todos (el principal) y 6 el m&aacute;s pequeño (a la hora de visualizar texto).
+</p>
+
+<p>
+Son directivas como vemos cerradas. Las cabeceras fuerzan un salto de l&iacute;nea cuando se cierran, por lo que no es necesario incluir un &lt;BR&gt; para el salto de l&iacute;nea, a diferencia de como habr&iacute;a que hacer con los atributos <b>&lt;FONT&gt;...&lt;/FONT&gt;</b>, (a no ser que deseemos dejar una l&iacute;nea en blanco).
+</p>
+
+<p>
+En <b>HTML 3.0</b>, se dispone del atributo ALIGN que permite cambiar la forma de alinear por defecto la cabecera (por defecto el valor es de LEFT (izda), pudiendo ser CENTER (centrado) o RIGHT (derecho)... &lt;H1 ALIGN=center&gt;...&lt;/H1&gt;).
+</p>
+<br>
+
+<b><font  size=5>SEPADORES, LINEAS HORIZONTALES</font></b>
+
+<p>
+Se suelen usar con mucha frecuencia, y suelen ser un motivo est&eacute;tico muy valioso para nuestra propia WEB. Lo soportan todos los navegadores y consiste de una l&iacute;nea horizontal que delimita 2 partes del documento visualizandola gr&aacute;ficamente. Su directiva es <b>&lt;HR&gt;</b> (Horizontal Rule) y es una directiva abierta.
+</p>
+
+<p>
+Netscape incorpora atributos a esta directiva, como son:
+</p>
+
+<ul type="square">
+<li><b>SIZE=“valor numerico”</b> Permite indicar el grosor de la l&iacute;nea en cuesti&oacute;n.<br><br>
+
+<li><b>WIDTH=“valor num&eacute;rico”</b> Permite indicar la anchura en pixels o el tanto por ciento del ancho de la pantalla que ocupar&aacute; la l&iacute;nea.<br><br>
+
+
+<li><b>ALIGN=“LEFT | CENTER | RIGTH”</b> Determina la forma de alinear la barra en la pantalla del navegador (sus valores respectivos son izquierda, derecha y centro). Por defecto el valor, es de alineado a la izquierda.<br><br>
+
+
+<li><b>NOSHADE</b> Elimina, en caso de poner este atributo, el efecto tridimensional de la barra, eliminando la sombra que proyecta sobre el documento.<br><br>
+</ul>
+<br>
+
+<b><font  size=5>FIRMAS Y DIRECCIONES</font></b>
+
+<p>
+Una buena construmbre es la de indicar la final de cada p&aacute;gina o documento, la direcci&oacute;n de correo electr&oacute;nico donde contactar con el autor de la p&aacute;gina.
+</p>
+
+<p>
+Esto es posible con la directiva cerrada <b>&lt;ADDRESS&gt;...&lt;/ADDRESS&gt;</b>, entre la que se incluir&aacute;n los datos que creamos necesarios para ponerse en contacto con nosotros, los creadores de la p&aacute;gina WEB. Al visualizarlo, aparecer&aacute; un tipo de letras ligeramente inclinada, de forma que no se confunda con el resto del texto del documento.
+</p>
+
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual02.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual04.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

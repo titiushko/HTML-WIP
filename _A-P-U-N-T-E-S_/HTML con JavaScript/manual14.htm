@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE> Im&aacute;genes animadas en HTML </TITLE>
+</HEAD>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table cellpadding=3 cellspacing=3 width=700 >
+<tr><td>
+<font size="3" face="Arial">
+
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="botella.gif" alt="Icono" width=128 height=117></td>
+<td><font  size=6><b>Im&aacute;genes animadas en HTML</b></font></td>
+</tr>
+</table>
+
+<p>
+Una capacidad muy interesante de las im&aacute;genes GIF es la de el formato <b>GIF89a</b>, tal y como mencion&eacute; en la secci&oacute;n de <b>IMAGENES EN HTML</b>, que permite realizar pequeñas animaciones usando guiones.
+</p>
+
+<p>
+Para crear una animaci&oacute;n es necesario emplear un programa que permita realizar guiones. En nuestro caso, recomiendo el uso de <b>Gif Construction Set de Alchemy Works</b>.
+</p>
+
+<p>
+Antes de empezar a crear un gui&oacute;n, debemos disponer de las distintas im&aacute;genes que formar&aacute;n el gui&oacute;n. Crearemos la animaci&oacute;n de un hombrecito trabajando, para indicar en nuestras p&aacute;ginas, cu&aacute;ndo nos encontramos de obras... :-)
+</p>
+
+En nuestro caso emplearemos las siguientes:
+<br><br>
+
+<center>
+
+<table cellpadding=3 cellspacing=3>
+<tr ALIGN=CENTER>
+<td><b>Imagen 1</b><br><img src="gif89a1.gif" alt="Imagen1" width=96 height=66></td>
+<td><b>Imagen 2</b><br><img src="gif89a2.gif" alt="Imagen2" width=96 height=66></td>
+</tr>
+
+<tr align=center>
+<td><b>Imagen 3</b><br><img src="gif89a3.gif" alt="Imagen3" width=96 height=66></td>
+<td><b>Imagen 4</b><br><img src="gif89a4.gif" alt="Imagen4" width=96 height=66></td>
+</tr>
+
+<tr align=center>
+<td><b>Imagen 5</b><br><img src="gif89a5.gif" alt="Imagen5" width=96 height=66></td>
+<td><b>Imagen 6</b><br><img src="gif89a6.gif" alt="Imagen6" width=96 height=66></td>
+</tr>
+
+</table>
+</center>
+<br>
+
+<ul>
+<li>Ejecutamos la aplicaci&oacute;n Gif Construction Set y una vez iniciado seleccionamos la opci&oacute;n <b>NEW</b> del men&uacute; <b>FILE</b>.<br><br>
+
+<li>Hacemos doble click sobre la l&iacute;nea <b>HEADER GIF89a SCREEN</b>.<br><br>
+
+<li>Introduce el tamaño de la imagen en <b>SCREEN WIDTH</b> y <b>SCREEN DEPTH</b>, tras lo cual pulsa el bot&oacute;n <b>OK</b>. (debemos de tener en cuenta que a la hora de la animaci&oacute;n, todas las escenas tendr&aacute;n m&aacute;s o menos el mismo ancho y alto, por lo que aqu&iacute; en la cabecera del dibujo lo que hacemos es definir el formato que tendra nuestra animaci&oacute;n, en tamaño).<br><br>
+
+<p>
+El siguiente paso consistir&aacute; en indicar la cantidad de veces que deber&aacute; repetirse la secuencia de la animaci&oacute;n de nuestro hombrecillo.
+</p>
+
+<li>Pulsa en el bot&oacute;n <b>INSERT</b> y selecciona la opci&oacute;n <b>LOOP</b>.<br><br>
+
+<li>Haz doble CLICK con el rat&oacute;n sobre la l&iacute;nea <b>LOOP</b>, del gui&oacute;n e introduce el n&uacute;mero de veces que deseas que se repita el gui&oacute;n.<br><br>
+
+<li>Haz CLICK sobre el bot&oacute;n <b>INSERT</b> y elige la opci&oacute;n <b>IMAGE</b>.<br><br>
+
+<li>Selecciona la primera im&aacute;gen de la secuencia y pulsa <b>OK</b> (en nuestro caso ser&aacute; <b>gif89a1.gif</b>).<br><br>
+
+<li>Elije la opci&oacute;n <b>DITHER THIS IMAGE TO THE GLOBAL PALLETE</b>, y pulsa el bot&oacute;n <b>OK</b>.<br><br>
+
+<p>
+De esta forma la tabla de colores empleada ser&aacute; la misma para todas las im&aacute;genes.
+</p>
+
+<li>Pulsa el bot&oacute;n <b>INSERT</b> y elige la opci&oacute;n <b>CONTROL</b>.<br><br>
+
+<li>Haz doble CLICK sobre la l&iacute;nea <b>CONTROL</b>, introduce la pausa, <b>DELAY</b>, entre imagen e imagen y pulsa el bot&oacute;n <b>OK</b>. A menor pausa, m&aacute;s rapidez de animaci&oacute;n.<br><br>
+
+<li>Termina de insertar las im&aacute;genes restantes hasta completar la secuencia. Recuerda que entre imagen e imagen, deber&aacute;s insertar un c&oacute;digo de <b>CONTROL</b>, para poder especificar el retardo entre im&aacute;genes secuenciales que forman la animaci&oacute;n.<br>
+
+<p>
+Una vez terminado el gui&oacute;n, debes guardarlo e incluirlo en una p&aacute;gina WEB como si se tratara de una im&aacute;gen GIF normal.
+</p>
+</ul>
+
+<center><img src="gif89a.gif" alt="Icono" width=96 height=66></center>
+
+<p>
+<b>TRUCO</b>: En el caso de que por cualquier motivo no se viera nuestra animaci&oacute;n, debes comprobar el haber seguido los pasos de de uno en uno y en la secuencia l&oacute;gica que indico. Si queremos que nuestra animaci&oacute;n presente un fondo transparente, debemos de grabar cada una de las secuencas en <b>GIF89a</b> de modo que seleccionemos el color que queremos que se transparente en el navegador, directamente en el programa de creaci&oacute;n de guiones. Para ello haces doble click en cada uno de los guiones <b>CONTROL</b> de la animaci&oacute;n, y pinchas en el check box que indica <b>TRANSPARENT COLOUR</b>, podiendo seleccionas con una pera el color de fondo que deseas transparente sobre la misma imagen. Recuerda que debes hacerlo en cada uno de los guiones <b>CONTROL</b> de la animaci&oacute;n.
+</p>
+
+<p>
+<b>NOTA: Hay que tener presente que no todos los navegadores soportan im&aacute;genes GIF89a o animaciones, por lo que s&oacute;lo se ver&aacute; la primera imagen de la animaci&oacute;n que contenga el guion que hemos creado. Para poder ver una secuencia animada debemos emplear el Netscape 2.0 o versiones superiores del mismo o el Internet Explorer 2.0 o superior.</b>
+</p>
+
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual13.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual15.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

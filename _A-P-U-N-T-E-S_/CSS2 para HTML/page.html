@@ -1,0 +1,614 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Medios paginados</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="generate.html">
+<link rel="next" href="colors.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="generate.html">anterior</a> &nbsp;
+<a href="colors.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">ínidce</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">13 <a name="the-page">Medios paginados</a></H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="page.html#q1" class="tocxref">13.1 Introducción a los medios paginados</a>
+    <li class="tocline2"><a href="page.html#page-box" class="tocxref">13.2 Cajas de página: la regla @page</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="page.html#page-margins" class="tocxref">13.2.1 Márgenes de la página</a>
+      <li class="tocline3"><a href="page.html#page-size-prop" class="tocxref">13.2.2 Tamaño de la página: la propiedad <span class="propinst-size">'size'</span></a>
+      <ul class="toc">
+        <li class="tocline4"><a href="page.html#q5" class="tocxref"> Procesamiento de cajas de página que no se ajustan a una hoja de destino</a>
+        <li class="tocline4"><a href="page.html#q6" class="tocxref"> Ubicación de la caja de página en la hoja</a>
+      </ul>
+      <li class="tocline3"><a href="page.html#crop-mark-prop" class="tocxref">13.2.3 Marcas de corte: la propiedad <span class="propinst-marks">'marks'</span></a>
+      <li class="tocline3"><a href="page.html#q8" class="tocxref">13.2.4 Páginas izquierda, derecha y primera</a>
+      <li class="tocline3"><a href="page.html#q9" class="tocxref">13.2.5 Contenido fuera de la caja de página</a>
+    </ul>
+    <li class="tocline2"><a href="page.html#page-breaks" class="tocxref">13.3 Saltos de página</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="page.html#page-break-props" class="tocxref">13.3.1 Saltos antes/después de los elementos: <span class="propinst-page-break-before">'page-break-before'</span>, <span class="propinst-page-break-after">'page-break-after'</span>, <span class="propinst-page-break-inside">'page-break-inside'</span></a>
+      <li class="tocline3"><a href="page.html#named-pages" class="tocxref">13.3.2 Uso de páginas nominadas: <span class="propinst-page">'page'</span></a>
+      <li class="tocline3"><a href="page.html#break-inside" class="tocxref">13.3.3 Saltos dentro de los elementos: <span class="propinst-orphans">'orphans'</span>, <span class="propinst-widows">'widows'</span></a>
+      <li class="tocline3"><a href="page.html#allowed-page-breaks" class="tocxref">13.3.4 Saltos de página permitidos</a>
+      <li class="tocline3"><a href="page.html#forced" class="tocxref">13.3.5 Saltos de página forzados</a>
+      <li class="tocline3"><a href="page.html#q16" class="tocxref">13.3.6 Los "mejores" saltos de página</a>
+    </ul>
+    <li class="tocline2"><a href="page.html#q17" class="tocxref">13.4 Cascada en el contexto de página</a>
+  </ul>
+</div>
+
+<H2><a name="q1">13.1 Introducción a los medios paginados</a></H2>
+
+<P> Los medios paginados (por ej., papel, transparencias, páginas que son mostradas en la pantalla de la computadora, etc.) se diferencian de los <a href="./media.html#continuous-media-group">medios contínuos</a> en que el contenido del documento se divide en una o más páginas discretas. Para manejar los saltos de página, CSS2 extiende el <a href="visuren.html">modelo de formato visual</a> del siguiente modo:</p>
+
+<ol>
+<li>La <a href="#page-box">caja de página</a> extiende el <a href="box.html#box-model">modelo de caja</a> para permitir a los autores especificar el tamaño de una página, sus márgenes, etc.
+
+<li>El <a name="x0"><span class="index-def" title="modelo de página"><dfn>modelo de página</dfn></span></a> extiende el <a href="visuren.html">modelo de formato visual</a> para considerar los <a href="#page-breaks">saltos de página</a>.
+</ol>
+
+<P>El <a name="page-model">modelo de página</a> de CSS2 especifica cómo es el formato de un documento dentro de un área rectangular --la <a
+href="#page-box">caja de página</a>-- que tiene una ancho y una altura finitos. La caja de página no necesariamente corresponde a la <a name="x1"><span
+class="index-def" title="hoja"><dfn>hoja</dfn></span></a> donde el documento será procesado finalmente (papel, transparencia, pantalla, etc.). El modelo de página de CSS especifica el formato en la caja de página, pero es responsabilidad de la aplicación del usuario transferir la caja de página a la hoja. Algunas posibilidades de transferencia incluyen:</P>
+
+<ul>
+<li>Transferencia de una caja de página a una hoja (ej., impreso de una sola cara).
+<li>Transferencia de dos cajas de página a ambos lados de la misma hoja (ej., impreso de doble faz).
+<li>Transferencia de N (pequeñas) cajas de página a una hoja.
+<li>Transferencia de una (gran) caja de página a N x M hojas (llamado 
+"mosaico").
+<li>Creación de imposiciones. Una imposición es un grupo de páginas impresas sobre una hoja, que, luego de plegadas y cortadas como un libro, aparecen en la secuencia correcta.
+<li>Impresión de un documento en varias bandejas de salida.
+<li>Producir la salida a un archivo.
+</ul>
+
+<P>Aunque CSS2 no especifica el modo en que las aplicaciones del usuario transfieren las cajas de página a las hojas, incluye ciertos mecanismos para informar a las aplicaciones del usuario acerca del <a href="#page-size-prop">tamaño y orientación</a> de la hoja de destino.
+
+<H2>13.2 <a name="page-box">Cajas de página</a>: la regla @page</H2>
+
+<P>La <a name="x2"><span class="index-def" title="caja de página"><dfn>caja de página</dfn></span></a> es una región rectangular que contiene dos áreas:</p>
+
+<ul>
+<li>El <span class="index-def" title="área de página"><a
+name="page-area"><dfn>área de la página</dfn></a></span>. El área de la página incluye las cajas dispuestas en esa página. Los límites del área de la página actúa como el <a
+href="visuren.html#initial-containing-block">bloque de contención</a> inicial de la disposición efectuada entre saltos de páginas. 
+<li>El área del margen, que rodea al área de la página.
+</ul>
+
+<div class="note"><P> 
+<em><strong>Nota.</strong> En CSS2, las <a
+href="./box.html#border-properties">propiedades del borde</a> y las <a
+href="./box.html#padding-properties">propiedades del relleno</a> no se aplican a las páginas; puede suceder en el futuro.
+</em>
+</div>
+
+<P>Los autores especifican las dimensiones, orientación, márgenes, etc. de una caja de página dentro de una regla <a name="x4"><span class="index-def" title="@page">@page</span></a>. Una regla @page consiste en una palabra clave "@page", un selector de página (seguido con ningún espacio intermedio por una pseudo-clase de página opcional) y un bloque de declaraciones (hechas para el <span class="index-def"
+title="contexto de página"><a name="page-context"><dfn>contexto de página</dfn></a></span>).</p>
+
+<P>El <a name="x6"><span class="index-def" title="selector de página"><dfn>selector de página</dfn></span></a> especifica a qué páginas se aplican las declaraciones. En CSS2, los selectores de páginas pueden indicar la primer página, todas las páginas izquierdas, todas las páginas derechas, o una página con un nombre específico.
+</p>
+
+<P>Las dimensiones de la caja de la página son fijadas con la propiedad <a href="page.html#propdef-size" class="noxref"><span
+class="propinst-size">'size'</span></a>. Las dimensiones del área de la página son las dimensiones de la caja de página menos el área del margen. 
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Por ejemplo, la siguiente regla @page fija el tamaño de la caja de página en 8.5 x 11 pulgadas y crea un margen de '2cm' en cada lado entre el borde de la caja de página y el área de la página:</p>
+
+<pre>
+@page { size 8.5in 11in; margin: 2cm }
+</pre>
+</div>
+
+La propiedad <a href="page.html#propdef-marks" class="noxref"><span class="propinst-marks">'marks'</span></a> en una regla @page especifica las marcas de corte y de registro para la caja de página.
+
+<h3>13.2.1 <a name="page-margins">Márgenes de la página</a></h3>
+
+<P>Las <a href="box.html#margin-properties">propiedades del margen</a>
+(<a href="box.html#propdef-margin-top" class="noxref"><span class="propinst-margin-top">'margin-top'</span></a>, <a href="box.html#propdef-margin-right" class="noxref"><span
+class="propinst-margin-right">'margin-right'</span></a>, <a href="box.html#propdef-margin-bottom" class="noxref"><span
+class="propinst-margin-bottom">'margin-bottom'</span></a>, <a href="box.html#propdef-margin-left" class="noxref"><span
+class="propinst-margin-left">'margin-left'</span></a> y <a href="box.html#propdef-margin" class="noxref"><span
+class="propinst-margin">'margin'</span></a>) se aplican en el <a
+href="#page-context">contexto de página</a>. El siguiente diagrama ilustra la relación entre la hoja, la caja de página y los márgenes de la página:</P>
+
+<div class="figure">
+<P><img src="./images/page-info.gif" alt="Ilustración de hoja, caja de página, margen y área de la página."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-page-info" href="images/longdesc/page-info-desc.html" title="Descripción extensa ilustrando la relación entre caja de página y hoja">[D]</A></SPAN></p>
+</div>
+
+<P>El valor computado de los márgenes de la caja encima y abajo del área de la página es '0'.
+
+<p>El <a href="#page-context">contexto de página</a> no posee ninguna noción de fuentes, de modo que las unidades 'em' y 'ex' no están permitidas. Los valores de porcentajes en las propiedades del margen son relativas a las dimensiones de la <a
+href="#page-box">caja de página</a>; para los márgenes izquierdo y derecho, se refieren al ancho de la caja de página mientras que para los márgenes superior e inferior, se refieren a la altura de la caja de página. Todas las demás unidades asociadas con las respectivas propiedades de CSS2 están permitidas.
+
+<P>Como consecuencia de valores negativos para el margen (ya sea en la caja de página o en los elementos) o del <a href="visuren.html#absolute-positioning">posicionamiento absoluto</a> el contenido puede terminar fuera de la caja de página, pero este contenido puede ser "cortado" --por la aplicación del usuario, la impresora, o finalmente, por la guillotina--.
+
+<h3>13.2.2 <a name="page-size-prop">Tamaño de la página</a>: la propiedad <a href="page.html#propdef-size" class="noxref"><span
+class="propinst-size">'size'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'size'"><a name="propdef-size" class="propdef-title"><strong>'size'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a>{1,2} | auto | portrait | landscape | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>el contexto de página
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica el tamaño y orientación de una caja de página.
+
+<P>El tamaño de una caja de página puede ser "absoluto" (tamaño fijo) o "relativo" (escalable, es decir, ajustado a los tamaños de hoja disponibles). Las cajas de página relativas permiten a las aplicaciones del usuario escalar un documento y hacer un uso óptimo del tamaño final.
+
+<P>Tres valores de la propiedad <a href="page.html#propdef-size" class="noxref"><span class="propinst-size">'size'</span></a> crean una caja de página relativa:</p>
+
+<DL>
+<DT><strong>auto</strong>
+<DD>La caja de página será puesta al tamaño y orientación de la hoja de destino. 
+
+<DT><strong>landscape</strong>
+<DD>Sustituye la orientación del destino. La caja de página es del mismo tamaño que el destino, y los lados más largos son horizontales.
+
+<DT><strong>portrait</strong>
+<DD>Sustituye la orientación del destino. La caja de página es del mismo tamaño que el destino, y los lados más cortos son horizontales.
+</DL>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>En el ejemplo siguiente, los bordes exteriores de una caja de página se alinearán con el destino. El valor de porcentaje en la propiedad <a href="box.html#propdef-margin" class="noxref"><span
+class="propinst-margin">'margin'</span></a> es relativo al tamaño del destino por lo que si las dimensiones de la hoja de destino son 21.0cm x 29.7cm (es decir, A4), los márgenes son 2.10cm y 2.97cm.
+
+<pre>
+@page {
+  size: auto;   /* auto es el valor inicial */
+  margin: 10%;
+}
+</pre>
+</div>
+
+<P>Los valores de medida para la propiedad <a href="page.html#propdef-size" class="noxref"><span class="propinst-size">'size'</span></a> crean una caja de página absoluta. Si sólo se especifica un valor de medida, determina tanto el ancho como el alto de la caja de página (es decir, la caja es un cuadrado). Como la caja de página es el <a
+href="visuren.html#initial-containing-block">bloque de contención inicial</a>, los valores de porcentaje no están permitidos para la propiedad <a href="page.html#propdef-size" class="noxref"><span
+class="propinst-size">'size'</span></a>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+Por ejemplo:
+
+<PRE>
+@page {
+  size: 8.5in 11in;  /* ancho altura */
+}
+</PRE>
+
+<P>El ejemplo de arriba determina que el ancho de la caja de página sea de 8.5 pulgadas y la altura de 11 pulgadas. La caja de página en este ejemplo requiere de un tamaño de hoja de destino de 8.5&quot;x11&quot; o mayor.
+</div>
+
+<P>Las aplicaciones del usuario pueden permitir a los usuarios controlar el traslado de la caja de página a la hoja (por ej., rotando una caja de página absoluta que está siendo impresa).
+
+<h4><a name="q5"> Procesamiento de cajas de página que no se ajustan a una hoja de destino</a></h4>
+
+<P>Si una caja de página no se ajusta a las dimensiones de la hoja de destino, la aplicación del usuario puede decidir:</p>
+
+<UL>
+<LI>Rotar 90° la caja de página si esto hace que la caja de página se ajuste.
+<LI>Escalar la página para ajustarla al destino.
+</UL>
+
+<P>La aplicación del usuario debe consultar al usuario antes de efectuar estas operaciones.
+
+<h4><a name="q6">Ubicación de la caja de página en la hoja</a></h4>
+
+<P>Cuando la caja de página es menor que el tamaño del destino, la aplicación del usuario es libre de ubicar la caja de página en cualquier lugar de la hoja. Sin embargo, se recomienda que la caja de página sea centrada en la hoja porque así se alinearán las páginas de doble faz y se evitará la pérdida accidental de información que es impresa cerca del borde de la hoja.
+
+<h3>13.2.3 <a name="crop-mark-prop">Marcas de corte</a>: la propiedad <a href="page.html#propdef-marks" class="noxref"><span
+class="propinst-marks">'marks'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'marks'"><a name="propdef-marks" class="propdef-title"><strong>'marks'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ crop || cross ] | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>el contexto de página
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<p>En las impresoras de alta calidad, a menudo se agregan marcas fuera de la caja de página. Esta propiedad especifica si se deben procesar las marcas de corte o marcas de registro o ambas justo fuera de los bordes de la <a
+href="#page-box">caja de página</a>.
+
+<p>Las <a name="x9"><span class="index-def" title="crop marks"><dfn>crop
+marks</dfn></span></a> (marcas de corte) indican dónde debe cortarse la página. Las <a name="x10"><span
+class="index-def" title="cross marks"><dfn>cross marks</dfn></span></a> (marcas de registro, también llamadas marcas de registración) se usan para alinear las hojas.
+
+<P>Las marcas son visibles sólo en las cajas de página absolutas (ver la propiedad <a href="page.html#propdef-size" class="noxref"><span
+class="propinst-size">'size'</span></a>). En las cajas de página relativas, la caja de página será alineada con el destino y las marcas quedarán fuera del área de impresión.
+
+<P>El tamaño, estilo y posición de las marcas de registro depende de la aplicación del usuario.
+
+<h3><a name="q8">13.2.4 Páginas izquierda, derecha y primera</a></H3>
+
+<P>Cuando se imprimen documento en doble faz, las <a href="#page-box">cajas de página</a> en páginas izquierdas o derechas deberán ser diferentes. Esto puede expresarse por medio de dos pseudo-clases de CSS que pueden definirse en el <a href="#page-context">contexto de página</a>.
+
+<P>Todas las páginas son automáticamente clasificadas por las aplicaciones del usuario en la pseudo-clase <a name="x11"><span class="index-def"
+title=":left|pseudo-clase:::left">:left</span></a> o <a name="x13"><span
+class="index-def" title=":right|pseudo-clase:::right">:right</span></a>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+@page :left {
+  margin-left: 4cm;
+  margin-right: 3cm;
+}
+
+@page :right {
+  margin-left: 3cm;
+  margin-right: 4cm;
+}
+</PRE>
+</div>
+
+<P>Si se hacen declaraciones diferenciadas para las páginas izquierda y derecha, la aplicación del usuario debe respetar estas declaraciones aún cuando la aplicación del usuario no traslade las cajas de página a hojas izquierda y derecha (ej., una impresora que sólo imprime una cara). 
+
+<P>Los autores también pueden especificar un estilo para la primer página de un documento con la pseudo-clase <a name="x15"><span class="index-def"
+title=":first|pseudo-clase:::first">:first</span></a>:
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+@page { margin: 2cm } /* Todos los márgenes fijados en 2cm */
+
+@page :first {
+  margin-top: 10cm    /* Margen superior de la primer página de 10cm */
+}
+</PRE>
+</div>
+
+<P>Si la primer página de un documento es :left o :right depende de la dirección de escritura principal del documento y está fuera del alcance de este documento. Sin embargo, para forzar una primer página :left o :right, los autores pueden insertar un salto de página antes de la primer caja generada (por ej., en HTML, especificando esto para el elemento BODY).
+
+<P>Las propiedades especificadas en una regla @page :left (o :right) reemplaza las especificadas en una regla @page que no tiene especificada una pseudo-clase. Las propiedades especificadas en una regla @page :first reemplaza las especificadas en las reglas @page :left (o :right).
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Agregar declaraciones a las pseudo-clases :left o :right no influye si el documento sale impreso en una o en ambas caras (lo que está fuera del alcance de esta especificación). 
+</em>
+</div>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Las futuras versiones de CSS pueden incluir otras pseudo-clases de página.
+</em>
+</div>
+
+<h3><a name="q9">13.2.5 Contenido fuera de la caja de página</a></h3>
+
+<P>Al estructura el contenido en un modelo de página, parte del contenido puede acabar fuera de la caja de página. Por ejemplo, un elemento cuya propiedad <a href="text.html#propdef-white-space" class="noxref"><span
+class="propinst-white-space">'white-space'</span></a> tiene el valor 'pre' puede generar una caja que sea más ancha que la caja de página. También, cuando las cajas son posicionadas <a
+href="visuren.html#absolute-positioning">absolutamente</a>, pueden finalizar en ubicaciones "inconvenientes". Por ejemplo, las imágenes puede ubicarse sobre el borde de la caja de página o 100.000 pulgadas abajo de la caja de página.
+
+<P>Una especificación del formato exacto de tales elementos queda fuera del alcance de este documento. Sin embargo, recomendamos que los autores y las aplicaciones del usuario observen los siguientes principios generales concernientes al contenido fuera de la caja de página:</p>
+
+<ul>
+<li>El contenido debe ser admitido ligeramente fuera de la caja de página para permitir el "sangrado" de las páginas.
+
+<li>Las aplicaciones del usuario deben evitar generar un gran número de cajas de página vacías para respetar la ubicación de los elementos (por ej., nadie quiere imprimir 100 páginas en blanco). Observe, sin embargo, que generar un pequeño número de cajas de página vacías puede ser necesario para respetar los valores 'left' y 'right' para <a href="page.html#propdef-page-break-before" class="noxref"><span
+class="propinst-page-break-before">'page-break-before'</span></a> y
+<a href="page.html#propdef-page-break-after" class="noxref"><span class="propinst-page-break-after">'page-break-after'</span></a>.
+
+<li>Los autores no deben posicionar los elementos en ubicaciones inconvenientes sólo para evitar procesarlos. En cambio:
+
+<ul>
+<li>Para eliminar completamente la generación de la caja, poner la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> como 'none'.
+<li>Para hacer invisible una caja, usar la propiedad <a href="visufx.html#propdef-visibility" class="noxref"><span
+class="propinst-visibility">'visibility'</span></a>.
+</ul>
+
+<LI>Las aplicaciones del usuario pueden manipular las cajas ubicadas fuera de la caja de página de varias maneras, incluyendo el descarte de las mismas o la creación de cajas de página para ellas al final del documento.
+</ul>
+
+<H2>13.3 <a name="page-breaks">Saltos de página</a></H2>
+
+<P>Las siguientes secciones explican el formato de página en CSS2. Cinco propiedades indican dónde debe o puede la aplicación del usuario producir los saltos de página, y en qué página (izquierda o derecha) debe continuar el contenido subsecuente. Cada salto de página finaliza la composición de la <a href="#page-box">caja de página</a> actual y provoca que las partes que restan de la <a
+href="conform.html#doctree">estructura del documento</a> sean colocadas en una nueva caja de página.
+
+<h3>13.3.1 <a name="page-break-props">Saltos antes/después de los elementos</a>: <a href="page.html#propdef-page-break-before" class="noxref"><span
+class="propinst-page-break-before">'page-break-before'</span></a>,
+<a href="page.html#propdef-page-break-after" class="noxref"><span class="propinst-page-break-after">'page-break-after'</span></a>,
+<a href="page.html#propdef-page-break-inside" class="noxref"><span class="propinst-page-break-inside">'page-break-inside'</span></a>
+</h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'page-break-before'"><a name="propdef-page-break-before" class="propdef-title"><strong>'page-break-before'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>auto | always | avoid | left | right | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Media:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visual</a>, <a href="media.html#paged-media-group" class="noxref">paged</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'page-break-after'"><a name="propdef-page-break-after" class="propdef-title"><strong>'page-break-after'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>auto | always | avoid | left | right | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'page-break-inside'"><a name="propdef-page-break-inside" class="propdef-title"><strong>'page-break-inside'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>avoid | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<P>Los valores para estas propiedades tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong>auto</strong></dt>
+<dd>Ni fuerza ni prohibe un salto de página antes de (después de, en) la caja generada.
+<dt><strong>always</strong></dt>
+<dd>Siempre fuerza un salto de página antes (después) de la caja generada.</dd>
+<dt><strong>avoid</strong></dt>
+<dd>Evita un salto de página antes de (después de, en) la caja generada.
+<dt><strong>left</strong></dt>
+<dd>Fuerza uno o dos saltos de página antes (después) de la caja generada para que la siguiente página sea compuesta como una página izquierda.</dd>
+<dt><strong>right</strong></dt>
+<dd>Fuerza uno o dos saltos de página antes (después) de la caja generada para que la siguiente página sea compuesta como una página derecha.</dd>
+</dl>
+
+<P>Una ubicación potencial de un salto de línea está típicamente bajo la influencia de la propiedad <a href="page.html#propdef-page-break-inside" class="noxref"><span
+class="propinst-page-break-inside">'page-break-inside'</span></a>
+del elemento padre, la propiedad <a href="page.html#propdef-page-break-after" class="noxref"><span
+class="propinst-page-break-after">'page-break-after'</span></a> del elemento precedente y la propiedad <a href="page.html#propdef-page-break-before" class="noxref"><span
+class="propinst-page-break-before">'page-break-before'</span></a> del elemento siguiente. Cuando estas propiedades tienen valores distintos que 'auto', los valores 'always', 'left' y 'right' tienen prioridad sobre 'avoid'. Ver la sección sobre <a
+href="#allowed-page-breaks">saltos de página permitidos</a> por las reglas exactas sobre cómo estas propiedades pueden forzar o suprimir un salto de página.
+
+<h3>13.3.2 <a name="named-pages">Uso de páginas nominadas:</a> <a href="page.html#propdef-page" class="noxref"><span class="propinst-page">'page'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'page'"><a name="propdef-page" class="propdef-title"><strong>'page'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-identifier" class="noxref"><span class="value-inst-identifier">&lt;identificador&gt;</span></a> | auto
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<p>La propiedad <a href="page.html#propdef-page" class="noxref"><span class="propinst-page">'page'</span></a> puede utilizarse para especificar un tipo particular de página donde un elemento debe ser visualizado.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Este ejemplo pondrá a todas las tablas en páginas de la derecha apaisadas (llamadas "rotadas"):</P>
+
+<pre>
+@page rotadas {size: landscape}
+TABLE {page: rotadas; page-break-before: right}
+</pre>
+</div>
+
+<p>La propiedad <a href="page.html#propdef-page" class="noxref"><span class="propinst-page">'page'</span></a> trabaja del siguiente modo: Si una caja de bloque con contenido a nivel de línea tiene una propiedad <a href="page.html#propdef-page" class="noxref"><span
+class="propinst-page">'page'</span></a> distinta a la caja de bloque con contenido a nivel de línea precedente, entonces se insertan uno o dos saltos de página entre ellas, y las cajas después del salto son procesadas en una caja de página del tipo nombrado. Ver <a
+href="#forced">"Saltos de página forzados" más abajo.</a>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>En este ejemplo, las dos tablas son procesadas en páginas apaisadas (de hecho, en la misma página, si caben) y el tipo de página "angosta" no se usa en absoluto, a pesar de haber sido puestas en el DIV:</p>
+
+<pre>
+@page angosta {size: 9cm 18cm}
+@page rotada {size: landscape}
+DIV {page: angosta}
+TABLE {page: rotada}
+</pre>
+
+con este documento:
+
+<pre>
+&lt;DIV&gt;
+&lt;TABLE&gt;...&lt;/TABLE&gt;
+&lt;TABLE&gt;...&lt;/TABLE&gt;
+&lt;/DIV&gt;
+</pre>
+</div>
+
+<h3>13.3.3 <a name="break-inside">Saltos dentro de los elementos</a>: <a href="page.html#propdef-orphans" class="noxref"><span
+class="propinst-orphans">'orphans'</span></a>, <a href="page.html#propdef-widows" class="noxref"><span
+class="propinst-widows">'widows'</span></a></h3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'orphans'"><a name="propdef-orphans" class="propdef-title"><strong>'orphans'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-integer" class="noxref"><span class="value-inst-integer">&lt;entero&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>2
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'widows'"><a name="propdef-widows" class="propdef-title"><strong>'widows'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-integer" class="noxref"><span class="value-inst-integer">&lt;entero&gt;</span></a> | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>2
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos a nivel de bloque
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>, <a href="media.html#paged-media-group" class="noxref">paginados</a>
+</table>
+</dl>
+</div>
+
+<P>La propiedad <a href="page.html#propdef-orphans" class="noxref"><span class="propinst-orphans">'orphans'</span></a> especifica el número mínimo de líneas de un párrafo que deben dejarse al final de una página. La propiedad <a href="page.html#propdef-widows" class="noxref"><span
+class="propinst-widows">'widows'</span></a> especifica el número mínimo de líneas de un párrafo que deben dejarse al comienzo de una página. Los ejemplos de cómo se usan para controlar los saltos de página se dan abajo.
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+"Orphans" y "widows" significan literalmente "huérfanas" y "viudas" (en femenino porque se refieren a las líneas de un párrafo) y en castellano estas mismas palabras se utilizan en igual sentido.
+    </TD>
+  </TR>
+</TABLE>
+<P>Por información acerca del formato de los párrafos, por favor consulte la sección sobre <a href="visuren.html#line-box">cajas de línea</a>.
+
+<h3>13.3.4 <a name="allowed-page-breaks">Saltos de página permitidos</a></h3>
+
+<p>En el flujo normal, los saltos de página pueden producirse en los siguientes lugares:</p>
+
+<ol>
+<li>En el margen vertical entre cajas de bloque. Cuando un salto de página se produce aquí, los <a href="cascade.html#computed-value">valores computados</a> de las propiedades <a href="box.html#propdef-margin-top" class="noxref"><span class="propinst-margin-top">'margin-top'</span></a> y <a href="box.html#propdef-margin-bottom" class="noxref"><span class="propinst-margin-bottom">'margin-bottom'</span></a> son fijados en '0'.
+<li>Entre <a href="visuren.html#line-box">cajas de línea</a> dentro de una caja de <a href="visuren.html#block-box">bloque</a>.
+</ol>
+
+<p>Estos saltos están sujetos a las siguientes reglas:
+
+<ul>
+<li><strong>Regla A:</strong> Provocar un salto en (1) está permitido sólo si las propiedades <a href="page.html#propdef-page-break-after" class="noxref"><span
+class="propinst-page-break-after">'page-break-after'</span></a> y <a href="page.html#propdef-page-break-before" class="noxref"><span
+class="propinst-page-break-before">'page-break-before'</span></a> de todas las cajas generadas de los elementos que se juntan en este margen lo permiten, lo cuál sucede cuando al menos uno de ellos tiene el valor 'always', 'left' o 'right', o cuando todos son auto'.
+
+<li><strong>Regla B:</strong> Sin embargo, si todos son 'auto' y el antepasado común más cercano de todos los elementos tiene un valor para <a href="page.html#propdef-page-break-inside" class="noxref"><span
+class="propinst-page-break-inside">'page-break-inside'</span></a> de 'avoid', entonces el salto aquí no está permitido.
+
+<li>
+<strong>Regla C:</strong> Provocar un salto en (2) está permitido sólo si el número de <a
+href="visuren.html#line-box">cajas de línea</a> entre el salto y el comienzo de la caja de bloque que las encierra es el valor <a href="page.html#propdef-orphans" class="noxref"><span
+class="propinst-orphans">'orphans'</span></a> o más, y el número de cajas de línea entre el salto y el final de la caja es el valor de <a href="page.html#propdef-widows" class="noxref"><span class="propinst-widows">'widows'</span></a> o más.
+
+<li><strong>Regla D:</strong> Además, provocar un salto en (2) está permitido sólo si la propiedad <a href="page.html#propdef-page-break-inside" class="noxref"><span class="propinst-page-break-inside">'page-break-inside'</span></a> es 'auto'.
+</ul>
+
+<p>Si lo anterior no proporciona suficientes puntos de ruptura para mantener al contenido fluyendo entre las cajas de página, entonces las reglas B y D se abandonan para encontrar puntos adicionales para los saltos.
+
+<p>Si eso aún no conduce a una cantidad de puntos de ruptura suficientes, las reglas A y B son también abandonadas, para encontrar todavía más puntos para los saltos.
+
+<P>Los saltos de página no pueden producirse dentro de las cajas que están <a href="visuren.html#absolute-positioning">posicionadas absolutamente</a>.
+
+<h3>13.3.5 <a name="forced">Saltos de página forzados</a></h3>
+
+<p>Un salto de página <em>debe</em> producirse en (1) if, entre las propiedades <a href="page.html#propdef-page-break-after" class="noxref"><span
+class="propinst-page-break-after">'page-break-after'</span></a> y <a href="page.html#propdef-page-break-before" class="noxref"><span
+class="propinst-page-break-before">'page-break-before'</span></a> de todas las cajas generadas de los elementos que se juntan en este margen, hay al menos una con el valor de 'always', 'left' o 'right'.
+
+<p>Un salto de página debe producirse en (1) si la última caja de línea encima de este margen y la primera debajo del mismo no tienen el mismo valor para <a href="page.html#propdef-page" class="noxref"><span
+class="propinst-page">'page'</span></a>.
+
+<h3><a name="q16">13.3.6 Los "mejores" saltos de página</a></h3>
+
+<p>CSS2 <em>no</em> define cuál de todos el conjunto de saltos de página permitidos debe usarse; CSS2 no prohibe que la aplicación del usuario realice el salto en cada posible punto de corte, o que no lo haga en absoluto. Pero CSS2 recomienda que las aplicaciones del usuario observen las siguientes reglas heurísticas (en tanto reconoce que estas son a veces contradictorias):</p>
+
+<ul>
+<li>Producir los menores cortes posibles.
+<li>Hacer que todas las páginas que no terminan con cortes forzados parezcan tener aproximadamente la misma altura.
+<li>Evitar el corte dentro un bloque que tiene un borde.
+<li>Evitar el corte dentro de una tabla.
+<li>Evitar el corte dentro de un elemento flotante.
+</ul>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Suponga, por ejemplo, que la hoja de estilo contiene 'orphans : 4', 'widows : 2', y hay 20 líneas (<a href="visuren.html#line-box">cajas de línea</a>) disponibles al final de la página actual:</p>
+
+<ul>
+<li>Si un párrafo al final de la página actual contiene 20 líneas o menos, deber colocarse en la página actual.
+
+<li>Si el párrafo contiene 21 o 22 líneas, la segunda parte del párrafo no debe violar la restricción <a href="page.html#propdef-widows" class="noxref"><span class="propinst-widows">'widows'</span></a>, y entonces la segunda parte debe contener exactamente dos líneas. 
+
+<li>Si el párrafo contiene 23 líneas o más, la primer parte debe contener 20 líneas y la segunda parte las líneas restantes.
+</ul>
+
+<P>Ahora suponga que <a href="page.html#propdef-orphans" class="noxref"><span class="propinst-orphans">'orphans'</span></a> es '10',
+<a href="page.html#propdef-widows" class="noxref"><span class="propinst-widows">'widows'</span></a> es '20', y hay 8 líneas disponibles al final de la página actual:</p>
+
+<ul>
+<li>Si un párrafo al final de la página actual contiene 8 líneas o menos, debe colocarse en la página actual.
+
+<li>Si el párrafo contiene 9 líneas o más, no puede ser cortado (esto violaría la restricción impuesta a las líneas huérfanas), así que debe moverse como un bloque a la página siguiente.
+</ul>
+</div>
+
+<h2><a name="q17">13.4 Cascada en el contexto de página</a></H2>
+
+<P>Las declaraciones en el <a href="#page-context">contexto de página</a> obedecen el orden de <a href="cascade.html">cascada</a> tanto como las declaraciones normales de CSS2.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>Considere el siguiente ejemplo:
+
+<PRE>
+@page {
+  margin-left: 3cm;
+}
+
+@page :left {
+  margin-left: 4cm;
+}
+</PRE>
+
+<P>Debido a la <a href="cascade.html#cascading-order">mayor especificidad</a> del selector de pseudo-clase, el margen izquierdo en las páginas de la izquierda será de '4cm' y todas las demás páginas (es decir, las páginas de la derecha) tendrán un margen izquierdo de '3cm'.
+</div>
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="generate.html">anterior</a> &nbsp;
+<a href="colors.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</body>
+</html>

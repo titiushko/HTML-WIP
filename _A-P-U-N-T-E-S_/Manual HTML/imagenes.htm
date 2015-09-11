@@ -1,0 +1,579 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE> Im&aacute;genes</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.8 - Im&aacute;genes</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Im&aacute;genes en los documentos
+HTML</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una de las caracter&iacute;sticas principales
+del lenguaje HTML y de la WWW es la introducci&oacute;n de elementos multimedia,
+en este apartado veremos como introducir gr&aacute;ficos y ficheros de
+im&aacute;genes en un documento HTML. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En un documento HTML se puede incluir
+cualquier imagen en alguno de los siguientes formatos gr&aacute;ficos:
+<B>GIF, JPEG &oacute; XBM</B>. El formato m&aacute;s extendido y practico
+es el <B>GIF</B>, todos los navegadores gr&aacute;ficos de la Web soportan
+este formato, adem&aacute;s existen gran cantidad de programas de tratamiento
+de gr&aacute;ficos que permiten grabar los gr&aacute;ficos o convertir
+gr&aacute;ficos a GIF. Este formato, as&iacute; mismo, utiliza algoritmos
+de compresi&oacute;n que hacen que sus ficheros sean de corto tama&ntilde;o
+y apropiados para su transmisi&oacute;n por la red. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El formato GIF es m&aacute;s recomendado
+para iconos, gr&aacute;ficas, ... y el formato JPEG es m&aacute;s &uacute;til
+para im&aacute;genes reales como paisajes, personas, ... </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para poder utilizar otro formato gr&aacute;fico,
+necesitar&aacute; usar un enlace cuyo destino sea el fichero del gr&aacute;fico.
+Al seguir el enlace se le pedir&aacute; que indique un programa externo
+que se encargue de mostrar los ficheros de ese formato gr&aacute;fico,
+por lo tanto no pueden insertarse dentro de documentos HTML.. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe unos casos especiales en las imagenes
+GIF, que son las <A HREF="giftrans.htm">im&aacute;genes transparentes</A>
+y las<A HREF="http://www2.uca.es/FAQ-www/animaGIF.html"> im&aacute;genes
+animadas</A>. <A NAME="imgsrc"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG SRC=...&gt; Inclusi&oacute;n
+de Im&aacute;genes</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La etiqueta encargada de mostrar im&aacute;genes
+en HTML es <B><FONT COLOR="#008200">IMG</FONT></B> y tiene el siguiente
+formato: </P>
+
+<P><B><FONT COLOR="#008200"><FONT SIZE=+1>&lt;IMG SRC=&quot;<I>URL de la
+Imagen</I>&quot; ALT=&quot;<I>Texto alternativo a la imagen</I>&quot;&gt;</FONT></FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el punto del fichero HTML en el que
+queramos que se muestre la imagen incluimos esta etiqueta. Se puede mostrar
+la imagen, al comienzo del documento, al final o intercalada en el texto.
+Igualmente se puede insertar una imagen dentro de cualquiera de las estructuras
+del lenguaje HTML como listas, tablas o formularios. Esta etiqueta no necesita
+la etiqueta de fin, ya que el efecto de la etiqueta no su produce sobre
+un texto o alg&uacute;n elemento HTML. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B><FONT COLOR="#008200">SRC</FONT></B>
+indica el fichero de imagen que se incluir&aacute; en el documento. Se
+indicar&aacute; el camino hasta la imagen en formato <A HREF="url.htm">URL</A>,
+el fichero de la imagen deber&aacute; tener una extensi&oacute;n apropiada
+a su formato, por ejemplo si es <B>GIF</B> la extensi&oacute;n ser&aacute;
+<B>.gif</B>, si es <B>JPEG</B> la extensi&oacute;n ser&aacute; <B>.jpg
+o .jpeg</B>, si no se cumple esto la imagen no se mostrar&aacute; de forma
+correcta. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al definir la imagen como una URL, esta
+imagen no es necesario que se encuentre en el servidor local, pudiendo
+especificar el camino completo y el servidor donde se encuentra la imagen.
+En este caso al igual que en los hiperenlaces es posible indicar direcciones
+de <A HREF="enlaces.htm#a3">URL relativas</A> al documentos actual, como
+se vio en el apartado anterior. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lo normal es referenciar una imagen que
+se encuentre en el servidor local, ya que el acceso a im&aacute;genes en
+servidores externos puede ser m&aacute;s lento. Por tanto conviene copiar
+las im&aacute;genes e iconos que se usen al servidor local. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A continuaci&oacute;n se explica la utilidad
+de cada unos de los atributos de la etiqueta <B><FONT COLOR="#008200">IMG</FONT></B>.
+<A NAME="imgalt"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG ... ALT=...&gt; Texto
+alternativo<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B><FONT COLOR="#008200">ALT</FONT></B>,
+indicar&aacute; un texto alternativo a mostrar si no fue posible mostrar
+la imagen. Se usa para navegadores que no permitan mostrar im&aacute;genes,
+sean solo texto o tenga inhabilitado el mostrar im&aacute;genes. Se recomienda
+cuando existan en el documento im&aacute;genes usadas como botones, para
+mostrar un texto en vez del bot&oacute;n en navegadores que no puedan mostrar
+gr&aacute;ficos, de esta forma se consigue que todos los usuarios puedan
+consultar sus p&aacute;ginas. <A NAME="imgalign"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG .. ALIGN=...&gt; Alineaci&oacute;n
+de la im&aacute;gen<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica como se alinea el texto que sigue
+a la im&aacute;gen con respecto a esta. Indicar&aacute; si la primera frase
+del texto se colocar&aacute; en la parte alta de la im&aacute;gen, <B><FONT COLOR="#008200">TOP</FONT></B>,
+en el punto medio de la imagen, <B><FONT COLOR="#008200">MIDDLE</FONT></B>,
+o en la parte de abajo de la im&aacute;gen, <B><FONT COLOR="#008200">BOTTOM</FONT></B>.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tambien se pueden utilizar alineaciones
+un poco m&aacute;s avanzada, <B><FONT COLOR="#008200">TEXTTOP</FONT></B>
+se alinea justo al comienzo del texto m&aacute;s alto de la l&iacute;nea
+(TOP se alinea al tama&ntilde;o del primer car&aacute;cter de la l&iacute;nea).
+<B><FONT COLOR="#008200">ABSMIDDLE</FONT></B>, es el centro real de la
+imagen, con MIDDLE se coloca el texto a partir del punto medio, con ABSMIDDLE
+el texto aparece centrado con la imagen. <B><FONT COLOR="#008200">ABSBOTTOM</FONT></B>
+coloca el texto justo al final de la imagen. Se recomienda que se usen
+estos &uacute;ltimos al ser m&aacute;s precisa la alineaci&oacute;n, aunque
+solo son validos para los navegadores m&aacute;s avanzados. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=TOP&gt;&lt;B&gt;Numero de Telefono&lt;B&gt;. En este apartado se
+indica el n&uacute;mero de tel&eacute;fono que puede utilizar si tiene
+cualquier duda o pregunta que hacer sobre este manual. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=TOP><B>Numero de Tel&eacute;fono</B>.
+En este apartado se indica el n&uacute;mero de tel&eacute;fono que puede
+utilizar si tiene cualquier duda o pregunta que hacer sobre este manual.
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve solo aparece la primera
+frase alineada en la parte alta (TOP) de la im&aacute;gen. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=MIDDLE&gt;&lt;B&gt;Numero de Telefono&lt;B&gt;. En este apartado
+se indica el n&uacute;mero de tel&eacute;fono que puede utilizar si tiene
+cualquier duda o pregunta que hacer sobre este manual. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=CENTER><B>Numero de
+Tel&eacute;fono</B>. En este apartado se indica el n&uacute;mero de tel&eacute;fono
+que puede utilizar si tiene cualquier duda o pregunta que hacer sobre este
+manual. </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso el texto est&aacute;
+alineado en la parte central de la im&aacute;gen. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=BOTTOM&gt;&lt;B&gt;Numero de Telefono&lt;B&gt;. En este apartado
+se indica el n&uacute;mero de tel&eacute;fono que puede utilizar si tiene
+cualquier duda o pregunta que hacer sobre este manual. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=BOTTOM><B>Numero de
+Tel&eacute;fono</B>. En este apartado se indica el n&uacute;mero de tel&eacute;fono
+que puede utilizar si tiene cualquier duda o pregunta que hacer sobre este
+manual. </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El texto est&aacute; alineado en
+la parte baja de la im&aacute;gen. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=MIDDLE&gt;&lt;IMG SRC=&quot;/iconos1/q__mark2.gif&quot;&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=CENTER><IMG SRC="q_mark2.gif" HEIGHT=34 WIDTH=23>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Tambi&eacute;n es posible alinear
+im&aacute;genes entre s&iacute; y im&aacute;genes respecto a otros elementos
+HTML </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En los casos anteriores solo se especifica
+donde se coloca la primera l&iacute;nea del texto y el resto se incluyen
+debajo de la im&aacute;gen quedando un efecto muy feo cuando el texto tiene
+m&aacute;s de una l&iacute;nea. Existen otras alineaciones que incluir&aacute;n
+a la im&aacute;gen insertada dentro del texto. La im&aacute;gen puede quedar
+a la izquierda, <B><FONT COLOR="#008200">LEFT</FONT></B> o a la derecha,
+<B><FONT COLOR="#008200">RIGHT</FONT></B>. No se podr&aacute; utilizar
+en combinaci&oacute;n con las anteriores alineaciones. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=LEFT&gt;&lt;B&gt;Numero de Telefono&lt;B&gt;. En este apartado se
+indica el n&uacute;mero de tel&eacute;fono que puede utilizar si tiene
+cualquier duda o pregunta que hacer sobre este manual. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=LEFT><B>Numero de Telefono</B>.
+En este apartado se indica el n&uacute;mero de tel&eacute;fono que puede
+utilizar si tiene cualquier duda o pregunta que hacer sobre este manual.
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso aparece la im&aacute;gen
+insertada en el texto, de forma que esta se integra en p&aacute;rrafo que
+la rodea, al contrario que en los casos anteriores </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/phone5.gif&quot;
+ALIGN=RIGHT&gt;&lt;B&gt;Numero de Telefono&lt;B&gt;. En este apartado se
+indica el n&uacute;mero de tel&eacute;fono que puede utilizar si tiene
+cualquier duda o pregunta que hacer sobre este manual. </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="phone5.gif" HEIGHT=73 WIDTH=74 ALIGN=RIGHT><B>Numero de Telefono</B>.
+En este apartado se indica el n&uacute;mero de tel&eacute;fono que puede
+utilizar si tiene cualquier duda o pregunta que hacer sobre este manual.
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este ejemplo aparece la im&aacute;gen
+alineada a la derecha. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="border"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG .. BODER=...&gt; Borde
+de la im&aacute;gen<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicar&aacute; el tama&ntilde;o del borde
+de la imagen, si la imagen se encuentra dentro de un hiperenlace el borde
+de esta ser&aacute; del color apropiado para indicarlo, en caso contrario
+el borde ser&aacute; invisible. Si se desea que no se muestre el borde
+cuando la imagen sea un enlace se usar&aacute; BORDER=0. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;imagenes.htm&quot;&gt;&lt;IMG
+SRC=&quot;/iconos1/q_mark3.gif&quot;&gt;&lt;/A&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><A HREF="imagenes.htm"><IMG SRC="q_mark3.gif" HEIGHT=34 WIDTH=35></A>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve si no se indica nada
+se muestra un borde entorno a la im&aacute;gen que activa el hiperenlace.
+</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;imagenes.htm&quot;&gt;&lt;IMG
+SRC=&quot;/iconos1/q_mark3.gif BORDER=0&quot;&gt;&lt;/A&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><A HREF="imagenes.htm"><IMG SRC="q_mark3.gif" BORDER=0 HEIGHT=34 WIDTH=35></A>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Con el atributo BORDER al valor
+0 no se muestra este borde entorno a la im&aacute;gen, que sirve de hiperenlace.
+</FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="hw"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG .. HEIGHT=... WIDTH=...&gt;
+Tama&ntilde;o de la im&aacute;gen<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es posible cambiar el tama&ntilde;o de
+la im&aacute;gen de forma que pueda ajustarse como se desee, pudiendo ampliar
+o disminuir este. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B><FONT COLOR="#008200">HEIGHT</FONT></B>
+Determina el alto de la imagen a mostrar, se especifica en puntos de la
+pantalla (pixeles) o en tanto por ciento sobre el tama&ntilde;o del documento.
+En caso de que la imagen sea mayor o menor se escalar&aacute; a este tama&ntilde;o.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <B><FONT COLOR="#008200">WIDTH</FONT></B>
+indica el ancho al que se mostrar&aacute; la imagen, escal&aacute;ndola
+a este tama&ntilde;o. Tambi&eacute;n se expresar&aacute; en pixeles o en
+tanto por ciento. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No es necesario indicar el ancho y el
+alto, se puede especificar solo uno de las dimensiones, ajust&aacute;ndose
+la otra a la proporci&oacute;n de la imagen. Es recomendable indicar solo
+uno de estos par&aacute;metros para que la im&aacute;gen no se muestre
+deformada. Igualmente se debe usar el valor relativo en tanto por ciento
+si se desea que la im&aacute;gen guarde siempre una misma proporci&oacute;n
+con respecto al texto. Si se desea mostrar dos im&aacute;genes y queremos
+que una ocupe un cuarto de la pantalla y la otra el espacio restante, se
+indica en una el ancho (WIDTH) del 25% y en la otra del 74%, no indicando
+en ning&uacute;n caso el alto (HEIGHT), de esta forma independientemente
+como sea el tama&ntilde;o de la ventana del navegador e independientemente
+del monitor del cliente, siempre se podr&aacute;n mostrar ambas im&aacute;genes
+en la misma l&iacute;nea. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/world.gif&quot;
+WIDTH=100 HEIGHT=25&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="world.gif" HEIGHT=25 WIDTH=100> </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Si no se indican bien ambos valores,
+teniendo en cuenta la proporci&oacute;n de la im&aacute;gen esta puede
+aparecer deformada. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/world.gif&quot;
+WIDTH=75&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="world.gif" HEIGHT=75 WIDTH=75> </TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este se ve como al indicar uno
+solo de los par&aacute;metros, el otro se ajusta apropiadamente a la proporci&oacute;n
+de la im&aacute;gen. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;imagenes/obra_ani.gif&quot;
+ALIGN=MIDDLE WIDTH=9%&gt; &lt;IMG SRC=&quot;/barras1/constr.gif&quot; WIDTH=89%&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH colspan=2><FONT SIZE=-1>Resultado</FONT></TH>
+
+<TD></TD>
+</TR>
+</TABLE>
+
+<P><IMG SRC="obra_ani.gif" HEIGHT=74 WIDTH=53 ALIGN=CENTER> <IMG SRC="constr.gif" HEIGHT=9 WIDTH=526>
+</P>
+
+<TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Si varia el tama&ntilde;o de la
+ventana de su navegador, comprobar&aacute; que el tama&ntilde;o de las
+im&aacute;genes cambia, pero guardan la misma proporci&oacute;n, el obrero
+ocupa un 9% de la ventana y la barra el 86% restante. Y siempre se mostrar&aacute;n
+ambas im&aacute;genes en la misma l&iacute;nea. </FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<P><A NAME="hv"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG .. HSPACE=... VSPACE=...&gt;
+Espaciado de separaci&oacute;n de la im&aacute;gen<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo HSPACE indica el espaciado
+horizontal que debe separar a la imagen del texto o cualquier otro elemento
+circundante. Se especificar&aacute; en puntos. Es similar a BORDER pero
+en este caso el margen no se destaca en el caso de los hiperenlaces y adem&aacute;s
+es posible indicar separadamente el margen horizontal y el vertical. Con
+el atributo VSPACE se indica el margen vertical. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;IMG SRC=&quot;/iconos1/pr_star.gif&quot;&gt;&lt;IMG
+SRC=&quot;/iconos1/or__star.gif&quot;&gt;<BR>
+&lt;IMG SRC=&quot;/iconos1/pr_star.gif&quot; HSPACE=100&gt;&lt;IMG SRC=&quot;/iconos1/or__star.gif&quot;&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><IMG SRC="pr_star.gif" HEIGHT=18 WIDTH=21><IMG SRC="or_star.gif" HEIGHT=18 WIDTH=21><BR>
+<IMG SRC="pr_star.gif" HSPACE=100 HEIGHT=18 WIDTH=21><IMG SRC="or_star.gif" HEIGHT=18 WIDTH=21>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Como se ve en el segundo caso las
+im&aacute;genes aparecen separadas 100 puntos. El espaciado es igual a
+la derecha que a la izquierda, por tanto tambi&eacute;n aparece la imagen
+separada del borde. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="enlaces.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="enlaces.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="imgsensi.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="imgsensi.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

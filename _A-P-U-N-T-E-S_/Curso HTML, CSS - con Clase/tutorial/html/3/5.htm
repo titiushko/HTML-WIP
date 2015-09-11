@@ -1,0 +1,212 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 3 (5/7)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La quinta parte del tercer tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 3 (5/7)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La quinta parte del tercer tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/3/5" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="4.htm" tppabs="http://html.conclase.net/tutorial/html/3/4" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Identificadores e Hipervínculos (V)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="4.htm" tppabs="http://html.conclase.net/tutorial/html/3/4">anterior</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- En el tutorial anterior te dije que para crear hipervínculos en <abbr>HTML</abbr> se utiliza el elemento <code>A</code>.</p>
+<p class="a">- Sí, lo recuerdo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien, entonces es muy fácil. Un hipervínculo tiene tres características que lo definen: de dónde sale, hacia dónde va, y el tipo de vínculo.</p>
+<p class="a">- Las dos primeras las comprendo, pero la tercera no.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En realidad la tercera característica, el tipo de vínculo, no es excesivamente importante. Por ejemplo, en el caso típico de un vínculo que apunta al capítulo siguiente, el tipo de vínculo es "<span xml:lang="en">Next</span>" ("Siguiente"). Pero no nos preocupemos por eso de momento.</p>
+<p class="a">- Muy bien, lo que tú digas.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- El elemento de <abbr>HTML</abbr> <code>A</code> permite determinar estas características. ¿De dónde sale? De donde hayamos puesto el elemento en el código. ¿A dónde va? A donde diga el valor del atributo <code>href</code> del elemento. Incluso te permite determinar el tipo de vínculo.</p>
+<p class="a">- Ya veo. Y el valor del atributo <code>href</code> es justamente un <abbr>URL</abbr>, ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- No exactamente. Concretamente, es una <dfn>referencia <abbr>URL</abbr></dfn>. Una referencia <abbr>URL</abbr> es un <abbr>URL</abbr> al que opcionalmente se le puede añadir un <dfn>identificador de fragmento</dfn>. Por ejemplo, imagina que quieres hacer un hipervínculo al cuarto párrafo de una página web. Pues sólo tienes que dar un identificador de fragmento a ese párrafo, y para apuntar a él añades al <abbr>URL</abbr> de esa página web el identificador de fragmento, separado por el símbolo <code>#</code>.</p>
+<p class="a">- Ya... ¿por ejemplo?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Por ejemplo, <samp>&lt;a href="../manual/instalacion.html#montaje"&gt;</samp></p>
+<p class="a">- Ya veo. ¿Y cómo se asigna un identificador de fragmento a un... fragmento?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues, ¡con el elemento <code>A</code>!</p>
+<p class="a">- ¡Ah, claro, ya me acuerdo! Lo vimos en el tutorial anterior. Para que un elemento <code>A</code> sea el origen de un hipervínculo, hay que darle un valor a su atributo <code>href</code>, y para que sea el destino de un hipervínculo, hay que darle un valor a su atributo <code>name</code>.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¡Sí, muy bien! En realidad también puedes usar el atributo <code>id</code> en lugar del atributo <code>name</code>. Por ejemplo:</p>
+<p class="p"><samp>&lt;p&gt;&lt;a id="montaje"&gt;El montaje&lt;/a&gt; del equipo es sencillo y no necesita herramientas especiales, etc., etc.&lt;/p&gt;</samp></p>
+<p class="a">- Sí, ya entiendo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Por cierto, si el autor de una página no ha definido destinos de vínculo en su página, difícilmente podrás crear hipervínculos a partes de esa página. Y lo malo es que en general casi nadie define destinos a menos que le hagan falta a él, lo cual es una pena, porque así desperdiciamos la capacidad de la Web. Así que, si eres tan amable, cuando ya sepas <abbr>HTML</abbr> y diseñes páginas de verdad, no te olvides de poner identificadores de fragmento en los sitios que puedan resultar interesantes, ¿vale?</p>
+<p class="a">- Venga, vale, lo haré por ti.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- No, por mí no, por la Web, y por ti mismo. Así será más fácil hacer enlaces a tus páginas y tus páginas serán más fáciles de usar y por tanto más útiles.</p>
+<p class="a">- Vale, vale, si ya me habías convencido...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Venga, no nos enrollemos. Prepara tus enlaces y abre tu editor de textos. ¡Vamos a hacer nuestro pequeño primer portal!</p>
+<p class="a">- ¡Bien, bien!</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="4.htm" tppabs="http://html.conclase.net/tutorial/html/3/4">anterior</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

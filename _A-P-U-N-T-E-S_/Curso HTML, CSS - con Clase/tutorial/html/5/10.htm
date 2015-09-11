@@ -1,0 +1,202 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 5 (10/13)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La décima parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 5 (10/13)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La décima parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-10-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/5/10" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="9.htm" tppabs="http://html.conclase.net/tutorial/html/5/9" />
+
+
+<link rel="Next"     href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11" />
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Hojas de Estilo en Cascada, CSS1 (X)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="9.htm" tppabs="http://html.conclase.net/tutorial/html/5/9">anterior</a> | <a href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- El último grupo son las  <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#propiedades-de-clasificacion'" tppabs="http://html.conclase.net/w3c/css1-es.html#propiedades-de-clasificacion">propiedades de clasificación</a>, que nos permiten especificar cómo se comporta el elemento. Son las siguientes: <code>display</code>, <code>white-space</code>, <code>list-style-type</code>, <code>list-style-image</code>, <code>list-style-position</code> y <code>list-style</code>.</p>
+<p class="a">- Muy bien, empieza.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#display'" tppabs="http://html.conclase.net/w3c/css1-es.html#display"><code>display</code></a> dice si un elemento es en bloque (<code>display:block</code>), en línea (<code>display:inline</code>), si es un objeto de lista (<code>display:list-item</code>) o si no debe ser representado (<code>display:none</code>).</p>
+<p class="a">- No entiendo, ¿esto quiere decir que puedo decir por ejemplo <code>em { display : block }</code>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, lo que eso querría decir es que los elementos <code>EM</code>, en vez de abrir un cuadro en la misma línea, abrirían un nuevo cuadro en bloque. Pero lo mejor es no hacer estas cosas a menos que sea absolutamente necesario.</p>
+<p class="a">- Ok, muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#white-space'" tppabs="http://html.conclase.net/w3c/css1-es.html#white-space"><code>white-space</code></a> es una propiedad que dice cómo tratar a los espacios contenidos en un elemento en bloque. Con el valor <code>normal</code>, varios espacios seguidos se convierten en uno solo, que es a lo que estamos acostumbrados. Con el valor <code>pre</code> obtienes el comportamiento del elemento de <abbr>HTML</abbr> <code>PRE</code>, en el que todos los espacios se conservan. Y con el valor <code>nowrap</code> sólo se producen saltos de línea donde haya elementos <code>BR</code>.</p>
+<p class="a">- Mmmm, muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Bien, y para finalizar, una serie de propiedades que se aplican a elementos con <code>display:list-item</code>. La propiedad <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#list-style-type'" tppabs="http://html.conclase.net/w3c/css1-es.html#list-style-type"><code>list-style-type</code></a> dice el tipo de estilo de numeración de la lista. Puede ser: <code>disc</code> (un círculo relleno), <code>circle</code> (un círculo hueco), <code>square</code> (un cuadrado), <code>decimal</code> (números), <code>lower-roman</code> (números romanos en minúscula), <code>upper-roman</code> (números romanos en mayúscula), <code>lower-alpha</code> (letras minúsculas), <code>upper-alpha</code> (letras mayúsculas) o <code>none</code> (ningún marcador).</p>
+<p class="a">- Muy bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- A no ser que pongamos una imagen con <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#list-style-image'" tppabs="http://html.conclase.net/w3c/css1-es.html#list-style-image"><code>list-style-image</code></a>:</p>
+<pre class="p"><code>ul { list-style-image: url(imagenes/flecha.gif) }</code></pre>
+<p class="a">- Anda, mira qué bien.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- La propiedad <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#list-style-position'" tppabs="http://html.conclase.net/w3c/css1-es.html#list-style-position"><code>list-style-position</code></a> indica el tipo de presentación de la lista, según dónde se coloque el marcador, y puede tomar los valores <code>inside</code> (interior) y <code>outside</code> (exterior):</p>
+<p class="center"><img src="list-inout.gif" tppabs="http://html.conclase.net/tutorial/html/5/list-inout.gif" width="204" height="153" alt="Ejemplo del uso de la propiedad list-style-position." /></p>
+<p class="p">Y por último la propiedad <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#'" tppabs="http://html.conclase.net/w3c/css1-es.html#"><code>list-style</code></a> es un resumen de las anteriores, y puedes indicar al mismo tiempo: el tipo de marcador, el estilo de posición y la imagen del marcador. Si la imagen no está disponible, se colocará un marcador del tipo especificado:</p>
+<pre class="p"><code>ul { list-style : url(imagenes/flecha.gif) circle }</code></pre>
+<p class="a">- Estupendo, bien pensado.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Muy bien, estamos a punto de terminar, pero tenemos que hablar aún de dos cosas importantes: las <em>pseudo-clases</em> y los <em>pseudo-elementos</em>, y en especial del <em>mecanismo de cascada</em>.</p>
+<p class="a">- Venga, vamos.</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="9.htm" tppabs="http://html.conclase.net/tutorial/html/5/9">anterior</a> | <a href="11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/10/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

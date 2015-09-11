@@ -1,0 +1,740 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Formularios</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.12 - FORMULARIOS (FORM).</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=548></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<P><A NAME="a1"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Introducci&oacute;n<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los formularios son plantillas que permiten
+la creaci&oacute;n de documentos HTML con peticiones de datos. La principal
+utilidad de los formularios es la posibilidad de crear cuestionarios, encuestas,
+p&aacute;ginas de comentarios o cualquier documento en la que se desee
+una interacci&oacute;n por parte del usuario. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se podr&aacute;n definir distintos tipos
+de recuadros de dialogo, botones de selecci&oacute;n, men&uacute;s de m&uacute;ltiples
+opciones, ... Para permitir obtener los datos de una manera m&aacute;s
+intuitiva. </P>
+
+<P><A NAME="form"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;FORM&gt;
+Definici&oacute;n de formularios<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una instrucci&oacute;n HTML para
+la creaci&oacute;n de formularios esta es FORM, que tiene la siguiente
+estructura: </P>
+
+<P><B><FONT COLOR="#008200">&lt; FORM ACTION=&quot;fichero que trata el
+formulario&quot; METHOD= POST | GET &gt; <BR>
+...<BR>
+<I>Elementos que forman el formulario<BR>
+</I>...<BR>
+&lt; /FORM&gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dentro de la etiqueta de formulario se
+definir&aacute;n los distintos elementos de petici&oacute;n de datos. Estas
+instrucciones que se explicar&aacute;n a continuaci&oacute;n definir&aacute;n
+los tipos de botones, cajas de dialogo y ventanas para la introducci&oacute;n
+de datos. Y definir&aacute;n las variables que almacenar&aacute;n los datos
+introducidos por el usuario. Estas etiquetas se incluir&aacute;n entre
+la de definici&oacute;n del formulario y la etiqueta de final de formulario.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los atributos que presenta la etiqueta
+<FONT COLOR="#008200">FORM</FONT> son los siguientes: </P>
+
+<P><A NAME="action"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>ACTION:
+</FONT></FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica el programa que se encargar&aacute;
+de tratar los datos del formulario. Este programa debe encontrarse en el
+servidor y estar escrito en alg&uacute;n lenguaje de programaci&oacute;n.
+A este programa se pasar&aacute; como par&aacute;metros los datos introducidos
+en el formulario y retornar&aacute; un c&oacute;digo HTML que se mostrar&aacute;
+tras procesar el formulario. A este tipo de programas se les llama cgi-bin,
+y se explican en el &uacute;ltimo apartado de este manual: <A HREF="cgi-bin.htm">(CGI-BIN)</A>.
+</P>
+
+<P><A NAME="method"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>METHOD:</FONT></FONT></B>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica el protocolo usado para el env&iacute;o
+de los datos. Con POST env&iacute;a los datos en la entrada est&aacute;ndar
+del programa que trata el formulario y con GET los datos se pasan por par&aacute;metro,
+en la l&iacute;nea de comandos, al programa. El usar uno o otro m&eacute;todo
+vendr&aacute; determinado por como son tratados los par&aacute;metros en
+el formulario en el <A HREF="cgi-bin.htm">(CGI-BIN)</A>. El m&eacute;todo
+de uso m&aacute;s normal ser&aacute; POST. 
+<HR size=5 width=50% align=center></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez definidas las caracter&iacute;sticas
+globales del formulario incluiremos los distintos botones y cajas de dialogo
+que lo constituyen. Dentro de la instrucci&oacute;n del formulario podr&aacute;n
+incluirse cualquier texto o instrucci&oacute;n HTML, siendo recomendado
+a fin de poder etiquetar las opciones de entrada y especificar cualquier
+dato importante relacionado con el formulario. Igualmente un formulario
+puede ser incluido en algunas instrucciones HTML como las listas, tablas,
+etc ... </P>
+
+<P><A NAME="input"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT&gt;
+Entrada b&aacute;sica de datos<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La etiqueta <FONT COLOR="#008200">INPUT</FONT>
+se utiliza para definir gran variedad de tipos de campos de entrada de
+datos. Por lo general ser&aacute;n entradas de texto corto (a lo sumo una
+frase) o opciones. El formato b&aacute;sico es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE = ( <A HREF="#text">TEXT</A>
+| <A HREF="#password">PASSWORD</A> | <A HREF="#checkbox">CHECKBOX</A> |
+<A HREF="#radio">RADIO</A> | <A HREF="#hidden">HIDDEN</A> | <A HREF="#submit">SUBMIT</A>
+| <A HREF="#image">IMAGE</A> | <A HREF="#reset">RESET</A> ) NAME = &quot;<I>Variable
+que toma el valor</I>&quot; VALUE = &quot;<I>Valor de Inicializaci&oacute;n</I>&quot;
+&gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <FONT COLOR="#008200">TYPE</FONT>
+se usa para determinar el tipo de recuadro de dialogo de entrada que se
+est&aacute; definiendo, a continuaci&oacute;n se explicar&aacute;n por
+separado cada una de las opciones. El atributo <FONT COLOR="#008200">NAME</FONT>
+especifica el nombre de la variable que se define. Este nombre ser&aacute;
+pasado al programa que trata el formulario junto con el valor que le asigno
+el usuario del formulario. El atributo <FONT COLOR="#008200">VALUE</FONT>
+suele especificar el valor de inicializaci&oacute;n, que ser&aacute; el
+valor por defecto. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A continuaci&oacute;n se relatan los distintos
+tipos de instrucciones de entrada. </P>
+
+<P><A NAME="text"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=TEXT...&gt; Texto corto<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se utiliza para la entrada de cadenas
+de texto corto, como por ejemplo nombre de personas, n&uacute;meros, fechas
+o diversos datos que se puedan expresar en una l&iacute;nea de texto. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se mostrar&aacute; un recuadro que ocupa
+una l&iacute;nea y la que ser&aacute; posible especificar este texto. El
+formato de la instrucci&oacute;n es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=TEXT NAME=&quot;<I>variable</I>&quot;
+VALUE=&quot;<I>valor inicial</I>&quot; SIZE=&quot;<I>tama&ntilde;o</I>&quot;
+MAXLENGTH=&quot;<I>longitud m&aacute;xima</I>&quot; &gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El tama&ntilde;o de la ventana de introducci&oacute;n
+de texto se fija con el atributo <FONT COLOR="#008200">SIZE</FONT>, que
+indica el tama&ntilde;o de la ventana en caracteres. Aqu&iacute; solo se
+define la parte visible, pero el usuario podr&aacute; introducir m&aacute;s
+texto si lo desea. Para indicar el m&aacute;ximo n&uacute;mero de caracteres
+que se permiten en la entrada usaremos: <FONT COLOR="#008200">MAXLENGTH</FONT>.
+El atributo <FONT COLOR="#008200">NAME</FONT> indica el nombre de la variable
+que toma el valor de la entrada y <FONT COLOR="#008200">VALUE</FONT> especifica
+el valor de inicializaci&oacute;n del campo. De todos los atributos solo
+ser&aacute; obligatorio <FONT COLOR="#008200">NAME</FONT>, siendo el resto
+opcionales. En la entrada se podr&aacute;n usar cualquier tipo de caracteres
+incluso los acentuados, en su formato normal. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Nombre: &lt;INPUT TYPE=TEXT NAME=variable&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM>Nombre: <INPUT TYPE=TEXT NAME=variable><BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Ser&aacute; una introducci&oacute;n
+de texto b&aacute;sica. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Nombre: &lt;INPUT TYPE=TEXT NAME=variable
+VALUE=&quot;Texto de Inicializaci&oacute;n&quot;&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM>Nombre: <INPUT TYPE=TEXT NAME=variable VALUE="Texto de Inicialización"><BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso introduciremos un
+texto de inicializaci&oacute;n que ser&aacute; el texto por defecto y es
+editable por el usuario. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Nombre: &lt;INPUT TYPE=TEXT NAME=variable
+VALUE=&quot;Texto de Inicializaci&oacute;n&quot; SIZE=50 MAXLENGHT=55&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM>Nombre: <INPUT TYPE=TEXT NAME=variable VALUE="Texto de Inicialización" SIZE=50 MAXLENGHT=55><BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Ahora definimos con SIZE un mayor
+tama&ntilde;o del recuadro y con MAXLENGHT definimos el n&uacute;mero m&aacute;ximo
+de caracteres que se pueden introducir. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="password"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=PASSWORD...&gt; Palabras secretas<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Es similar al anterior pero en este caso
+no se imprimen los caracteres seg&uacute;n se van introduciendo, se muestra
+un asterisco en vez de los caracteres. Solo se puede ver el n&uacute;mero
+de caracteres, pero no valor. Se usa para la introducci&oacute;n de claves
+de acceso (passwords) y datos que no deban ser vistos al introducirlos.
+El formato es: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=PASSWORD NAME=&quot;<I>variable</I>&quot;
+VALUE=&quot;<I>valor inicial</I>&quot; SIZE=&quot;<I>tama&ntilde;o</I>&quot;
+MAXLENGTH=&quot;li&gt;longitud m&aacute;xima</FONT>&quot; &gt; </B></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Password: &lt;INPUT TYPE=PASSWORD
+NAME=variable VALUE=&quot;password&quot;&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM>Password: <INPUT TYPE=PASSWORD NAME=variable VALUE="password"><BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El texto introducido no puede ser
+visto, pero si es posible saber el n&uacute;mero de caracteres que se introducen.
+</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="checkbox"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=CHECKBOX&gt; Botones de selecci&oacute;n<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El checkbox es un bot&oacute;n que puede
+presentar dos estados activado o desactivado. El formato es el siguiente:
+</P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=CHECKBOX NAME=&quot;<I>variable</I>&quot;
+CHECKED&gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se requiere el atributo <FONT COLOR="#008200">NAME</FONT>.
+Los valores que tomar&aacute; la variable ser&aacute;n <I>on</I> &oacute;
+<I>off</I>, dependiendo de su estado. Si el bot&oacute;n estaba activado
+cuando se env&iacute;an los datos del formulario se enviaran el nombre
+de la variable y el valor que indique su estado. Si se incluye el atributo
+<FONT COLOR="#008200">CHECKED</FONT> el bot&oacute;n se encontrar&aacute;
+activado en la inicializaci&oacute;n.<BR>
+Si se indica el atributo <FONT COLOR="#008200">VALUE</FONT>,cuando se envian
+los datos con el bot&oacute;n activado se mandar&aacute; la variable con
+el valor indicado y en caso contrario no se mandar&aacute; ning&uacute;n
+valor. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;INPUT TYPE=CHECKBOX NAME= variable&gt;
+Opci&oacute;n</FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><INPUT TYPE=CHECKBOX NAME= variable>Opci&oacute;n<BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso esta desactivado por
+defecto y su utilizar&aacute; en caso de los valores on y off para definir
+su estado. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;INPUT TYPE=CHECKBOX NAME= variable
+CHECKED&gt; Opci&oacute;n</FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><INPUT TYPE=CHECKBOX NAME= variable CHECKED>Opci&oacute;n<BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Ahora se especifica CHECKED para
+indicar que por defecto debe estar activado. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="radio"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=RADIO...&gt; Selecci&oacute;n entre m&uacute;ltiples opciones<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se usa cuando la opci&oacute;n puede tomar
+un valor simple de una serie de alternativas. En este caso se presentan
+unos valores opcionales de los que solo puede tomar un valor. Para especificar
+cada uno de estos valores se incluir&aacute; una etiqueta RADIO por cada
+una de las posibles alternativas, su estructura general ser&aacute;: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=RADIO NAME=&quot;<I>variable</I>&quot;
+VALUE=&quot;<I>valor 1</I>&quot; CHECKED &gt; <BR>
+&lt; INPUT TYPE=RADIO NAME=&quot;<I>variable</I>&quot; VALUE=&quot;<I>valor
+2</I>&quot; &gt; <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; . . . <BR>
+&lt; INPUT TYPE=RADIO NAME=&quot;<I>variable</I>&quot; VALUE=&quot;<I>valor
+n</I>&quot; &gt; </FONT></B><BR>
+</P>
+
+<P>Cada una de las etiquetas <FONT COLOR="#008200">RADIO</FONT> tendr&aacute;
+el mismos atributo <FONT COLOR="#008200">NAME</FONT>, y con un distinto
+atributo <FONT COLOR="#008200">VALUE</FONT> que ser&aacute; el valor que
+tome si se selecciona esta opci&oacute;n. Para inicializarlo se usa el
+atributo <FONT COLOR="#008200">CHECKED</FONT> que se indicar&aacute; solo
+en la opci&oacute;n que se quiera especificar por defecto. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;INPUT TYPE=RADIO NAME= variable
+VALUE=opcion1 &gt;Opci&oacute;n 1&lt;BR&gt;<BR>
+&lt;INPUT TYPE=RADIO NAME= variable VALUE=opcion2 CHECKED&gt;Opci&oacute;n
+2&lt;BR&gt;<BR>
+&lt;INPUT TYPE=RADIO NAME= variable VALUE=opcion3 &gt;Opci&oacute;n 3&lt;BR&gt;<BR>
+&lt;INPUT TYPE=RADIO NAME= variable VALUE=opcion4 &gt;Opci&oacute;n 4&lt;BR&gt;</FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><INPUT TYPE=RADIO NAME= variable VALUE=opcion1 >Opci&oacute;n
+1<BR>
+<INPUT TYPE=RADIO NAME= variable VALUE=opcion2 CHECKED>Opci&oacute;n 2<BR>
+<INPUT TYPE=RADIO NAME= variable VALUE=opcion3 >Opci&oacute;n 3<BR>
+<INPUT TYPE=RADIO NAME= variable VALUE=opcion4 >Opci&oacute;n 4<BR>
+</FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso solo es posible seleccionar
+uno de los posibles valores, la opci&oacute;n CHECKED indica cual es la
+opci&oacute;n activa por defecto. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="hidden"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=HIDDEN...&gt; Par&aacute;metros ocultos<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso no se muestra ning&uacute;n
+campo para la entrada de datos al usuario, pero el par variable valor especificado
+es enviado junto con el formulario. Se suele usar para transmitir informaci&oacute;n
+de estado &oacute; control &oacute; para enviar alg&uacute;n tipo de informaci&oacute;n
+que no debe ser variada en el formulario, pero s&iacute; debe ser enviada
+junto a este. El formato es: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=HIDDEN NAME=&quot;<I>variable</I>&quot;
+VALUE=&quot;<I>valor</I>&quot; &gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deber&aacute; incluir tanto la variable
+como el valor. </P>
+
+<P><A NAME="submit"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=SUBMIT...&gt; Enviar Datos<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este bot&oacute;n se usa para enviar los
+datos del formulario, al pulsar el usuario este bot&oacute;n, se acaba
+la introducci&oacute;n del formulario y pasa el control al programa indicado
+en <FONT COLOR="#008200">ACTION</FONT>. En todo formulario debe existir
+al menos un bot&oacute;n de <FONT COLOR="#008200">SUBMIT</FONT>, si solo
+incluye un recuadro del tipo <FONT COLOR="#008200">TEXT</FONT> no ser&aacute;
+necesario incluirlo. El formato es: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=SUBMIT VALUE=&quot;<I>mensaje
+a mostrar</I>&quot; &gt;</FONT> </B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <FONT COLOR="#008200">VALUE</FONT>
+especifica una etiqueta no editable que se mostrar&aacute; en el bot&oacute;n
+de env&iacute;o. Lo normal es que este bot&oacute;n no env&iacute;e datos,
+pero si se indica el atributo <FONT COLOR="#008200">NAME</FONT> con un
+nombre de variable ser&aacute; enviada la variable con el valor de <FONT COLOR="#008200">VALUE</FONT>.
+Esto puede ser &uacute;til si se incluyen distintos botones de <FONT COLOR="#008200">SUBMIT</FONT>
+para distinguir cual fue pulsado. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt; INPUT TYPE=SUBMIT VALUE=&quot;Enviar
+Datos&quot; &gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><INPUT TYPE=SUBMIT  VALUE="Enviar Datos" ></FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>El texto indicado en VALUE es el
+que etiqueta el bot&oacute;n, al pulsar sobre &eacute;l se enviar&aacute;n
+los datos del formulario </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="image"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT
+TYPE=IMAGE...&gt; Bot&oacute;n de Env&iacute;o gr&aacute;fico<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Su funcionalidad es similar al bot&oacute;n
+de <FONT COLOR="#008200">SUBMIT</FONT>, se usa igualmente para enviar los
+datos de un formulario, pero en este caso se presenta una imagen como bot&oacute;n.
+Igualmente al pulsar sobre el bot&oacute;n se enviar&aacute; el formulario.
+El formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=IMAGE NAME=&quot;<I>variable</I>&quot;
+SRC=&quot;<I>URL de la Imagen</I>&quot; &gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El punto de la imagen en el que pulsa
+el usuario tambi&eacute;n es pasado al programa interprete del formulario,
+de forma que la imagen igualmente podr&iacute;a ser un mapa sensible. Se
+pasar&aacute;n dos par&aacute;metros <FONT COLOR="#008200">x</FONT> e <FONT COLOR="#008200">y</FONT>
+con las coordenadas del punto donde pulso, siendo el programa interprete
+el encargado de determinar la zona donde se puls&oacute;, si se desea.
+</P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;INPUT TYPE=IMAGE SRC=&quot;boton.gif&quot;&gt;
+</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><INPUT TYPE=IMAGE SRC="boton.gif"></FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se muestra la imagen como bot&oacute;n
+de env&iacute;o, sustituyendo al bot&oacute;n de SUBMIT. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;INPUT TYPE=RESET...&gt; Borrar
+los datos<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este bot&oacute;n se usa para volver a
+los valores por defecto todos los elementos del formulario, borrando todos
+los datos introducidos por el usuario. Su formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt; INPUT TYPE=RESET VALUE=&quot;<I>Etiqueta
+a mostrar</I>&quot; &gt; </FONT></B></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El atributo <FONT COLOR="#008200">VALUE</FONT>
+especifica la etiqueta que tendr&aacute; el bot&oacute;n. </P>
+
+<P><A NAME="textarea"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;TEXTAREA&gt;
+Texto en m&uacute;ltiples l&iacute;neas<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Permite la introducci&oacute;n de un texto
+que puede abarcar varias l&iacute;neas, introduciendo este en forma de
+p&aacute;rrafo. El formato general ser&aacute;: </P>
+
+<P><B><FONT COLOR="#008200">&lt;TEXTAREA NAME=&quot;<I>variable</I>&quot;
+ROWS=<I>Filas</I> COLS=<I>Columnas</I>&gt; <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<I>Texto de Inicializaci&amp; oacute;n
+que puede</I> <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<I>incluir varias l&amp;iacute;neas.</I>
+<BR>
+&lt;/TEXTAREA&gt; </FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso se presenta una ventana del
+tama&ntilde;o especificado con los atributos <FONT COLOR="#008200">ROWS</FONT>,
+filas, y <FONT COLOR="#008200">COLS</FONT>, columnas. El texto expresado
+entre la etiqueta de inicio y de final sirve para indicar que texto aparecer&aacute;
+inicialmente en la ventana, en este texto se podr&aacute;n incluir las
+marcas del lenguaje HTML, pero solo se tendr&aacute;n en cuenta para incluir
+acentos y otro tipo de efectos. Los atributos <FONT COLOR="#008200">ROWS</FONT>
+y <FONT COLOR="#008200">COLS</FONT> determinan el tama&ntilde;o de la ventana
+visible, el texto se podr&aacute; extender m&aacute;s all&aacute; de estos
+limites. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplo </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;TEXTAREA NAME=variable ROWS=10
+COLS=54&gt; <BR>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Texto de Inicializaci&amp;oacute;n que
+puede <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incluir varias l&amp;iacute;neas. <BR>
+&lt;/TEXTAREA&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><TEXTAREA NAME=variable  ROWS=10 COLS=54 >Texto de Inicializaci&oacute;n
+que puede incluir varias l&iacute;neas. </TEXTAREA></FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se puede especificar el tama&ntilde;o
+de la ventana para introducir datos e indicar un texto de inicializaci&oacute;n,
+aunque este ser&aacute; opcional. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="select"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;SELECT&gt;
+Elecci&oacute;n entre m&uacute;ltiples opciones<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se usa para men&uacute;s simple o m&uacute;ltiples.
+Define men&uacute;s de tipo pop-up (men&uacute; de barras) y ofrece una
+alternativa m&aacute;s compacta al uso de botones <FONT COLOR="#008200">RADIO</FONT>
+o <FONT COLOR="#008200">CHECKBOX</FONT>. Su formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt;SELECT NAME=&quot;<I>variable</I>&quot;&gt;
+<BR>
+&lt; OPTION SELECTED VALUE=<I>valor1</I>&gt; <I>Opci&oacute;n Primera<BR>
+</I>&lt; OPTION VALUE=<I>valor2</I>&gt; <I>Opci&oacute;n Segunda<BR>
+</I>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;. . .<BR>
+&lt; OPTION VALUE=<I>valorn</I>&gt; <I>Opci&oacute;n En&eacute;sima<BR>
+</I>&lt;/SELECT&gt; </FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si se desea que sea un men&uacute; m&uacute;ltiple
+se deber&aacute; incluir el atributo <FONT COLOR="#008200">MULTIPLE</FONT>
+en la etiqueta de <FONT COLOR="#008200">SELECT</FONT>, en este caso se
+mostrar&aacute;n todas las opciones en forma de tabla, en el otro caso
+se mostrar&aacute; la opci&oacute;n activa y un bot&oacute;n para poder
+modificar esta opci&oacute;n. En ambos casos solo podr&aacute; seleccionarse
+una de las opciones. Cuando se env&iacute;a el resultado del formulario
+la variables NAME tomar&aacute; el valor de la opci&oacute;n que este activa.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La etiqueta <FONT COLOR="#008200">OPTION</FONT>
+que contenga el atributo <FONT COLOR="#008200">SELECTED</FONT> ser&aacute;
+considerada la opci&oacute;n por defecto, caso de no especificarse ninguna
+se considerar&aacute; la primera de las opciones. </P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Ejemplos </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;SELECT NAME=&quot;variable&quot;&gt;
+<BR>
+&lt;OPTION VALUE=1&gt; Opci&oacute;n Primera<BR>
+&lt;OPTION SELECTED VALUE=2&gt; Opci&oacute;n Segunda<BR>
+&lt;OPTION VALUE=3&gt; Opci&oacute;n Tercera<BR>
+&lt;/SELECT&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><SELECT NAME=variable ><OPTION VALUE=1>Opci&oacute;n Primera
+<OPTION SELECTED VALUE=2>Opci&oacute;n Segunda <OPTION VALUE=3>Opci&oacute;n
+Tercer </SELECT></FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>Se muestra la opci&oacute;n activa
+que puede ser cambiada, por defecto esta activada la segunda opci&oacute;n.
+</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;SELECT NAME=&quot;variable&quot;
+MULTIPLE&gt; <BR>
+&lt;OPTION VALUE=1&gt; Opci&oacute;n Primera<BR>
+&lt;OPTION SELECTED VALUE=2&gt; Opci&oacute;n Segunda<BR>
+&lt;OPTION VALUE=3&gt; Opci&oacute;n Tercera<BR>
+&lt;/SELECT&gt; </FONT></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><FORM><SELECT NAME=variable MULTIPLE><OPTION VALUE=1>Opci&oacute;n
+Primera <OPTION SELECTED VALUE=2>Opci&oacute;n Segunda <OPTION VALUE=3>Opci&oacute;n
+Tercer </SELECT></FORM></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>En este caso al ser m&uacute;ltiple
+se muestran todas las opciones posibles, de las que solo es posible seleccionar
+una. </FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="tablas.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="tablas.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="cgi-bin.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="cgi-bin.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

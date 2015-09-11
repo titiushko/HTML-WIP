@@ -1,0 +1,355 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Metadatos</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Este documento trata sobre los metadatos y los elementos META (metatags). Explica la diferencia entre los elementos que especifican el atributo http-equiv y el atributo name, y realiza un repaso de los más utilizados." />
+<meta name="Keywords"    content="HTML,Elementos META,name,http-equiv,encabezados HTTP,páginas web,diseño web" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Metadatos" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Metadatos" />
+<meta name="DC.Description"       content="Este documento trata sobre los metadatos y los elementos META (metatags). Explica la diferencia entre los elementos que especifican el atributo http-equiv y el atributo name, y realiza un repaso de los más utilizados." />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/metadatos" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t1">Elementos <code>META</code></h2>
+
+<p>De acuerdo con la especificación de <abbr>HTML</abbr> 4, los elementos <code>META</code> se utilizan para especificar información sobre el propio documento (de ahí su nombre). La <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.4.4.2'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.4.4.2">sintaxis</a> del elemento <code>META</code> es la siguiente:</p>
+<p><code>&lt;meta name="nombre-propiedad" content="valor-propiedad" scheme="esquema-datos" lang="idioma" dir="dirección-del-texto"&gt;</code></p>
+<p>o bien:</p>
+<p><code>&lt;meta http-equiv="nombre-encabezado-http" content="valor-encabezado"&gt;</code></p>
+
+<p>Los elementos <code>META</code> forman parte del contenido del elemento <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.4.1'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#h-7.4.1"><code>HEAD</code></a> del documento.</p>
+
+<p>Por ejemplo:</p>
+<dl>
+<dt><code>&lt;meta name="Author" content="Pedro Villar Martos" lang="es"&gt;</code></dt>
+ <dd>Esta declaración dice que el autor del documento es Pedro Villar Martos, e indica que el valor del atributo <code>content</code> está en español.</dd>
+<dt><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</code></dt>
+ <dd>Esta declaración dice que el tipo de contenido del documento es <code>text/html</code>, y la codificación de caracteres utilizada es la ISO-8859-1.</dd>
+</dl>
+
+<h3 id="t2">Elementos <code>META</code> especificados con <code>http-equiv</code></h3>
+
+<h4 id="t3">Introducción al protocolo <abbr>HTTP</abbr></h4>
+<p><abbr>HTTP</abbr> es el protocolo de la Web. Es decir, es el protocolo de red (algo así como las <em>normas</em>) según las cuales se transmiten los recursos de la <span xml:lang="en">World Wide Web</span> entre las aplicaciones que acceden a la Web. Estos recursos pueden ser documentos <abbr>HTML</abbr>, imágenes, ficheros de música, etc.</p>
+<p>La comunicación tiene lugar a través del envío de mensajes. El <dfn>cliente</dfn> (normalmente un navegador) envía un mensaje de petición al <dfn>servidor</dfn>, y éste devuelve un mensaje de respuesta, que normalmente contiene el recurso requerido por el cliente. La estructura de estos mensajes es la siguiente:</p>
+<ul>
+ <li>Una línea inicial, que es diferente según el mensaje sea de petición o de respuesta.</li>
+ <li>Cero o más líneas de <dfn>encabezado</dfn>.</li>
+ <li>Una línea en blanco</li>
+ <li>Opcionalmente, un <dfn>cuerpo de mensaje</dfn> (p.ej., un fichero, los datos de un formulario, etc.).</li>
+</ul>
+<p>En el caso de un mensaje de petición, la línea inicial tiene la siguente estructura: <code>método identificador-del-recurso versión-de-HTTP</code>. Por ejemplo:</p>
+<p><code>GET /index.html HTTP/1.1</code></p>
+<p>Esto significa "Soy compatible con la versión 1.1; dame el fichero index.html del directorio raíz".<!-- Explicaremos esto más a fondo en un futuro tutorial de <abbr>HTTP</abbr>. --></p>
+<p>En el caso de un mensaje de respuesta, la línea inicial (<em xml:lang="en">Status Line</em>) tiene la siguiente estructura: <code>version-de-HTTP código-de-estado-de-respuesta frase-explicativa</code>. Por ejemplo:</p>
+<p><code>HTTP/1.1 200 OK</code></p>
+<p>El código 200 significa que la petición se ha servido con éxito. Otros códigos típicos son el 404 (el recurso pedido no existe), o el 500 (error inesperado en el servidor). La lista completa de códigos se puede encontrar en la <a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc2616.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc2616.txt'" tppabs="http://www.ietf.org/rfc/rfc2616.txt">especificación del protocolo</a>.</p>
+
+<h4 id="t4">Líneas de encabezado</h4>
+<p>Las líneas de encabezado dan información sobre el mensaje o sobre el objeto contenido en el cuerpo del mensaje. Cada encabezado, que ocupa una línea, tiene la estructura <code>Nombre-del-encabezado: valor</code>. <abbr>HTTP</abbr> 1.0 define 16 encabezados, y <abbr>HTTP</abbr> 1.1 define 46. Los dos encabezados principales en los mensajes de respuesta son <code>Server:</code>, que identifica el programa utilizado como servidor, y <code>Last-Modified:</code>, que da la fecha de la última modificación del recurso servido (hora <abbr>GMT</abbr>), y que es útil para las cachés (para ahorrar consumo de ancho de banda). Por ejemplo:</p>
+<pre><code>Server: Apache/1.3.12 (Unix)
+Last-Modified: Sat, 16 Jun 2001 23:15:08 GMT</code></pre>
+
+<h4 id="t5">Encabezados de respuesta definidos por <abbr>HTTP</abbr></h4>
+<p>Los encabezados que pueden ofrecer alguna utilidad desde el punto de vista del administrador de la página web son los siguientes:</p>
+<dl>
+<dt id="expires"><code>Expires:</code></dt>
+ <dd>Indica la fecha de caducidad del documento. La fecha es <abbr>GMT</abbr>. Es el mecanismo básico que proporciona <abbr>HTTP</abbr> 1.0 para controlar el almacenamiento en caché. Después de la fecha indicada, las cachés (y posiblemente los motores de búsqueda) volverán para comprobar en el servidor si el recurso ha sido modificado. Cualquier valor ilegal significa que el cliente debe interpretarlo como "en el pasado", y por tanto es útil para impedir que el documento se almacene en las cachés, forzando a que se compruebe si el documento ha sido modificado cada vez que es requerido. Los buscadores podrían eliminar los documentos expirados de su caché, o programar una nueva visita en la fecha indicada.</dd>
+<dd>Ejemplo:</dd>
+<dd><code>Expires: Sat, 30 Jun 2001 12:00:00 GMT</code></dd>
+
+<dt id="pragma"><code>Pragma:</code></dt>
+ <dd>Su valor debe ser <code>no-cache</code>. Permite a un cliente refrescar la copia que tiene en su caché cuando sabe que ésta es incorrecta o anticuada. Es decir, un valor <code>no-cache</code> no significa que el recurso no pueda ser almacenado en caché. Para controlar el almacenamiento debe usarse el encabezado <code>Expires:</code> o las directrices de <a href="#cache-control">control de caché</a> definidas en <abbr>HTTP</abbr> 1.1.</dd>
+
+<dt id="content-type"><code>Content-Type:</code></dt>
+ <dd>Permite especificar la codificación de caracteres utilizada al codificar el documento. Por ejemplo:</dd>
+ <dd><code>Content-Type: text/html; charset=ISO-8859-1</code></dd>
+
+<dt id="content-language"><code>Content-Language:</code></dt>
+ <dd>Permite especificar el idioma de los destinatarios del recurso. Por ejemplo: <code>Content-Language: es-ES</code> indica que la audiencia a la que se dirige el recurso son los hablantes españoles del castellano. Los códigos de idioma están definidos por el IANA. Véase la información de la especificación de HTML 4.01 sobre <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/dirlang.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/dirlang.html#h-8.1.1'" tppabs="http://html.conclase.net/w3c/html401-es/struct/dirlang.html#h-8.1.1">códigos de idioma</a>.</dd>
+<dd>Este encabezado puede ser combinado con el encabezado de petición <code>Accept-Language:</code> (cuyo valor puede estar determinado por ejemplo por las preferencias del usuario) para servir el documento más apropiado. También puede ser utilizado por los motores de búsqueda para categorizar los recursos por idiomas.</dd>
+
+<dt id="cache-control"><code>Cache-Control</code></dt>
+ <dd>Consiste en una serie de directrices definidas por <abbr>HTTP</abbr> 1.1 para determinar cómo deberían ser manejadas las páginas por las cachés. Algunos de estos encabezados de respuesta incluyen:
+ <dl>
+ <dt><code>max-age=segundos</code></dt>
+ <dd>Es similar a <code>Expires:</code>, pero el tiempo de caducidad, especificado en segundos, se cuenta a partir del momento en que se realiza la petición del recurso, por lo que ofrece mayor flexibilidad.</dd>
+ <dt><code>s-maxage=segundos</code></dt>
+ <dd>Como <code>max-age</code>, pero sólo se aplica a cachés proxy.</dd>
+ <dt><code>public</code></dt>
+ <dd>Marca la respuesta como almacenable en caché, incluso cuando lo normal es que no lo fuera. Por ejemplo, se podría definir que las páginas autentificadas fueran almacenables en caché.</dd>
+ <dt><code>no-cache</code></dt>
+ <dd>Fuerza a las cachés (proxy o de navegador) a que siempre envíen una petición al servidor de origen antes de servir una página almacenada en la caché. Esto es útil para asegurarse de que la autentificación es respetada (usado junto con <code>public</code>), o para servir siempre documentos actualizados sin sacrificar las ventajas de las cachés.</dd>
+ <dt><code>must-revalidate</code></dt>
+ <dd>Comunica a las cachés que deben seguir estrictamente todas nuestras reglas sobre la caducidad de los recursos. El protocolo <abbr>HTTP</abbr> da a las cachés cierta libertad a este respecto, la cual se puede restringir con esta directriz.</dd>
+ <dt><code>proxy-revalidate</code></dt>
+ <dd>Similar a <code>must-revalidate</code>, pero sólo se aplica a cachés proxy.</dd>
+ </dl></dd>
+ <dd>Ejemplo:</dd>
+ <dd><code>Cache-Control: max-age=3600, must-revalidate</code></dd>
+ <dd>Se puede encontrar más información en la <a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc2616.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc2616.txt'" tppabs="http://www.ietf.org/rfc/rfc2616.txt">especificación</a> de HTTP 1.1.</dd>
+</dl>
+
+<h4 id="t6">Otros encabezados de respuesta</h4>
+<p>Existen otros encabezados de respuesta no definidos por <abbr>HTTP</abbr> pero que tienen cierta utilidad.</p> 
+<dl>
+<dt id="refresh"><code>Refresh:</code></dt>
+ <dd>Este encabezado fue introducido por Netscape en la versión 2 de su navegador. Su uso típico es proporcionar una posibilidad de redireccionar un documento que ha cambiado de localización. Este uso está soportado por una amplia proporción de los navegadores existentes. Por ejemplo, <code>&lt;meta http-equiv="Refresh" content="3;URL=http://www.algunsitio.com/nuevo.html"&gt;</code>, indica al navegador que cargue la página especificada al cabo de tres segundos. Nunca debería emplearse un tiempo de cero segundos, porque puede estropear la funcionalidad de algunos navegadores.</dd>
+<dd>Si bien existe la posibilidad de especificar este encabezado como encabezado <abbr>HTTP</abbr>, lo cierto es que no tiene mucho sentido (existen <a href="javascript:if(confirm('http://www.htmlhelp.com/faq/html/publish.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlhelp.com/faq/html/publish.html#redirect'" tppabs="http://www.htmlhelp.com/faq/html/publish.html#redirect">mejores maneras</a> de redireccionar recursos), a no ser que se utilice para obligar al cliente a recargar el documento cada cierto tiempo, lo cual provoca <a href="javascript:if(confirm('http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/#gl-movement'" tppabs="http://www.w3.org/TR/1999/WAI-WEBCONTENT-19990505/#gl-movement">problemas de accesibilidad</a> que deberían ser evitados (además de pérdida de control del usuario sobre su navegador, véase este <a href="javascript:if(confirm('http://www.flora.org/lynx-dev/html/month031997/msg00883.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.flora.org/lynx-dev/html/month031997/msg00883.html'" tppabs="http://www.flora.org/lynx-dev/html/month031997/msg00883.html">mensaje en la lista lynx-dev</a>).</dd>
+<dd>La especificación <abbr>HTML</abbr> 4.01 dice que "los autores no deberían utilizar esta técnica para dirigir a los usuarios a páginas diferentes, ya que esto hace la página inaccesible para algunos usuarios". En la práctica, si no es posible especificar redirecciones desde el servidor, debería ofrecerse en el documento un vínculo normal al nuevo documento además del elemento <code>META Refresh</code>.</dd>
+ 
+<dt id="set-cookie"><code>Set-Cookie:</code></dt>
+<dd>Coloca un "cookie" en el navegador. La especificación se encuentra en <a href="javascript:if(confirm('http://wp.netscape.com/newsref/std/cookie_spec.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://wp.netscape.com/newsref/std/cookie_spec.html'" tppabs="http://wp.netscape.com/newsref/std/cookie_spec.html">el sitio web de Netscape</a>. La sintaxis es la siguiente:</dd>
+<dd><code>Set-Cookie: NAME=VALUE; expires=DATE; path=PATH; domain=DOMAIN_NAME; secure</code></dd>
+<dd>O en la forma de elemento <code>META</code>:</dd>
+<dd><code>&lt;meta http-equiv="Set-Cookie" content="cookievalue=VALUE; expires=DATE; path=PATH; domain=DOMAIN_NAME; secure"&gt;</code></dd>
+<dd>Si se incluye fecha de caducidad (<code>expires</code>) el "cookie" se queda en el disco duro hasta que llega esa fecha, momento en el cual se borra; si no se especifica la fecha, el "cookie" se borra en cuanto se cierra el navegador.</dd>
+
+<dt id="pics-label"><code>PICS-Label:</code></dt>
+<dd><abbr>PICS</abbr> significa "<span xml:lang="en">Platform Independent Content Rating Scheme</span>", algo así como "Clasificación de Contenidos Independiente de la Plataforma". Su uso primario es clasificar un documento según sus contenidos (violencia, sexo, etc.), pero además tiene otras utilidades como firma de códigos, privacidad, protección de la propiedad intelectual, etc. Un ejemplo (sacado <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/struct/global.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/struct/global.html#edef-META'" tppabs="http://html.conclase.net/w3c/html401-es/struct/global.html#edef-META">de la especificación</a> de <abbr>HTML</abbr> 4.01) puede ser el siguiente:</dd>
+<dd><code>&lt;META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.gcf.org/v2.5" labels on "1994.11.05T08:15-0500" until "1995.12.31T23:59-0000" for "http://w3.org/PICS/Overview.html" ratings (suds 0.5 density 0 color/hue 1))'&gt;</code></dd>
+<dd>Se puede asignar una etiqueta <abbr>PICS</abbr> a cualquier recurso que tenga <abbr>URI</abbr>, y existen dos procedimientos para ello. El primero consiste en encargar a un organismo independiente la monitorización del recurso o sitio web, y las etiquetas se almacenan en el servidor de este organismo. El segundo método consiste en contactar con un servicio de clasificación por medio de unos formularios para obtener el elemento <code>META</code> correspondiente que se colocará en la propia página. Uno de estos servicios gratuitos es el <a href="javascript:if(confirm('http://vancouver-webpages.com/VWP1.0/VWP1.0.gen.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://vancouver-webpages.com/VWP1.0/VWP1.0.gen.html'" tppabs="http://vancouver-webpages.com/VWP1.0/VWP1.0.gen.html">generador de etiquetas <abbr>PICS</abbr> de Vancouver-Webpages</a>.</dd>
+<dd>Se puede encontrar más información en el <a href="javascript:if(confirm('http://www.w3.org/PICS/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/PICS/'" tppabs="http://www.w3.org/PICS/">sitio web del W3C</a> y en <a href="javascript:if(confirm('http://vancouver-webpages.com/PICS/HOWTO.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://vancouver-webpages.com/PICS/HOWTO.html'" tppabs="http://vancouver-webpages.com/PICS/HOWTO.html">Vancouver-Webpages</a>.</dd>
+
+<dt id="content-script-type"><code>Content-Script-Type:</code></dt>
+<dd>Este encabezado está definido por <abbr>HTML</abbr> 4.01. Sirve para especificar el <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/interact/scripts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/interact/scripts.html#h-18.2.2.1'" tppabs="http://html.conclase.net/w3c/html401-es/interact/scripts.html#h-18.2.2.1">lenguaje de scripts por defecto</a> de los scripts que haya en un documento. Los documentos que no especifiquen información relativa al lenguaje de scripts por defecto y que contengan elementos que especifiquen un script de evento intrínseco son incorrectos.</dd>
+<dd>Ejemplo:</dd>
+<dd><code>Content-Script-Type: text/javascript</code></dd>
+
+<dt id="content-style-type"><code>Content-Style-Type:</code></dt>
+<dd>Este encabezado también está definido por <abbr>HTML</abbr> 4.01. Sirve para especificar el <a href="javascript:if(confirm('http://html.conclase.net/w3c/html401-es/present/styles.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/html401-es/present/styles.html#h-14.2.1'" tppabs="http://html.conclase.net/w3c/html401-es/present/styles.html#h-14.2.1">lenguaje de hojas de estilo por defecto</a> del documento. Los documentos que incluyan elementos que especifiquen el atributo <code>style</code> pero que no definan un lenguaje de hojas de estilo por defecto son incorrectos.</dd>
+<dd>Ejemplo:</dd>
+<dd><code>Content-Style-Type: text/css</code></dd>
+</dl>
+
+<h4 id="t7">Encabezados de respuesta <abbr>HTTP</abbr> especificados con <code>META</code></h4>
+
+<p>Existen dos maneras de enviar los encabezados de respuesta <abbr>HTTP</abbr>. La primera forma, que es la más segura y la que debería elegirse siempre que sea posible, consiste en enviar los encabezados junto con el resto del mensaje de respuesta, antes del cuerpo del mensaje. Esto se puede conseguir configurando el servidor (por ejemplo, en el caso de <a href="javascript:if(confirm('http://httpd.apache.org/docs/mod/mod_headers.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://httpd.apache.org/docs/mod/mod_headers.html'" tppabs="http://httpd.apache.org/docs/mod/mod_headers.html">Apache</a>, a través del fichero .htaccess) o mediante scripts de servidor (<a href="javascript:if(confirm('http://www.cs.cf.ac.uk/Dave/PERL/node199.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.cf.ac.uk/Dave/PERL/node199.html'" tppabs="http://www.cs.cf.ac.uk/Dave/PERL/node199.html">cgi</a>, <a href="javascript:if(confirm('http://www.php.net/manual/en/function.header.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.php.net/manual/en/function.header.php'" tppabs="http://www.php.net/manual/en/function.header.php">php</a>, <a href="javascript:if(confirm('http://msdn.microsoft.com/library/en-us/iisref/htm/ref_vbom_reso.asp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://msdn.microsoft.com/library/en-us/iisref/htm/ref_vbom_reso.asp'" tppabs="http://msdn.microsoft.com/library/en-us/iisref/htm/ref_vbom_reso.asp">asp</a>, etc.).</p>
+<p>La segunda forma, en general menos recomendable, consiste en incluir los encabezados en el propio documento, mediante la utilización del elemento <code>META</code> con el atributo <code>http-equiv</code> especificado.</p>
+<p>Así, mientras que los encabezados <code>Content-Script-Type</code> y <code>Content-Style-Type</code> se especifican normalmente con un elemento <code>META</code>, existen otros que pueden no tener el efecto esperado si se declaran de este modo.</p>
+<p>En particular, cuando se emplean elementos <code>META http-equiv</code>:</p>
+<ul>
+<li>Todos los encabezados, incluidos los que tengan alguna relación con el control del almacenamiento en caché (<code>Expires</code>, <code>Pragma</code>, <code>Cache-Control</code>), serán normalmente ignorados por las cachés proxy.</li>
+<li>El encabezado <code>Cache-Control</code> tendrá efectos indeterminados en los navegadores.</li>
+<li>La especificación de la codificación de caracteres (<code>Content-Type</code>) puede provocar problemas.</li>
+<li>No se pueden asociar metadatos a recursos que no sean documentos <abbr>HTML</abbr> (imágenes, música, etc.)</li>
+</ul>
+<p>Por ello, en general, siempre que sea posible conviene especificar los encabezados junto con el resto de encabezados del mensaje de respuesta <abbr>HTTP</abbr>.</p>
+<p>Las excepciones son la ya mencionada de <code>Refresh</code>, y los encabezados <code>Content-Script-Type</code> y <code>Content-Style-Type</code>, para los cuales una declaración <code>META</code> tiene prioridad sobre un encabezado de respuesta (cuando normalmente ocurre lo contrario).</p>
+
+<h3 id="t8">Elementos <code>META</code> especificados con <code>name</code></h3>
+
+<p>Aunque no existe ninguna especificación que defina los valores posibles para el atributo <code>name</code>, existe cierto número de ellos que son ampliamente entendidos (<code>description</code>, <code>keywords</code>, <code>robots</code>...) y otros que son entendidos por agentes de usuario en particular. De ellos los que más nos interesan son los primeros.</p>
+<p>A continuación vemos una lista de los más utilizados.</p>
+<dl>
+<dt id="description"><code>Description</code></dt>
+ <dd>Contiene una descripción del documento. Algunos motores de búsqueda incluyen esta información junto con los resultados de la búsqueda, por lo que para que sea realmente útil debería contener la mejor descripción posible del documento. Por ejemplo:</dd>
+ <dd><code>&lt;meta name="description" contents="Este documento trata sobre los elementos META (metatags). Explica la diferencia entre los elementos que especifican el atributo http-equiv y el atributo name, y hace un repaso de los más utilizados." lang="es"&gt;</code></dd>
+
+<dt id="keywords"><code>Keywords</code></dt>
+ <dd>Algunos buscadores utilizan este elemento para clasificar los documentos por palabras clave. Existen montones de tutoriales que explican cómo especificar palabras clave para lograr mejores posiciones en los resultados de los buscadores. Muchos de estos métodos constituyen una especie de "fraude", lo cual ha provocado que su uso produzca resultados inútiles desde el punto de vista del usuario. Por ello actualmente se tiende a ignorar completamente este campo (el buscador más popular del momento, <a href="javascript:if(confirm('http://www.google.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google.com/'" tppabs="http://www.google.com/">Google</a>, no tiene en cuenta las palabras clave).</dd>
+ <dd>Ejemplo:</dd>
+ <dd><code>&lt;meta name="keywords" contents="metatags,meta name,meta http-equiv"&gt;</code></dd>
+ <dd>No está claro si las palabras deben separarse por comas, espacios, o coma y espacio. Existen diversas teorías al respecto.</dd>
+
+<dt id="author"><code>Author</code></dt>
+ <dd>El autor del documento. Es la persona con la que querríamos ponernos en contacto por algún asunto relacionado con el documento.</dd>
+
+<dt id="copyright"><code>Copyright</code></dt>
+ <dd>Información sobre el copyright del documento. Por ejemplo:</dd>
+ <dd><code>&lt;meta name="copyright" content="&amp;copy; 2001, Juan R. Pozo" lang="es"&gt;</code></dd>
+
+<dt id="robots"><code>Robots</code></dt>
+ <dd>Controla la acción de los motores indexadores sobre el documento. En general puede tomar uno o más de los siguientes valores: <code>INDEX</code>, <code>NOINDEX</code>, <code>FOLLOW</code>, <code>NOFOLLOW</code>. Además, <code>ALL</code> equivale a <code>INDEX</code>, <code>FOLLOW</code> y <code>NONE</code> equivale a <code>NOINDEX</code>, <code>NOFOLLOW</code>. Por ejemplo:
+  <dl>
+  <dt><code>&lt;meta name="robots" content="NOINDEX, NOFOLLOW"&gt;</code></dt>
+   <dd>Los robots no pueden indexar esta página y no pueden recorrerla para buscar nuevos enlaces.</dd>
+  <dt><code>&lt;meta name="robots" content="NOINDEX, FOLLOW"&gt;</code></dt>
+   <dd>Los robots no pueden indexar esta página pero sí recorrerla para buscar nuevos enlaces.</dd>
+  <dt><code>&lt;meta name="robots" content="ALL"&gt;</code></dt>
+   <dd>Los robots pueden indexar esta página y recorrerla para buscar nuevos enlaces.</dd>
+  </dl>
+ </dd>
+ 
+ <dd><a href="javascript:if(confirm('http://www.altavista.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.altavista.com/'" tppabs="http://www.altavista.com/">Altavista</a> soporta los siguientes valores:
+  <dl>
+  <dt><code>NOINDEX</code></dt>
+   <dd>Ninguna parte de la página puede ser indexada.</dd>
+  <dt><code>NOFOLLOW</code></dt>
+   <dd>El robot no puede recorrer la página para indexar las páginas vinculadas.</dd>
+  <dt><code>NOIMAGEINDEX</code></dt>
+   <dd>Evita que las imágenes sean indexadas, pero el texto puede ser indexado.</dd>
+  <dt><code>NOIMAGECLICK</code></dt>
+   <dd>Evita que se puedan ofrecer vínculos directamente a las imágenes. Sólo se ofrecerán vínculos a la página.</dd>
+  </dl>
+ </dd>
+ <dd>Google soporta el valor <a href="javascript:if(confirm('http://www.google.com/intl/es/remove.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google.com/intl/es/remove.html'" tppabs="http://www.google.com/intl/es/remove.html"><code>NOARCHIVE</code></a> para evitar que la página sea almacenada en la caché del buscador.</dd>
+ <dd>Además de emplear estos metadatos para controlar a los robots a nivel de página, pueden controlarse a nivel de sitio por medio del fichero <code>robots.txt</code>. Se puede encontrar más información en <a href="javascript:if(confirm('http://www.robotstxt.org/wc/exclusion.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.robotstxt.org/wc/exclusion.html#meta'" tppabs="http://www.robotstxt.org/wc/exclusion.html#meta">www.robotstxt.org</a>.</dd>
+
+<dt id="dublin-core"><code>Dublin Core</code></dt>
+ <dd><dfn>Dublin Core</dfn> es un estándar de metadatos que define un conjunto de propiedades recomendadas para descripciones bibliográficas electrónicas, y su objetivo es promover la interoperabilidad entre modelos descriptivos dispares. Estas propiedades incluyen entre otras: título, autor, descripción, tema, editor, tipo de recurso, fecha de publicación, idioma, formato, documentos relacionados, derechos de autor, etc. Por ejemplo:
+<p><code>&lt;meta name="DC.Title" content="HTML con Clase - Metadatos"&gt;<br />
+&lt;meta name="DC.Creator" content="Juan Ramón Pozo"&gt;<br />
+&lt;meta name="DC.Subject" content="Metadatos"&gt;<br />
+&lt;meta name="DC.Description" content="Los elementos META de HTML: tipos, funciones, etc."&gt;<br />
+&lt;meta name="DC.Publisher" content="ConClase.net"&gt;<br />
+&lt;meta name="DC.Date" content="2001-06-16"&gt;<br />
+&lt;meta name="DC.Type" scheme="DCMIType" content="Text"&gt;<br />
+&lt;meta name="DC.Format.Medium" content="text/html"&gt;<br />
+&lt;meta name="DC.Relation.isPartOf" content="http://www.conclase.net/"&gt;<br />
+&lt;meta name="DC.Identifier" content="http://html.conclase.net/articulos/metadatos"&gt;<br />
+&lt;meta name="DC.Language" content="es"&gt;<br />
+&lt;meta name="DC.Rights" content="(c) 2001 by Juan R. Pozo. All rights reserved."&gt;</code></p></dd>
+ <dd>Puede encontrarse toda la información en el <a href="javascript:if(confirm('http://dublincore.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dublincore.org/'" tppabs="http://dublincore.org/">sitio web de Dublin Core</a>.</dd>
+
+</dl>
+
+<h3 id="t9">Más información</h3>
+<p>Hemos intentado que toda la información ofrecida sea lo más fiable posible. En caso de error u omisión os agradeceríamos que os pusierais en <a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto">contacto</a> con nosotros.</p>
+<p id="p07">Podéis encontrar más información en los siguientes sitios:</p>
+<dl>
+<dt><a href="javascript:if(confirm('http://vancouver-webpages.com/META/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://vancouver-webpages.com/META/'" tppabs="http://vancouver-webpages.com/META/">Vancouver-Webpages</a></dt>
+ <dd>Tienen el Diccionario de elementos <code>META</code> más completo.</dd>
+<dt><a href="javascript:if(confirm('http://www.mnot.net/cache_docs/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mnot.net/cache_docs/'" tppabs="http://www.mnot.net/cache_docs/">El tutorial de cachés</a> para autores y administradores de páginas web</dt>
+ <dd>Es un documento de lectura indispensable, escrito por Mark Nottingham.</dd>
+<dt><a href="javascript:if(confirm('http://www.w3.org/RDF/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/RDF/'" tppabs="http://www.w3.org/RDF/">El Marco de Descripción de Recursos</a> (<abbr>RDF</abbr>)</dt>
+ <dd>El futuro de los metadatos de recursos, desarrollado por el W3C.</dd>
+<dt>Las especificaciones de <a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc1945.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc1945.txt'" tppabs="http://www.ietf.org/rfc/rfc1945.txt"><abbr>HTTP</abbr> 1.0</a> y <a href="javascript:if(confirm('http://www.ietf.org/rfc/rfc2616.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ietf.org/rfc/rfc2616.txt'" tppabs="http://www.ietf.org/rfc/rfc2616.txt"><abbr>HTTP</abbr> 1.1</a></dt>
+ <dd>Contienen la información más detallada sobre los encabezados <abbr>HTTP</abbr>.</dd>
+<dt>La <a href="javascript:if(confirm('http://www.dublincore.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.dublincore.org/'" tppabs="http://www.dublincore.org/">Iniciativa de Metadatos Dublin Core</a></dt>
+<dt><a href="javascript:if(confirm('http://www.robotstxt.org/wc/robots.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.robotstxt.org/wc/robots.html'" tppabs="http://www.robotstxt.org/wc/robots.html">The Web Robots Pages</a></dt>
+<dt>El <a href="javascript:if(confirm('http://vancouver-webpages.com/PICS/HOWTO.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://vancouver-webpages.com/PICS/HOWTO.html'" tppabs="http://vancouver-webpages.com/PICS/HOWTO.html">PICS HOWTO</a> de Vancouver-Webpages</dt>
+</dl>
+
+<p class="copy">&copy; 2001-2003 Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a id="actual" title="Información sobre metadatos o META Tags">&raquo;&nbsp;Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

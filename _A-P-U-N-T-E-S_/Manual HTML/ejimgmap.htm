@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE> Imagenes</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>Ejemplo de Im&aacute;gen Sensible</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Creaci&oacute;n de una Im&aacute;gen
+sensible</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este apartado se explicar&aacute; paso
+a paso, la creaci&oacute;n de una im&aacute;gen sensible. Para ello se
+utilizar&aacute; el programa m&aacute;s b&aacute;sico para ello, mapedit,
+que se incluye en el <A HREF="http://www2.uca.es/taller-html/softw-html.html">Paquete
+B&aacute;sico para la Creaci&oacute;n de documentos HTML</A> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al iniciar el programa seleccionaremos
+<B><FONT COLOR="#008200">File -&gt; Open/Create</FONT></B>, y aparecer&aacute;
+la ventana que se muestra en el grafico adjunto,. En esta indicaremos el
+nombre del fichero que definir&aacute; el mapa de la im&aacute;gen (<I>Map
+File</I>), que deber&aacute; tener la extensi&oacute;n .map, este ser&aacute;
+el fichero que habr&aacute; que transferir al servidor para referenciar
+la im&aacute;gen sensible, lo llameremos ejemplo.map, en el apartado siguiente
+indicaremos el fichero GIF sobre el que se aplicar&aacute; la im&aacute;gen
+sensible (<I>GIF Filename</I>). </P>
+
+<P><IMG SRC="open--create.gif" HEIGHT=175 WIDTH=330> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez cargada la im&aacute;gen obtenemos
+la siguiente pantalla: </P>
+
+<P><IMG SRC="imgmap1.gif" HEIGHT=121 WIDTH=200> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En la que se muestra la im&aacute;gen
+y sobre la que ser&aacute; posible ya definir las zonas sensibles de la
+im&aacute;gen. en el men&uacute; <B><FONT COLOR="#008200">Tools</FONT></B>,
+estan expresadas todas las figuras que se pueden utilizar en la im&aacute;gen,
+estas son: <I><FONT COLOR="#008200">Polygon</FONT></I>, para una l&iacute;nea
+poligonal, <I><FONT COLOR="#008200">Circle</FONT></I>, para definir un
+circulo y <I><FONT COLOR="#008200">Rectangle</FONT></I>, define un rect&aacute;ngulo.
+</P>
+
+<P><IMG SRC="imgmap2.gif" HEIGHT=121 WIDTH=200> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para seleccionar cada una de las zonas
+del dibujo, seleccionaremos las figura correspondiente, en nuestro caso
+ser&aacute; <I><FONT COLOR="#008200">Rectangle</FONT></I>, una vez hecho
+esto nos situaremos en el primer vertice y pulsaremos el bot&oacute;n izquierdo
+del rat&oacute;n, fijando el primer vertice, luego arrastraremos hasta
+situarnos en el vertice opuesto, y ah&iacute; pulsaremos el bot&oacute;n
+derecho del rat&oacute;n y obtendremos la siguiente ventana en la que nos
+ser&aacute; posible introducir al URL que activar&aacute; esta zona. </P>
+
+<P><IMG SRC="imgmap3.gif" HEIGHT=266 WIDTH=330> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definir una linea poligonal ser&aacute;
+similar, pero en este caso marcaremos con el bot&oacute;n izquierdo del
+rat&oacute;n todos los puntos que forman el pol&iacute;gono y cuando lleguemos
+a su fin pulsaremos el bot&oacute;n derecho del rat&oacute;n y podremos
+introducir la URL, la l&iacute;nea poligonal no ser&aacute; necesario terminarla,
+uniendose autom&aacute;ticamente el primer y &uacute;ltimo vertice. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez que definamos todas las zonas
+sensibles de la im&aacute;gen, podemos utilizar la opci&oacute;n <I><FONT COLOR="#008200">Test+Edit</FONT></I>,
+que nos permir&aacute; probar y en su caso editar las distintas zonas de
+la im&aacute;gen, obteniendo un muestra de la zona activa como se ve en
+la im&aacute;gen: </P>
+
+<P><IMG SRC="imgmap4.gif" HEIGHT=121 WIDTH=200> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La opci&oacute;n para definir la URL por
+defecto, es decir, la que se activar&aacute; cuando no se pulse sobre ninguna
+de las zonas definidas ser&aacute; <B><FONT COLOR="#008200">File -&gt;
+Edit Default URL</FONT></B>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez definidas todas las zonas de la
+im&aacute;gen y la URL por defecto, podremos grabar el mapa de la im&aacute;gen
+sensible con <B><FONT COLOR="#008200">File -&gt; Save</FONT></B>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obteniendo una fichero .map con el siguiente
+contenido: </P>
+
+<P><TT><FONT COLOR="#008200">default http://www2.uca.es/manual-html/prueba/noimagen.htm<BR>
+rect http://www2.uca.es/manual-html/prueba/boton1.htm 8,10 61,63 <BR>
+rect http://www2.uca.es/manual-html/prueba/boton2.htm 62,10 134,36 <BR>
+rect http://www2.uca.es/manual-html/prueba/boton3.htm 62,36 134,64 </FONT></TT><BR>
+</P>
+
+<P>Este fichero se transferir&aacute; al servidor y como se vi&oacute;
+en con anterioridad existir&aacute;n dos formas de referenciarlo: <A NAME="ej1"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Im&aacute;gen sensible interpretada por el servidor </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;A HREF=&quot;ejemplo.map&quot;&gt;&lt;IMG
+SRC=&quot;imgmap.gif&quot; ISMAP&gt; &lt;/A&gt; </FONT></FONT></TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD><A HREF="ejemplo.map"><IMG ISMAP SRC="imgmap.gif" HEIGHT=75 WIDTH=141></A>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200">Como se ve pulsando en las distintas zonas de
+la im&aacute;gen se activan los enlaces correspondientes, pero no hay forma
+de saber que zonas son sensibles y que enlaces se activan en cada zona.
+</FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><A NAME="ej2"></A></P>
+
+<CENTER><TABLE BORDER=5 CELLPADDING=5 WIDTH="100%" >
+<TR>
+<TH colspan=2>Im&aacute;gen sensible interpretada por el cliente </TH>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Inst. <BR>
+HTML</FONT></TH>
+
+<TD><FONT COLOR="#008200"><FONT SIZE=-1>&lt;MAP NAME=&quot;ejemplo&quot;&gt;<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;8,10,61,63&quot; HREF=&quot;http://www2.uca.es/manual-html/prueba/boton1.htm&quot;
+&gt;<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;62,10,134,36&quot; HREF=&quot;http://www2.uca.es/manual-html/prueba/boton2.htm&quot;
+&gt;<BR>
+&lt;AREA SHAPE=RECT COORDS=&quot;62,36,134,64 &quot; HREF=&quot;http://www2.uca.es/manual-html/prueba/boton3.htm&quot;
+&gt;<BR>
+&lt;/MAP&gt;</FONT></FONT>
+<P><FONT COLOR="#008200"><FONT SIZE=-1> &lt;CENTER&gt;<BR>
+&lt;A HREF=&quot;ejemplo.map&quot;&gt;&lt;IMG SRC=&quot;imgmap.gif&quot;
+ISMAP USEMAP=&quot;#ejemplo&quot;&gt; &lt;/A&gt; &lt;P&gt;<BR>
+[ &lt;A HREF=&quot;http://www2.uca.es/manual-html/prueba/boton1.htm&quot;&gt;boton
+1 &lt;/A&gt; |<BR>
+&lt;A HREF=&quot;http://www2.uca.es/manual-html/prueba/boton2.htm&quot;&gt;boton
+2 &lt;/A&gt; |<BR>
+&lt;A HREF=&quot;http://www2.uca.es/manual-html/prueba/boton3.htm&quot;&gt;boton
+3 &lt;/A&gt;]<BR>
+&lt;/CENTER&gt;</FONT></FONT><BR>
+</P>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Resul<BR>
+tado</FONT></TH>
+
+<TD>
+<CENTER><P><MAP NAME="ejemplo"><AREA SHAPE=RECT COORDS="8,10,61,63" HREF="http://www2.uca.es/manual-html/prueba/boton1.htm"><AREA SHAPE=RECT COORDS="62,10,134,36" HREF="http://www2.uca.es/manual-html/prueba/boton2.htm"><AREA SHAPE=RECT COORDS="62,36,134,64 " HREF="http://www2.uca.es/manual-html/prueba/boton3.htm"></MAP><A HREF="ejemplo.map"><IMG ISMAP USEMAP="#ejemplo" SRC="imgmap.gif" HEIGHT=75 WIDTH=141></A>
+</P></CENTER>
+
+<CENTER><P>[<A HREF="http://www2.uca.es/manual-html/prueba/boton1.htm">boton
+1</A> | <A HREF="http://www2.uca.es/manual-html/prueba/boton2.htm">boton
+2</A> | <A HREF="http://www2.uca.es/manual-html/prueba/boton3.htm">boton
+3</A>] </P></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TH><FONT SIZE=-1>Explica<BR>
+ci&oacute;n</FONT></TH>
+
+<TD><FONT COLOR="#008200">En este caso la definici&oacute;n es m&aacute;s
+larga, pero si su navegador es el Internet Explorer o el Netscape 2.0,
+notar&aacute; que este es capaz de identificar las zonas sensibles de la
+im&aacute;gen y muestra en la parte inferior de la ventana los enlaces
+que se activan cuando se pulsa en cada zona.<BR>
+Ademas es m&aacute;s r&aacute;pida la identificaci&oacute;n de que enlace
+se activa en cada zona.<BR>
+En este caso no hay que definir URL por defecto ya que siempre se pulsar&aacute;
+en una de las zonas definidas.<BR>
+En la parte de abajo de la im&aacute;gen se han incluido los enlaces que
+activa en formato texto para el caso de que el navegador no soporte im&aacute;genes
+sensibles (o sea un robot de busqueda). </FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+</BODY>
+</HTML>

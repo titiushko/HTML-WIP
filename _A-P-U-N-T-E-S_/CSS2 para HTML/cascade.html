@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Asignación de valores a las propiedades, Cascada y Herencia</TITLE>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="selector.html">
+<link rel="next" href="media.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</HEAD>
+<BODY>
+<div class="navbar" align="center">
+<p><a href="selector.html">anterior</a> &nbsp;
+<a href="media.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<H1 align="center">6 Asignación de valores a las propiedades, Cascada y Herencia</H1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="cascade.html#q1" class="tocxref">6.1 Valores especificados, computados y reales</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="cascade.html#specified-value" class="tocxref">6.1.1 <span class="index-def" title="valor especificado"> Valores especificados</span></a>
+      <li class="tocline3"><a href="cascade.html#computed-value" class="tocxref">6.1.2 <span class="index-def" title="valor computado"> Valores computados</span></a>
+      <li class="tocline3"><a href="cascade.html#actual-value" class="tocxref">6.1.3 <span class="index-def" title="valor real"> Valores reales</span></a>
+    </ul>
+    <li class="tocline2"><a href="cascade.html#inheritance" class="tocxref">6.2 Herencia</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="cascade.html#value-def-inherit" class="tocxref">6.2.1 El valor <span class="index-def" title="inherit, definición de">'inherit'</span></a>
+    </ul>
+    <li class="tocline2"><a href="cascade.html#at-import" class="tocxref">6.3 La regla @import</a>
+    <li class="tocline2"><a href="cascade.html#cascade" class="tocxref">6.4 Cascada</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="cascade.html#cascading-order" class="tocxref">6.4.1 Orden de la cascada</a>
+      <li class="tocline3"><a href="cascade.html#important-rules" class="tocxref">6.4.2 Las reglas !important</a>
+      <li class="tocline3"><a href="cascade.html#specificity" class="tocxref">6.4.3 Cálculo de la especificidad de un selector</a>
+      <li class="tocline3"><a href="cascade.html#q12" class="tocxref">6.4.4 Precedencia de las indicaciones de presentación fuera de CSS</a>
+    </ul>
+  </ul>
+</div>
+
+<H2><a name="q1">6.1 Valores especificados, computados y reales</a></h2>
+<P>Una vez que una aplicación del usuario ha analizado un documento y construido una <a
+href="conform.html#doctree">estructura del documento</a>, debe asignar, para cada elemento de la estructura, un valor por cada propiedad que es aplicada a los <a href="media.html">tipos de medios</a> a los cuales se dirige. 
+
+<P>El valor final de una propiedad es el resultado de un cálculo en tres pasos: el valor se determina por medio de la especificación (el "valor especificado"), luego resuelto a un valor absoluto si es necesario (el "valor computado"), y finalmente transformado de acuerdo a las limitaciones del entorno local (el "valor real").
+
+<h3>6.1.1 
+<span class="index-def" title="valor especificado">
+<a name="specified-value">Valores especificados</a></span></h3>
+
+<P>Las aplicaciones del usuario deben primero asignar un valor especificado para una propiedad basadas en los siguientes mecanismos (en orden de precedencia):</p>
+
+<ol>
+<li>Si la <a href="#cascade">cascada</a> da como resultado un valor, lo usa.
+
+<li>De lo contrario, si la propiedad es <a
+href="#inheritance">heredada</a>, usa el valor del elemento padre, generalmente el valor computado.
+
+<li>De otro modo, usa el <a name="x1"><span class="index-def"
+title="valor inicial">valor inicial</span></a> de la propiedad. El <a
+name="valor inicial">valor inicial</a> de cada propiedad es indicado en la definición de la propiedad.
+</ol>
+
+<P>Puesto que no tiene ningún padre, la raíz de la <a
+href="conform.html#doctree">estructura del documento</a> no puede utilizar valores del elemento padre; en este caso, se usa el valor inicial si es necesario.
+
+
+<h3>6.1.2 <span class="index-def" title="valor computado">
+<a name="computed-value">Valores computados</a>
+</span>
+</h3>
+
+<P>Los valores especificados pueden ser absolutos (es decir, no se especifican con relación a otro valor, como en 'red' o '2mm') o relativos (es decir, son especificados con relación a otro valor, como en 'auto', '2em' y '12%'). Para los valores absolutos, no es necesario ningún cálculo para encontrar el valor computado.
+
+<p>Los valores relativos, por otro lado, deben ser transformados en valores computados: los porcentajes deben ser multiplicados por un valor de referencia (cada propiedad define qué valor es ése), los valores con unidades relativas (em, ex, px) deben convertirse en absolutos multiplicándolos por el tamaño adecuado de la fuente o el pixel, los valores 'auto' deben ser computados con las fórmulas dadas con cada propiedad, ciertas palabras clave ('smaller',
+'bolder', 'inherit') deben ser reemplazadas de acuerdo a sus definiciones.
+
+<P>En la mayoría de los casos, los elementos heredan los valores computados. Hay, sin embargo, algunas propiedades cuyo valor especificado puede heredarse (ej., el valor numérico de la propiedad <a href="visudet.html#propdef-line-height" class="noxref"><span
+class="propinst-line-height">'line-height'</span></a>). En los casos donde los elementos hijos no heredan el valor computado, esto se describe en la definición de la propiedad.
+
+<h3>6.1.3 <span class="index-def" title="valor real">
+<a name="actual-value">Valores reales</a></span></h3>
+
+<P>Un valor computado está en principio listo para ser usado, pero una aplicación del usuario puede no estar en condiciones de hacer uso del valor en un ámbito determinado. Por ejemplo, una aplicación del usuario sólo puede procesar los bordes con un ancho expresado en pixeles enteros y por consiguiente debe aproximar el ancho computado. El valor real es el valor computado después de cualquier aproximación que le haya sido aplicada.
+
+
+<H2>6.2 <a name="inheritance">Herencia</a></h2>
+
+<P>Algunos valores son heredados por los hijos de un elemento en la <a href="conform.html#doctree">estructura del documento</a>. Cada propiedad <a
+href="about.html#property-defs">define</a> si se hereda o no.
+
+<div class="html-example"><P> Suponga que hay un elemento H1 con un elemento enfatizado (EM) adentro:</p>
+
+<PRE>
+&lt;H1&gt;El título &lt;EM&gt;es&lt;/EM&gt; importante!&lt;/H1&gt;
+</PRE>
+
+<P>Si no se ha asignado ningún color al elemento EM, el énfasis en "es" heredará el color del elemento padre, de modo que si H1 tiene un color azul, el elemento EM será igualmente azul.
+</div>
+
+<P> Para poner una propiedad de estilo "predeterminada" en un documento, los autores pueden especificar la propiedad en la raíz de la estructura del documento. En HTML, por ejemplo, los elementos HTML o BODY pueden servir para esta función. Observe que esto servirá aún cuando el autor omita la marca BODY en la fuente HTML debido a que el analizador HTML inferirá la marca ausente.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Por ejemplo, como la propiedad <a href="colors.html#propdef-color" class="noxref"><span class="propinst-color">'color'</span></a> es heredada, todos los descendientes del elemento BODY heredarán el color 'black':
+
+<PRE>
+BODY { color: black; }
+</PRE>
+</div>
+
+<P>Los valores de porcentaje especificados no son heredados; los valores computados sí lo son.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Por ejemplo, dada la siguiente hoja de estilo:</P>
+
+<pre>
+BODY { font-size: 10pt }
+H1 { font-size: 120% }
+</pre>
+
+<p>y este fragmento del documento:
+
+<pre class="html-example">
+&lt;BODY&gt;
+  &lt;H1&gt;Un &lt;EM&gt;gran&lt;/EM&gt; titular&lt;/H1&gt;
+&lt;/BODY&gt;
+</pre>
+
+<p>la propiedad <span class="prop-inst-font-size">'font-size'</span> del elemento H1 tendrá el valor computado '12pt' (el 120% de 10pt, el valor del padre). Como el valor computado de <a href="fonts.html#propdef-font-size" class="noxref"><span
+class="propinst-font-size">'font-size'</span></a> es heredado, el elemento EM tendrá el valor computado '12pt' también. Si la aplicación del usuario no tiene la fuente de 12pt disponible, el valor real de <a href="fonts.html#propdef-font-size" class="noxref"><span class="propinst-font-size">'font-size'</span></a> para H1 y también para EM podría ser, por ejemplo, '11pt'.
+</div>
+
+<h3>6.2.1 El valor <span class="index-def" title="inherit, definición de"><a name="value-def-inherit">'inherit'</a></span></h3>
+
+<P>Cada propiedad también puede tener un valor especificado como 'inherit', lo cual significa que, para un elemento determinado, la propiedad toma el mismo <a
+href="#computed-value">valor computado</a> que la propiedad del padre del elemento. El valor heredado, que normalmente sólo se usa como un valor de respaldo, puede ser reforzado poniendo explícitamente 'inherit'.
+
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+En la versión original se aclara que el valor 'inherit' se aplica aún a las propiedades cuyo valor no sería de otro modo heredado.
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>En el ejemplo de abajo, las propiedades <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> y <a href="colors.html#propdef-background" class="noxref"><span
+class="propinst-background">'background'</span></a> son definidas para el elemento BODY. En todos los demás elementos, el valor de 'color' será heredado y el fondo será transparente. Si estas reglas son parte de la hoja de estilo del usuario, el texto negro sobre un fondo blanco será forzado en todo el documento.
+
+<PRE>
+BODY { 
+  color: black !important; 
+  background: white !important;
+}
+
+* { 
+  color: inherit !important; 
+  background: transparent;
+}
+</PRE>
+
+</div>
+
+
+
+
+<H2>6.3 <a name="at-import">La regla @import</a></h2>
+
+<P>La regla <a name="x5"><span class="index-def"
+title="@import"><dfn>'@import'</dfn></span></a> permite a los usuarios importar hojas de estilo desde otras hojas de estilo. Cualquier regla @import debe preceder a todas las reglas especificadas en una hoja de estilo. La palabra clave '@import' debe ir seguida por el URI de la hoja de estilo a incluir. También se permite una cadena; será interpretada como si contuviera url(...) en torno a ella.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Las siguientes líneas son equivalentes en su significado e ilustran ambas sintaxis de '@import' (una con "url()" y otra con sólo una cadena:</p>
+
+<PRE>
+@import "mystyle.css";
+@import url("mystyle.css");
+</PRE>
+</div>
+
+<p>Para que las aplicaciones del usuario puedan evitar recuperar recursos para los
+<a href="media.html">tipos de medios</a> no soportados, los autores pueden especificar reglas <a name="x6"><span class="index-inst"
+title="@import">@import</span></a> dependientes de los medios. Estas <a name="x7"><span class="index-def"
+title="importación condicional|importación dependiente de los medios">importaciones condicionales</span></a> especifican los tipos de medios, separados por comas, después del URI.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Las siguientes reglas tienen el mismo efecto que si la hoja de estilo importada hubiera sido cubierta por una regla @media para el mismo medio, pero puede ahorrar a la AU una transmisión infructuosa.
+
+<pre>
+@import url("fineprint.css") print;
+@import url("bluish.css") projection, tv;
+</pre>
+</div>
+
+<p>En ausencia de cualquier tipo de medios, la importación es incondicional. La especificación de 'all' para el medio tiene el mismo efecto.
+
+<H2>6.4 <a name="cascade">Cascada</a></h2>
+
+<P>Las hojas de estilo pueden tener tres orígenes diferentes: el autor, el usuario y la aplicación del usuario.</p>
+
+<ul>
+<li><strong>Autor</strong>: El autor especifica las hojas de estilo para un documento fuente de acuerdo a las convenciones del lenguaje del documento. Por ejemplo, en HTML, las hojas de estilo pueden incluirse en el documento o vincularse externamente.
+
+<li><strong>Usuario</strong>: El usuario puede especificar información de estilo para un documento particular. Por ejemplo, el usuario puede especificar un archivo que contenga una hoja de estilo o la aplicación del usuario puede proporcionar una interfaz que genere una hoja de estilo del usuario (o comportarse como si lo hubiese hecho).
+
+<li><strong>Aplicaciones del usuario</strong>: Las <a
+href="conform.html#conformance">aplicaciones del usuario con conformidad</a> deben aplicar una <span class="index-def" title="hoja de estilo predeterminada"><a
+name="default-style-sheet"><dfn>hoja de estilo predeterminada</dfn></a></span> (o comportarse como si lo hubiesen hecho) previa a todas las hojas de estilo para un documento. La hoja de estilo predeterminada de una aplicación del usuario debe presentar los elementos del lenguaje de documento de un modo que satisfaga las expectativas generales de presentación del lenguaje del documento (ej., en los navegadores visuales, el elemento EM en HTML es presentado usando una fuente itálica). Ver <a href="sample.html">"Una ejemplo de hoja de estilo para HTML 4.0"</a> por una hoja de estilo preterminada que se recomienda para los documentos HTML 4.0.
+
+<P>Observe que la hoja de estilo predeterminada puede cambiar si las opciones del sistema son modificadas por el usuario (ej., los colores del sistema). Sin embargo, debido a las limitaciones en la implementación interna de las aplicaciones del usuario, puede resultar imposible cambiar los valores en la hoja de estilo predeterminada.
+</ul>
+
+<P>Las hojas de estilo con estos tres orígenes se superpondrán en su acción e interactuarán de acuerdo a la cascada.
+
+<P>La <a name="x10"><span class="index-def" title="cascada">cascada</span></a> de CSS, asigna una fuerza a cada regla de estilo. Cuando varias reglas se aplican, la de mayor fuerza toma preponderancia.
+
+<P>De forma predefinida, las reglas en las hojas de estilo del autor tienen más fuerza que las reglas en las hojas de estilo del usuario. La preponderancia se revierte, sin embargo, con la reglas "!important". Todas las reglas que el usuario y el autor especifican tienen mayor fuerza que las reglas de la hoja de estilo predeterminada en la AU.
+
+<P>Las hojas de estilo importadas también forman la cascada y su fuerza depende del orden en la importación. Las reglas especificadas en una hoja de estilo dada sustituyen las reglas importadas desde otras hojas de estilo. Las hojas de estilo importadas pueden a su vez importar y sustituir otras hojas de estilo, recursivamente, y se aplican las mismas reglas de preponderancia.
+
+<H3>6.4.1 <a name="cascading-order">Orden de la cascada</a></H3>
+
+<P>Para encontrar el valor para una combinación elemento/propiedad, las aplicaciones del usuario deben aplicar el siguiente orden de disposición:</p>
+
+<OL>
+    <LI>
+Hallar todas las declaraciones que se aplican al elemento y la propiedad en cuestión, para el <a href="media.html">tipo de medio</a> al que está dirigido. Las declaraciones se aplican si el selector asociado <A
+      HREF="selector.html">coincide</A> con el elemento en cuestión.
+
+    <LI>
+La primera disposición de las declaraciones se hace por fuerza y origen: para las declaraciones normales, las hojas de estilo del autor sustituyen las hojas de estilo del usuario que sustituye la hoja de estilo predeterminada. Para las declaraciones <a name="x11"><span class="index-def" title="important">"!important"</span></a>, las hojas de estilo del usuario sustituyen las hojas de estilo del autor que sustituyen la hoja de estilo predeterminada. La declaración "!important" sustituye a las declaraciones normales. Una hoja de estilo importada tiene el mismo origen que la hoja de estilo que la ha importado.
+
+    <LI>
+La segunda disposición es por la <a href="#specificity">especificidad</a> 
+      del selector: los selectores más específicos sustituirán a los más generales. Los pseudo-elementos y las pseudo-clases se cuentan como elementos y clases normales respectivamente.
+
+    <LI> Finalmente, se dispone por el orden especificado: si dos reglas tienen la misma fuerza, origen y especificidad, la última en ser especificada vence. Las reglas en las hojas de estilo importadas se considera que están antes que cualquier regla en la propia hoja de estilo.
+</OL>
+
+<P> Fuera de la definición de "!important" para las declaraciones individuales, esta estrategia le otorga a las hojas de estilo del autor mayor fuerza que a las del lector. Por eso es importante que la aplicación del usuario le brinde al usuario la posibilidad de neutralizar la influencia de determinada hoja de estilo, por ej., a través de un menú desplegable.
+
+<H3>6.4.2 <a name="important-rules">Las reglas !important</a></H3>
+
+<P>CSS intenta establecer un balance de poder entre las hojas de estilo del autor y del usuario. De modo predefinido, las reglas en una hoja de estilo del autor sustituye las de la hoja de estilo del usuario (ver regla 3 de cascada).
+
+<P>Sin embargo, para balancear, una declaración "!important" (las palabras clave "!" e "important" siguiendo a la declaración) toman preponderancia sobre una declaración normal. Ambas hojas de estilo, las del autor y las del usuario, pueden contener declaraciones "!important", y las reglas "!important" del usuario sustituyen a las reglas "!important" del autor. Esta característica mejora la accesibilidad de los documentos dándole a los usuarios con requerimientos especiales (fuentes grandes, combinaciones de colores, etc.) el control sobre la presentación.
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Este es un cambio semántico sobre CSS1. En CSS1, las reglas "!important" del autor tomaban preponderancia sobre las reglas. </em>
+</div>
+
+<P>La declaración de una <a name="x12"><span class="index-inst" title="propiedad resumida">propiedad resumida</span></a> (ej., <a href="colors.html#propdef-background" class="noxref"><span
+class="propinst-background">'background'</span></a>) como "!important" equivale a declarar todas sus sub-propiedades como "!important".
+
+<div class="example"><P style="display:none">Ejemplo(s):</P> 
+
+<P> La primer regla en la hoja de estilo del usuario en el ejemplo siguiente contiene una declaración "!important", que sustituye a la correspondiente declaración en la hoja de estilo del autor. La segunda declaración también  resultará vencedora debido a que a sido marcada como "!important". Sin embargo, la tercer regla en la hoja de estilo del usuario no es "!important" y entonces perderá con la segunda regla en la hoja de estilo del autor (que definió el estilo en una propiedad resumida). Asimismo, la tercer regla del autor perderá con la segunda regla del autor debido a que la segunda regla es "!important". Esto muestra que las declaraciones "!important" tienen la misma función también dentro de las hojas de estilo del autor.
+
+<PRE>
+/* De la hoja de estilo del usuario */
+P { text-indent: 1em ! important }
+P { font-style: italic ! important }
+P { font-size: 18pt }
+
+/* De la hoja de estilo del autor */
+P { text-indent: 1.5em !important }
+P { font: 12pt sans-serif !important }
+P { font-size: 24pt }
+</PRE>
+</div>
+
+
+<H3>6.4.3 <a name="specificity">Cálculo de la especificidad de un selector</a></H3>
+<P>La especificidad de un selector se calcula como sigue:</p>
+
+<ul>
+<li>se cuenta el número de atributos ID en el selector (= a)
+<li>se cuenta el número de los otros atributos y pseudo-clases en el selector (= b)
+<li>se cuenta el número de nombres de elementos en el selector (= c)
+<li>se ignoran los pseudo-elementos.
+</ul>
+
+<P>La concatenación de los tres números a-b-c (en un sistema numérico de base mayor) proporciona la especificidad.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+Algunos ejemplos:
+
+<PRE>
+*             {}  /* a=0 b=0 c=0 -&gt; especificidad =   0 */
+LI            {}  /* a=0 b=0 c=1 -&gt; especificidad =   1 */
+UL LI         {}  /* a=0 b=0 c=2 -&gt; especificidad =   2 */
+UL OL+LI      {}  /* a=0 b=0 c=3 -&gt; especificidad =   3 */
+H1 + *[REL=up]{}  /* a=0 b=1 c=1 -&gt; especificidad =  11 */
+UL OL LI.red  {}  /* a=0 b=1 c=3 -&gt; especificidad =  13 */ 
+LI.red.level  {}  /* a=0 b=2 c=1 -&gt; especificidad =  21 */
+#x34y         {}  /* a=1 b=0 c=0 -&gt; especificidad = 100 */ 
+</PRE>
+</div>
+
+
+<P>En HTML, los valores del atributo "style" de un elemento son reglas de la hoja de estilo. Estas reglas no tienen selectores, pero para el propósito del paso 3 del algoritmo de cascada, se considera que tienen un selector ID (especificidad: a=1, b=0, c=0). Para el propósito del paso 4, se considera que están después de todas otras reglas.
+
+<div class="html-example"><P>
+<PRE>
+&lt;HEAD&gt;
+&lt;STYLE type="text/css"&gt;
+  #x97z { color: blue }
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P ID=x97z style="color: red"&gt;
+&lt;/BODY&gt;
+</PRE>
+
+<P> En el ejemplo de arriba, el color del elemento P sería rojo. Aunque la especificidad es la misma para ambas declaraciones, la declaración en el atributo "style" sustituye a la del elemento STYLE debido a la regla 4 de la cascada.
+</div>
+
+<H3><a name="q12">6.4.4 Precedencia de las indicaciones de presentación fuera de CSS</a></H3> 
+
+<P>La AU puede elegir cumplir con las indicaciones de presentación de otras fuentes aparte de las hojas de estilo, por ejemplo, el elemento FONT o el atributo "align" en HTML. Si es así, las indicaciones de presentación fuera de CSS deben ser traducidas a las correspondientes reglas CSS con una especificidad igual a cero. Se asume que las reglas están al comienzo de la hoja de estilo del autor y pueden ser sustituidas por las reglas subsecuentes de la hoja de estilo
+
+<div class="note">
+<P><em><strong>Nota.</strong> En una fase de transición, esta política facilitará que los atributos estilísticos co-existan con las hojas de estilo.
+</em>
+</div>
+
+<div class="note">
+<P><em><strong>Nota.</strong> En CSS1, a las indicaciones de presentación fuera de CSS se les otorgaba una especificidad igual a 1, no igual a 0. El cambio se debe a la introducción del selector universal, que tiene una especificidad de 0.
+</em>
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="selector.html">anterior</a> &nbsp;
+<a href="media.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</BODY>
+</html>

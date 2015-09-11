@@ -1,0 +1,402 @@
+<HTML>
+<HEAD>
+<TITLE> Frames o Cuadros en HTML </TITLE>
+</HEAD>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="marcos.gif" alt="Icono" width=91 height=100></td>
+<td><font  size=6><b>Frames o Cuadros en HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p>
+Los frames o literalmente traducido cuadros o marcos, son divisiones que se efect&uacute;an en la pantalla del navegador, en la que en cada frame independientemente, podremos ejecutar un documento .html independiente o no del resto de frames que hayamos definido.
+</p>
+
+<p>
+Las frames es una t&eacute;cnica para subdividir la pantalla del visor en diferentes ventanas. Cada una de estas ventanas se podr&aacute; manipular por separado, permiti&eacute;ndonos mostrar en cada una de ellas una p&aacute;gina Web diferente. Esto es muy &uacute;til para, por ejemplo, mostrar permanentemente en una ventana los diferentes contenidos de nuestra p&aacute;gina, y en otra ventana mostrar el contenido seleccionado.
+</p>
+
+<p><b>
+NOTA: el emplear frames es incompatible con la directiva &lt;BODY&gt;...&lt;/BODY&gt;, por lo que como se ver&aacute; m&aacute;s adelante, esta directiva debe de no considerarse en la p&aacute;gina que define las frames, de lo contrario no funcionar&aacute;.
+</b></p>
+
+<p>
+La forma de establecer frames es muy sencilla. En la secci&oacute;n &lt;HEAD&gt;...&lt;/HEAD&gt; del documento se definen las &aacute;reas que ocupar&aacute;n los frames que queremos poner, con ayuda de la directiva cerrada <b>&lt;FRAMESET&gt;...&lt;/FRAMESET&gt;</b>.
+</p>
+
+<p>
+En esta directiva se especificar&aacute;n las &aacute;reas y sus dimensiones relativas con la ayuda de atributos, como <b>COLS</b> y <b>ROWS</b> propias de <b>&lt;FRAMESET&gt;...&lt;/FRAMESET&gt;</b>. En funci&oacute;n de si la divisi&oacute;n de la pantalla se realiza por filas (rows) o columnas (cols), deberemos de considerar cada uno de los atributos juntos o separados (seg&uacute;n las combinaciones que deseemos)
+</p>
+
+<p>
+Si quisieramos dividir la pantalla en 2 cuadros verticales, usar&iacute;amos la siguiente directiva:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“50%,50%”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+lo que nos dividir&aacute; la ventana del navegador en 2 columnas que cada una de ellas ocupar&aacute; el 50% del &aacute;rea total de la ventana del visualizador.
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“50%,*”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+tiene el mismo efecto, ya que el * lo que indica es que, primero tome en la primera columna el 50% del &aacute;rea del visor y el resto (50%), para la segunda columna.
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“*,10%”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+tomar&iacute;a el 10% para la segunda columna, y el 90% (el resto del &aacute;rea), para la primera.
+</p>
+
+<p>
+La directiva &lt;FRAMESET&gt; indica como se va a dividir la ventana principal. Pueden incluirse varias directivas &lt;FRAMESET&gt; anidadas con el objeto de subdividir una subdivisi&oacute;n.
+</p>
+
+&lt;FRAMESET&gt;
+&nbsp;&nbsp;&lt;FRAMESET&gt;
+&nbsp;&nbsp;&nbsp;&lt;FRAMESET&gt;
+&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&lt;/FRAMESET&gt;
+&nbsp;&nbsp;&lt;/FRAMESET&gt;
+&lt;/FRAMESET&gt;
+
+<p>
+Si quisieramos definir 3 columnas, lo &uacute;nico que deberemos de hacer es poner en el atributo COLS, el porcentage de division de cada una de las columnas, tantos porcentajes como columnas queramos:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“40%,10%,*”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+esto dividir&iacute;a la ventana del navegador en 3 columnas de 40%, 10% y 50% del porcentaje del &aacute;rea de la pantalla (40+10+x=100 de donde x=50%).
+</p>
+
+<p>
+Otra forma de hacer las divisiones en lugar de emplear los porcentajes, es especificar en el interior del atributo <b>COLS</b>, el n&uacute;mero de pixels que queremos que emplee el navegador, de forma que si diseñamos la p&aacute;gina para una determinada resoluci&oacute;n de pantalla, tendremos m&aacute;s control sobre la misma. Un consejo, que yo suelo emplear mucho, es definir, por ejemplo, si queremos 2 columnas, especificar el n&uacute;mero de pixels en la definici&oacute;n de una de ellas, y para definir la otra restante, emplear el atributo * para que el navegador sepa que debe tomar el resto del espacio disponible para la otra columna.
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“400,*”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;<br>
+</p>
+
+<p>
+para una p&aacute;gina, con la primera columna a un ancho de 400 pixels, y la segunda con el resto de pixels de ancho que emplee el navegador de nuestro usuario en cuesti&oacute;n (el que nos visita). En el caso del atributo COLS, los tamaños se aplican de izquierda a derecha, de la pantalla del visualizador.
+</p>
+
+<p>
+Lo mismo que nos ocurre para definir columnas, nos ocurre para definir filas, o cuadros horizonales en la ventana del navegador. Para ello empleamos el atributo ROWS (columnas), en el que definimos al igual que antes, el alto (en esta caso por ser horizontal), tanto de modo porcentual, como en tamaño de pixels (tal y como vimos anteriormente).
+</p>
+
+<p><b>
+NOTA: Debe de hacerse notar que los atributos COLS y ROWS, no se emplean conjuntamente con la directiva &lt;FRAMESET&gt;...&lt;/FRAMESET&gt;, sino que empleamos el uno o el otro en el mismo &lt;FRAMESET&gt;...&lt;/FRAMESET&gt;.
+</b></p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET ROWS=“10%,*”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+Define una primera ventana horizontal al 10% de la altura del &aacute;rea de la ventana de visualizaci&oacute;n, y el resto para la otra ventana, por debajo de la definida previamente.
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET ROWS=“100,*”&gt;...&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+al igual que el anterior ejemplo define 2 filas  &aacute;reas horizontales, pero esta vez en una altura fija, que es 100 pixels para la superior, y el resto de la altura de la pantalla para la inferior.
+</p>
+<br>
+
+<font  size=3><b>FRAMES COMBINADAS</b></font>
+
+<p>
+Ahora que hemos visto como definir frames horizontales y verticales, puedes que te est&eacute;s preguntando... ¿y c&oacute;mo defino una combinaci&oacute;n de ambas?... Muy sencillo, eso es lo que vamos a ver a continuaci&oacute;n.
+</p>
+
+<p>
+En este caso de lo que se trata es de hacer frames anidados o lo que es lo mismo, frames en el interior de un frame(s) ya definido con anterioridad, es decir una subdivi&oacute;n en el interior de un frame.
+</p>
+
+<p>
+Veamos un ejemplo para comprenderlo mejor antes de la explicaci&oacute;n.
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“100,*”&gt;<br>
+&nbsp;&nbsp;&lt;FRAMESET ROWS=“200,*”&gt;<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>
+&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+En este ejemplo hemos definido en primer lugar, un &lt;FRAMESET&gt; que nos divide la pantalla del navegador en 2 columnas verticales de 100 pixels la de la izquierda (en la pantalla), y el resto del &aacute;rea para el visualizador. Dentro de la misma, tal y como se v&eacute; en el ejemplo, hemos definido una subdivisi&oacute;n de la primera columna (la de la izquierda), en 2 filas (en el interior de la primera columna), que nos da un cuadro superior de 200 pixels fijos y el inferior del resto de la pantalla del visualizador. Vemos de este modo lo que es un <b>FRAME anidado</b>, al mismo tiempo que ya hemos visto como subdividir una columna de las 2 que hemos definido.
+</p>
+
+<p>
+Veamos otro ejemplo; supongamos que queremos hacer una subdivisi&oacute;n m&aacute;s o menos sim&eacute;trica en 4 frames de la pantalla de nuestro visualizador, para lo que primero definimos las 2 columnas verticales:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&nbsp;&nbsp;&lt;FRAMESET COLS=“50%,*”&gt;<br>
+&nbsp;&nbsp;....<br>
+&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+As&iacute; hemos definido 2 columnas de la primera de ellas del 50% de la pantalla, y el resto que tambi&eacute;n es 50%, para la otra. Definamos ahora dentro de cada una de las columnas 2 filas que hagan que se nos muestre una pantalla dividida en 4 cuadros sim&eacute;tricos. Para ello pondr&iacute;amos:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“50%,*”&gt;<br>
+&nbsp;&nbsp;&lt;FRAMESET ROWS=“50%,*”&gt;<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>
+&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+dentro de la primera de las columnas, lo que nos dividir&iacute;a &eacute;sta en 2 subdivisiones verticales. Ahora surge la duda de como dividir la segunda de nuestras columnas en otras 2 filas. pues de la misma forma que la anterior, ya que el navegador es lo suficientemente inteligente para adivinar que la siguiente directiva con COLS en su interior hace referencia a otra de las frames verticales que hemos definidos, de donde nos queda:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“50%,*”&gt;<br>
+&nbsp;&nbsp;&lt;FRAMESET ROWS=“50%,*”&gt;<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>
+&nbsp;&nbsp;&lt;FRAMESET ROWS=“50%,*”&gt;<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>
+&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+<b>NOTA: Debemos de considerar, que cada frame debe contener un documento HTML en su interior, con lo que a mayor n&uacute;mero de divisiones, mayor n&uacute;mero de documentos HTML a cargar, por lo que tendremos que condierar que llevar&aacute; un mayor tiempo de carga de la “p&aacute;gina total”.</b>
+</p>
+
+<p>
+<b>NOTA: Otra forma de definir el ancho, alto o espaciado de las frames, es mediante m&uacute;ltiplos, tal y como se ve en “valor*”. El valor de este campo es opcional, un s&oacute;lo asterisco implica una vista de "tamaño relativo", lo que se     interpreta como una petici&oacute;n de darle a la vista todo el espacio que quede libre. Si hay varias vistas de tamaño relativo,  el espacio libre se divide entre ellas. Si hay un valor delante del asterisco, la vista que lo tenga toma m&aacute;s espacio  relativo, por ejemplo "2*,*" dar&iacute;a 2/3 del espacio a la primera vista y un tercio a la segunda.</b>
+</p>
+<br>
+
+<font  size=3><b>PROPIEDADES DEL FRAME</b></font>
+
+<p>
+Una vez definidas cada una de las &aacute;reas de las ventanas, debemos de definir cada una de las propiedades de cada una de ellas para que el navegador sepa qu&eacute; es lo que debe de mostrar en cada una. Como ya se ha mencionado, cada frame debe contener un documento HTML, por lo que debemos definir en qu&eacute; lugar de la ventana (es decir, en qu&eacute; cuadro), se pondr&aacute; el documento que queremos mostrar, para ello tenemos la directiva abierta &lt;FRAME&gt; que posee una serie de atributos que pasamos a ver a continuaci&oacute;n:
+</p>
+
+<ul>
+<li><b>NAME=“nombre”</b>
+<p>
+Indica el nombre por el que nos referiremos a la subventana en cuestion que quede definida con ese “nombre”.
+</p>
+
+<li><b>SRC=“URL</b>
+<p>
+La ventana mostrar&aacute; en un principio el contenido del documento que se le indique en URL. (URL es Universal Resource Location, que es la direcci&oacute;n en la que el navegador debe de buscar el documneto, con el nombre y la extensi&oacute;n incluida de &eacute;ste).
+</p>
+
+<li><b>MARGINWIDTH=“n&uacute;mero”</b>
+<p>
+Indica el margen izquierdo y derecho de la subventana en puntos o pixels.
+</p>
+
+<li><b>MARGINHEIGHT=“n&uacute;mero”</b>
+<p>
+Indica el margen inferior y superior de la ventana en puntos.
+</p>
+
+<li><b>SCROLLING=“yes | no | auto”</b>
+<p>
+Puede poseer los 3 valores indicados. Indica si se aplica una barra de desplazamiento a la subventana en el caso de que la p&aacute;gina que se cargue no quepa en los l&iacute;mites de la subventana que hemos definido (esto suele ser recomentable en el caso de que queramos que nuestro visitante, si no emplea la resoluci&oacute;n que hemos recomendado, pueda ver los contenidos al completo del cuadro). El valor “yes” muestra siempre la barra de desplazamiento. El valor “no” no la muestra nunca (la zona de la p&aacute;gina que no quepa en la subentana no la veremos), y “auto” la muestra s&oacute;lo en el caso de que sea necesario. El valor por defecto es “auto”.
+</p>
+
+<li><b>NORESIZE</b>
+<p>
+Si se indica esta atributo dentro de la directiva &lt;FRAME&gt;, el usuario no puede “redimensionar” las ventanas del visor. Esta opci&oacute;n siempre es posible realizarla por nuestro visintante si no se indica lo contrario, por medio de este atributo.
+</p>
+
+<li><b>FRAMEBORDER=“yes | no”</b>
+<p>
+Se utiliza como atributo de FRAMESET y establece si ser&aacute;n visibles los bordes del frame o no. Puede tener dos valores: YES (por defecto) y NO.
+</p>
+
+<li><b>BORDERCOLOR=“peso o nombre del color”</b>
+<p>
+Se utiliza como atributo de FRAME y establece el color de los bordes visibles. Evidentemente, para que funcione, se tendr&aacute; que haber establecido FRAMEBORDER=“yes”. El peso del color y el nombre, han sido temas ya tratados en anteriores secciones, por lo que te recomiendo que para volver a familiarizarte con el mismo, regreses a la secci&oacute;n de formato de texto, en HTML.
+</p>
+
+<p>
+<b>NOTA: Los visores que no soportan la caracter&iacute;stica de subventanas, no mostrar&aacute;n nada de lo indicado con estas directivas. Es por ello que existe una directiva llamada &lt;NOFRAMES&gt;...&lt;/NOFRAMES&gt;. Todo los indicado entre esta directiva ser&aacute; lo que muestren los visores sin capacidad para visualizar Frames. Los visores que soporten Frames obviaran las directivas incluidas entre &lt;NOFRAMES&gt;...&lt;/NOFRAMES&gt;.</b>
+</p>
+</ul>
+
+<p>
+Anteriormente hemos mencionado que la directiva <b>&lt;FRAMESET&gt;...&lt;/FRAMESET&gt;</b> era imcompatible con la directiva <b>&lt;BODY&gt;...&lt;/BODY&gt;</b>, y como veremos ahora no es del todo cierta. El &uacute;nico requisito que debe de cumplir para queno sea totalmente incompatible, es que la definici&oacute;n de frames deb de ir antes de la definici&oacute;n del cuerpo del documento o <b>&lt;BODY&gt;...&lt;/BODY&gt;</b>. Veamos un ejemplo:
+</p>
+
+<p>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;TITLE&gt; T&iacute;tulo de la P&aacute;gina &lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS=“50%,*”&gt;<br>
+....<br>
+&lt;NOFRAMES&gt;<br>
+&lt;BODY&gt;<br>
+...<br>
+&lt;/BODY&gt;<br>
+&lt;/NOFRAMES&gt;<br>
+&lt;/FRAMESET&gt;<br>
+&lt;/HTML&gt;
+</p>
+
+<p>
+Tal y como vemos en este ejemplo, se definen antes los cuadros de las ventanas (o frames) con la directiva <b>&lt;FRAMESET&gt;...&lt;/FRAMESET&gt;</b> y entre las directivas de <b>&lt;NOFRAME&gt;...&lt;/NOFRAME&gt;</b> para aquellos visores que no soporten frames, va incluida la directiva de <b>&lt;BODY&gt;...&lt;/BODY&gt;</b> entre las que indicaremos la p&aacute;gina de HTML que queremos mostrar pero sin FRAMES, dado que si el navegador accede a la segunda opci&oacute;n definida en <b>&lt;NOFRAMES&gt;...&lt;/NOFRAMES&gt;</b>, indica que no soporta los frames, mientras que si s&iacute; los soporta, esta segunda opci&oacute;n de <b>&lt;NOFRAMES&gt;...&lt;/NOFRAMES&gt;</b>, ser&aacute; obviada por el mismo.
+</p>
+
+<p>
+Por ello podemos y la recomendaci&oacute;n es hacer siempre uso de la directiva <b>&lt;NOFRAMES&gt;...&lt;/NOFRAMES&gt;</b>, para poder dar la opci&oacute;n al visitante, de que pese a que no tenga el navegador apropiado, poder ver la alternativa a la p&aacute;gina con frames que hemos confeccionado.
+</p>
+
+<p>
+Vemos por lo tanto, que los elementos definidos para el empleo de frames son:
+</p>
+
+<ul>
+<li><b>FRAMESET</b>, que define un conjunto de frames, 
+<li><b>FRAME</b>, que define las caracter&iacute;sticas de un frame concreto, y 
+<li><b>NOFRAMES</b>, que permite incluir informaci&oacute;n para visores que no disponen de soporte para m&uacute;ltiples frames.
+</ul>
+
+<p>
+Al usar Frames, nos encontramos con un problema. Cuando queramos mostrar una p&aacute;gina Web debemos indicarle al visor en que subventana queremos que se muestre. Por defecto se mostrar&aacute; en la ventana donde se encuentre el enlace. Para poder escoger la subventana de destino del Hyperenlace se añade un nuevo par&aacute;metro a la directiva &lt;A HREF=“...”&gt;... &lt;/A&gt;. Este par&aacute;metro se llama <b>TARGET</b> y puede tener los siguientes valores:
+</p>
+
+<ul>
+<li><b>TARGET="nombre de ventana" </b>
+<p>
+Muestra el Hyperenlace en la ventana cuyo nombre se indica. Previamente, tendremos que hacer definido el nombre de la ventana en cuesti&oacute;n con el atributo NAME=“nombre de ventana” dentro del atributo &lt;FRAMESET&gt;, que indicar&aacute; el nombre de la ventana propia.
+</p>
+
+<li><b>TARGET="_blank" </b>
+<p>
+Abre una nueva copia del visor y muestra el Hyperenlace en ella. (Si usamos Netscape esto provoca que tengamos funcionando dos copias del programa).
+</p>
+
+<li><b>TARGET="_self" </b>
+<p>
+Se muestra el Hyperenlace en la subventana activa.
+</p>
+
+<li><b>TARGET="_parent" </b>
+<p>
+El Hyperenlace se muestra en el &lt;FRAMESET&gt; definido anteriormente al actual. Si no hay ning&uacute;n &lt;FRAMESET&gt; anterior se muestra a pantalla completa suprimiendo todas las subventanas de la pantalla.
+</p>
+
+<li><b>TARGET="_top" </b>
+<p>
+Suprime todas las subventanas de la pantalla y muestra el Hyperenlace a pantalla completa.
+</p>
+</ul>
+
+<p>
+Una &uacute;ltima recomendaci&oacute;n ante de que te pongas a hacer frames sin ton ni son, es que debes de pensar que suele tardar m&aacute;s el cargar las p&aacute;ginas este tipo de m&eacute;todo. Un ejemplo: un frame de 3 cuadros, tendr&aacute; qe cargar 3 p&aacute;ginas distintas para poder dar la visualizaci&oacute;n completa de la p&aacute;gina. Debes de plantearte el poner frames muy seriamente, ya que son muchas veces motivo de rechazo por algunos de los internautas, debido a su lentitud al cargar.
+</p>
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual09.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual11.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

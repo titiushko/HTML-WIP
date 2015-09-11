@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Cabecera de un Documento HTML </TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000078" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>4 - Cabecera de un documento HTML</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Introducci&oacute;n</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La cabecera de un documento HTML est&aacute;
+delimitado por las etiquetas <B>&lt;HEAD&gt;</B> y <B>&lt;/HEAD&gt;</B>,
+en esta se incluir&aacute;n las definiciones generales que afectar&aacute;n
+a todo el documento. Todas sus etiquetas son opcionales y se utilizar&aacute;n
+solo en casos muy determinados, solo la etiqueta <B>TITLE</B> tiene un
+uso general y aunque es opcional se recomienda incluirla en todos los documentos
+que creemos. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A continuaci&oacute;n se citan los distintos
+componentes que pueden formar la cabecera de un documento HTML. <A NAME="title"></A></P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;TITLE&gt;: T&iacute;tulo
+del documento</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especificar&aacute; el t&iacute;tulo del
+documento HTML, todo documento HTML debe tener un titulo. El titulo debe
+guardar relaci&oacute;n con el contenido del documento y definirlo de forma
+general, su tama&ntilde;o no est&aacute; limitado aunque se recomienda
+que no sea excesivamente extenso. Dentro de esta etiqueta no se podr&aacute;
+usar ninguna de las restantes etiquetas HTML. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El t&iacute;tulo no forma parte del documento
+en s&iacute;, y no se incluye ni se muestra dentro del documento, normalmente
+se muestra en la parte superior de la ventana del programa navegador. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se utiliza principalmente para etiquetar
+e identificar la p&aacute;gina en los <I>bookmarks</I> (marcadores) y las
+<I>history list</I> (lista de documentos accedidos) y tambi&eacute;n se
+utiliza por algunos servidores de b&uacute;squeda como resultado de una
+busqueda para poder intuir el contenido del documento. El titulo deber&aacute;
+guardar relaci&oacute;n con el contenido del documento y definirlo de forma
+general. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La etiqueta &lt;TITLE&gt;, debe ser usada
+dentro de las etiquetas que definen la cabecera de la siguiente forma:
+</P>
+
+<DL>
+<DD><B><FONT COLOR="#008200">&lt;HEAD&gt; </FONT></B></DD>
+
+<DL>
+<DD><B><FONT COLOR="#008200">&lt;TITLE&gt;Titulo del documento HTML&lt;/TITLE&gt;
+</FONT></B></DD>
+</DL>
+
+<DD><B><FONT COLOR="#008200">&lt;/HEAD&gt; </FONT></B></DD>
+</DL>
+
+<P><A NAME="base"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;BASE&gt;:
+URL base del documento.</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especificar&aacute; la URL que se tomar&aacute;
+como base del documento HTML, esta se utilizar&aacute; para las referencias
+a URL relativas, que se encuentren en los hiperenlaces y en las referencias
+de las im&aacute;genes. No tiene mucho uso y lo normal es utilizarlo en
+documentos, obtenidos de otros servidores o directorios e incluidos fuera
+de contexto, de esta forma los enlaces siguen siendo validos. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Presenta un atributo <B>HREF</B>, que
+indicar&aacute; la URL base del documento, el formato ser&aacute; el siguiente:
+</P>
+
+<P><B><FONT COLOR="#008200">&lt;BASE HREF=&quot;<I>URL</I>&quot;&gt;</FONT></B><FONT COLOR="#008200">
+</FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por ejemplo: </P>
+
+<P><FONT COLOR="#008200"><B>&lt;BASE HREF=&quot;http ://www.uca.es/docs/&quot;&gt;</B>
+</FONT></P>
+
+<P><A NAME="isindex"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;ISINDEX&gt;:
+El documento es un &iacute;ndice</FONT></FONT></B> <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indica que el documento es un &iacute;ndice,
+y por tanto se deber&aacute; realizar una b&uacute;squeda en &eacute;l.
+Presentar&aacute; un indicador preguntando la palabra clave de la b&uacute;squeda.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No se utiliza en documentos normales,
+sino en documentos realizados con cgi-bin para indicar que les debe pasar
+una palabra clave para realizar la b&uacute;squeda. Presenta dos atributos,
+<B>PROMPT</B> que indica el texto que aparecer&aacute; como inductor de
+la b&uacute;squeda y <B>ACTION</B> que especifica el fichero cgi que trata
+la consulta, por defecto ser&aacute; el documento actual. </P>
+
+<P><A NAME="meta"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;META&gt;:
+Indica refresco del documento <BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aunque tiene m&aacute;s utilidades, la
+principal es indicar documentos con refresco autom&aacute;tico. Se indicar&aacute;
+un documento que debe sustituir al actual en un determinado n&uacute;mero
+de segundos. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt;META HTTP-EQUIV=&quot;REFRESH&quot; CONTENT=&quot;<I>n&uacute;mero_segundos</I>
+;URL=<I>URL_de_refresco</I>&quot;&gt;</FONT></B><FONT COLOR="#008200">
+</FONT></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se indica el n&uacute;mero de segundos
+que deben pasar antes del refresco y el documento HTML que sustituye al
+actual. Si se indica cero segundos la transici&oacute;n entre uno y otro
+documento ser&aacute; inmediata. Si no se indica URL el documento actual
+se refrescar&aacute;. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La utilidad puede ser para documentos
+que cambien con una gran frecuencia y transcurrido un tiempo se actualizar&aacute;n,
+o documentos que deban ser vistos de forma secuencial, se empieza por un
+documento pasando a los siguientes transcurrido un per&iacute;odo de tiempo
+sin necesidad de acci&oacute;n alguna por parte del lector. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="dochtml.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="dochtml.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="body.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="body.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

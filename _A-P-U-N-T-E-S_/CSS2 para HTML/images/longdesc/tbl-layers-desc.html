@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+  <head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+    <title>Descripción extensa del ejemplo de cálculo del fondo de la celda</title>
+  </head>
+
+  <body>
+      <h1>Descripción extensa del ejemplo de cálculo del fondo de la celda</h1>
+
+<P>Este diagrama muestra seis "capas" superpuestas del modelo de tabla CSS. Este diagrama ilustra el algoritmo para el cálculo del fondo definitivo de una celda.
+
+<P>Las seis capas se muestan como rectángulos en orden de prioridad flotando uno encima de otro en un espacio tridimensional (es decir, las capas son dibujadas como rombos para dar la sensación espacial). Los rectángulos representan, de arriba hacia abajo: celdas, filas, grupos de filas, columnas, grupos de columnas y la tabla en sí misma.
+
+<P>El diagrama muesta cómo, mirando hacia abajo a través de los seis rectángulos, se puede computar el color de fondo de cada celda. En la capa superior, cada celda que especifica un fondo se muestra como una caja gris con un borde negro. Una celda sin color de fondo en la capa superior se muestra como una "ventana" sobre las capas inferiores, que le dan su color de fondo definitivo. La misma metáfora visual se usa en cada capa, de modo que una fila sin fondo actúa como una ventana sobre la capa del grupo de filas, etc.
+
+<P><a href="../../tables.html#img-tbl-layers">Volver a la imagen.</a> 
+
+  </body>
+</html>

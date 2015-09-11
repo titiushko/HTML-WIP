@@ -1,0 +1,28 @@
+body {
+  background-color : rgb(63%, 88%, 65%);
+  color : rgb(22%, 31%, 23%);
+  font-family : Verdana, Arial, sans-serif;
+  margin : 0 ;
+  padding : 0;
+}
+
+h1, h2 {
+ margin : 0;
+ padding : 0 .5em;
+}
+
+h2 {
+ border-top : dashed rgb(0, 56%, 0) 2px;
+}
+
+p {
+ margin : 0 1em 1em;
+}
+
+a:link {
+ color : rgb(0%, 25%, 75%);
+}
+
+a:visited {
+ color : rgb(33%, 13%, 46%);
+}

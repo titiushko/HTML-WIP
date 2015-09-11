@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Leccion #2 (Aprender HTML)</title>
+</head>
+<body bgcolor=#D9FEFF >
+<basefont name="ARIAL">
+<h2><center><font face="ARIAL">Edición de Texto</font></center></h2>
+</p>
+<tt><center>por: <a href=personal.html>L.J.Berdugo</a></center></tt>
+<hr>
+<h4>Resumen Lección Antereior</h4>
+<p> 
+En la <a href=leccion1.htm >lección anterior</a> aprendío a guardar sus documentos en formato TEXTO usando el comando
+<b>Guardar Como...</b> de su editor de texto, además a ponerle la extensión a los archivos 
+como <b>*.htm</b> para Windows 3.1 y <b>*.html</b> en MAC y Windows 95. <br>
+No debe insertar comandos de control en su documento, el HTML es el "lenguaje" de control para
+su documento.
+</p>
+<a name="L2_1"> 
+<h3>Estructura de Comandos del HTML</h3>
+
+La estructura de los comandos del HTML es muy simple, todos los comandos del HTML van encerrados entre los simbolos;
+menor que "<" y mayor que ">" así: <b>< Comando ></b>.<br>
+Aprender HTML es aprender los comandos que van encerrados entre estos simbolos y utilizarlos donde ud desee.
+<p>
+El objetivo del HTML es dar formato al texto de su página, estos formatos 
+son <b>Negritas</b>, <i>Italicas</i>,<tt>Letra pequeña</tt>, etc.
+
+Para que el HTML cambie el efecto de un texto, por ejemplo a negritas, 
+debe colocar el comando justo antes del texto que desea formatear y al 
+final, colocar el cierre de comando, veamos esto con un ejemplo:<p>
+<p align="center">
+<b>Este parrafo está en Negritas</b>, y este No.</p>
+El comando que hace este efecto es la "b" de Negritas (Bold en Inglés).<br>
+Y la sintaxis es la siguiente:<br>
+<p align="Center">
+  <b>Este parrafo está en Negritas</b>, y este No.</p>
+Como podrá observar el comando "b" está encerrado entre <  > al inicio
+ del parrafo y al final se encuentra el mismo comando pero con un "SLASH"
+ (/) que indica la terminación del comando.<p>
+<center>
+<table border=1 >
+<td colspan=3 align="center"><b>Resumen de Comandos de Formato HTML</b><tr>
+<td align="center"><b>Comando</b>
+<td align="center"><b>Sintaxis</b>
+<td align="center"><b>Efecto</b><tr>
+<td>Negritas
+<td>< b >Negritas< /b >
+<td><b>Negritas</b><tr>
+<td>Italicas
+<td>< i >Italicas< /i >
+<td><i>Italicas</i><tr>
+<td>Texto Pequeño
+<td>< tt >T. Pequeño< /tt >
+<td><tt>T. Peuqeño</tt><tr>
+</table></center>
+
+<ul><ul>
+<li>Todos los comandos del HTML van encerrados entre <  > sin exepción.<br>
+<li>Los comandos se terminan con una sintaxis igual pero adicionando un slash antes del Comando.<br>
+<li>Algunos comandos del HTML no necesitan del comando de cierre.<br>
+<li>El HTML no distingue entre mayusculas y minusculas.<br>
+<li>Los comandos del HTML pueden ir anidados o sea se pueden usar mas de un comando por texto a formatear.<br>
+<li>Los comandos del HTML no se ven en las páginas, solo se vé el efecto de su uso.<br>
+</ul></ul>
+<a name="L2_2">  
+<h3>Formateando su Propia Página</h3>
+
+<ul>Para Formatear su pagina con el HTML debe seguir estos pasos.<p>
+<ul>
+<li>El Documento debe empezar con el comando HTML así: <b><html></b> <br>
+Esto indica al Browser que la página tiene comandos del HTML y que la trate como  tál.
+
+<li>El siguiente comando debe ser: <b> <title> y </title></b><br>
+Este indica el titulo de su página, si observa la parte superior de su browser encontrará a lo que me refiero.
+ 
+<li>Después viene el contenido del documento encerrado por: <b><body> y </body></b><br>
+Este comando indica el cuerpo del documento.
+
+<li>Y por ultimo el comando <b></html></b>.<br>
+Que es final del comando html,  y por tanto el  final del documento.
+
+</ul></ul>
+
+Lo mejor en este momento es hacer un ejemplo de lo anterior:<p>
+<center><table border=1>
+<td>
+< html ><p>
+< title > Mi primera Home page < /title ><p>
+< body ><p>
+< b > Esta es mi primera  página < /b > < p ><p>
+Los formatos son < i > Italicas < /i > y < b > Negritas < /b > < br ><p>
+< b > < i > o puedo usarlos combinados Negritas e Italicas  < /i > < /b > < br ><p>
+< tt > y si quieres en letra pequeña.. < /tt ><p>
+< /body ><p>
+< /html ><p>
+</table></center>
+En el ejemplo anterior encontrará 2 comandos nuevos, como recordará, si guardamos nuestro documento en formato texto y solo texto
+los caracteres de control no se guardarán, o sea que los retorno de carro o parrafo o línea, tampoco se guardarán,
+porque estos tambien son caracteres de control.<br>
+Es por esto que el HTML viene con los comandos <b>< p ></b> y
+ <b> < br ></b> que insertan una línea en blanco y un salto de línea.<p>
+Note ud. que estos comandos no utilizan el comando de Cierre.<br>
+El comando <b>< p ></b> viene de la palabra "paragraph" parrafo y trata
+ al texto como si fuera un parrafo, este comando se puede usar sin el comando de cierre o con él.<p>
+El comando <b>< br > </b>viene de la palabra "Break", el cual termina una línea de texto y salta
+ a la línea siguiente sin dejar espacios.<p>
+
+Se fijó bien en los comandos < html > , < body > y < title >.<br>
+También Observó como los comandos < p > y < br >, terminan las líneas y lo envían a la siguiente?. 
+<hr>
+
+Ahora, este es como se verá el ejemplo anterior en un browser:<p>
+<center><table border="1" >
+<Caption>Mi primera Home page</caption>
+<td><b>Esta es mi primera  página </b><p>
+Los formatos son <i>Italicas</i> y <b>Negritas</b><br>
+<b><i>o puedo usarlos combinados Negritas e Italicas</i></b><br>
+<tt>y si quieres en letra pequeña.. </tt>
+</table></center><p>
+
+Como verá los comandos del HTML afectaron al texto encerrado entre ellos.<br>
+Estimado amigo creo que está ud. en condiciones de formatear su 
+propio documento, recuerde que debe guardar los cambios en modo 
+Texto, y si no lo recuerda revise la <a href=leccion1.htm>lección #1</a> 
+de este tutor.<p>
+Si desea o tiene el tiempo suficiente revise la <a href=leccion3.htm>
+siguiente lección</a>.<p>
+No olvide Imprimir esta lección para futuras consultas, use <b>Ctrl+P</b>.<p>
+
+<hr>
+<p align="center"><a href=mailto:jberdugo@metrotel.net.co >Escribame</a> su  comentarios o inquietudes , le contestaré en cuanto pueda.</p>
+<hr size=5%>
+
+<center>
+<b>This page hosted by
+<a href=/><img src= /pictures/gc_icon.gif  border=0
+align=middle></a>
+Get your own <a href=/>Free Home Page</a></b></center>
+
+<hr WIDTH=50% size=5%>
+
+<p align="center"><font size=-2><b>© 1997 J&J Berdugo, Barranquilla-Colombia </b>
+</font></p>
+
+</body>
+</html>

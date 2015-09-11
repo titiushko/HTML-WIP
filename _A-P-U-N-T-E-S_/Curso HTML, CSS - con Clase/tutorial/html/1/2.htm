@@ -1,0 +1,246 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 1 (2/5)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La segunda parte del primer tutorial HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 1 (2/5)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La segunda parte del primer tutorial HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-06-16" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/1/2" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="1.htm" tppabs="http://html.conclase.net/tutorial/html/1/1" />
+
+
+<link rel="Next"     href="3.htm" tppabs="http://html.conclase.net/tutorial/html/1/3" />
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Empezando desde cero: ¿Cómo funciona la Web? (II) </h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/1/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/1/3">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Muy bien. Hablemos del localizador.</p>
+<p class="a">- Sí, eso es fácil. Cada documento necesita un nombre único que le diferencie de todos los demás.</p>
+</div>
+<div class="dialogo">
+<p class="p">- Exacto. Y ya estarás harto de verlo: es lo que pone en la barra de direcciones del navegador. Por ejemplo, el identificador de esta página es <samp>http://html.conclase.net/tutorial/html/1/2</samp>.</p>
+<p class="a">- Entiendo.</p>
+</div>
+<div class="dialogo">
+<p class="p">- Ya veremos con más detalle qué significan exactamente todas las partes de un identificador. De momento lo importante es que si por ejemplo quieres crear un documento que esté enlazado con éste, tienes que hacer referencia a él con su nombre, <samp>http://html.conclase.net/tutorial/html/1/2</samp>.</p>
+<p class="a">- Muy bien, creo que lo capto, aunque sigo un poco perdido.</p>
+</div>
+<div class="dialogo">
+<p class="p">- Sigamos. La segunda parte era la comunicación entre computadoras.</p>
+<p class="a">- ¿Y de verdad yo me tengo que meter en eso? Me da un poco de miedo...</p>
+</div>
+<div class="dialogo">
+<p class="p">- No, al menos no hasta que tengas un nivel más avanzado. Pero esto también lo has visto, seguro. ¿Alguna vez te ha salido en la pantalla eso de "Error 404: Not found" o algo por el estilo?</p>
+<p class="a">- ¡Sí, ya te digo! ¡Un montón de veces!</p>
+</div>
+<div class="dialogo">
+<p class="p">- Pues ahí lo tienes. Las computadoras tienen una especie de protocolo sencillo para comunicarse. Algo así: "Me han dicho que tienes este documento. Dámelo, anda". Y la otra, si lo tiene, se lo da. Y si no lo tiene, le dice "No lo encuentro. Lárgate".</p>
+<p class="a">- ¡Qué amable!</p>
+</div>
+<div class="dialogo">
+<p class="p">- Ya ves. Por supuesto, como sabrás, los ordenadores hablan con números, y en vez de decir "No lo encuentro" dicen "404". Así que tu ordenador vuelve derrotado con el rabo entre las piernas y un "404" en sus manos...</p>
+<p class="a">- ¡Y no se le ocurre nada mejor que darme el 404 a mí!</p>
+</div>
+<div class="dialogo">
+<p class="p">- Este protocolo de comunicación consiste básicamente en unas cuantas reglas para que todo funcione bien, y unos cuantos códigos como "404", "500", "200", etc. Por cierto, el protocolo se llama HTTP.</p>
+<p class="a">- HTTP, como lo que sale en el identificador...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Justo. Ya veremos por qué, más adelante.</p>
+<p class="a">- ¿Qué significa?</p>
+</div>
+<div class="dialogo">
+<p class="p">- HTTP es HyperText Transfer Protocol.</p>
+<p class="a">- Esto... me dijeron que este tutorial era en español...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Sí, sí. HTTP: Protocolo para la Transferencia de Hipertexto.</p>
+<p class="a">- Pues... bueno, no hemos mejorado mucho, la verdad...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Bueno, lo de Protocolo de Transferencia seguro que ya lo has pillado.</p>
+<p class="a">- Sí, eso ya lo pillo.</p>
+</div>
+<div class="dialogo">
+<p class="p">- Y lo de hipertexto...</p>
+<p class="a">- Sí, eso es muy cíber...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Compórtate, hombre.</p>
+<p class="a">- Perdón...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Hiper es un prefijo que significa...</p>
+<p class="a">- Grande, ¿no? Cómo "hipermercado", por ejemplo.</p>
+</div>
+<div class="dialogo">
+<p class="p">- ¿Me vas a dejar? Hiper es un prefijo que usan los matemáticos para indicar que algo tiene dimensiones extras.</p>
+<p class="a">- ¿Cómo en hiperespacio?</p>
+</div>
+<div class="dialogo">
+<p class="p">- Sí, ese es un ejemplo. El hiperespacio tiene más de tres dimensiones. El texto normal tiene una sola dimensión...</p>
+<p class="a">- De eso nada, los documentos tienen dos dimensiones: mira una hoja de papel, es plana.</p>
+</div>
+<div class="dialogo">
+<p class="p">- No. Un cuadro, tiene dos dimensiones. Un texto tiene una dimensión, es como una línea. Empiezas a leer desde el principio y acabas por el final. Si pierdes el hilo deja de tener significado.</p>
+<p class="a">- Sí, claro, visto así...</p>
+</div>
+<div class="dialogo">
+<p class="p">- Entonces hipertexto es como el texto normal, pero mejor: puedes salirte del hilo, porque no estás restringido a una sola dimensión.</p>
+<p class="a">- ¡Claro, puedes ir dando saltos, como en la Web!</p>
+</div>
+<div class="dialogo">
+<p class="p">- ¿Has visto? ¡Todo tiene su explicación!</p>
+<p class="a">- ¡Y yo que pensaba que hipertexto sólo era un nombre chulo! Pero oye, no veo cómo esto del protocolo HTTP nos puede ser útil como diseñadores.</p>
+</div>
+<div class="dialogo">
+<p class="p">- Pues, por ejemplo, si controlas el protocolo, le puedes decir a la computadora en que están tus documentos que sea más amable, y que en vez de dar un 404, entregue una página más bonita, explicando que la página no ha sido encontrada, dando las posibles causas, una dirección de contacto y una forma de llegar a una página que exista.</p>
+<p class="a">- Aah, claro... pues es verdad. Bueno, vamos a la tercera parte, ¿no?</p>
+</div>
+<div class="dialogo">
+<p class="p">- ¡Ah, sí! Ya se me había olvidado...</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="1.htm" tppabs="http://html.conclase.net/tutorial/html/1/1">anterior</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/1/3">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 16/06/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

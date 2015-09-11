@@ -1,0 +1,291 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 3 (7/7)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La séptima parte del tercer tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 3 (7/7)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La séptima parte del tercer tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/3/7" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6" />
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Identificadores e Hipervínculos (VII)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6">anterior</a> | <a href="../4/1.htm" tppabs="http://html.conclase.net/tutorial/html/4/1">siguiente tutorial</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- ¿Ya has acabado?</p>
+<p class="a">- Sí aquí tienes el código completo:</p>
+<p class="a"><code>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"http://www.w3.org/TR/html40/strict.dtd"&gt;<br />
+&lt;html&gt;<br />
+&nbsp;&lt;head&gt;<br />
+&nbsp;&nbsp;&lt;title&gt;El portalillo de música celta&lt;/title&gt;<br />
+&nbsp;&nbsp;&lt;link rel="StyleSheet" href="ejemplo5.css" media="screen" type="text/css"&gt;<br />
+&nbsp;&lt;/head&gt;<br />
+&nbsp;&lt;body&gt;<br />
+&nbsp;&nbsp;&lt;h1&gt;Port An Deoraí&lt;/h1&gt;<br />
+&nbsp;&nbsp;&lt;p&gt;&lt;em&gt;&lt;strong&gt;El portalillo de música celta&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;<br />
+<br />
+&nbsp;&nbsp;&lt;h2&gt;&lt;a href="http://www.ceolas.org/artists/index-ie.html"&gt;Irlanda&lt;/a&gt;&lt;/h2&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href="http://www.lunasa.ie/"&gt;Lúnasa&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.ceolas.org/artists/Clannad/"&gt;Clannad&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.altan.ie/"&gt;Altan&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.dervish.ie/"&gt;Dervish&lt;/a&gt;...&lt;/p&gt;<br />
+<br />
+&nbsp;&nbsp;&lt;h2&gt;&lt;a href="http://www.ceolas.org/artists/index-sc.html"&gt;Escocia&lt;/a&gt;&lt;/h2&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href="http://www.andymstewart.com/"&gt;Andy M. Stewart&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.battlefieldband.co.uk/"&gt;Battlefield Band&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.tannahillweavers.com/"&gt;Tannahill Weavers&lt;/a&gt;...&lt;/p&gt;<br />
+<br />
+&nbsp;&nbsp;&lt;h2&gt;&lt;a href="http://www.gwerz.com/index.html"&gt;Bretaña&lt;/a&gt;&lt;/h2&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href="http://www.gwerz.com/artistes/biographies/gwendal.htm"&gt;Gwendal&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.arbedkeltiek.com/galleg/musique/strobinell.htm"&gt;Strobinell&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.bmol.infini.fr/adherent/diwall/index.fr.htm"&gt;Diwall&lt;/a&gt;...&lt;/p&gt;<br />
+<br />
+&nbsp;&nbsp;&lt;h2&gt;&lt;a href="http://www.arrakis.es/~josugp/folk.htm"&gt;España&lt;/a&gt;&lt;/h2&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href="http://www.milladoiro.com/"&gt;Milladoiro&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.nalua.net/"&gt;Na Lúa&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.luarnalubre.com/"&gt;Luar Nalubre&lt;/a&gt;...&lt;/p&gt;<br />
+<br />
+&nbsp;&nbsp;&lt;h2&gt;&lt;a href="http://www.ceolas.org/artists/index-us.html"&gt;Estados Unidos&lt;/a&gt; y<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.ceolas.org/artists/index-ca.html"&gt;Canadá&lt;/a&gt;&lt;/h2&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href="http://www.millepattes.com/Anglais/bottine/"&gt;La Bottine Souriante&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://celtic.relics.com/finecrowd/"&gt;Fine Crowd&lt;/a&gt;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="http://www.tempestmusic.com/"&gt;Tempest&lt;/a&gt;...&lt;/p&gt;<br />
+&nbsp;&lt;/body&gt;<br />
+&lt;/html&gt;<br />
+</code></p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Vamos a ver <a href="ejemplo4.html" tppabs="http://html.conclase.net/tutorial/html/3/ejemplo4.html">cómo queda</a>.</p>
+<p class="a">- Mmm, vaya, ya sabes lo que opino yo de esto...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Sí, ya lo sé. Pero no te preocupes, había preparado una hoja de estilo para que no te desanimaras. Es una cosa sencillita, no esperes grandes cambios: <a href="ejemplo5.html" tppabs="http://html.conclase.net/tutorial/html/3/ejemplo5.html">aquí lo puedes ver</a>.</p>
+<p class="a">- Bueno, queda resultón.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Se podrían hacer cosas más complicadas, como poner gráficos y tal, pero por ahora no está mal para ser el tercer tutorial. Bueno, antes de acabar estaría bien que habláramos un poco de los otros tipos o esquemas de <abbr>URLs</abbr> además del <code>http</code>.</p>
+<p class="a">- Bueno, pero no te enrolles mucho que esto ya se está haciendo un poco largo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Muy bien. Hemos hablado ya del esquema <code>mailto</code>, que se refiere a buzones de correo electrónico. Por ejemplo, podrías crear un hipervínculo a un buzón de correo: <code>&lt;a href="mailto:lopez@example.com"&gt;La dirección de López&lt;/a&gt;</code></p>
+<p class="a">- Vaya, ¿y podría entrar en el buzón y leer tus mensajes si siguiera ese hipervínculo?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- No hombre, lo normal es que se abra el programa de correo electrónico para enviar un mensaje a esa dirección de correo.</p>
+<p class="a">- Ah, claro, qué cenutrio soy.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Seguimos. El esquema <code>ftp</code> es muy parecido al <code>http</code>, y se usa para ficheros que se pueden descargar por <abbr>FTP</abbr>.</p>
+<p class="a">- ¿Qué es <abbr>FTP</abbr>?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- <abbr>FTP</abbr> son las siglas de "<span xml:lang="en">File Transfer Protocol</span>" ¡Sí, ya lo sé, está en inglés! "Protocolo de transferencia de ficheros", si te quedas más tranquilo...</p>
+<p class="a">- Vale, vale...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- El protocolo <abbr>HTTP</abbr> sirve para transportar páginas de hipertexto, el protocolo <abbr>FTP</abbr> sirve para transportar ficheros en general.</p>
+<p class="a">- Je, hay que reconocer que poniendo nombres a las cosas son unos hachas...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Un <abbr>URL</abbr> del tipo <code>ftp</code> podría ser por ejemplo éste:</p>
+<pre class="p"><samp>ftp://ftp.funet.fi/pub/standards/RFC/rfc2396.txt</samp></pre>
+<p class="p">Eso es un fichero de texto que está disponible a través de un servidor <abbr>FTP</abbr>. Además dentro de un <abbr>URL</abbr> <code>ftp</code> también puedes incluir el usuario y su contraseña, así:</p>
+<pre class="p"><samp>ftp://usuario@ftp.servidor.es/pub/loquesea.zip
+ftp://usuario:clave@ftp.servidor.es/pub/loquesea.zip</samp></pre>
+<p class="a">- Ya veo, no me entero muy bien, pero bueno.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pronto te enseñaré a usar el <abbr>FTP</abbr>, es la manera más normal de subir tus páginas a tu sitio web. Bueno, ya queda poco. El esquema <code>file</code> se usa para ficheros almacenados en un ordenador. De momento para nosotros no tiene mucho interés, pero también es similar a los <abbr>URLs</abbr> <code>http</code>. Por ejemplo, si estás en Windows, este <abbr>URL</abbr> se refiere al fichero <samp>c:templeeme.txt</samp> (Windows usa barras invertidas):</p>
+<pre class="p"><samp>file://localhost/c:templeeme.txt</samp></pre>
+<p class="p">Como ves es muy parecido, primero el nombre de la máquina y luego la ruta de acceso.</p>
+<p class="a">- Ya. Qué cosas más raras.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Más. El esquema <code>news</code> se refiere a grupos de noticias o a mensajes de grupos de noticias. Según se refiera a una cosa o a la otra, la sintaxis varía. Por ejemplo, para un grupo de noticias:</p>
+<pre class="p"><samp>news:es.comp.infosistemas.www.paginas-web</samp></pre>
+<p class="p">y para un mensaje en particular:</p>
+<pre class="p"><samp>news:3b3c46bd.3498640@news.cis.dfn.de</samp></pre>
+<p class="a">- Sí, conozco ese grupo. Por cierto, estas <abbr>URL</abbr> son opacas, ¿no?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Jo, a veces me dejas alucinado. Sí son <abbr>URLs</abbr> opacas. Bueno, y para acabar, el esquema <code>telnet</code>. Telnet es un protocolo que te permite acceder a una computadora a través de la red. Un <abbr>URL</abbr> <code>telnet</code> se refiere a una sesión telnet. La sintaxis es una especie de mezcla entre la de <code>http</code> y la de <code>ftp</code>:</p>
+<pre class="p"><samp>telnet://usuario:clave@servidor.es:35/</samp></pre>
+<p class="a">- Vale, aunque si te soy sincero lo del telnet es la primera vez que lo veo en mi vida.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Quién sabe, quizás en el futuro uses telnet con más frecuencia de lo que te imaginas. Bueno, creo que ya hemos acabado.</p>
+<p class="a">- Uf, por fin...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Pues había pensado hacer en el próximo tutorial un repaso de los elementos de <abbr>HTML</abbr>, que ya va siendo hora, así que prepárate para otra tutorial largo...</p>
+<p class="a">- Bueno, pero espero que sea menos abstracto que este. Estoy de <abbr>URLs</abbr> hasta el moño, la verdad.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¡Qué exagerado eres!</p>
+<p class="a">- Y tú que lo digas. Bueno, hasta la próxima.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- ¡Hasta luego!</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6">anterior</a> | <a href="../4/1.htm" tppabs="http://html.conclase.net/tutorial/html/4/1">siguiente tutorial</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

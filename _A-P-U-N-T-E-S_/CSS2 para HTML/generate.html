@@ -1,0 +1,1251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Contenido generado, numeración automática y listas</title>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="visufx.html">
+<link rel="next" href="page.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</head>
+<body>
+<div class="navbar" align="center">
+<p><a href="visufx.html">anterior</a> &nbsp;
+<a href="page.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<h1 align="center">12 <a name="x0"><span class="index-def"
+title="contenido generado">Contenido</span></a>
+<a name="generated-text">generado</a>, <a name="x1"><span
+class="index-def" title="numeración automática">numeración</span></a> automática y listas</h1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="generate.html#before-after-content" class="tocxref">12.1 Los pseudo-elementos <span class="index-def" title=":before|pseudo-elementos:::before|before">:before</span> y <span class="index-def" title=":after|pseudo-elementos:::after|after">:after</span></a>
+    <li class="tocline2"><a href="generate.html#content" class="tocxref">12.2 La propiedad <span class="propinst-content">'content'</span></a>
+    <li class="tocline2"><a href="generate.html#compact-run-in-gen" class="tocxref">12.3 Interacción de :before y :after con los elementos <span class="index-inst" title="compact"><span class="value-inst-compact">'compact'</span></span> y <span class="index-inst" title="run-in"><span class="value-inst-run-in">'run-in'</span></span></a>
+    <li class="tocline2"><a href="generate.html#quotes" class="tocxref">12.4 Comillas</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="generate.html#quotes-specify" class="tocxref">12.4.1 Especificación de comillas con la propiedad <span class="propinst-quotes">'quotes'</span></a>
+      <li class="tocline3"><a href="generate.html#quotes-insert" class="tocxref">12.4.2 Inserción de comillas con la propiedad <span class="propinst-content">'content'</span></a>
+    </ul>
+    <li class="tocline2"><a href="generate.html#counters" class="tocxref">12.5 <span class="index-def" title="contadores">Contadores</span> y numeración automática</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="generate.html#scope" class="tocxref">12.5.1 Contadores anidados y área de alcance</a>
+      <li class="tocline3"><a href="generate.html#counter-styles" class="tocxref">12.5.2 Estilos de contadores</a>
+      <li class="tocline3"><a href="generate.html#q10" class="tocxref">12.5.3 Contadores en elementos con 'display: none'</a>
+    </ul>
+    <li class="tocline2"><a href="generate.html#q11" class="tocxref">12.6 Marcadores y listas</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="generate.html#markers" class="tocxref">12.6.1 Marcadores: la propiedad <span class="propinst-marker-offset">'marker-offset'</span></a>
+      <li class="tocline3"><a href="generate.html#lists" class="tocxref">12.6.2 Listas: las propiedades <span class="propinst-list-style-type">'list-style-type'</span>, <span class="propinst-list-style-image">'list-style-image'</span>, <span class="propinst-list-style-position">'list-style-position'</span> y <span class="propinst-list-style">'list-style'</span></a>
+    </ul>
+  </ul>
+</div>
+
+<p>En ciertos casos, los autores pueden desear que las aplicaciones del usuario procesen contenidos que no vienen en la <a href="conform.html#doctree">estructura del documento</a>. Un ejemplo familiar de esto es una lista numerada; el autor no quiere hacer la lista de números explícitamente, el o ella quiere que la aplicación del usuario la genere automáticamente. De modo similar, los autores pueden querer que la aplicación del usuario inserte la palabra "Figura" antes del encabezado de una imagen, o "Capítulo 7" antes del séptimo título del capítulo. Para audio o braille en particular, las aplicaciones del usuario deben ser capaces de insertar estas cadenas.
+
+<p>En CSS2, el contenido puede ser generado a través de distintos mecanismos:</p>
+
+<ul>
+<li>La propiedad <a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a>, junto con los pseudo-elementos :before y :after.
+<li>Las propiedades sonoras <a href="aural.html#propdef-cue-before" class="noxref"><span class="propinst-cue-before">'cue-before'</span></a>,
+<a href="aural.html#propdef-cue-after" class="noxref"><span class="propinst-cue-after">'cue-after'</span></a> (ver el capítulo sobre <a href="aural.html">hojas de estilo auditivas</a>). Cuando la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a> se combina con las propiedades sonoras, éstas son procesadas en el siguiente orden: :before, <a href="aural.html#propdef-cue-before" class="noxref"><span
+class="propinst-cue-before">'cue-before'</span></a>, (<a href="aural.html#propdef-pause-before" class="noxref"><span
+class="propinst-pause-before">'pause-before'</span></a>), el contenido del elemento, (<a href="aural.html#propdef-pause-after" class="noxref"><span class="propinst-pause-after">'pause-after'</span></a>),
+<a href="aural.html#propdef-cue-after" class="noxref"><span class="propinst-cue-after">'cue-after'</span></a> y :after.
+<li>Elementos con un valor de 'list-item' para la propiedad <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a>.
+</ul>
+
+<P>Abajo describimos los mecanismos asociados con la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a>.
+
+<h2>12.1 <a name="before-after-content">Los pseudo-elementos </a> <a name="x2"><span class="index-def"
+title=":before|pseudo-elementos:::before|before">:before</span></a> y <a name="x5"><span
+class="index-def" title=":after|pseudo-elementos:::after|after">:after</span></a></h2>
+
+<p>Los autores especifican el estilo y la ubicación del contenido generado con los pseudo-elementos :before y :after. Como sus nombres lo indica, los pseudo-elementos :before (antes) y :after (después) especifica la ubicación del contenido antes o después del contenido de la <a href="conform.html#doctree">estructura del documento</a> de un elemento. La propiedad <a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a>, junto con estos pseudo-elementos, especifican lo que se inserta.
+
+<div class=example><P style="display:none">Ejemplo(s):</P>
+<p>Por ejemplo, la siguiente regla inserta la cadena "Nota: " antes del contenido de cada elemento P cuyo atributo "class" tenga el valor "nota":</p>
+
+<pre>
+P.nota:before { content: "Nota: " }
+</pre>
+</div>
+
+<P>El formato de los objetos (ej., cajas) generados por un elemento incluye el contenido generado. De modo que, por ejemplo, cambiando la hoja de estilo anterior a:</p>
+
+<pre class="example">
+P.nota:before { content: "Nota: " }
+P.nota        { border: solid green }
+</pre>
+
+<P>causaría que un borde verde sólido fuera procesado alrededor de todo el párrafo, incluyendo la cadena inicial.
+
+<P>Los pseudo-elementos :before y :after <a
+href="cascade.html#inheritance">heredan</a> cualquier propiedad hereditable del elemento en la estructura del documento al cuál están ligados.</p>
+
+<div class=example><P style="display:none">Ejemplo(s):</P>
+
+<p>Por ejemplo, las siguientes reglas insertan comillas de apertura antes de cada elemento Q. El color de la comillas será rojo, pero la fuente será la misma que la del resto del elemento Q:</p>
+
+<pre>
+Q:before {
+  content: open-quote;
+  color: red
+}
+</pre>
+</div>
+
+<p>En la declaración de un pseudo-elemento :before o :after, las propiedades no hereditables toman sus <a href="cascade.html#initial-value">valores iniciales</a>.</p>
+
+<div class=example><P style="display:none">Ejemplo(s):</P>
+<p>De modo que, por ejemplo, debido a que el valor inicial de la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> es 'inline', las comillas en el ejemplo previo se insertan como una caja a nivel de línea (es decir, en la misma línea que el contenido de texto inicial del elemento). El siguiente ejemplo pone la propiedad <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> como 'block', de modo que el texto insertado se convierte en un bloque:</p>
+
+<pre>
+BODY:after {
+    content: "Fin";
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+}
+</pre>
+
+<P>Observe que una aplicación del usuario auditiva leería la palabra "Fin" después que el resto del contenido de BODY.
+</div>
+
+<P>Las aplicaciones del usuario deben ignorar las siguientes propiedades con los pseudo-elementos :before y
+:after: <a href="visuren.html#propdef-position" class="noxref"><span
+class="propinst-position">'position'</span></a>, <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a>, propiedades de <a href="#lists">list</a>
+y propiedades de <a href="tables.html">table</a>.
+
+<P>Los pseudo-elementos :before y :after permiten valores de la propiedad <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> como sigue:
+
+<ul>
+<li>Si el <a href="selector.html#subject">sujeto</a> del selector es un elemento <a href="visuren.html#block-level">a nivel de bloque</a>, los valores permitidos son 'none', 'inline', 'block' y 'marker'. Si el valor de <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> es cualquier otro valor, el pseudo-elemento se comportará como si el valor fuera 'block'. 
+<li>Si el <a href="selector.html#subject">sujeto</a> del selector es un elemento <a href="visuren.html#inline-level">a nivel de línea</a>, los valores permitidos son 'none' e 'inline'. Si el valor de <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> es cualquier otro valor, el pseudo-elemento se comportará como si el valor fuese 'inline'.
+</ul>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Otros valores podrán ser permitidos en futuros niveles de CSS.</em>
+</div>
+
+<h2>12.2 <a name="content">La propiedad </a> <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a></h2>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'content'"><a name="propdef-content" class="propdef-title"><strong>'content'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Value:</em>&nbsp;&nbsp;<td>[ <a href="syndata.html#value-def-string" class="noxref"><span class="value-inst-string">&lt;cadena&gt;</span></a> | <a href="syndata.html#value-def-uri" class="noxref"><span class="value-inst-uri">&lt;uri&gt;</span></a> | <a href="syndata.html#value-def-counter" class="noxref"><span class="value-inst-counter">&lt;contador&gt;</span></a> | attr(X) | open-quote | close-quote
+| no-open-quote | no-close-quote ]+ | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>una cadena vacía
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los pseudo-elementos :before y :after
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#all-media-group" class="noxref">todos</a>
+</table>
+</dl>
+</div>
+
+<p>Esta propiedad se usa con los pseudo-elementos :before y :after para generar contenido en un documento. Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><span class="index-inst" title="&lt;cadena&gt;"><a name="x9" href="syndata.html#value-def-string" class="noxref"><span
+class="value-inst-string"><strong>&lt;cadena&gt;</strong></span></a></span>
+<dd>Contenido del texto (ver la sección sobre <a href="syndata.html#strings">cadenas</a>).
+
+<dt><span class="index-inst" title="&lt;uri&gt;"><a name="x10" href="syndata.html#value-def-uri" class="noxref"><span
+class="value-inst-uri"><strong>&lt;uri&gt;</strong></span></a></span>
+<dd>El valor es un URI que señala un recurso externo. Si una aplicación del usuario no puede soportar el recurso debido a los <a href="media.html">tipos de medios</a> que soporta, debe ignorar el recurso. <strong>Nota.</strong> CSS no ofrece ningún mecanismo para cambiar el tamaño del objeto incrustado o para proporcionar una descripción textual, tal como los atributos "alt" o "longdesc" hacen con las imágenes en HTML. Esto puede cambiar en futuros niveles de CSS.
+
+<dt><span class="index-inst" title="&lt;contador&gt;"><a name="x11" href="syndata.html#value-def-counter" class="noxref"><span
+class="value-inst-counter"><strong>&lt;contador&gt;</strong></span></a></span>
+<dd>Los <a href="syndata.html#counter">contadores</a> pueden especificarse mediante dos funciones distintas: 'counter()' o 'counters()'. La sintaxis tiene dos formas:
+'counter(<var>nombre</var>)' o 'counter(<var>nombre</var>,
+<var>estilo</var>)'. El texto generado es el valor del contador nombrado en este punto en la estructura del formato; su formato está con el <a href="#counter-styles">estilo</a> indicado ('decimal' por defecto). La última función también tiene dos formas:
+'counters(<var>nombre</var>, <var>cadena</var>)' o 'counters(<var>nombre</var>,
+<var>cadena</var>, <var>estilo</var>)'. El texto generado es el valor de todos los contadores con el nombre dado en este punto en la estructura del formato, separados por la cadena especificada. El contador es procesado con el <a href="#counter-styles">estilo</a> indicado ('decimal' por defecto). Ver la sección sobre <a href="#counters">contadores y numeración automática</a> para mayor información.
+<dt><span class="index-inst" title="open-quote"><a name="x12" href="generate.html#value-def-open-quote" class="noxref"><span
+class="value-inst-open-quote"><strong>open-quote</strong></span></a></span> y 
+<span class="index-inst" title="close-quote"><a name="x13" href="generate.html#value-def-close-quote" class="noxref"><span
+class="value-inst-close-quote"><strong>close-quote</strong></span></a></span>
+
+<dd>Estos valores son reemplazados con la correspondiente cadena de la propiedad <a href="generate.html#propdef-quotes" class="noxref"><span class="propinst-quotes"><strong>'quotes'</strong></span></a>.
+
+<dt><span class="index-inst" title="no-open-quote"><a name="x14" href="generate.html#value-def-no-open-quote" class="noxref"><span
+class="value-inst-no-open-quote"><strong>no-open-quote</strong></span></a></span>
+y <span class="index-inst" title="no-close-quote"><a name="x15" href="generate.html#value-def-no-close-quote" class="noxref"><span
+class="value-inst-no-close-quote"><strong>no-close-quote</strong></span></a></span>
+
+<dd>No inserta nada (una cadena vacía), pero incrementa (disminuye) el nivel de anidamiento de las comillas.
+
+<dt><a name="x16"><span class="index-def" title="attr()"><strong>attr(X)</strong></span></a>
+<dd>Esta función devuelve como una cadena el valor del atributo X del sujeto del selector. La cadena no es analizada por el procesador de CSS. Si el sujeto del selector no tiene un atributo X, se devuelve una cadena vacía. La distinción entre mayúsculas y minúsculas en el nombre de los atributos depende del lenguaje del documento.
+<strong>Nota.</strong> En CSS2, no es posible referirse a valores de atributos de otros elementos del selector.
+</dl>
+
+<P>La propiedad <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> controla si el contenido es ubicado en una caja de bloque, a nivel de línea o marcador.
+
+<P>Los autores deben poner las declaraciones de <a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a> en reglas <span class="index-inst" title="@media"><a name="x17"
+href="media.html#at-media-rule">@media</a></span> cuando el contenido es sensible al medio. Por ejemplo, un texto literal puede ser utilizado para cualquier grupo de medios, pero las imágenes sólo se aplican a los grupos de medios visual + bitmap, y los archivos de sonido sólo se aplican al grupo de medios aural.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>La siguiente regla produce que un archivo de sonido sea ejecutado al final de una cita (ver la sección sobre <a href="aural.html">hojas de estilo auditivas</a> por mecanismos adicionales):</p>
+
+<pre>
+@media aural {
+   BLOCKQUOTE:after { content: url("musica-bella.wav") }
+   }
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>La siguiente regla inserta el texto del atributo HTML "alt" antes de la imagen. Si la imagen no es mostrada, el lector todavía verá el texto "alt".
+
+<pre>
+IMG:before { content: attr(alt) }
+</pre>
+</div>
+
+<p>Los autores pueden incluir saltos de línea en el contenido generado escribiendo la secuencia de escape "\A" en una de las cadenas luego de la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a>. Esto inserta un <a name="x18"><span class="index-def" title="corte de línea forzado"><dfn>corte de línea forzado</dfn></span></a>, similar al elemento BR en HTML. Ver <a
+href="syndata.html#strings">"Cadenas"</a> y <a
+href="syndata.html#escaped-characters">"Caracteres y mayúsculas/minúsculas"</a> para más información sobre la secuencia de escape "\A".
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+
+<PRE>
+H1:before {
+    display: block;
+    text-align: center;
+    content: "capítulo\A chapter\A chapitre"
+}
+</pre>
+</div>
+
+<P>El contenido generado no altera la estructura del documento. En particular, no retroalimenta al procesador del lenguaje del documento (ej., para otro análisis).
+
+<div class=note>
+<p><em><strong>Nota.</strong> En futuros niveles de CSS, la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a> podrá aceptar valores adicionales, permitiéndole variar el estilo de parte del contenido generado, pero en CSS2, todo el contenido de los pseudo-elementos :before o :after tiene el mismo estilo.
+</em></p>
+</div>
+
+<h2>12.3 <a name="compact-run-in-gen">Interacción</a> de :before y :after con los elementos <span class="index-inst" title="compact"><a name="x19" href="visuren.html#value-def-compact" class="noxref"><span
+class="value-inst-compact">'compact'</span></a></span> y <span
+class="index-inst" title="run-in"><a name="x20" href="visuren.html#value-def-run-in" class="noxref"><span
+class="value-inst-run-in">'run-in'</span></a></span></h2>
+
+<p>Los siguientes casos pueden ocurrir:</p>
+
+<ol>
+<li><strong>Un elemento 'run-in' o 'compact' tiene un pseudo-elemento :before de tipo 'inline':</strong> el pseudo-elemento es tomado en cuenta cuando el tamaño de la caja del elemento es computado (para 'compact') y es procesado dentro de la misma caja de bloque que el elemento.
+
+<li><strong>Un elemento 'run-in' o 'compact' tiene un pseudo-elemento :after de tipo 'inline':</strong> Se aplican las reglas del punto anterior.
+
+<li><strong>Un elemento 'run-in' o 'compact' tiene un pseudo-elemento :before de tipo 'block':</strong> el pseudo-elemento es estructurado como un bloque encima del elemento, y no toma parte en el cómputo del tamaño del elemento (para 'compact').
+
+<li><strong>Un elemento 'run-in' o 'compact' tiene un pseudo-elemento :after de tipo 'block':</strong> tanto el elemento como su pseudo-elemento :after son estructurados como cajas de bloque. El elemento <em>no</em> se estructura como una caja a nivel de línea de su propio pseudo-elemento :after. 
+
+<li><strong>El elemento que sigue a un elemento 'run-in' o 'compact' tiene un :before de tipo 'block':</strong> la decisión sobre cómo estructurar el elemento 'run-in'/'compact' se hace con respecto a la caja de bloque que es el resultado del pseudo-elemento :before.
+
+<li><strong>El elemento que sigue a un elemento 'run-in' o 'compact' tiene un :before de tipo 'inline':</strong> la decisión sobre cómo estructurar el elemento 'run-in'/'compact' depende del valor <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> del elemento al que :before está ligado.
+
+</ol>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Aquí hay un ejemplo de un encabezado 'run-in' con un pseudo-elemento :after, seguido por un párrafo con un pseudo-elemento :before. Todos los pseudo-elementos son a nivel de línea (por defecto) en este ejemplo. Cuando la hoja de estilo:</p>
+
+<pre>
+H3 { display: run-in }
+H3:after { content: ": " }
+P:before { content: "... " }
+</pre>
+
+<p>se aplica a este documento fuente:</p>
+
+<pre class="html-example">
+&lt;H3&gt;Centauros&lt;/H3&gt;
+&lt;P&gt;tienen pezuñas
+&lt;P&gt;tienen una cola
+</pre>
+
+<p>El formato visual se parecerá a:</p>
+
+<pre class="none">
+Centauros: ... tienen pezuñas
+... tienen una cola
+</pre>
+</div>
+
+<h2>12.4 <a name="quotes">Comillas</a></h2>
+
+<P>En CSS2, los autores pueden especificar, de un modo sensible al estilo y dependiente del contexto, cómo las aplicaciones del usuario deben procesar las comillas. La propiedad <a href="generate.html#propdef-quotes" class="noxref"><span class="propinst-quotes">'quotes'</span></a> especifica pares de comillas para cada nivel de citas incrustadas. La propiedad <a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a> da acceso a esas comillas y provoca que sean insertadas antes o después de una cita.
+
+<H3>12.4.1 <a name="quotes-specify">Especificación de comillas</a> con la propiedad <a href="generate.html#propdef-quotes" class="noxref"><span
+class="propinst-quotes">'quotes'</span></a></H3>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'quotes'"><a name="propdef-quotes" class="propdef-title"><strong>'quotes'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[<a href="syndata.html#value-def-string" class="noxref"><span class="value-inst-string">&lt;cadena&gt;</span></a> <a href="syndata.html#value-def-string" class="noxref"><span class="value-inst-string">&lt;cadena&gt;</span></a>]+ | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>depende de la aplicación del usuario
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica las comillas para cualquier cantidad de citas incrustadas. Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong>none</strong>
+<dd>Los valores 'open-quote' y 'close-quote' de la propiedad
+<a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a> no provocan ninguna comillas.
+<dt>[<span class="index-inst" title="&lt;cadena&gt;"><a name="x22" href="syndata.html#value-def-string" class="noxref"><span
+class="value-inst-string"><strong>&lt;cadena&gt;</strong></span></a></span>
+&nbsp;<span class="index-inst" title="&lt;cadena&gt;"><a name="x23" href="syndata.html#value-def-string" class="noxref"><span
+class="value-inst-string"><strong>&lt;cadena&gt;</strong></span></a></span>]+
+<dd>Los valores para los valores 'open-quote' y 'close-quote' de la propiedad
+<a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a> son tomados de esta lista de pares de comillas (de apertura y cierre). El primer (más a la izquierda) par representa el nivel más externo de la cita, el segundo par el primer nivel de incrustación, etc. La aplicación del usuario debe aplicar el par de comillas adecuado de acuerdo al nivel de incrustación.
+</dl>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>Por ejemplo, aplicando la siguiente hoja de estilo:</p>
+
+<PRE class="example">
+/* Especifica pares de comillas para dos niveles en dos idiomas */
+Q:lang(en) { quotes: '"' '"' "'" "'" }
+Q:lang(no) { quotes: "«" "»" "&lt;" ">" }
+
+/* Inserta las comillas antes y después del contenido del elemento Q */
+Q:before { content: open-quote }
+Q:after  { content: close-quote }
+</PRE>
+
+<P>al siguiente fragmento HTML:</p>
+
+<PRE class="html-example">
+&lt;HTML lang="en"&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Quotes&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;&lt;Q&gt;Quote me!&lt;/Q&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>permitiría a una aplicación del usuario producir:</p>
+
+<PRE class="ascii-art">
+"Quote me!"
+</PRE>
+
+<P>mientras que este fragmento HTML:</p>
+
+<PRE class="html-example">
+&lt;HTML lang="no"&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Quotes&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;&lt;Q&gt;Tr&oslash;ndere gr&aring;ter n&aring;r &lt;Q&gt;Vinsjan p&aring; kaia&lt;/Q&gt; blir deklamert.&lt;/Q&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>produciría:</p>
+
+<PRE class="ascii-art">
+«Tr&oslash;ndere gr&aring;ter n&aring;r &lt;Vinsjan p&aring; kaia> blir deklamert.»
+</PRE>
+</div>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Mientras que las comillas especificadas por <a href="generate.html#propdef-quotes" class="noxref"><span
+class="propinst-quotes">'quotes'</span></a> en los ejemplos anteriores están convenientemente colocadas en los teclados de computadora, las componedoras de texto de alta calidad requerirían diferentes caracteres de ISO 10646. La siguiente tabla informativa lista algunos de los caracteres de comillas de ISO 10646:</em></p>
+
+<TABLE border>
+<TR><TH>Procesamiento aproximado<TH>Código ISO 10646 (hex)<TH>Descripción
+<TR><TD>"<TD>0022<TD>COMILLAS [comillas dobles en ASCII]
+<TR><TD>'<TD>0027<TD>Apóstrofe [comilla simple en ASCII]
+<TR><TD>&lt;<TD>2039<TD>COMILLA ANGULAR SIMPLE HACIA LA IZQUIERDA
+<TR><TD>><TD>203A<TD>COMILLA ANGULAR SIMPLE HACIA LA DERECHA
+<TR><TD>«<TD>00AB<TD>COMILLAS ANGULARES DOBLES HACIA LA IZQUIERDA
+<TR><TD>»<TD>00BB<TD>COMILLAS ANGULARES DOBLES HACIA LA DERECHA
+<TR><TD>`<TD>2018<TD>COMILLA APERTURA SIMPLE [simple alta-6]
+<TR><TD>'<TD>2019<TD>COMILLA CIERRE SIMPLE  [simple alta-9]
+<TR><TD>``<TD>201C<TD>COMILLAS APERTURA DOBLES [doble alta-6]
+<TR><TD>''<TD>201D<TD>COMILLAS CIERRE DOBLES [doble alta-9]
+<TR><TD>,,<TD>201E<TD>COMILLAS DOBLES BAJA-9 [doble baja-9]
+</TABLE>
+</div>
+
+<H3>12.4.2 <a name="quotes-insert">Inserción de comillas</a> con la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a></H3>
+
+<p>Las comillas son insertadas en los lugares correspondientes de un documento con los valores <span class="index-def" title="open-quote"><a
+class="value-def" name="value-def-open-quote">'open-quote'</a></span>
+y <span class="index-def" title="close-quote"><a class="value-def"
+name="value-def-close-quote">'close-quote'</a></span> de la propiedad
+<a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a>. Cada aparición de 'open-quote' o 'close-quote' se reemplaza por una de las cadenas del valor de <a href="generate.html#propdef-quotes" class="noxref"><span
+class="propinst-quotes">'quotes'</span></a>, en base a la profundidad del anidado.
+
+<p>'Open-quote' se refiere a la primera de un par de comillas, 'close-quote' se refiere a la segunda. Qué par de comillas se usa depende del nivel de anidado de las comillas: el número de apariciones de 'open-quote' en todo el texto generado antes de la presente, menos el número de apariciones de 'close-quote'. Si la profundidad es 0, se usa el primer par, si la profundidad es 1, se usa el segundo par, etc. Si la profundidad es mayor que el número de pares, el último par se repite.
+
+<p>Observe que esta profundidad de las citas es independiente del anidado del documento fuente o de la estructura del formato.
+
+<p>Algunos estilos tipográficos requieren comillas de apertura que se repiten antes de cada párrafo de una cita que abarca varios párrafos, pero sólo el último párrafo termina con comillas de cierre. En CSS, esto puede lograrse insertando comillas de cierre "fantasmas". La palabra clave <span class="index-def" title="no-close-quote"><a
+class="value-def"
+name="value-def-no-close-quote">'no-close-quote'</a></span> disminuye el nivel de las citas, pero no inserta una comilla.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>La siguiente hoja de estilo pone comillas de apertura en cada párrafo de un elemento BLOCKQUOTE, e inserta una sola comilla al final:
+
+<pre>
+BLOCKQUOTE P:before     { content: open-quote }
+BLOCKQUOTE P:after      { content: no-close-quote }
+BLOCKQUOTE P.último:after { content: close-quote }
+</pre>
+
+<P>Esto cuenta con que el último párrafo sea marcado con una clase "último", debido a que no hay selectores que puedan equivaler al último hijo de un elemento.
+</div>
+
+<p>Simétricamente, hay también una palabra clave <span class="index-def"
+title="no-open-quote"><a class="value-def"
+name="value-def-no-open-quote">'no-open-quote'</a></span>, que no inserta nada, pero incrementa en uno la profundidad de las citas.
+
+<div class="note"><p>
+<em><strong>Nota.</strong> Si una cita está en un idioma distinto al del texto circundante, se acostumbra entrecomillar el texto con las comillas del idioma del texto circundante, no con las del idioma de la propia cita.
+</em>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>Por ejemplo, francés dentro de inglés:
+
+<blockquote>
+The device of the order of the garter is &#8220;Honi soit qui mal y
+pense.&#8221;
+</blockquote>
+
+Inglés dentro de francés:
+
+<blockquote>
+Il disait: «&nbsp;Il faut mettre l'action en &#8249;&nbsp;fast
+forward&nbsp;&#8250;.»
+</blockquote>
+
+<p>Una hoja de estilo como la siguiente pondrá la propiedad 'quotes' de manera tal que 'open-quote' y 'close-quote' funcionen correctamente para todos los elementos. Estas reglas son para documentos que contienen sólo inglés y francés, o ambos. Se necesita una regla para cada idioma adicional. Observe el uso del <span
+class="index-inst" title="combinador"><a
+name="selector.html#combinator">combinador</a></span> hijo (">") para poner las citas en los elementos en base al idioma del texto circundante:</P>
+
+<pre>
+[LANG|=fr] > *  { quotes: "«" "»" "\2039" "\203A" }
+[LANG|=en] > *  { quotes: "\201C" "\201D" "\2018" "\2019" }
+</pre>
+
+<p>Las comillas para el inglés se muestran aquí en una forma que la mayoría de las personas podrán teclear. Si puede escribirlas directamente, se parecerán a esto:
+
+<pre>
+[LANG|=fr] > * { quotes: "«" "»" "&#8249;" "&#8250;" }
+[LANG|=en] > * { quotes: "&#8220;" "&#8221;" "&#8216;" "&#8217;" }
+</pre>
+</div>
+
+<h2>12.5 <span class="index-def" title="contadores"><a
+name="counters">Contadores</a></span> y numeración automática</h2>
+
+<p>La numeración automática en CSS2 es controlada con dos propiedades,
+<a href="generate.html#propdef-counter-increment" class="noxref"><span class="propinst-counter-increment">'counter-increment'</span></a>
+y <a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a>. Los contadores definidos por estas propiedades se usan con las funciones  counter() y counters() de la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a>.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'counter-reset'"><a name="propdef-counter-reset" class="propdef-title"><strong>'counter-reset'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="syndata.html#value-def-identifier" class="noxref"><span class="value-inst-identifier">&lt;identificador&gt;</span></a> <a href="syndata.html#value-def-integer" class="noxref"><span class="value-inst-integer">&lt;entero&gt;</span></a>? ]+ | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#all-media-group" class="noxref">todos</a>
+</table>
+</dl>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'counter-increment'"><a name="propdef-counter-increment" class="propdef-title"><strong>'counter-increment'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="syndata.html#value-def-identifier" class="noxref"><span class="value-inst-identifier">&lt;identificador&gt;</span></a> <a href="syndata.html#value-def-integer" class="noxref"><span class="value-inst-integer">&lt;entero&gt;</span></a>? ]+ | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>todos los elementos
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#all-media-group" class="noxref">todos</a>
+</table>
+</dl>
+</div>
+
+<p>La propiedad <a href="generate.html#propdef-counter-increment" class="noxref"><span
+class="propinst-counter-increment">'counter-increment'</span></a> acepta uno o más nombres de contadores (identificadores), cada uno seguido de manera opcional por un entero. El entero indica en cuanto se incrementará el contador con cada aparición del elemento. El incremento predeterminado es 1. Los enteros negativos o el cero son admitidos.
+
+<p>La propiedad <a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a> también contiene una lista de uno o más nombres de contadores, cada uno seguido de manera opcional por un entero. El entero da el valor en que el contador es colocado con cada aparición del elemento. El valor por defecto es 0.
+
+<p>Si <a href="generate.html#propdef-counter-increment" class="noxref"><span
+class="propinst-counter-increment">'counter-increment'</span></a> se refiere a un contador que no está en el <a href="#scope">área de alcance (ver abajo</a>) de ningún <a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a>, se asume que el contador ha sido restablecido a 0 por el elemento raíz.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Este ejemplo muestra una forma de numerar los capítulos y secciones con "Capítulo 1", "1.1", "1.2", etc.
+
+<pre>
+H1:before {
+    content: "Capítulo " counter(capítulo) ". ";
+    counter-increment: capítulo;  /* Agrega 1 a capítulo */
+    counter-reset: section;      /* Pone la sección a 0 */
+}
+H2:before {
+    content: counter(capítulo) "." counter(section) " ";
+    counter-increment: section;
+}
+</pre>
+</div>
+
+<p>Si un elemento incrementa/restablece un contador y también lo usa (en la propiedad <a href="generate.html#propdef-content" class="noxref"><span class="propinst-content">'content'</span></a> de su pseudo-elemento :before o :after), el contador se usa <em>después</em>
+de ser incrementado/restablecido.
+
+<p>Si un elemento restablece y también incrementa un contador, el contador es primero restablecido y luego incrementado.
+
+<P>La propiedad <a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a> sigue las reglas sobre cascada. De modo que, debido a la cascada, la siguiente hoja de estilo:</p>
+
+<pre class="example">
+H1 { counter-reset: section -1 }
+H1 { counter-reset: imaginario 99 }
+</pre>
+
+<p>solamente restablecerá 'imaginario'. Para restablecer ambos contadores, estos tienen que ser especificados al mismo tiempo:</p>
+
+<pre class="example">
+H1 { counter-reset: section -1 imaginario 99 }
+</pre>
+
+<h3>12.5.1 <a name="scope">Contadores anidados y área de alcance</a></h3>
+
+<p>Los contadores son "autoanidados", en el sentido de que la re-utilización de un contador en un elemento hijo crea una nueva instancia del contador. Esto es importante en situaciones como las listas en HTML, donde los elementos puede ser anidados dentro de sí mismos hasta una profundidad arbitraria. Resultaría imposible definir a los contadores con un nombre único para cada nivel.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Así, lo siguiente basta para numerar los ítems de una lista anidada. El resultado es muy similar al de poner 'display:list-item' y 'list-style: inside' en el elemento LI:
+
+<pre>
+OL { counter-reset: item }
+LI { display: block }
+LI:before { content: counter(item) ". "; counter-increment: item }
+</pre>
+</div>
+
+<p>El autoanidado se basa en el principio de que cada elemento que tiene <a href="generate.html#propdef-counter-reset" class="noxref"><span class="propinst-counter-reset">'counter-reset'</span></a> para un contador X, crea un nuevo contador X, el <a name="x32"><span class="index-def"
+title="área de alcance"><dfn>área de alcance</dfn></span></a> del cual es el elemento, sus hermanos precedentes y todos los descendientes del elemento y sus hermanos precedentes.
+
+<p>En el ejemplo de arriba, un OL creará un contador y todos los hijos de OL se referirán a ese contador.
+
+<div class="html-example"> <p>Si señalamos con item[n] la n&#186; instancia del contador "item" y con "(" y ")" el principio y fin de un área de alcance, entonces el siguiente fragmento de HTML utilizará los contadores indicados. (Asumimos una hoja de estilo como la proporcionada en el ejemplo de arriba.)
+
+<pre>
+&lt;OL&gt;               &lt;!-- (pone item[0] a 0             --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[0] (= 1)     --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[0] (= 2)     --&gt;
+    &lt;OL&gt;           &lt;!--  (pone item[1] a 0            --&gt;
+      &lt;LI&gt;item     &lt;!--   incrementa item[1] (= 1)    --&gt;
+      &lt;LI&gt;item     &lt;!--   incrementa item[1] (= 2)    --&gt;
+      &lt;LI&gt;item     &lt;!--   incrementa item[1] (= 3)    --&gt;
+        &lt;OL&gt;       &lt;!--   (pone item[2] a 0           --&gt;
+          &lt;LI&gt;item &lt;!--    incrementa item[2] (= 1)   --&gt;
+        &lt;/OL&gt;      &lt;!--   )                           --&gt;
+        &lt;OL&gt;       &lt;!--   (pone item[3] a 0           --&gt;
+          &lt;LI&gt;     &lt;!--    incrementa item[3] (= 1)   --&gt;
+        &lt;/OL&gt;      &lt;!--   )                           --&gt;
+      &lt;LI&gt;item     &lt;!--   incrementa item[1] (= 4)    --&gt;
+    &lt;/OL&gt;          &lt;!--  )                            --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[0] (= 3)     --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[0] (= 4)     --&gt;
+&lt;/OL&gt;              &lt;!-- )                             --&gt;
+&lt;OL&gt;               &lt;!-- (restablece item[4] a 0       --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[4] (= 1)     --&gt;
+  &lt;LI&gt;item         &lt;!--  incrementa item[4] (= 2)     --&gt;
+&lt;/OL&gt;              &lt;!-- )                             --&gt;
+</pre>
+</div>
+
+<p>La función 'counters()' genera una cadena compuesta por los valores de todos los contadores con el mismo nombre, separados por una cadena dada.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<P>La siguiente hoja de estilo numera los ítems anidados de la lista como "1", "1.1", "1.1.1", etc.
+
+<PRE>
+OL { counter-reset: item }
+LI { display: block }
+LI:before { content: counters(item, "."); counter-increment: item }
+</PRE>
+</div>
+
+<h3>12.5.2 <a name="counter-styles">Estilos de contadores</a></h3>
+
+<p>Por defecto, los contadores son compuestos con números decimales, pero todos los estilos disponibles para la propiedad <a href="generate.html#propdef-list-style-type" class="noxref"><span
+class="propinst-list-style-type">'list-style-type'</span></a> están también disponibles para los contadores. La sintaxis es:</P>
+
+<pre>
+counter(<var>nombre</var>)
+</pre>
+<p>para el estilo predeterminado, o:</p>
+
+<pre>
+counter(<var>nombre</var>, <a href="generate.html#propdef-list-style-type" class="noxref"><span class="propinst-list-style-type">'list-style-type'</span></a>)
+</pre>
+
+<p>Todos los estilos están permitidos, incluyendo 'disc', 'circle', 'square' y 'none'.
+
+<div class="example"><P style="display:none">Ejemplos(s):</P><P>
+
+<pre>
+H1:before        { content: counter(chno, upper-latin) ". " }
+H2:before        { content: counter(section, upper-roman) " - " }
+BLOCKQUOTE:after { content: " [" counter(bq, hebrew) "]" }
+DIV.note:before  { content: counter(notecntr, disc) " " }
+P:before         { content: counter(p, none) }
+</pre>
+</div>
+
+<h3><a name="q10">12.5.3 Contadores en elementos con  'display: none'</a></h3>
+
+<p>Un elemento que no es mostrado (con <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> puesto como 'none') no puede incrementar o restablecer un contador.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Por ejemplo, con la siguiente hoja de estilo, los H2 de la clase "secreto" no incrementan a 'cont2'.
+
+<pre>
+H2.secreto {counter-increment: cont2; display: none}
+</pre>
+</div>
+
+<p>Los elementos con <a href="visufx.html#propdef-visibility" class="noxref"><span class="propinst-visibility">'visibility'</span></a> puesta como 'hidden', por otro lado, <em>sí</em> incrementan los contadores.
+
+<h2><a name="q11">12.6 Marcadores y listas</a></h2>
+
+<P>La mayoría de los elementos a nivel de bloque en CSS generan una caja de bloque principal. En esta sección, trataremos dos mecanismos de CSS que provocan que un elemento genere dos cajas: una caja de bloque <a
+href="visuren.html#principal-box">principal</a> (para el contenido del elemento) y una caja de marcador separada (para decoraciones tales como viñetas, imágenes o números). La caja del marcador puede estar ubicada dentro o fuera de la caja principal. Al contrario del contenido de :before y :after, la caja del marcador no afecta la posición de la caja principal, cualquiera sea el esquema de posicionamiento.
+
+<P>El más general de los dos mecanismos es nuevo en CSS2 y se llama <a name="x33"><span class="index-def" title="marcadores"><dfn>marcadores</dfn></span></a>. El mecanismo más limitado involucra las propiedades <a href="#lists">list</a> de CSS1. Las propiedades de las listas le dan resultados rápidos a los autores en muchas situaciones comunes de listas ordenadas y desordenadas. Sin embargo, los marcadores le brindan a los autores un control preciso sobre el contenido y posición del marcador. Los marcadores pueden ser usados con los <a href="#counters">contadores</a> para crear un nuevo estilo de lista, para numerar notas al márgen, y mucho más.
+
+<div class="html-example">
+<P>Por ejemplo, el siguiente ejemplo ilustra cómo los marcadores pueden ser usados para agregar puntos después de cada ítem de una lista numerada. Este programa HTML y esta hoja de estilo:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+   &lt;HEAD&gt;
+     &lt;TITLE&gt;Creando una lista con marcadores&lt;/TITLE&gt;
+     &lt;STYLE type="text/css"&gt;
+	  LI:before { 
+	      display: marker;
+	      content: counter(micontador, lower-roman) ".";
+	      counter-increment: micontador;
+	  }   
+     &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;OL&gt;
+      &lt;LI&gt; Este es el primer ítem.
+      &lt;LI&gt; Este es el segundo ítem.
+      &lt;LI&gt; Este es el tercer ítem.
+    &lt;/OL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<P>producirían algo semejante a esto: </P>
+
+<PRE>
+   i. Este es el primer ítem.
+  ii. Este es el segundo ítem.
+ iii. Este es el tercer ítem.
+</PRE>
+</div>
+
+<P>Con los <a href="./selector.html#descendant-selectors">selectores de descendientes</a> y los <a href="./selector.html#child-selectors">selectores de hijos</a>, es posible especificar distintos tipos de marcadores dependiendo de la profundidad de las listas incrustadas.
+
+<h3>12.6.1 <a name="markers">Marcadores:</a> la propiedad <a href="generate.html#propdef-marker-offset" class="noxref"><span
+class="propinst-marker-offset">'marker-offset'</span></a></h3>
+
+<P>Los marcadores son creados colocando la propiedad <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> como 'marker' dentro de un pseudo-elemento :before o :after. Mientras que el contenido 'block' e 'inline' de :before
+y :after es parte de la <a
+href="visuren.html#principal-box">caja principal</a> generada por el elemento, el contenido de 'marker' es compuesto en una caja de marcador independiente, fuera de la caja principal. Las cajas de marcadores son compuestas en usa sola línea (es decir, una <a href="visuren.html#line-box">caja de línea</a>), de modo que no son tan flexibles como los <a href="visuren.html">flotantes</a>. La caja del marcador sólo es creada si la propiedad <a href="generate.html#propdef-content" class="noxref"><span
+class="propinst-content">'content'</span></a> para el pseudo-elemento realmente genera un contenido.
+
+<P>Las cajas de marcadores tienen relleno y bordes, pero no márgenes.
+
+<P>Para el pseudo-elemento :before, la línea de base del texto de la caja del marcador será alineada verticalmente con la línea de base del texto de la primer línea del contenido de la caja principal. Si la caja principal no contiene ningún texto, el límite externo superior de la caja del marcador será alineado con el límite externo superior de la caja principal. 
+Para el pseudo-elemento :after, la línea de base del texto de la caja del marcador será alineada verticalmente con la línea de base del texto de la última línea del contenido de la caja principal. Si la caja principal no contiene ningún texto, el límite externo inferior de la caja del marcador será alineado con el límite externo inferior de la caja principal. 
+
+<p>La altura de una caja de marcador está determinada por la propiedad <a href="visudet.html#propdef-line-height" class="noxref"><span
+class="propinst-line-height">'line-height'</span></a>. La caja del marcador :before (:after) interviene en el cálculo de la altura de la primer (última) caja de línea de la caja principal. De este modo, los marcadores son alineados con la primer y última línea del contenido de un elemento, aún cuando las cajas de marcadores residen en distintas cajas de línea. Si no existe ninguna primer o última caja de línea en la caja principal, la caja del marcador establece su caja de línea sola.
+
+<P>La alineación vertical de una caja de marcador dentro de su caja de línea se especifica con la propiedad <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align'</span></a>.
+
+<P>Si el valor de la propiedad <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a> es 'auto', el <a
+href="box.html#content-width">ancho del contenido</a> de la caja de marcador es el del contenido, en caso contrario es el valor de <a href="visudet.html#propdef-width" class="noxref"><span
+class="propinst-width">'width'</span></a>. Para los valores de <a href="visudet.html#propdef-width" class="noxref"><span
+class="propinst-width">'width'</span></a> menores al ancho del contenido, la propiedad <a href="visufx.html#propdef-overflow" class="noxref"><span class="propinst-overflow">'overflow'</span></a> especifica la conducta del desbordamiento. Las cajas de marcadores pueden superponerse con las cajas principales. Para los valores de <a href="visudet.html#propdef-width" class="noxref"><span class="propinst-width">'width'</span></a> mayores que el ancho del contenido, la propiedad <a href="text.html#propdef-text-align" class="noxref"><span
+class="propinst-text-align">'text-align'</span></a> determina la alineación horizontal del contenido en la caja del marcador.
+
+<P>La propiedad <a href="generate.html#propdef-marker-offset" class="noxref"><span class="propinst-marker-offset">'marker-offset'</span></a> especifica el desplazamiento horizontal entre una caja de marcador y la <a href="visuren.html#principal-box">caja principal</a> asociada. La distancia es tomada entre sus <a
+href="box.html#border-edge">límites de bordes</a> más cercanos. <strong>Nota.</strong> Si un marcador fluye a la derecha de un flotante en un contexto de formato de izquierda a derecha, la caja principal fluirá a lo largo del costado derecho del flotante, pero las cajas de marcadores aparecerán a la izquierda del flotante. Como el borde izquierdo de la caja principal queda a la izquierda del flotante (ver la descripción de <a
+href="visuren.html#floats">flotantes</a>), y las cajas de marcadores quedan fuera de los límites del borde de la caja principal, el marcador también quedará a la izquierda del flotante. Un comportamiento análogo se aplica en los formatos de derecha a izquierda cuando un marcador fluye a la izquierda de un flotante.
+
+<P>Cuando la propiedad <a href="visuren.html#propdef-display" class="noxref"><span class="propinst-display">'display'</span></a> tiene el valor 'marker' para el contenido generado por un elemento con 'display: list-item', una caja de marcador generada por ':before' reemplaza al marcador normal del ítem de la lista.
+
+<div class="html-example">
+<P>En el siguiente ejemplo, el contenido es centrado dentro de una caja de marcador de un ancho fijo. Este documento:</p>
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+ &lt;HTML&gt;
+    &lt;HEAD&gt;
+      &lt;TITLE&gt;Alineación del contenido en la caja del marcador&lt;/TITLE&gt;
+      &lt;STYLE type="text/css"&gt;
+           LI:before { 
+               display: marker;
+               content: "(" counter(counter) ")";
+               counter-increment: counter;
+               width: 6em;
+               text-align: center;
+           }
+      &lt;/STYLE&gt;
+   &lt;/HEAD&gt;
+   &lt;BODY&gt;
+     &lt;OL&gt;
+       &lt;LI&gt; Este es el primer ítem.
+       &lt;LI&gt; Este es el segundo ítem.
+       &lt;LI&gt; Este es el tercer ítem.
+     &lt;/OL&gt;
+   &lt;/BODY&gt;
+ &lt;/HTML&gt;
+</pre>
+
+<p>produciría algo semejante a esto: </P>
+
+<PRE>
+  (1)    Este es el 
+         primer ítem.
+  (2)    Este es el 
+         segundo ítem.
+  (3)    Este es el 
+         tercer ítem.
+</PRE>
+</div>
+
+<P>El siguiente ejemplo crea marcadores antes y después de los ítems de una lista. 
+
+<div class="html-example">
+<P>Este documento:</p>
+
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Marcadores antes y después de los ítems de una lista&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      @media screen, print {
+         LI:before { 
+   	      display: marker;
+	      content: url("sonrisa.gif");
+         LI:after {
+	      display: marker;
+   	      content: url("triste.gif");
+         }
+      }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;UL&gt;
+      &lt;LI&gt;el primer ítem de la lista viene primero
+      &lt;LI&gt;el segundo ítem de la lista viene después
+    &lt;/UL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<P>produciría algo como esto (los dibujos hechos en ascii se usan aquí en lugar de las imágenes gif de las caritas):</p>
+
+<PRE>
+  :-) el primer ítem de la 
+      lista viene primero   :-(
+  :-) el segundo ítem de la 
+      lista viene después   :-(
+</PRE>
+</div>
+
+<P>El ejemplo siguiente utiliza marcadores para numerar las notas (párrafos).</p>
+
+<div class="html-example">
+<P>El siguiente documento:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Marcadores para crear notas numeradas&gt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      P { margin-left: 12 em; }
+      @media screen, print {
+         P.Nota:before         { 
+  	      display: marker;
+	      content: url("nota.gif") 
+                       "Nota " counter(contador-nota) ":";
+              counter-increment: contador-nota;
+              text-align: left;
+              width: 10em;
+         }
+     }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;P&gt;El primer párrafo de este documento.&lt;/P&gt;
+    &lt;P CLASS="Nota"&gt;Este documento es muy corto.&lt;/P&gt;
+    &lt;P&gt;Este es el final.&lt;/P&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<P>produciría algo así:</p>
+
+<PRE>
+            El primer párrafo 
+            de este documento.
+
+  Note 1:   Este documento
+            es muy corto.
+           
+            Este es el final.
+</PRE>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'marker-offset'"><a name="propdef-marker-offset" class="propdef-title"><strong>'marker-offset'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;medida&gt;</span></a> | auto | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>auto
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos con 'display: marker'
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>no
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P>Esta propiedad especifica la distancia entre los <a
+href="box.html#border-edge">límites de bordes</a> más cercanos de una caja de marcador y su <a href="visuren.html#principal-box">caja principal</a> asociada. El desplazamiento puede ser una (<span class="index-inst"
+title="&lt;medida&gt;"><a name="x35" href="syndata.html#value-def-length" class="noxref"><span
+class="value-inst-length">&lt;medida&gt;</span></a></span>) especificada por el usuario o elegido por la AU ('auto'). Las medidas pueden ser negativas, pero pueden existir limitaciones propias de la implementación.
+
+<div class="html-example"><P> El ejemplo siguiente ilustra cómo los marcadores pueden utilizarse para agregar puntos después de cada ítem de una lista numerada. Este programa HTML y esta hoja de estilo:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+ &lt;HTML&gt;
+    &lt;HEAD&gt;
+      &lt;TITLE&gt;Ejemplo de marcadores&lt;/TITLE&gt;
+      &lt;STYLE type="text/css"&gt;
+           P { margin-left: 8em } /* Hace espacio para los contadores */
+           LI:before { 
+               display: marker;
+               marker-offset: 3em;
+               content: counter(micontador, lower-roman) ".";
+               counter-increment: micontador;
+           }   
+      &lt;/STYLE&gt;
+   &lt;/HEAD&gt;
+   &lt;BODY&gt;
+     &lt;P&gt; Este es un largo párrafo anterior ...
+     &lt;OL&gt;
+       &lt;LI&gt; Este es el primer ítem.
+       &lt;LI&gt; Este es el segundo ítem.
+       &lt;LI&gt; Este es el tercer ítem.
+     &lt;/OL&gt;
+     &lt;P&gt; Este es un largo párrafo posterior ...
+   &lt;/BODY&gt;
+ &lt;/HTML&gt;
+</pre>
+
+<P>produciría algo semejante a: </P>
+
+<PRE>
+        Este es un largo
+        párrafo anterior ...
+      
+   i.   Este es el primer ítem.
+  ii.   Este es el segundo ítem.
+ iii.   Este es el tercer ítem.
+
+        Este es un largo
+        párrafo posterior ...
+</PRE>
+</div>
+
+<h3>12.6.2 <a name="lists">Listas:</a> las propiedades <a href="generate.html#propdef-list-style-type" class="noxref"><span
+class="propinst-list-style-type">'list-style-type'</span></a>, <a href="generate.html#propdef-list-style-image" class="noxref"><span
+class="propinst-list-style-image">'list-style-image'</span></a>, <a href="generate.html#propdef-list-style-position" class="noxref"><span
+class="propinst-list-style-position">'list-style-position'</span></a> y
+<a href="generate.html#propdef-list-style" class="noxref"><span class="propinst-list-style">'list-style'</span></a></h3>
+
+<P>Las <a name="x36"><span class="index-def" title="propiedades de lista"><dfn>propiedades de lista</dfn></span></a> permiten un formato visual básico en las listas. Al igual que con los marcadores más generales, un elemento con 'display: list-item'
+genera una <a href="visuren.html#principal-box">caja principal</a> para el contenido del elemento y una caja de marcador opcional. Las otras propiedades de lista posibilitan a los autores especificar el tipo de marcador (imagen, signo o número) y su posición con respecto a la caja principal (afuera o dentro de ella antes del contenido). No permiten a los autores especificar distintos estilos (color, fuente, alineación, etc.) para los marcadores de listas o ajustar su posición con respecto a la caja principal.
+
+<P>Además, cuando un marcador M (creado con 'display: marker') se usa con el ítem de una lista creada por las propiedades de lista, M reemplaza al marcador estándar del ítem de la lista.
+
+<P>Con las propiedades de lista, las <a
+href="colors.html#background-properties">propiedades del fondo</a> se aplican solamente a la caja principal; una caja de marcador 'outside' es transparente. Los marcadores ofrecen mayor control sobre el estilo de la caja del marcador.
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'list-style-type'"><a name="propdef-list-style-type" class="propdef-title"><strong>'list-style-type'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>disc | circle | square | decimal | decimal-leading-zero | 
+ lower-roman | upper-roman | lower-greek |
+ lower-alpha | lower-latin | upper-alpha | upper-latin | 
+ hebrew | armenian | georgian | 
+ cjk-ideographic | hiragana | katakana | hiragana-iroha | katakana-iroha |
+ none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>disc
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos con 'display: list-item'
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P> Esta propiedad especifica la apariencia del marcador de los ítems de la lista si <a href="generate.html#propdef-list-style-image" class="noxref"><span class="propinst-list-style-image">'list-style-image'</span></a> tiene el valor 'none' o si la imagen señalada por el URI no puede ser mostrada. El valor 'none' especifica ningún marcador, de lo contrario hay tres tipos de marcadores: signos, sistemas numéricos y sistemas alfabéticos. <strong>Nota.</strong> Las listas numeradas mejoran la accesibilidad del documento haciendo a las listas más fáciles de navegar.
+
+<P>Los signos son especificados con <strong><span class="index-def" title="disc"><a class="value-def"
+name="value-def-disc">disc</a></span></strong>, 
+<strong><span class="index-def" title="circle"><a class="value-def"
+name="value-def-circle">circle</a></span></strong> y 
+<strong><span class="index-def" title="square"><a class="value-def"
+name="value-def-square">square</a></span></strong>. Su procesamiento exacto depende de la aplicación del usuario.
+
+<P>Los sistemas numéricos son especificados con:</P>
+
+<dl>
+<dt><span class="index-def" title="decimal">
+<a class="value-def" name="value-def-decimal">
+<strong>decimal</strong></a></span>
+<dd>Números decimales, comenzando de 1.
+<dt><strong><span class="index-def" title="decimal-leading-zero"><a class="value-def" name="value-def-decimal-leading-zero">decimal-leading-zero</a></span></strong>
+<dd>Números decimales completados con ceros iniciales (ej., 01, 02, 03, ..., 98, 99).
+<dt><strong><span class="index-def" title="lower-roman"><a class="value-def" name="value-def-lower-roman">lower-roman</a></span></strong>
+<dd>Números romanos en minúsculas (i, ii, iii, iv, v, etc.).
+<dt><strong><span class="index-def" title="upper-roman"><a class="value-def" name="value-def-upper-roman">upper-roman</a></span></strong>
+<dd>Números romanos en mayúsculas (I, II, III, IV, V, etc.).
+<dt><strong><span class="index-def" title="hebrew"><a class="value-def" name="value-def-hebrew">hebrew</a></span></strong>
+<dd>Numeración hebrea tradicional.
+<dt><strong><span class="index-def" title="georgian"><a class="value-def" name="value-def-georgian">georgian</a></span></strong>
+<dd>Numeración georgiana tradicional (an, ban, gan, ..., he, tan, in, in-an, ...).
+<dt><strong><span class="index-def" title="armenian"><a class="value-def" name="value-def-armenian">armenian</a></span></strong>
+<dd>Numeración armenia tradicional.
+<dt><strong><span class="index-def" title="cjk-ideographic"><a class="value-def" name="value-def-cjk-ideographic">cjk-ideographic</a></span></strong>
+<dd>Números ideográficos planos
+<dt><strong><span class="index-def" title="hiragana"><a class="value-def" name="value-def-hiragana">hiragana</a></span></strong>
+<dd>a, i, u, e, o, ka, ki, ...
+<dt><strong><span class="index-def" title="katakana"><a class="value-def" name="value-def-katakana">katakana</a></span></strong>
+<dd>A, I, U, E, O, KA, KI, ...
+<dt><strong><span class="index-def" title="hiragana-iroha"><a class="value-def" name="value-def-hiragana-iroha">hiragana-iroha</a></span></strong>
+<dd>i, ro, ha, ni, ho, he, to, ...
+<dt><strong><span class="index-def" title="katakana-iroha"><a class="value-def" name="value-def-katakana-iroha">katakana-iroha</a></span></strong>
+<dd>I, RO, HA, NI, HO, HE, TO, ...
+</dl>
+
+<P>Una aplicación del usuario que no reconoce un sistema numérico debe usar 'decimal'.
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Este documento no especifica el mecanismo exacto de cada sistema numérico (ej., como se calculan los números romanos). Una futura Nota del W3C puede proporcionar mayores aclaraciones.
+</em>
+</div>
+
+<P>Los sistemas alfabéticos se especifican con:</P>
+
+<dl>
+<dt><strong><span class="index-def" title="lower-latin"><a class="value-def" name="value-def-lower-latin">lower-latin</a></span></strong> o <strong>lower-alpha</strong>
+<dd>Letras minúsculas en ascii (a, b, c, ... z).
+<dt><strong><span class="index-def" title="upper-latin"><a class="value-def" name="value-def-upper-latin">upper-latin</a></span></strong> o <strong>upper-alpha</strong>
+<dd>Letras mayúsculas en ascii (A, B, C, ... Z).
+<dt><strong><span class="index-def" title="lower-greek"><a class="value-def" name="value-def-lower-greek">lower-greek</a></span></strong>
+<dd>Minúsculas griegas clásicas alfa, beta, gamma, ... (&#941;, &#942;, &#943;, ...)
+</dl>
+
+<P>Esta especificación no define cómo los sistemas alfabéticos se desenvuelven al final del alfabeto. Por ejemplo, luego de 26 ítems en una lista, el procesamiento de 'lower-latin' es indefinido. Por eso, para listas extensas, recomendamos que los autores especifiquen números reales.
+
+<div class="html-example"><P>Por ejemplo, el siguiente documento en HTML:
+<PRE>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+   &lt;HEAD&gt;
+     &lt;TITLE&gt;Numeración con latinas minúsculas&lt;/TITLE&gt;
+     &lt;STYLE type="text/css"&gt;
+          OL { list-style-type: lower-roman }   
+     &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;OL&gt;
+      &lt;LI&gt; Este es el primer ítem.
+      &lt;LI&gt; Este es el segundo ítem.
+      &lt;LI&gt; Este es el tercer ítem.
+    &lt;/OL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>puede producir algo así:
+
+<PRE>
+  i Este es el primer ítem.
+ ii Este es el segundo ítem.
+iii Este es el tercer ítem.
+</PRE>
+
+<P>Observe que la alineación de los marcadores de listas (aquí, justificados a la derecha) depende de la aplicación del usuario.
+</div>
+
+<div class="note"><P>
+<em><strong>Nota.</strong> Futuras versiones de CSS podrán proporcionar mecanismos más completos para los estilos de numeración internacionales.
+</em>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'list-style-image'"><a name="propdef-list-style-image" class="propdef-title"><strong>'list-style-image'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td><a href="syndata.html#value-def-uri" class="noxref"><span class="value-inst-uri">&lt;uri&gt;</span></a> | none | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>none
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos con 'display: list-item'
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P> Esta propiedad define la imagen que será usada como marcador de ítems de una lista. Cuando la imagen está disponible, reemplazará el marcador definido con el marcador <a href="generate.html#propdef-list-style-type" class="noxref"><span
+class="propinst-list-style-type">'list-style-type'</span></a>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> El siguiente ejemplo determina que el marcador al comienzo de cada ítem de una lista sea la imagen "elipse.png".
+
+<PRE>
+UL { list-style-image: url("http://png.com/elipse.png") }
+</PRE>
+</div>
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'list-style-position'"><a name="propdef-list-style-position" class="propdef-title"><strong>'list-style-position'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>inside | outside | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td>outside
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos con 'display: list-item'
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P> Esta propiedad especifica la posición de la caja del marcador en la caja de bloque principal. Los valores tienen los siguientes significados:</p>
+
+<dl>
+<dt><strong>outside</strong>
+<dd>La caja del marcador está fuera de la caja de bloque principal.
+<strong>Nota.</strong> CSS1 no especificaba la ubicación precisa de la caja de marcador y por razones de compatibilidad, CSS2 se mantiene igualmente ambiguo. Para un control más preciso de las cajas de marcadores, por favor utilice los marcadores.
+<dt><strong>inside</strong>
+<dd>La caja del marcador está en la primer caja a nivel de línea en la caja de bloque principal, luego de la cuál fluye el contenido del elemento.
+</dl>
+
+<div class="html-example"><P>
+Por ejemplo:
+
+<PRE>
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;Comparación entre inside/outside&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      UL         { list-style: outside }
+      UL.compact { list-style: inside }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;UL&gt;
+      &lt;LI&gt;el primer ítem de la lista viene primero
+      &lt;LI&gt;el segundo ítem de la lista viene después
+    &lt;/UL&gt;
+
+    &lt;UL class="compact"&gt;
+      &lt;LI&gt;el primer ítem de la lista viene primero
+      &lt;LI&gt;el segundo ítem de la lista viene después
+    &lt;/UL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P> El ejemplo de arriba puede ser compuesto como:</P>
+
+<div class="figure">
+<P><img src="./images/list-inout.gif" alt="Diferencia de posición entre los estilos de lista inside
+y outside"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-list-inout" href="images/longdesc/list-inout-desc.html" title="Descripción extensa para el ejemplo mostrando los marcadores de lista inside vs. outside">[D]</A></SPAN></p>
+</div>
+</div>
+
+<P>En un texto de derecha a izquierda, los marcadores habrían estado al costado derecho de la caja. 
+
+<div class="propdef">
+<dl><dt>
+<span class="index-def" title="'list-style'"><a name="propdef-list-style" class="propdef-title"><strong>'list-style'</strong></a></span>
+<dd>
+<table class="propinfo" cellspacing=0 cellpadding=0>
+<tr valign=baseline><td><em>Valor:</em>&nbsp;&nbsp;<td>[ <a href="generate.html#propdef-list-style-type" class="noxref"><span class="propinst-list-style-type">&lt;'list-style-type'&gt;</span></a> || <a href="generate.html#propdef-list-style-position" class="noxref"><span class="propinst-list-style-position">&lt;'list-style-position'&gt;</span></a> || <a href="generate.html#propdef-list-style-image" class="noxref"><span class="propinst-list-style-image">&lt;'list-style-image'&gt;</span></a> ] | <a href="cascade.html#value-def-inherit" class="noxref"><span class="value-inst-inherit">inherit</span></a>
+<tr valign=baseline><td><em>Inicial:</em>&nbsp;&nbsp;<td> no definido para las propiedades resumidas
+<tr valign=baseline><td><em>Se aplica a:</em>&nbsp;&nbsp;<td>los elementos con 'display: list-item'
+<tr valign=baseline><td><em>Se hereda:</em>&nbsp;&nbsp;<td>si
+<tr valign=baseline><td><em>Porcentajes:</em>&nbsp;&nbsp;<td>N/A
+<tr valign=baseline><td><em>Medios:</em>&nbsp;&nbsp;<td><a href="media.html#visual-media-group" class="noxref">visuales</a>
+</table>
+</dl>
+</div>
+
+<P> La propiedad <a href="generate.html#propdef-list-style" class="noxref"><span class="propinst-list-style">'list-style'</span></a> es una fórmula resumida para definir las tres propiedades <a href="generate.html#propdef-list-style-type" class="noxref"><span
+class="propinst-list-style-type">'list-style-type'</span></a>, <a href="generate.html#propdef-list-style-image" class="noxref"><span
+class="propinst-list-style-image">'list-style-image'</span></a> y <a href="generate.html#propdef-list-style-position" class="noxref"><span
+class="propinst-list-style-position">'list-style-position'</span></a> en un mismo lugar en la hoja de estilo.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+<PRE>
+UL { list-style: upper-roman inside }  /* Cualquier UL */
+UL > UL { list-style: circle outside } /* Cualquier UL hijo de un UL */
+</PRE>
+</div>
+
+<P>Aunque los autores pueden especificar la información sobre <a href="generate.html#propdef-list-style" class="noxref"><span
+class="propinst-list-style">'list-style'</span></a> directamente en los elementos ítems de una lista (ej., LI en HTML), deben hacerlo con cuidado. Las siguientes reglas parecen similares, pero la primera declara un <a
+href="./selector.html#descendant-selectors">selector de descendiente</a> y la segunda un (más específico) <a
+href="./selector.html#child-selectors">selector de hijo</a>.
+
+<PRE class="example">
+OL.alfa LI   { list-style: lower-alpha } /* Cualquier LI descendiente de un OL */
+OL.alfa > LI { list-style: lower-alpha } /* Cualquier LI hijo de un OL */
+</PRE>
+
+<P>Los autores que usan solamente el <a
+href="selector.html#descendant-selectors">selector de descendiente</a> pueden no lograr los resultados que esperan. Considere las reglas siguientes:
+
+<PRE class="html-example">
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;TITLE&gt;AVISO: Resultados inesperados debido a la cascada&lt;/TITLE&gt;
+    &lt;STYLE type="text/css"&gt;
+      OL.alfa LI  { list-style: lower-alpha }
+      UL LI        { list-style: disc }
+    &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;OL class="alfa"&gt;
+      &lt;LI&gt;nivel 1
+      &lt;UL&gt;
+         &lt;LI&gt;nivel 2
+      &lt;/UL&gt;
+    &lt;/OL&gt;
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>El procesamiento deseado tendría los ítems de lista del nivel 1 con etiquetas 'lower-alpha' y los ítems del nivel 2 con etiquetas 'disc'. Sin embargo, el <a href="./cascade.html#cascading-order">orden de la cascada</a> provocará que la primer regla de estilo (que incluye información acerca de la clase específica) enmascare a la segunda. Las siguientes reglas solucionan el problema empleando en cambio un <a href="./selector.html#child-selectors">selector de hijo</a>:
+
+<PRE class="example">
+OL.alfa > LI  { list-style: lower-alpha }
+UL LI   { list-style: disc }
+</PRE>
+
+<P>Otra solución sería especificar la información sobre <a href="generate.html#propdef-list-style" class="noxref"><span
+class="propinst-list-style">'list-style'</span></a> solamente en los elementos tipo de lista:
+
+<PRE class="example">
+OL.alfa  { list-style: lower-alpha }
+UL        { list-style: disc }
+</PRE>
+
+<P>La herencia tranferirá los valores de <a href="generate.html#propdef-list-style" class="noxref"><span
+class="propinst-list-style">'list-style'</span></a> de los elementos OL y UL a los elementos LI. Este es el camino recomendado para especificar la información acerca del estilo de lista.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Un valor URI puede combinarse con cualquier otro valor, como en:
+
+<PRE>
+UL { list-style: url("http://png.com/elipse.png") disc }
+</PRE>
+<P> En el ejemplo anterior, 'disc' será utilizado cuando la imagen no sea disponible.
+
+<P>Un valor de 'none' para la propiedad <a href="generate.html#propdef-list-style" class="noxref"><span
+class="propinst-list-style">'list-style'</span></a> pone a <a href="generate.html#propdef-list-style-type" class="noxref"><span class="propinst-list-style-type">'list-style-type'</span></a> y a <a href="generate.html#propdef-list-style-image" class="noxref"><span class="propinst-list-style-image">'list-style-image'</span></a> como 'none':
+
+<PRE>
+UL { list-style: none }
+</PRE>
+
+<P>El resultado es que ningún marcador de ítem de lista es mostrado.
+
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="visufx.html">anterior</a> &nbsp;
+<a href="page.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</body>
+</html>

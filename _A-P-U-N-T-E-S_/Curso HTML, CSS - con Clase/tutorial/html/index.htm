@@ -1,0 +1,219 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Índice</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="El índice de los tutoriales de HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Índice" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="El índice de los tutoriales de HTML de HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/index" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Tutorial de HTML - Índice</h2>
+<ol>
+ <li id="tut1"><strong><em>¿Cómo funciona la Web?</em></strong> En este primer tutorial de toma de contacto hablamos sobre algunos de los aspectos básicos de la Web y presentamos al HTML y a las hojas de estilo.
+  <ol>
+   <li><a href="1/1.htm" tppabs="http://html.conclase.net/tutorial/html/1/1">Introducción</a></li>
+   <li><a href="1/2.htm" tppabs="http://html.conclase.net/tutorial/html/1/2">Buscando documentos por la red</a></li>
+   <li><a href="1/3.htm" tppabs="http://html.conclase.net/tutorial/html/1/3">¿Qué es el HTML?</a></li>
+   <li><a href="1/4.htm" tppabs="http://html.conclase.net/tutorial/html/1/4">Un ejemplo de HTML</a></li>
+   <li><a href="1/5.htm" tppabs="http://html.conclase.net/tutorial/html/1/5">Las hojas de estilo</a></li>
+  </ol>
+ </li>
+ <li id="tut2"><strong><em>La estructura de un documento HTML.</em></strong> En el segundo tutorial hablamos de la estructura de un documento HTML. Además creamos nuestro primer documento y nuestra primera hoja de estilo.
+  <ol>
+   <li><a href="2/1.htm" tppabs="http://html.conclase.net/tutorial/html/2/1">Introducción</a></li>
+   <li><a href="2/2.htm" tppabs="http://html.conclase.net/tutorial/html/2/2">Elementos y su estructura</a></li>
+   <li><a href="2/3.htm" tppabs="http://html.conclase.net/tutorial/html/2/3">Validación y documentos correctos</a></li>
+   <li><a href="2/4.htm" tppabs="http://html.conclase.net/tutorial/html/2/4">Elementos en bloque y en línea. Atributos</a></li>
+   <li><a href="2/5.htm" tppabs="http://html.conclase.net/tutorial/html/2/5">Creación de un documento HTML</a></li>
+   <li><a href="2/6.htm" tppabs="http://html.conclase.net/tutorial/html/2/6">Creación de una hoja de estilo CSS</a></li>
+  </ol>
+ </li>
+ <li id="tut3"><strong><em>Identificadores e hipervínculos.</em></strong> En el tercer tutorial hablamos de URIs y URLs, hablamos de URLs http absolutos y relativos y del elemento <samp>A</samp>. Además creamos un miniportal como ejemplo de hipervínculos y damos un repaso a los demás esquemas de URLs.
+  <ol>
+   <li><a href="3/1.htm" tppabs="http://html.conclase.net/tutorial/html/3/1">Introducción. Recursos y URIs</a></li>
+   <li><a href="3/2.htm" tppabs="http://html.conclase.net/tutorial/html/3/2">URNs y URLs. Esquemas de URLs</a></li>
+   <li><a href="3/3.htm" tppabs="http://html.conclase.net/tutorial/html/3/3">URLs genéricos y opacos. El esquema http</a></li>
+   <li><a href="3/4.htm" tppabs="http://html.conclase.net/tutorial/html/3/4">URLs absolutos y relativos</a></li>
+   <li><a href="3/5.htm" tppabs="http://html.conclase.net/tutorial/html/3/5">Hipervínculos en HTML</a></li>
+   <li><a href="3/6.htm" tppabs="http://html.conclase.net/tutorial/html/3/6">Confección de un miniportal de ejemplo</a></li>
+   <li><a href="3/7.htm" tppabs="http://html.conclase.net/tutorial/html/3/7">Otros esquemas de URLs</a></li>
+  </ol>
+ </li>
+ <li id="tut4"><strong><em>Elementos de HTML.</em></strong> En el cuarto tutorial damos un repaso de los elementos que existen en HTML&nbsp;4.
+  <ol>
+   <li><a href="4/1.htm" tppabs="http://html.conclase.net/tutorial/html/4/1">Introducción</a></li>
+   <li><a href="4/2.htm" tppabs="http://html.conclase.net/tutorial/html/4/2">Elementos de estructura</a></li>
+   <li><a href="4/3.htm" tppabs="http://html.conclase.net/tutorial/html/4/3">Frases y párrafos</a></li>
+   <li><a href="4/4.htm" tppabs="http://html.conclase.net/tutorial/html/4/4">Listas</a></li>
+   <li><a href="4/5.htm" tppabs="http://html.conclase.net/tutorial/html/4/5">Tablas</a></li>
+   <li><a href="4/6.htm" tppabs="http://html.conclase.net/tutorial/html/4/6">Vínculos</a></li>
+   <li><a href="4/7.htm" tppabs="http://html.conclase.net/tutorial/html/4/7">Objetos incluidos</a></li>
+   <li><a href="4/8.htm" tppabs="http://html.conclase.net/tutorial/html/4/8">Estilo</a></li>
+   <li><a href="4/9.htm" tppabs="http://html.conclase.net/tutorial/html/4/9">Marcos</a></li>
+   <li><a href="4/10.htm" tppabs="http://html.conclase.net/tutorial/html/4/10">Formularios</a></li>
+   <li><a href="4/11.htm" tppabs="http://html.conclase.net/tutorial/html/4/11">Scripts</a></li>
+   <li><a href="4/12.htm" tppabs="http://html.conclase.net/tutorial/html/4/12">Otros elementos</a></li>
+  </ol>
+ </li>
+ <li id="tut5"><strong><em>Selectores y atributos de CSS1.</em></strong> En el quinto tutorial hablamos de los selectores de CSS1, del mecanismo de cascada y damos un repaso de los atributos de estilo de CSS1.
+  <ol>
+   <li><a href="5/1.htm" tppabs="http://html.conclase.net/tutorial/html/5/1">La estructura de un documento HTML... otra vez</a></li>
+   <li><a href="5/2.htm" tppabs="http://html.conclase.net/tutorial/html/5/2">Selectores</a></li>
+   <li><a href="5/3.htm" tppabs="http://html.conclase.net/tutorial/html/5/3">Elementos en bloque y elementos en línea</a></li>
+   <li><a href="5/4.htm" tppabs="http://html.conclase.net/tutorial/html/5/4">Modelo de cuadros CSS para elementos en bloque</a></li>
+   <li><a href="5/5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5">Modelo de cuadros CSS para elementos en línea</a></li>
+   <li><a href="5/6.htm" tppabs="http://html.conclase.net/tutorial/html/5/6">Propiedades de fuente</a></li>
+   <li><a href="5/7.htm" tppabs="http://html.conclase.net/tutorial/html/5/7">Propiedades de color y fondo</a></li>
+   <li><a href="5/8.htm" tppabs="http://html.conclase.net/tutorial/html/5/8">Propiedades de texto</a></li>
+   <li><a href="5/9.htm" tppabs="http://html.conclase.net/tutorial/html/5/9">Propiedades de cuadro</a></li>
+   <li><a href="5/10.htm" tppabs="http://html.conclase.net/tutorial/html/5/10">Propiedades de clasificación</a></li>
+   <li><a href="5/11.htm" tppabs="http://html.conclase.net/tutorial/html/5/11">Pseudo-clases y pseudo-elementos</a></li>
+   <li><a href="5/12.htm" tppabs="http://html.conclase.net/tutorial/html/5/12">La cascada</a></li>
+   <li><a href="5/13.htm" tppabs="http://html.conclase.net/tutorial/html/5/13">Ejemplos</a></li>
+  </ol>
+ </li>
+ <li id="tut6"><strong><em>Subiendo el sitio a la Web.</em></strong> En el sexto tutorial vemos cómo subir nuestras páginas a la Web con <abbr>FTP</abbr>, hablamos sobre caracteres acentuados y vemos cómo ocultar nuestras reglas de estilo a los navegadores antiguos.
+  <ol>
+   <li><a href="6/1.htm" tppabs="http://html.conclase.net/tutorial/html/6/1">Cómo subir las páginas a la Web</a></li>
+   <li><a href="6/2.htm" tppabs="http://html.conclase.net/tutorial/html/6/2">Acentos y símbolos especiales</a></li>
+   <li><a href="6/3.htm" tppabs="http://html.conclase.net/tutorial/html/6/3">Ocultar las hojas de estilo a los navegadores antiguos</a></li>
+  </ol>
+ </li> 
+ <li id="tut7"><strong><em>Posicionamiento CSS.</em></strong> En el séptimo tutorial hablaremos de posicionamiento CSS, el cual nos dará más libertad a la hora de diseñar el aspecto visual de nuestra página web, y cómo afrontar los problemas que encontraremos con las implementaciones actuales de CSS.</li>
+</ol>
+
+<p>Si tienes alguna duda o sugerencia, ponte en <a href="../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto">contacto</a> con nosotros.</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

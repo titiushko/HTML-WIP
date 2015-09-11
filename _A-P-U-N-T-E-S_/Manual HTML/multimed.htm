@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Insercci&oacute;n de elementos multimedia</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY TEXT="#000082" BGCOLOR="#FFFFF0" LINK="#0000FF" BACKGROUND="paper12.gif">
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> </P></CENTER>
+
+<H2 ALIGN=CENTER>5.10 - Inserci&oacute;n de elementos multimedia</H2>
+
+<CENTER><P><IMG SRC="barra43.gif" HEIGHT=4 WIDTH=592></P></CENTER>
+
+<CENTER><P> <A NAME="a1"></A><A NAME="a1"></A></P></CENTER>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&iquest; Multimedia ?</FONT></FONT></B>
+<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como se ha explicado hasta ahora las posibilidades
+multimedia del lenguaje HTML se limita a insertar im&aacute;genes dentro
+de un texto, mostrar un fondo en el documentos y modificar los colores
+que presentar&aacute;n los distintos textos. Con las instrucciones b&aacute;sicas
+de HTML que hemos visto hasta ahora esto es lo m&aacute;ximo que se puede
+conseguir, la posibilidad de mostrar v&iacute;deo o sonido en un documento
+HTML esta limitada a la capacidad y a la configuraci&oacute;n del navegador.
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La forma b&aacute;sica de incluir un fichero
+de un formato no reconocido por el navegador es incluirlo en un hiperenlace
+de forma que cuando el usuario siga el hiperenlace el programa navegador
+llame a una aplicaci&oacute;n externa que trate este tipo de ficheros.
+El navegador tendr&aacute; definida una lista aplicaciones que trabajar&aacute;n
+con los formatos m&aacute;s comunes de fichero de v&iacute;deo, audio o
+im&aacute;genes. Esta opci&oacute;n es poco operativa ya que no podr&iacute;an
+incluirse en el documento actual. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El Internet Explorer de Microsoft incluye
+una serie de etiquetas y atributos que permiten el uso de elementos multimedia,
+pero no es est&aacute;ndar y se puede asegurar que no ser&aacute; posible
+verlos en maquinas distintas a los PC con windows, ni en navegadores distintos
+a este. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otra aproximaci&oacute;n la ha realizado
+Netscape con la inclusi&oacute;n de los <B><I>Plug-ins</I></B>, estos son
+programas que se a&ntilde;aden al navegador de Netscape versi&oacute;n
+2.0 y permiten tratar diversos tipos de ficheros, de esta forma podr&aacute;
+insertarse estos tipos de ficheros dentro de una p&aacute;gina HTML, permitiendo
+mostrar v&iacute;deo en distintos formatos (mpeg, avi, mov), interpretar
+sonido, en varios formatos (au, mid, ), incluir ficheros de Adobe Acrobat
+(pdf), mostrar ficheros VRML, etc... El principal problema es que estos
+plug-in no son est&aacute;ndar ni est&aacute;n realizados por el mismo
+fabricante, ni son todos de libre distribuci&oacute;n, y adem&aacute;s
+solo son validos hasta ahora en PC&acute;s con windows. Adem&aacute;s la
+correcta visi&oacute;n del documento depender&aacute; de que el usuario
+disponga del plug-in correspondiente instalado. En la &uacute;ltima versi&oacute;n
+de Netscape (3.0 aunque todav&iacute;a es beta), se incluyen por defecto
+plug-in&acute;s para audio, v&iacute;deo y VRML, por lo tanto cuando se
+extienda el uso de este navegador se podr&iacute;a asegurar la reproducci&oacute;n
+de este tipo de ficheros. </P>
+
+<P><A NAME="a2"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Extensiones
+Multimedia de Internet Explorer<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El Internet Explorer de Microsoft permite
+mostrar v&iacute;deo en formato AVI y reproducir sonido, de una forma sencilla,
+para eso a&ntilde;ade una nueva etiqueta y un atributo a la etiqueta de
+mostrar im&aacute;genes. </P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;BGSOUND ...&gt; Reproducci&oacute;n
+de audio</FONT></FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#008200">&lt;BGSOUND SRC=&quot;<I>fichero
+de sonido</I>&quot; LOOP= <I>n</I> &oacute; INFINITE&gt;</FONT> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Incluiremos una &uacute;nica vez esta
+etiqueta en el fichero que deseemos tenga m&uacute;sica de fondo, en el
+atributo <FONT COLOR="#008200">SRC</FONT> se indicar&aacute; el fichero
+de audio que se debe reproducir, siendo la URL hasta este fichero. El fichero
+podr&aacute; ser de formato .wav, .au o MIDI (.mid). El atributo <FONT COLOR="#008200">LOOP</FONT>
+indica cuantas veces se ejecutar&aacute; la pieza musical, podr&aacute;
+indicarse un n&uacute;mero o <FONT COLOR="#008200">INFINITE</FONT> que
+indicar&aacute; de forma indefinida. </P>
+
+<P><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;IMG DYNSRC ...&gt; Reproducci&oacute;n
+de v&iacute;deo</FONT></FONT></B><BR>
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#008200">&lt;IMG DYNSRC=&quot;<I>fichero
+de sonido</I>&quot; LOOP= <I>n</I> &oacute; INFINITE CONTROLS START= FILEOPEN
+&oacute; MOUSEOVER&gt;</FONT> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso es un nuevo atributo para
+la <A HREF="imagenes.htm">etiqueta IMG</A>, caso de existir este, en vez
+de mostrar una im&aacute;gen mostrar&aacute; un v&iacute;deo en formato
+AVI (V&iacute;deo for Windows), se puede utilizar todas los atributos normales
+de <A HREF="imagenes.htm">IMG</A>, pudiendo usar las <A HREF="imagenes.htm#imgalign">distintas
+alineaciones</A> y colocaciones respecto al texto, adem&aacute;s se podr&aacute;
+variar el tama&ntilde;o del v&iacute;deo con los atributos <A HREF="imagenes.htm#hw">HEIGHT</A>
+y <A HREF="imagenes.htm#hw">WIDTH</A>. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se a&ntilde;aden otros atributos que solo
+se pueden aplicar al v&iacute;deo, el atributo <FONT COLOR="#008200">IMGSRC</FONT>
+indica la URL del fichero que se mostrar&aacute;, el atributo <FONT COLOR="#008200">LOOP</FONT>
+indica el n&uacute;mero de veces que se mostrar&aacute; el v&iacute;deo,
+el atributo CONTROLS indicar&aacute; si se mostrar&aacute;n los botones
+de control, que permitir&aacute;n para, volver a reproducir, rebobinar,
+.... El atributo START indica si la secuencia de v&iacute;deo empezar&aacute;
+al abrir el fichero (<FONT COLOR="#008200">FILEOPEN</FONT>) o cuando pase
+el cursor del rat&oacute;n encima <FONT COLOR="#008200">(MOUSEOVER</FONT>).
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De no poder mostrar el v&iacute;deo por
+tratarse de otro navegador (por ejemplo Netscape), se podr&aacute; indicar
+una im&aacute;gen que se muestre de manera alternativa, incluyendo el atributo
+<FONT COLOR="#008200">SRC</FONT>. </P>
+
+<P><A NAME="a3"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>Plug-in's<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plug-in es un programa que extiende las
+capacidades del navegador de Netscape en un modo especifico, dado por ejemplo
+la capacidad de mostrar v&iacute;deo, audio, ficheros de un determinado
+formato (ficheros PDF, presentaciones de ASAP, fichero VRML, etc ...).
+</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No existe actualmente un conjunto est&aacute;ndar
+de plug-in&acute;s para cada tipo de ficheros, sino que existen diversas
+aplicaciones, realizadas por diversos fabricantes, y no todas de libre
+distribuci&oacute;n. Se puede asegurar que todas las aplicaciones ser&aacute;n
+compatibles y si por ejemplo se referencia un fichero de sonido en formato
+.wav en su p&aacute;gina, este podr&aacute; ser o&iacute;do por todos aquellos
+que tengan un plug-in para este tipo de ficheros. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para que un fichero multimedia que es
+incluido en una p&aacute;gina sea visible por el usuario debe cumplir dos
+condiciones: la primera es que posea el navegador de Netscape en su versi&oacute;n
+2.0 y la segunda es que tenga el plug-in correspondiente que trata el fichero
+deseado. Por tanto se recomienda un uso moderado de los plug-in&acute;s
+utilizando ficheros que sean de formatos comunes y un uso complementario
+en una p&aacute;gina, ya que muchos usuarios no podr&aacute;n verlo. Es
+aconsejable incluir un enlace en el que se referencie el fichero, de esta
+forma un usuario podr&aacute; seguir el enlace y ver el fichero en un visualizador
+externo si lo posee. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existe una instrucci&oacute;n que permite
+incluir cualquier tipo de archivo dentro de un documentos HTML, pero se
+ver&aacute; en el pr&oacute;ximo apartado. </P>
+
+<P><A NAME="a4"></A><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&lt;EMBED&gt;
+Insertar Ficheros<BR>
+<IMG SRC="barra3.gif" HEIGHT=8 WIDTH=225></FONT></FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esta instrucci&oacute;n permite la inclusi&oacute;n
+de cualquier tipo de fichero en la posici&oacute;n del documento HTML donde
+se especifique. Su funcionalidad es similar a la <A HREF="imagenes.html">IMG</A>
+para incluir im&aacute;genes. En este caso para que pueda mostrase el fichero
+deber&aacute; tener el plug-in adecuado que lo trata. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El formato es el siguiente: </P>
+
+<P><B><FONT COLOR="#008200">&lt;EMBED SRC=&quot;<I>URL del fichero</I>&quot;
+WIDTH=<I>n &oacute; n%</I> HEIGHT=<I>n &oacute; n%</I>&gt;</FONT></B> </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el atributo <FONT COLOR="#008200">SRC</FONT>
+se indicar&aacute; el fichero que se desea mostrar, y los atributos <FONT COLOR="#008200">WIDTH</FONT>
+y <FONT COLOR="#008200">HEIGHT</FONT> se indicar&aacute; el tama&ntilde;o
+que tendr&aacute; en objeto insertado, siendo estos opcionales. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El fichero que podr&aacute; ser un fichero
+de v&iacute;deo, audio, im&aacute;gen de alg&uacute;n tipo distinto a las
+por defecto, fichero de presentaciones, etc... solo podr&aacute; ser visto
+por el usuario si este posee el plug-in correspondiente que trata ese tipo
+de ficheros, en caso contrario mostrar&aacute; un mensaje de error indicando
+al usuario que debe proveerse de ese plug-in para poder consultar el documento
+de forma correcta. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el caso que se pueda mostrar el plug-in
+se incluir&aacute; en la zona del documento que se indic&oacute; pudiendo
+as&iacute; de este modo insertar dentro de un documento HTML pel&iacute;culas
+de v&iacute;deo o incluir sonido de fondo. </P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se recomienda un uso limitado de esta
+posibilidad, ya que existir&aacute;n muchas personas que no posean el Netscape
+2.0, y no posean el plug-in correspondiente, y por lo tanto no podr&aacute;n
+ver todo el esplendor de su p&aacute;gina. </P>
+
+<CENTER><P><IMG SRC="barra10.gif" HEIGHT=1 WIDTH=585> </P></CENTER>
+
+<CENTER><P><A HREF="indice.htm"><IMG SRC="manual5_1.gif" BORDER=0 HEIGHT=40 WIDTH=183 ALIGN=ABSCENTER></A>
+<A HREF="imgsensi.htm"><IMG SRC="anterior.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="imgsensi.htm">Anterior</A>
+<A HREF="indice.htm"><IMG SRC="indice.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="indice.htm">Indice</A>
+<A HREF="tablas.htm"><IMG SRC="siguiente.gif" HSPACE=5 BORDER=0 HEIGHT=30 WIDTH=30 ALIGN=ABSCENTER></A><A HREF="tablas.htm">Siguiente</A>
+</P></CENTER>
+
+</BODY>
+</HTML>

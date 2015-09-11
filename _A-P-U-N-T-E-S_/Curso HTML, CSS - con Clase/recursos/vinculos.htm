@@ -1,0 +1,201 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Vínculos</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Enlaces a recursos de aprendizaje de diseño Web (tutoriales en español y en inglés sobre HTML y CSS)" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Vínculos" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Enlaces a recursos de aprendizaje de diseño Web" />
+<meta name="DC.Description"       content="Enlaces a recursos de aprendizaje de diseño Web (tutoriales en español y en inglés sobre HTML y CSS)" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/recursos/vinculos" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t01">Tutoriales en castellano</h2>
+<p>Probablemente uno de los mejores y más completos tutoriales de HTML y
+creación de páginas web (entre otras muchas cosas) en la red es el del <a href="javascript:if(confirm('http://www.webaprendiz.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webaprendiz.com/'" tppabs="http://www.webaprendiz.com/">estudio
+de webaprendiz</a>, escrito por
+<a href="javascript:if(confirm('http://www.webaprendiz.com/autor/splash.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webaprendiz.com/autor/splash.htm'" tppabs="http://www.webaprendiz.com/autor/splash.htm">Ferran Martí</a>.</p>
+<p>Visita obligada a la <a href="javascript:if(confirm('http://www.tierradenomadas.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tierradenomadas.com/'" tppabs="http://www.tierradenomadas.com/">Tierra de Nómadas</a>, creación de Sysifus.</p>
+<p>También os podemos recomendar <a href="javascript:if(confirm('http://www.webestilo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webestilo.com/'" tppabs="http://www.webestilo.com/">webestilo.com</a>.
+Tienen un <a href="javascript:if(confirm('http://www.webestilo.com/html/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webestilo.com/html/'" tppabs="http://www.webestilo.com/html/">manual sencillo de HTML</a>
+con foros para preguntar, un <a href="javascript:if(confirm('http://www.webestilo.com/css/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webestilo.com/css/'" tppabs="http://www.webestilo.com/css/">Manual de CSS</a>
+escrito por <a href="javascript:if(confirm('http://rinconprog.metropoli2000.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://rinconprog.metropoli2000.com/'" tppabs="http://rinconprog.metropoli2000.com/">Lola Cárdenas</a>,
+una <a href="javascript:if(confirm('http://www.webestilo.com/guia  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webestilo.com/guia'" tppabs="http://www.webestilo.com/guia">Guía de Estilo</a>, y muchas más
+cosas.</p>
+<p>Hay una lista muy interesante de <a href="javascript:if(confirm('http://www.sidar.org/recur/desdi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/recur/desdi/'" tppabs="http://www.sidar.org/recur/desdi/">recursos de diseño y desarrollo web</a> en la página web del <a href="javascript:if(confirm('http://www.sidar.org/index.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/index.php'" tppabs="http://www.sidar.org/index.php">Sidar</a>, incluido el <a href="javascript:if(confirm('http://www.sidar.org/recur/desdi/mcss/index.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/recur/desdi/mcss/index.php'" tppabs="http://www.sidar.org/recur/desdi/mcss/index.php">manual de CSS</a> de Carlos Benavidez, que recomiendo a todo el mundo.</p>
+<p>Y por supuesto, si queréis un buen tutorial de diseño web en castellano, ¡os
+recomendamos <a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/">el nuestro</a>!</p>
+
+<h2 id="t02">Tutoriales de HTML en inglés</h2>
+<p>En realidad, tampoco son muchos los tutoriales en inglés que os puedo
+recomendar. Hay uno que está a años luz de todos los demás, que es el
+<a href="javascript:if(confirm('http://www.webreference.com/html/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webreference.com/html/'" tppabs="http://www.webreference.com/html/">tutorial de HTML</a> de
+<a href="javascript:if(confirm('http://www.webreference.com/experts/piperoglou.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webreference.com/experts/piperoglou.html'" tppabs="http://www.webreference.com/experts/piperoglou.html">Stephanos Piperouglou</a>.
+Todos los que sepáis inglés os tenéis que pasar por allí.</p>
+<p>Es tan bueno que no voy a recomendar más.</p>
+
+<h2 id="t03">Tutoriales y referencias de CSS en inglés</h2>
+<p>El punto de partida para buscar referencias sobre CSS es la
+<a href="javascript:if(confirm('http://www.w3.org/Style/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/Style/'" tppabs="http://www.w3.org/Style/">página de estilo del W3C</a>, que tiene
+montones de enlaces. Entre ellos los siguientes, que son muy recomendables:</p>
+<ul>
+<li><a href="javascript:if(confirm('http://www.css.nu/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.css.nu/'" tppabs="http://www.css.nu/">The CSS Pointers Group</a></li>
+<li><a href="javascript:if(confirm('http://www.w3schools.com/css/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3schools.com/css/'" tppabs="http://www.w3schools.com/css/">CSS School</a></li>
+<li><a href="javascript:if(confirm('http://www.htmlhelp.com/reference/css/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlhelp.com/reference/css/'" tppabs="http://www.htmlhelp.com/reference/css/">Web Design Group</a></li>
+<li><a href="javascript:if(confirm('http://htmlgoodies.earthweb.com/beyond/css.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://htmlgoodies.earthweb.com/beyond/css.html'" tppabs="http://htmlgoodies.earthweb.com/beyond/css.html">HTML Goodies</a></li>
+<li><a href="javascript:if(confirm('http://www.htmlcenter.com/tutorials/index.cfm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlcenter.com/tutorials/index.cfm'" tppabs="http://www.htmlcenter.com/tutorials/index.cfm">HTMLCenter</a></li>
+<li><a href="javascript:if(confirm('http://www.blazonry.com/css/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.blazonry.com/css/'" tppabs="http://www.blazonry.com/css/">web.blazonry</a></li>
+<li><a href="javascript:if(confirm('http://www.westciv.com.au/style_master/academy/css_tutorial/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.westciv.com.au/style_master/academy/css_tutorial/'" tppabs="http://www.westciv.com.au/style_master/academy/css_tutorial/">Westciv</a></li>
+</ul>
+
+<p>Las siguientes páginas contienen información y ejemplos de técnicas de aplicación de CSS, y en ellas podréis encontrar enlaces a muchas otras páginas interesantes:</p>
+
+<ul>
+<li><a href="javascript:if(confirm('http://www.brainjar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.brainjar.com/'" tppabs="http://www.brainjar.com/">BrainJar.com</a>. Algunas partes de esta web han sido traducidas al castellano y están disponibles en <a href="javascript:if(confirm('http://www.kusor.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.kusor.net/'" tppabs="http://www.kusor.net/">kusor.net</a>.</li>
+<li><a href="javascript:if(confirm('http://glish.com/css/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://glish.com/css/'" tppabs="http://glish.com/css/">CSS Layout Techniques</a> de glish.com.</li>
+<li><a href="javascript:if(confirm('http://www.bluerobot.com/web/layouts/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bluerobot.com/web/layouts/'" tppabs="http://www.bluerobot.com/web/layouts/">The Layout Reservoir</a> de BlueRobot.</li>
+<li><a href="javascript:if(confirm('http://www.thenoodleincident.com/tutorials/box_lesson/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.thenoodleincident.com/tutorials/box_lesson/'" tppabs="http://www.thenoodleincident.com/tutorials/box_lesson/">The Noodle Incident</a>.</li>
+</ul>
+
+<p>Esta es una selección de sitios web interesantes sobre maquetación en CSS
+dada por <a href="javascript:if(confirm('http://pascal.chevrel.free.fr/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://pascal.chevrel.free.fr/'" tppabs="http://pascal.chevrel.free.fr/">Pascal Chevrel</a> en <a href="javascript:if(confirm('http://groups.google.com/groups?th=7078c300ebf4bc23  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://groups.google.com/groups?th=7078c300ebf4bc23'" tppabs="http://groups.google.com/groups?th=7078c300ebf4bc23">un hilo de es.comp.infosistemas.www.paginas-web</a>:</p>
+<ul>
+<li><a href="javascript:if(confirm('http://www.stopdesign.com/articles/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.stopdesign.com/articles/'" tppabs="http://www.stopdesign.com/articles/">Artículos de Stopdesign</a></li>
+<li><a href="javascript:if(confirm('http://www.meyerweb.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.meyerweb.com/'" tppabs="http://www.meyerweb.com/">La página de Eric Meyer</a></li>
+<li><a href="javascript:if(confirm('http://www.cinnamon.nl/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cinnamon.nl/'" tppabs="http://www.cinnamon.nl/">Cinnamon Interactive</a> es una compañía de diseño web y en su página hablan sobre rediseño de páginas con CSS (la página está en holandés).</li>
+<li><a href="javascript:if(confirm('http://www.alistapart.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.alistapart.com/'" tppabs="http://www.alistapart.com/">A List Apart</a></li>
+<li><a href="javascript:if(confirm('http://www.clagnut.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.clagnut.com/'" tppabs="http://www.clagnut.com/">Clagnut</a>, la página personal de Richard Rutter, diseñador web.</li>
+<li><a href="javascript:if(confirm('http://cybercodeur.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://cybercodeur.net/'" tppabs="http://cybercodeur.net/">CYBERcodeur.net</a>, un blog sobre diseño web según los estándares (en francés).</li>
+<li><a href="javascript:if(confirm('http://www.digital-web.com/tutorials/tutorial_2002-06.shtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.digital-web.com/tutorials/tutorial_2002-06.shtml'" tppabs="http://www.digital-web.com/tutorials/tutorial_2002-06.shtml">Un tutorial</a> sobre reconstrucción de páginas web con CSS por <a href="javascript:if(confirm('http://www.digital-web.com/profiles/christopher_schmitt.shtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.digital-web.com/profiles/christopher_schmitt.shtml'" tppabs="http://www.digital-web.com/profiles/christopher_schmitt.shtml">Christopher Schmitt</a>.</li>
+</ul>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a id="actual" title="Hemos seleccionado los mejores sitios en la red">&raquo;&nbsp;Vínculos</a> <span class="oculto">|</span>
+<a href="grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Tutorial HTML - Tutorial 5 (4/13)</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="La cuarta parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="Keywords"    content="HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../../../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Tutorial HTML - Tutorial 5 (4/13)" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Diseño de Páginas Web" />
+<meta name="DC.Description"       content="La cuarta parte del quinto tutorial HTML con Clase, la página web sobre creación y diseño de páginas web" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2001-10-14" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/tutorial/html/5/4" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../../../index.htm" tppabs="http://html.conclase.net/" />
+
+<link rel="Index"    href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/index" />
+
+
+<link rel="Previous" href="3.htm" tppabs="http://html.conclase.net/tutorial/html/5/3" />
+
+
+<link rel="Next"     href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5" />
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../../../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../../../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../../../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2>Hojas de Estilo en Cascada, CSS1 (IV)</h2>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/5/3">anterior</a> | <a href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5">siguiente</a></div>
+<hr class="oculto" />
+
+<div class="dialogo">
+<p class="p">- Dentro de los elementos en bloque se consideran, además de los elementos en bloque en sí, los elementos <dfn>objetos de lista</dfn> y los elementos <dfn>flotantes</dfn>.</p>
+<p class="a">- ¿Qué es un elemento flotante?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- El caso típico de un elemento flotante es una figura metida en un párrafo, a un lado. El texto rodea a la figura, ajustándose automáticamente a la anchura disponible, así:</p>
+<p class="center"><img src="float.gif" tppabs="http://html.conclase.net/tutorial/html/5/float.gif" width="294" height="214" alt="Ejemplo de un objeto flotante en CSS. El texto se adapta automáticamente al ancho disponible." /></p>
+<p class="a">- Ah, ya entiendo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- En esta figura se representa un elemento en bloque (el elemento UL) y elementos objeto de lista (los elementos LI):</p>
+<p class="center"><img src="cuadroslista.gif" tppabs="http://html.conclase.net/tutorial/html/5/cuadroslista.gif" width="300" height="227" alt="Ejemplo de los cuadros creados por una lista no ordenada con dos objetos de lista." /></p>
+<p class="p">Como hemos dicho antes, cada elemento en bloque define un cuadro, y los márgenes son los que fijan la distancia que queda entre los cuadros. Pues bien, los márgenes verticales de dos elementos en bloque adyacentes no se suman, sino que se reducen al mayor de los dos.</p>
+<p class="a">- No entiendo.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Mira. El cuadro azul tiene un margen inferior de 4 centímetros. El cuadro rojo tiene un margen superior de 2 centímetros. Si colocamos el cuadro rojo a continuación del cuadro azul, la distancia que los separa es de 4 centímetros, que es el máximo de 4cm y 2cm, y no 6cm, que es lo que podría parecer lógico en un principio:</p>
+<p class="center"><img src="azulyrojo.gif" tppabs="http://html.conclase.net/tutorial/html/5/azulyrojo.gif" width="258" height="206" alt="Ejemplo de cómo se colapsan los márgenes verticales de dos cuadros adyacentes." /></p>
+<p class="a">- Ajá...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Se supone que así se obtienen resultados más acordes con lo que espera el diseñador.</p>
+<p class="a">- Ya.</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- La especificación también habla de <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#formato-horizontal'" tppabs="http://html.conclase.net/w3c/css1-es.html#formato-horizontal">cómo calcular la anchura</a> de los elementos en bloque, y la de sus márgenes, rellenos y bordes derechos e izquierdos, pero no dice nada de la altura. En principio la altura no es relevante, porque los elementos en bloque se van colocando unos a continuación de otros, y no hay mucho control sobre el formato vertical. Ten en cuenta que no todos los medios que acceden a la Web contemplan el concepto de "página". La especificación <abbr>CSS2</abbr> es mucho más completa en ese sentido, y más compleja, porque hay muchas más posibilidades a la hora de controlar la posición exacta de cada cuadro, y de especificar reglas para medios concretos (pantallas, impresoras, sintetizadores de voz, etc.).</p>
+<p class="a">- Sí, pero de eso ya hablaremos en el futuro, ¿verdad?</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Verdad. De los elementos objeto de lista, debes saber que la única particularidad que tienen es que se representan con un marcador. Lo veremos con más detalles cuando hablemos de las propiedades de estilo. Y sobre los elementos flotantes, pues... la verdad es que <a href="javascript:if(confirm('http://html.conclase.net/w3c/css1-es.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path excluded from retrieval by the project\'s Exclusions properties.  \n\nDo you want to open it from the server?'))window.location='http://html.conclase.net/w3c/css1-es.html#elementos-flotantes'" tppabs="http://html.conclase.net/w3c/css1-es.html#elementos-flotantes">es un pequeño lío</a>...</p>
+<p class="a">- Uf, pues si para ti es un lío, imagina para mí...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Lo mejor es saber que si un cuadro es flotante, el texto de los demás cuadros lo rodearán, respetando siempre los márgenes del elemento flotante, como se ve en esta figura:</p>
+<p class="center"><img src="float2.gif" tppabs="http://html.conclase.net/tutorial/html/5/float2.gif" width="352" height="225" alt="Ejemplo de cómo se conservan los márgenes de los cuadros flotantes." /></p>
+<p class="p">Como ves, los márgenes del elemento flotante se suman a los márgenes del cuadro del párrafo, y no sucede como te he indicado antes para el margen superior.</p>
+<p class="a">- Mmm, ya veo...</p>
+</div>
+
+<div class="dialogo">
+<p class="p">- Hablemos un poco de los elementos en línea.</p>
+<p class="a">- Hablemos, hablemos...</p>
+</div>
+
+<hr class="oculto" />
+<div class="indtut"><a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/">índice</a> | <a href="3.htm" tppabs="http://html.conclase.net/tutorial/html/5/3">anterior</a> | <a href="5.htm" tppabs="http://html.conclase.net/tutorial/html/5/5">siguiente</a></div>
+<hr class="oculto" />
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../../../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 14/10/2001 - &copy; 2001 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../../../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../../../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../../../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../../../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../../../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="../../../articulos/historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="../../../articulos/w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="../../../articulos/xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a href="../../../articulos/accesibilidad.htm" tppabs="http://html.conclase.net/articulos/accesibilidad" title="Unas nociones de accesibilidad que todos deberíamos conocer">Accesibilidad</a> <span class="oculto">|</span>
+<a href="../../../articulos/navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="../../../articulos/metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="../../../articulos/problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="../../../articulos/ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="../../../articulos/mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../../../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../../../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../../../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

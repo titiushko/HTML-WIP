@@ -1,0 +1,98 @@
+<html>
+<head>
+<title> Video en p&aacute;ginas HTML </title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<table width=700 cellpadding=3 cellspacing=3>
+<tr><td>
+<font size=3 face="Arial">
+
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><img src="video.gif" alt="Icono" width=105 height=92></td>
+<td><font  size=6><b>Video en p&aacute;ginas HTML</b></font></td>
+</tr>
+</table>
+<br>
+
+<p>
+Netscape en la versi&oacute;n 3.0 incluye ya la reproducci&oacute;n de v&iacute;deo, directamente implementado y visualizado en la propia p&aacute;gin HTML.
+</p>
+
+<p>
+El formato de v&iacute;deo utilizado es el AVI de Windows, que como es sabido, incluye im&aacute;genes y sonido digitales.
+</p>
+
+<p>
+El mayor problema de los ficheros digitales de v&iacute;deo es el gran tamaño de los mismos, ya que en la pr&aacute;ctica unos pocos segundos de v&iacute;deo con sonido puede representar un fichero de varios Mb. (mega bytes), en realidad es como si se trataran dos ficheros separados, uno con el sonido y otro con las im&aacute;genes, pero sincronizados. No hay que confundir este formato <b>AVI</b> con el <b>MPEG</b>, que tambi&eacute;n puede integrar im&aacute;genes y sonido, aunque con un nivel de compresi&oacute;n diferente, y peor sincronizaci&oacute;n con el sonido. Habitualmente los ficheros .MPG se suelen encontrar sin sonido. 
+</p>
+
+<p>
+Al igual que con el sonido, se utiliza el elemento <b>EMBED</b>, aunque con menos atributos: <b>SRC</b>, <b>HEIGHT</b>, <b>WIDTH</b>, <b>AUTOSTART</b>, <b>LOOP</b> y <b>ALIGN</b>; todos ellos funcionan de forma parecida a los del sonido. 
+</p>
+
+<p>
+En este ejemplo se utilizan casi todos: 
+</p>
+
+&lt;EMBED SRC="derrumbe.avi" height=300 width=400 AUTOSTART=TRUE LOOP=FALSE&gt;<br>
+<br>
+
+<center>
+<table border=1>
+<tr><td><embed src="derrumbe.avi" height=205 width=370 autostart=true loop=false></td></tr>
+</table>
+</center>
+<br>
+
+(Puedes ver de nuevo la animaci&oacute;n, haciendo doble click sobre la imagen).
+
+<p>
+Analic&eacute;moslos brevemente:
+</p>
+
+<p>
+<b>SRC</b> Indica d&oacute;nde est&aacute; el fichero de v&iacute;deo. <b>HEIGHT</b> (alto) y <b>WIDTH</b> (ancho) no pueden omitirse, ya que sus valores por defecto no permiten ver ninguna imagen real. Los tamaños standard de los ficheros .AVI son 90x120, 120x160, 180x240, 240x320, 300x400, etc., las medidas deben conservar las proporciones de la televisi&oacute;n, es decir 4:3. Hay que tener cuidado a la hora de poner el valor de estos atributos, ya que si no coinciden con los que realmente tiene la imagen, &eacute;sta ser&aacute; recortada (no redimensionada) de derecha a izquierda y de abajo a arriba. 
+</p>
+
+<p>
+El siguiente atributo es <b>AUTOSTART</b>, con dos valores posibles: <b>FALSE</b> (por defecto) y <b>TRUE</b> que como puedes suponer, sirve para que el v&iacute;deo arranque nada m&aacute;s cargarse el fichero. Si estableces <b>FALSE</b>, entonces el v&iacute;deo se activa al hacer click con el rat&oacute;n sobre &eacute;l, lo mismo que para repetir el pase una vez finalizado. 
+</p>
+
+<p>
+Para hacer que el v&iacute;deo se repita cont&iacute;nuamente o se pare despu&eacute;s de un pase, tenemos el atributo <b>LOOP</b> con dos valores:
+</p>
+
+<p>
+<b>FALSE</b> (por defecto) y <b>TRUE</b>. 
+</p>
+
+<p>
+Por &uacute;ltimo tenemos el atributo <b>ALIGN</b> y sus valores <b>TOP</b>, <b>BOTTOM</b>, <b>CENTER</b>, <b>LEFT</b>, <b>RIGHT</b>, <b>MIDDLE</b> y <b>TEXTTOP</b> que funcionan igual que sus respectivos del elemento IMG, es decir, que no tiene efectos sobre el v&iacute;deo, sino sobre su alineaci&oacute;n con el texto de la p&aacute;gina.
+</p>
+
+
+</font>
+</td></tr>
+</table>
+</center>
+
+<center>
+<table cellpadding=3 cellspacing=3>
+<tr>
+<td><a href="manual12.htm">
+<img src="2ant.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+
+<td><a href="index.htm">
+<img src="puzzle.gif" alt="Menu" width=90 height=75 border=0></a></td>
+
+<td><a href="manual14.htm">
+<img src="2sigui.gif" alt="Anterior" width=32 height=31 border=0></a></td>
+</tr>
+</table>
+</center>
+
+</BODY>
+</HTML>

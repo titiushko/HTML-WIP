@@ -1,0 +1,172 @@
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<title>HTML con Clase - Accesibilidad</title>
+
+<!-- Metadatos convencionales -->
+<meta name="Description" content="Nociones básicas sobre la importancia de la accesibilidad a las páginas Web por parte de personas con discapacidades" />
+<meta name="Keywords"    content="Accesibilidad,HTML,CSS,XHTML,XML,CSS1,CSS2,páginas,web,diseño web,tutorial HTML,tutorial CSS" />
+<meta name="Author"      content="Juan R. Pozo" />
+<meta name="Copyright"   content="&copy; 2001 - 2003 Juan R. Pozo" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="shortcut icon" href="../favicon.ico" tppabs="http://html.conclase.net/favicon.ico" />
+
+<!-- Metadatos Dublin Core -->
+<meta name="DC.Title"             content="HTML con Clase - Accesibilidad" />
+<meta name="DC.Creator"           content="Juan R. Pozo" />
+<meta name="DC.Subject"           content="Accesibilidad en la World Wide Web" />
+<meta name="DC.Description"       content="Nociones básicas sobre la importancia de la accesibilidad a las páginas Web por parte de personas con discapacidades" />
+<meta name="DC.Publisher"         content="ConClase.net" />
+<meta name="DC.Date"              content="2003-08-04" />
+<meta name="DC.Type"              content="Text" scheme="DCMIType" />
+<meta name="DC.Format.Medium"     content="text/xml" />
+<meta name="DC.Relation.isPartOf" content="http://html.conclase.net/" />
+<meta name="DC.Identifier"        content="http://html.conclase.net/articulos/accesibilidad" />
+<meta name="DC.Language"          content="es" />
+<meta name="DC.Rights"            content="(c) 2001 - 2003 by Juan R. Pozo. All rights reserved." />
+
+<!-- Links de navegación -->
+<link rel="Start"    href="../index.htm" tppabs="http://html.conclase.net/" />
+
+
+
+
+<!-- Hoja de estilos para todos los navegadores -->
+<link rel="stylesheet" href="../estilos/hcc.css" tppabs="http://html.conclase.net/estilos/hcc.css" media="screen,projection" type="text/css" />
+
+<!-- Hoja de estilos para navegadores con suficiente soporte de CSS2 (O7, Gecko) -->
+<link rel="stylesheet" href="../estilos/hcc2.css" tppabs="http://html.conclase.net/estilos/hcc2.css" media="sc&#82;een,projection" type="text/css " />
+
+<script type="text/javascript">
+function mostrar(b) {
+    /* Por si acaso se monta un cuadro sobre el otro en IE4... */
+    var d = document
+    if (d.all) {
+        d.all.contenidos.style.zIndex = 0
+        d.all.menu.style.zIndex = 0
+        b.style.zIndex = 1
+    }
+}
+
+function init() {
+    /* NOT INVENTED HERE */
+    if (document.all.contenidos.all[3].style.setExpression) {
+        da = document.all
+        da.menu.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.contenidos.all[3].style.setExpression('height', 'document.body.clientHeight - 90')
+        da.menu.style.left = "10px"
+        da.contenidos.style.setExpression('left', '20 + document.all.menu.offsetWidth')
+        da.contenidos.style.setExpression('width', 'document.body.clientWidth - da.menu.offsetWidth - 30')
+    }
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<h1><img src="../imagen/logo.gif" tppabs="http://html.conclase.net/imagen/logo.gif" width="292" height="43" alt="HTML con Clase" title="" /></h1>
+
+<div class="box-1" id="contenidos" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+
+<p class="oculto"><a href="#toc">Ir a Tabla de Contenidos</a></p>
+
+<h2 id="t1">Accesibilidad</h2>
+
+<p id="p01">Aproximadamente entre un diez y un veinte por ciento de la población padece algún tipo de <a href="javascript:if(confirm('http://usuarios.discapnet.es/AJimenez/encuesta/minusval.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://usuarios.discapnet.es/AJimenez/encuesta/minusval.htm'" tppabs="http://usuarios.discapnet.es/AJimenez/encuesta/minusval.htm">discapacidad</a>. Por supuesto no todas las discapacidades afectan a la navegación por la Web, ni todas lo permiten. Pero en cualquier caso el número de personas con dificultades para acceder a la Web es apreciable.</p>
+
+<p id="p02">Por otra parte, si no lo estás ya, ponte en la piel de una de estas personas. Imagínate lo maravilloso que es el concepto de la Web, por ejemplo, para un ciego. <a href="javascript:if(confirm('http://www.funcaragol.org/html/mainvb.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.funcaragol.org/html/mainvb.htm'" tppabs="http://www.funcaragol.org/html/mainvb.htm">Con un sintetizador de voz o un dispositivo Braille</a> toda la información de la Web estaría a tu disposición, lo cual supone un avance impresionante. ¿Cómo te sentirías si a la hora de la verdad no pudieras aprovechar toda esta tecnología?</p>
+
+<p id="p03">¿No crees que es una auténtica lástima utilizar técnicas que impiden a estas personas el acceso a tu información? Especialmente teniendo en cuenta que dichas técnicas se utilizan por dar más importancia a la apariencia que al contenido, y que podrían evitarse perfectamente sin dañar la imagen de tus páginas.</p>
+
+<p id="p04">Basta con aplicar el principio básico de separar estructura de apariencia y aplicar ciertas reglas sencillas para hacer tus páginas perfectamente accesibles. Esto significa, además, que el hacer tus páginas accesibles tiene <a href="javascript:if(confirm('http://www.htmlhelp.org/design/accessibility/why.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.htmlhelp.org/design/accessibility/why.html'" tppabs="http://www.htmlhelp.org/design/accessibility/why.html">efectos secundarios positivos</a>. Serán más fáciles de mantener, normalmente serán más cortas y más rápidas de cargar, y no sólo serán más accesibles a las personas, sino también a las diferentes tecnologías de navegación por la Web, como por ejemplo los robots indexadores de los <a href="javascript:if(confirm('http://www.dur.ac.uk/ITS/WWW/accessibility/reasons/search.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.dur.ac.uk/ITS/WWW/accessibility/reasons/search.php'" tppabs="http://www.dur.ac.uk/ITS/WWW/accessibility/reasons/search.php">motores de búsqueda</a>.</p>
+
+<p id="p05">De hecho, lo más importante al hacer una página web accesible es pensar que <strong>no todo el mundo navega igual</strong>. Tienes que conseguir ofrecer tu información de modo que se pueda acceder a ella independientemente de la tecnología o del programa que utilice cada visitante. Al tener el contenido y su estructura lógica en un fichero independiente de tus hojas de estilo, te aseguras de que eso será así. Incluso los usuarios de navegadores visuales que utilicen lectores de pantalla podrán acceder a tu información simplemente desactivando tu hoja de estilo.</p>
+
+<p class="destacado" id="p05-2">En palabras de <a href="javascript:if(confirm('http://www.sidar.org/que/ge/egyr.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/que/ge/egyr.php'" tppabs="http://www.sidar.org/que/ge/egyr.php">Emmanuelle Gutiérrez y Restrepo</a>, creadora y coordinadora del <a href="javascript:if(confirm('http://www.sidar.org/index.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/index.php'" tppabs="http://www.sidar.org/index.php">Seminario SIDAR</a>: <q>Los autores hoy en día deben ser muy conscientes de que cualquiera que sea el diseño que
+ellos apliquen a sus páginas, el usuario va a poder cambiarlo y adecuarlo a sus necesidades. Por tanto, cuanto más flexible sea el diseño, más útil y sencillo será para el usuario. Los conceptos, ideas y objetivos de un diseñador web deben ser distintos, muy distintos, de los que tradicionalmente aplicaba a la comunicación en otros soportes.</q></p>
+
+<p id="p06">Nadie te puede obligar a hacer tu página de una forma o de otra. Al fin y al cabo, es tu página. Pero considera todas las ventajas que supone un diseño accesible para ti, y también para los demás. Al final, todos salimos beneficiados.</p>
+
+<p><em><strong>Nota:</strong> En realidad, sí existen leyes en varios países, entre ellos España, que en determinadas condiciones obligan a hacer accesibles las páginas web.</em></p>
+
+<h3 id="t2">Más información</h3>
+<p id="p07">Podéis encontrar mucha información sobre accesibilidad en la Web en la página Web de la <a href="javascript:if(confirm('http://www.w3.org/WAI/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/WAI/'" tppabs="http://www.w3.org/WAI/"><span xml:lang="en">Web Accesibilty Iniatitive</span> (<abbr>WAI</abbr>)</a>. Podéis encontrar información en español en <a href="javascript:if(confirm('http://www.sidar.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/'" tppabs="http://www.sidar.org/"><acronym title="Seminario de Iniciativas sobre Discapacidad y Accesibilidad en la Red">SIDAR</acronym></a>, que ha <a href="javascript:if(confirm('http://www.sidar.org/recur/desdi/traduc/index.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sidar.org/recur/desdi/traduc/index.php'" tppabs="http://www.sidar.org/recur/desdi/traduc/index.php">traducido</a> varios documentos y especificaciones del <a href="javascript:if(confirm('http://www.w3.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/'" tppabs="http://www.w3.org/"><acronym xml:lang="en" title="World Wide Web Consortium">W3C</acronym></a> al castellano.</p>
+
+<p>También os recomedamos la página de la <a href="javascript:if(confirm('http://www.funcaragol.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.funcaragol.org/'" tppabs="http://www.funcaragol.org/">Fundación de Ciegos Manuel Caragol</a> y la <a href="javascript:if(confirm('http://acceso.uv.es/accesibilidad/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://acceso.uv.es/accesibilidad/'" tppabs="http://acceso.uv.es/accesibilidad/">Página de accesibilidad a la red de la Unidad Acceso</a> de la Universidad de Valencia, donde encontraréis información útil y abundante.</p>
+
+<p>Y por último la página <a href="javascript:if(confirm('http://www.terra.es/personal8/accesibilidad/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.terra.es/personal8/accesibilidad/'" tppabs="http://www.terra.es/personal8/accesibilidad/">Web Accesible para Todos</a> de <a href="javascript:if(confirm('http://www.terra.es/personal6/aitoroliveira/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.terra.es/personal6/aitoroliveira/'" tppabs="http://www.terra.es/personal6/aitoroliveira/">Aitor Oliveira</a>.</p>
+
+<p id="p08">Y recordad que, si seguís nuestros <a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/">tutoriales</a> y ponéis un poco de cuidado, vuestras páginas serán perfectamente accesibles.</p>
+
+<p class="copy">&copy; 2001-2003 Juan R. Pozo</p>
+
+<hr class="oculto" />
+
+<div class="pie">
+<p>
+ 
+ <img id="validcss" src="../imagen/vcss.gif" tppabs="http://html.conclase.net/imagen/vcss.gif" alt="CSS válido" width="88" height="31" />
+</p>
+<p>Sitio Web mantenido por Juan R. Pozo (<span class="email">jrpozo arroba conclase punto net</span>).</p>
+<p>Última modificación: 04/08/2003 - &copy; 2001 - 2003 Juan R. Pozo y conclase.net</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr class="oculto" />
+
+<div class="box-1" id="menu" onclick="mostrar(this)">
+<div class="box-2">
+<div class="box-3">
+<div class="box-4">
+<div class="box-5">
+   
+<h2 id="toc" class="oculto">Tabla de Contenidos</h2>
+
+<h3>Recursos</h3>
+<p>
+<a href="../tutorial/html/index.htm" tppabs="http://html.conclase.net/tutorial/html/" title="El tutorial de HTML con Clase">Tutorial HTML</a> <span class="oculto">|</span>
+<a href="../recursos/lista.htm" tppabs="http://html.conclase.net/recursos/lista" title="Suscríbete a la lista de correo de HTML con Clase">Lista de Correo</a> <span class="oculto">|</span>
+<a href="../recursos/vinculos.htm" tppabs="http://html.conclase.net/recursos/vinculos" title="Hemos seleccionado los mejores sitios en la red">Vínculos</a> <span class="oculto">|</span>
+<a href="../recursos/grupos.htm" tppabs="http://html.conclase.net/recursos/grupos" title="Grupos de noticias y listas para ayudar y que te ayuden">Grupos de usuarios</a> <span class="oculto">|</span>
+<a href="../recursos/editores.htm" tppabs="http://html.conclase.net/recursos/editores" title="Te ayudamos a escoger tu editor favorito">Editores HTML</a> <span class="oculto">|</span>
+<a href="../recursos/faqs.htm" tppabs="http://html.conclase.net/recursos/faqs" title="Respuestas a las preguntas más frecuentes sobre HTML y CSS">FAQs</a> <span class="oculto">|</span>
+<a href="../recursos/especificaciones.htm" tppabs="http://html.conclase.net/recursos/especificaciones" title="Especificaciones para diseño web en castellano y en inglés">Especificaciones</a> <span class="oculto">|</span>
+</p>
+<h3>Artículos</h3>
+<p>
+<a href="historia.htm" tppabs="http://html.conclase.net/articulos/historia" title="Un poco de contexto para situarnos">Historia de la Web</a> <span class="oculto">|</span>
+<a href="w3c.htm" tppabs="http://html.conclase.net/articulos/w3c" title="Lo más parecido a un estándar que hay en la red">El W3C</a> <span class="oculto">|</span>
+<a href="xml.htm" tppabs="http://html.conclase.net/articulos/xml" title="Los sucesores de HTML">XHTML y XML</a> <span class="oculto">|</span>
+<a id="actual" title="Unas nociones de accesibilidad que todos deberíamos conocer">&raquo;&nbsp;Accesibilidad</a> <span class="oculto">|</span>
+<a href="navegadores.htm" tppabs="http://html.conclase.net/articulos/navegadores" title="¡No sólo hay dos!">Navegadores</a> <span class="oculto">|</span>
+<a href="metadatos.htm" tppabs="http://html.conclase.net/articulos/metadatos" title="Información sobre metadatos o META Tags">Metadatos</a> <span class="oculto">|</span>
+<a href="problemasmarcos.htm" tppabs="http://html.conclase.net/articulos/problemasmarcos" title="Los problemas de utilizar marcos en las páginas web">Marcos</a> <span class="oculto">|</span>
+<a href="ocultarcodigo.htm" tppabs="http://html.conclase.net/articulos/ocultarcodigo" title="Cómo ocultar el código fuente HTML">Ocultar código</a> <span class="oculto">|</span>
+<a href="mailto.htm" tppabs="http://html.conclase.net/articulos/mailto" title="Cómo no usar los URLs tipo mailto">Mailto</a> <span class="oculto">|</span>
+</p>
+<h3>ConClase.net</h3>
+<p>
+<a href="javascript:if(confirm('http://www.conclase.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.conclase.net/'" tppabs="http://www.conclase.net/" title="La página principal de ConClase.net">www.conclase.net</a> <span class="oculto">|</span>
+<a href="../index.htm" tppabs="http://html.conclase.net/index" title="La portada de HTML con Clase">HTML con Clase</a> <span class="oculto">|</span>
+<a href="../recursos/publicidad.htm" tppabs="http://html.conclase.net/recursos/publicidad" title="Anúnciese en HTML con Clase">Anunciantes</a> <span class="oculto">|</span>
+<a href="../recursos/contacto.htm" tppabs="http://html.conclase.net/recursos/contacto" title="Ponte en contacto con nosotros">Contacto</a> <span class="oculto">|</span>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

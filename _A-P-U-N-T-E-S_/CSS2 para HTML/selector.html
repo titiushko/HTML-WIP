@@ -1,0 +1,934 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
+<html lang="es">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Selectores</title>
+<link rel="stylesheet" href="style/default.css" type="text/css">
+<link rel="prev" href="syndata.html">
+<link rel="next" href="cascade.html">
+<link rel="contents" href="cover.html#minitoc">
+<link rel="CSS-properties" href="propidx.html" title="properties">
+<link rel="index" href="indexlist.html" title="index">
+</head>
+<body>
+<div class="navbar" align="center">
+<p><a href="syndata.html">anterior</a> &nbsp;
+<a href="cascade.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+<hr class="navbar">
+
+<h1 align="center">5 Selectores</h1>
+<div class="subtoc">
+<p><strong>Contenidos</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="selector.html#q1" class="tocxref">5.1 Equivalencia de patrones</a>
+    <li class="tocline2"><a href="selector.html#q2" class="tocxref">5.2 Sintaxis de los selectores</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="selector.html#grouping" class="tocxref">5.2.1 Agrupamiento</a>
+    </ul>
+    <li class="tocline2"><a href="selector.html#universal-selector" class="tocxref">5.3 Selector universal</a>
+    <li class="tocline2"><a href="selector.html#type-selectors" class="tocxref">5.4 Selectores de tipos</a>
+    <li class="tocline2"><a href="selector.html#descendant-selectors" class="tocxref">5.5 Selectores de descendientes</a>
+    <li class="tocline2"><a href="selector.html#child-selectors" class="tocxref">5.6 Selectores de hijos</a>
+    <li class="tocline2"><a href="selector.html#adjacent-selectors" class="tocxref">5.7 Selectores de hermanos adyacentes</a>
+    <li class="tocline2"><a href="selector.html#attribute-selectors" class="tocxref">5.8 Selectores de atributos</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="selector.html#q10" class="tocxref">5.8.1 Atributos equivalentes y valores de los atributos</a>
+      <li class="tocline3"><a href="selector.html#q11" class="tocxref">5.8.2 Valores predeterminados de los atributos en la DTD</a>
+      <li class="tocline3"><a href="selector.html#class-html" class="tocxref">5.8.3 Selectores de clases</a>
+    </ul>
+    <li class="tocline2"><a href="selector.html#id-selectors" class="tocxref">5.9 Selectores de ID</a>
+    <li class="tocline2"><a href="selector.html#pseudo-elements" class="tocxref">5.10 Pseudo-elementos y pseudo-clases</a>
+    <li class="tocline2"><a href="selector.html#q15" class="tocxref">5.11 Pseudo-clases</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="selector.html#first-child" class="tocxref">5.11.1 La pseudo-clase :first-child</a>
+      <li class="tocline3"><a href="selector.html#link-pseudo-classes" class="tocxref">5.11.2 Las pseudo-clases vínculo: <span class="index-def" title="pseudo-clases:::link|:link|link (pseudo-clase)">:link</span> y <span class="index-def" title="pseudo-clases:::visited|:visited|visited (pseudo-clase)">:visited</span></a>
+      <li class="tocline3"><a href="selector.html#dynamic-pseudo-classes" class="tocxref">5.11.3 Las pseudo-clases dinámicas: <span class="index-def" title="pseudo-clases:::hover|:hover|hover (pseudo-clase)">:hover</span>, <span class="index-def" title="pseudo-clases:::active|:active|active (pseudo-clase)">:active</span> y <span class="index-def" title="pseudo-clases:::focus|:focus|focus (pseudo-clase)">:focus</span></a>
+      <li class="tocline3"><a href="selector.html#lang" class="tocxref">5.11.4 La pseudo-clase de lenguaje: <span class="index-def" title="pseudo-clases:::lang|:lang|lang (pseudo-clase)">:lang</span></a>
+    </ul>
+    <li class="tocline2"><a href="selector.html#q20" class="tocxref">5.12 Pseudo-elementos</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="selector.html#first-line-pseudo" class="tocxref">5.12.1 El pseudo-elemento <span class="index-def" title="pseudo-elementos:::first-line|:first-line|first-line">:first-line</span></a>
+      <li class="tocline3"><a href="selector.html#first-letter" class="tocxref">5.12.2 El pseudo-elemento <span class="index-def" title="pseudo-elementos:::first-letter|:first-letter|first-letter">:first-letter</span></a>
+      <li class="tocline3"><a href="selector.html#before-and-after" class="tocxref">5.12.3 Los pseudo-elementos <span class="index-def" title="pseudo-elementos:::before|:before">:before</span> y <span class="index-def" title="pseudo-elementos:::after|:after">:after</span></a>
+    </ul>
+  </ul>
+</div>
+
+<h2><a name="q1">5.1 Equivalencia de patrones</a></h2>
+
+<p>En CSS, las reglas de las equivalencias de patrones determinan cuales reglas de estilo se aplican a los elementos en la <a href="conform.html#doctree">estructura del documento</a>. 
+Estos patrones, denominados <a name="x0"><span class="index-inst"
+title="selector">selectores,</span></a> pueden ir desde el simple nombre de un elemento hasta complejos patrones contextuales. Si todas las condiciones en el patrón son verdaderas para un determinado elemento, el selector <a name="x1"><span class="index-def"
+title="equivalencia|selector::equivalencia"><dfn>equivale</dfn></span></a> al elemento.
+
+<P>La distinción entre mayúsculas/minúsculas en los nombres de los elementos de los selectores, dentro del lenguaje del documento, depende del lenguaje del documento. Por ejemplo, en HTML, los nombres de los elementos son insensibles a la diferencia mayúsculas/minúsculas, pero en XML sí hacen distinción entre mayúsculas y minúsculas.
+
+<P>La siguiente tabla resume la sintaxis de los selectores CSS2:</P>
+
+<table border=1>
+<TR><TH>Patrón<TH>Significado<TH>Descripto en la sección</TR>
+<TR><TD>*<TD>Equivale a cualquier elemento.<TD><a href="#universal-selector">Selector universal</a></TR>
+<TR><TD>E<TD>Equivale a cualquier elemento E (ej., un elemento de tipo E).<TD><a href="#type-selectors">Selectores de tipos</a></TR>
+<TR><TD>E F<TD>Equivale a cualquier elemento F que es descendiente de un elemento E.<TD><a href="#descendant-selectors">Selectores de descendientes</a></TR>
+<TR><TD>E &gt; F<TD>Equivale a cualquier elemento F que es hijo de un elemento E.<TD><a href="#child-selectors">Selectores de hijos</a></TR>
+<TR><TD>E:first-child<TD>Equivale al elemento E cuando E es el primer hijo de su padre.
+<TD><a href="#first-child">La pseudo-clase :first-child</a></TR>
+
+<TR><TD>E:link<br>E:visited <TD>Equivale al elemento E si E es el ancla de orígen de un hipervínculo cuyo destino aún no se ha visitado (:link) o que ya se visitó (:visited).
+<TD><a href="#link-pseudo-classes">La pseudo-clase link</a></TR>
+<TR><TD>E:active<br>E:hover<br>E:focus <TD>Equivale a E durante ciertas acciones del usuario.
+<TD><a href="#dynamic-pseudo-classes">Las pseudo-clases dinámicas</a>
+<TR><TD>E:lang(c) <TD>Equivale a un elemento de tipo E si está en el idioma (humano) c (el lenguaje del documento especifica como se determina el idioma).
+<TD><a href="#lang">La pseudo-clase :lang()</a>
+<TR><TD>E + F<TD>Equivale a cualquier elemento F precedido inmediatamente por un elemento E.<TD><a href="#adjacent-selectors">Selectores de adyacentes</a>
+</TR>
+<TR><TD>E[foo]<TD>Equivale a cualquier elemento E con el atributo "foo" asignado (cualquier valor).
+<TD><a href="#attribute-selectors">Selectores de atributos</a>
+</TR>
+<TR><TD>E[foo="warning"]<TD>Equivale a cualquier elemento E cuyo atributo "foo" tiene un valor exactamente igual a "warning".
+<TD><a href="#attribute-selectors">Selectores de atributos</a>
+</TR>
+<TR><TD>E[foo~="warning"]<TD>Equivale a cualquier elemento E cuyo atributo "foo" tiene un valor consistente en una lista de valores separados por espacios, uno de los cuales es exactamente igual a "warning".
+<TD><a href="#attribute-selectors">Selectores de atributos</a>
+</TR>
+<TR><TD>E[lang|="en"]<TD>Equivale a cualquier elemento E cuyo atributo "lang" tiene una lista de valores separados por guiones que comienzan (desde la izquierda) con "en".
+<TD><a href="#attribute-selectors">Selectores de atributos</a>
+</TR>
+<TR><TD>DIV.warning<TD><em>Sólo HTML</em>. Igual que DIV[class~="warning"].
+<TD><a href="#class-html">Selectores de clase</a></TR>
+<TR><TD>E#myid<TD>Equivale a cualquier elemento E cuyo ID es igual a "myid".<TD><a href="#id-selectors">Selectores de ID</a></TR>
+</table>
+
+
+<h2><a name="q2">5.2 Sintaxis de los selectores</a></h2>
+
+<P>Un <span class="index-def" title="selector simple"><a
+name="simple-selector"><dfn>selector simple</dfn></a></span> es tanto un <a href="#type-selectors">selector de tipos</a> como un <a
+href="#universal-selector">selector universal</a> seguido inmediatamente por cero o más <a href="#attribute-selectors">selectores de atributos</a>, <a href="#id-selectors">selectores de ID</a> o <a
+href="#pseudo-classes">pseudo-clases</a>, en cualquier orden.  El selector simple es equivalente si todos sus componentes son equivalentes.
+
+<P>Un <a name="x4"><span class="index-def"
+title="selector"><dfn>selector</dfn></span></a> es una cadena de uno o más selectores simples separados por combinadores. Los <span class="index-def"
+title="combinador"><a
+name="combinator"><dfn>combinadores</dfn></a></span> son: espacio en blanco, "&gt;" y  "+". El espacio en blanco puede aparecer entre un combinador y los selectores simples que están próximos.
+
+<P>Los elementos de la estructura del documento que equivalen a un selector son llamados <span class="index-def" title="sujeto (del selector)|selector::sujeto del"><a name="subject"><dfn>sujetos</dfn></a></span> del selector.
+Un selector que consiste en un solo selector simple se corresponde con cualquier elemento que satisface sus requisitos. Anteponiendo un selector simple y un combinador a una cadena se imponen restricciones adicionales para la equivalencia, de este modo los sujetos de un selector son siempre un sub-conjunto de los elementos que equivalen al selector simple del extremo derecho.
+
+<P>Un <a href="#pseudo-elements">pseudo-elemento</a> puede añadirse al último selector simple en una cadena, en cuyo caso la información del estilo se aplica a la sub-parte de cada sujeto.
+
+<h3>5.2.1 <a name="grouping">Agrupamiento</a></h3>
+
+<p>Cuando varios selectores comparten las mismas declaraciones, pueden agruparse en una lista separada por comas.</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>En este ejemplo, condensamos tres reglas con idénticas declaraciones en una sola. Así,
+
+<pre>
+H1 { font-family: sans-serif }
+H2 { font-family: sans-serif }
+H3 { font-family: sans-serif }
+</pre>
+
+<p>es equivalente a:</p>
+
+<pre>
+H1, H2, H3 { font-family: sans-serif }
+</pre>
+</div>
+
+<P>CSS ofrece también otros mecanismos "resumidos", incluyendo las <span class="index-def" title="declaraciones múltiples">
+<a name="x8" href="syndata.html#declaration">declaraciones múltiples</a></span>
+y las <span class="index-inst" title="propiedades resumidas"><a name="x9"
+href="about.html#shorthand">propiedades resumidas</a></span>.
+
+<h2>5.3 <a name="universal-selector">Selector universal</a></h2>
+
+<P>El <a name="x10"><span class="index-def" title="selector universal">selector universal</span></a>, escrito "*", se corresponde con el nombre de cualquier tipo de elemento. Es equivalente con cualquier elemento en la <a
+href="conform.html#doctree">estructura del documento</a>.
+
+
+<P>Si el selector universal no es el único componente de un <a
+href="#simple-selector">selector simple</a>, el "*" puede omitirse. Por ejemplo:</P>
+
+<ul>
+<li><code>*[LANG=fr] </code> y <code>[LANG=fr]</code> son lo mismo.
+<li><code>*.warning</code> y <code>.warning</code> son lo mismo.
+<li><code>*#myid</code> y <code>#myid</code> son lo mismo.
+</ul>
+
+<h2>5.4 <a name="type-selectors">Selectores de tipos</a></h2>
+
+<p>Un <a name="x11"><span class="index-def" title="selector de tipo"><em>selector de tipo</em></span></a> se corresponde con el nombre de un tipo de elemento en el lenguaje del documento. Un selector de tipo equivale con cada instancia del tipo de elemento en la estructura del documento.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>La siguiente regla equivale a todos los elementos H1 de la estructura del documento:</p>
+
+<pre>
+H1 { font-family: sans-serif }
+</pre>
+</div>
+
+<h2>5.5 <a name="descendant-selectors">Selectores de descendientes</a></h2>
+
+<p>A veces, los autores pueden querer selectores que se correspondan con un elemento que es el descendiente de otro elemento en la estructura del documento (ej., "Que equivalga a aquellos elementos EM que están contenidos en un elemento H1"). Los  <a name="x12"><span
+class="index-def" title="selectores de descendientes">selectores de descendientes</span></a> expresan tal relación dentro de un patrón. Un selector de descendiente se compone de dos o más selectores separados por un <a href="syndata.html#whitespace">espacio en blanco</a>. Un selector de descendiente de la forma "<code>A B</code>" equivale cuando un elemento <code>B</code> en un descendiente arbitrario de algún elemento <a
+href="conform.html#doctree">antepasado</a> <code>A</code>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p>
+Por ejemplo, considere las siguientes reglas:</p>
+
+<pre>
+H1 { color: red }
+EM { color: red }
+</pre>
+
+<p>Aunque la intención de estas reglas es agregar énfasis al texto cambiando su color, el efecto se perderá en un caso como:</p>
+
+<pre class="html-example">
+&lt;H1&gt;El título es &lt;EM&gt;muy&lt;/EM&gt; importante&lt;/H1&gt;
+</pre>
+
+<p>Resolvemos este caso complementando las reglas anteriores con una regla que asigna un color azul al texto siempre que un EM aparezca en cualquier lugar dentro de un H1:</p>
+
+<pre>
+H1 { color: red }
+EM { color: red }
+H1 EM { color: blue }
+</pre>
+
+<p>La tercer regla se corresponderá con EM en el siguiente fragmento:</p>
+
+<pre class="html-example">
+&lt;H1&gt;Este &lt;SPAN class="myclass"&gt;título es &lt;EM&gt;muy&lt;/EM&gt; importante&lt;/SPAN&gt;&lt;/H1&gt;
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+El siguiente selector:</p>
+
+<PRE>
+DIV * P 
+</PRE>
+
+<P>equivale a un elemento P que es nieto o descendiente aún más lejano de un elemento DIV. Observe el uso opcional del espacio en blanco a ambos lados del "*".
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> El selector en la siguiente regla, que combina selectores de descendientes con <a href="#attribute-selectors">selectores de atributos</a>, equivalen a cualquier elemento que (1) tiene asignado el atributo "href" y (2) está dentro de un P que a su vez está dentro de un DIV:</p>
+
+<pre>
+DIV P *[href]
+</pre>
+</div>
+
+<h2>5.6 <a name="child-selectors">Selectores de hijos</a></h2>
+
+<p>Un <a name="x13"><span class="index-def" title="selector de hijo"><em>selector de hijo</em></span></a> equivale cuando un elemento es el <a
+href="conform.html#doctree">hijo</a> de algún elemento. Un selector de hijo se compone de dos o más selectores separados por  "&gt;".
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> La siguiente regla asigna el estilo de todos los elementos P que son hijos de BODY:</p>
+
+<pre>
+BODY &gt; P { line-height: 1.3 }
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> El siguiente ejemplo combina selectores de descendientes con selectores de hijos:</p>
+<pre>
+DIV OL&gt;LI P
+</pre>
+
+<P>Equivale a un elemento P que es descendiente de un LI; el elemento LI debe ser hijo de un elemento OL; el elemento OL debe ser descendiente de un DIV. Observe que el espacio en blanco opcional alrededor del combinador "&gt;" ha sido descartado.
+</div>
+
+<P>Por información acerca de la selección del primer hijo de un elemento, por favor, ver la sección acerca de la pseudo-clase <a href="#first-child">:first-child</a> abajo.
+
+<h2>5.7 <a name="adjacent-selectors">Selectores de hermanos adyacentes</a></h2>
+
+<p>Los selectores de hermanos adyacentes tiene la siguiente sintaxis: E1 + E2, donde E2 es el sujeto del selector. El selector equivale si E1 y E2 comparten el mismo padre en la estructura del documento y E1 precede inmediatamente a E2.
+
+<p>En algunos contextos, los elementos adyacentes generan objetos con formato cuya presentación es operada automáticamente (ej., cerrando los márgenes verticales entre cajas adyacentes). El selector "+" permite a los autores especificar un estilo adicional para los elementos adyacentes.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> De este modo, la siguiente regla establece que cuando un elemento P sigue  inmediatamente a un elemento MATH, no debe tener sangría:</p>
+
+<pre>
+MATH + P { text-indent: 0 } 
+</pre>
+
+<p>El siguiente ejemplo reduce el espacio vertical que separa un H1 y un H2 que lo sigue inmediatamente:</p>
+
+<pre>
+H1 + H2 { margin-top: -5mm }   
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> La siguiente regla es similar a la del ejemplo anterior, excepto que se agrega un selector de atributo. Así, el formato especial ocurre sólo cuando H1 tiene especificado <samp>class="opener"</samp>:</p>
+
+<pre>
+H1.opener + H2 { margin-top: -5mm }   
+</pre>
+</div>
+
+<h2>5.8 <a name="attribute-selectors">Selectores de atributos</a></h2>
+
+<p>CSS2 permite a los autores especificar reglas que sean equivalentes con atributos definidos en el documento fuente.
+
+<h3><a name="q10">5.8.1 Atributos equivalentes y valores de los atributos</a></h3>
+
+<P>Los selectores de atributos puede equivaler de cuatro maneras:</p>
+
+<dl>
+<dt><code>[att]</code>
+<dd>Equivale con los elementos que tienen asignado el atributo "att", cualquiera sea el valor del atributo.
+<dt><a name="x14"><span class="index-def" title="equivalencia exacta|="><code>[att=val]</code></span></a>
+<dd>Equivale cuando el valor del atributo "att" del elemento es exactamente "val".
+<dt><a name="x16"><span class="index-def" title="equivalencia separada por espacios|~="><code>[att~=val]</code></span></a>
+<dd>Equivale cuando el valor del atributo "att" del elemento es una lista de "palabras" separadas por espacios, una de las cuales es exactamente "val". Si se usa este selector, las palabras en el valor no deben contener espacios (ya que ellas están separadas por espacios).
+<dt><a name="x18"><span class="index-def" title="equivalencia separada por guiones|&#124;="><code>[att|=val]</code></span></a>
+<dd>Equivale cuando el valor del atributo "att" del elemento es una lista de "palabras" separadas por guiones, comenzando con "val". La correspondencia siempre comienza al principio del valor del atributo. Esto está pensado principalmente para permitir equivalencias con el <a name="x20"><span class="index-inst" title="código del lenguaje">sub-código del lenguaje</span></a> (ej., el atributo "lang" en HTML) tal como se describe en RFC 1766 (<a href="refs.html#ref-RFC1766" rel="biblioentry" class="noxref"><span class="informref">[RFC1766]</span></a>).
+</dl>
+
+<p>Los valores de los atributo deben ser identificadores o cadenas. La distinción entre mayúsculas/minúsculas en los nombres y valores de los atributos de los selectores depende del lenguaje del documento.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> Por ejemplo, el siguiente selector de atributo equivale a todos los elementos H1 que especifican el atributo "title", cualquiera sea su valor:</p>
+
+<pre>
+H1[title] { color: blue; }
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> En el ejemplo siguiente, el selector equivale a todos los elementos SPAN cuyo atributo "class" tiene exactamente el valor "ejemplo":</p>
+
+<pre>
+SPAN[class=ejemplo] { color: blue; }
+</pre>
+</div>
+
+<P>Múltiples selectores de atributos pueden ser usados para referirse a varios atributos de un elemento o, incluso, varias veces al mismo atributo.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> Aquí, el selector equivale a todos los elementos SPAN cuyo atributo "hola" tiene exactamente el valor "Cleveland" y cuyo atributo "adios" tiene exactamente el valor "Columbus":</P>
+
+<pre>
+SPAN[hola="Cleveland"][adios="Columbus"] { color: blue; }
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> Los siguientes selectores ilustran la diferencia entre "=" y "~=". El primer selector equivale, por ejemplo, al valor "copyright copyleft copyeditor" para el atributo "rel". El segundo selector sólo será equivalente cuando el atributo "href" tenga el valor "http://www.w3.org/".
+</p>
+
+<pre>
+A[rel~="copyright"]
+A[href="http://www.w3.org/"]
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> La siguiente regla esconde a todos los elementos cuyo valor del atributo "lang" es "fr" (es decir, la lengua es el francés). 
+
+<PRE>
+*[LANG=fr] { display : none }
+</PRE>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> La siguiente regla será equivalente a valores del atributo "lang"  que empiecen con "en", incluyendo "en", "en-US" y "en-cockney":</p>
+
+<PRE>
+*[LANG|="en"] { color : red }
+</PRE>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> De modo similar, la siguiente regla de una hoja de estilo auditiva permite leer un escrito en voz alta con voces diferentes para cada rol: </p>
+
+<pre class="example">
+DIALOGUE[character=romeo] 
+     { voice-family: "Lawrence Olivier", charles, male }
+      
+DIALOGUE[character=julieta]  
+     { voice-family: "Vivien Leigh", victoria, female }
+</pre>
+</div>
+
+<H3><a name="q11">5.8.2 Valores predeterminados de los atributos en la DTD</a></H3>
+
+<P>Las correspondencias tienen lugar en los valores de los atributos en la estructura del documento. Para lenguajes de documento fuera de HTML, los valores predeterminados de los atributos pueden definirse en una <a name="x21"><span class="index-inst" title="DTD">DTD</span></a> o en cualquier otra parte. Las hojas de estilo deben diseñarse de manera que trabajen aún cuando los valores predeterminados no estén incluidos en la estructura del documento.
+
+<P>
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD>
+<B>Nota de la traducción:</B><BR>
+DTD es el acrónimo de Document Type Definition (Definición del tipo de documento) y consiste en la definición de la sintaxis de la construcción de marcas que utiliza el documento.
+    </TD>
+  </TR>
+</TABLE>
+
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<P>Por ejemplo, considere un elemento EJEMPLO con un atributo "notación" que tiene un valor predeterminado como "decimal". El fragmento DTD podría ser
+
+<pre class="dtd-example">
+&lt;!ATTLIST EJEMPLO notación (decimal,octal) "decimal">
+</pre>
+
+<p>Si la hoja de estilo contiene las reglas
+
+<pre class="example">
+EJEMPLO[notación=decimal] { /*... opciones de la propiedad predeterminada ...*/ }
+EJEMPLO[notación=octal] { /*... otras opciones ...*/ }
+</pre>
+
+<p>entonces para tomar los casos en los cuales este atributo es establecido por defecto y no explícitamente, podría agregarse la siguiente regla:
+
+<pre class="example">
+EJEMPLO { /*... opciones de la propiedad predeterminada ...*/ }
+</pre>
+
+<p>Debido a que este selector es menos <a href="cascade.html#specificity">específico</a> que un selector de atributo, deberá ser usado para el caso predeterminado. Debe tomarse la precaución de que todos los otros valores del atributo que no tengan el mismo estilo que el predeterminado sean explícitamente cubiertos.
+</div>
+
+
+<h3>5.8.3 <a name="class-html">Selectores de clases</a></h3> 
+
+<p>Para las hojas de estilo usadas con HTML, los autores pueden usar el punto (.) como una alternativa a "~=" cuando la correspondencia sea con el atributo "class". Así, en HTML, "DIV.valor" y "DIV[class~=valor]" tiene el mismo significado. El valor del atributo debe seguir inmediatamente al ".".
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> Por ejemplo, podemos asignar información de estilo a todos los elementos con <samp>class~="pastoral"</samp> como sigue:</p>
+
+<pre>
+*.pastoral { color: green }  /* todos los elementos con class~=pastoral */
+</pre>
+
+o simplemente
+
+<pre>
+.pastoral { color: green }  /* todos los elementos con class~=pastoral */
+</pre>
+
+<p>El siguiente sólo asigna estilo a los elementos H1 con <samp>class~="pastoral"</samp>:</p>
+
+<pre>
+H1.pastoral { color: green }  /* elementos H1 con class~=pastoral */
+</pre>
+
+<p>Dadas estas reglas, la primera instancia de H1 abajo no tendría el texto en verde,  mientras que la segunda sí:</p>
+
+<pre>
+&lt;H1&gt;Verde, no&lt;/H1&gt;
+&lt;H1 class="pastoral"&gt;Muy verde&lt;/H1&gt;
+</pre>
+</div>
+
+<p>Para equivaler a un subconjunto de valores "class", cada valor debe ir precedido por un ".", en cualquier orden.</P>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> Por ejemplo, la siguiente regla equivale a cualquier elemento P a cuyo atributo "class" le ha sido asignado una lista de valores separados por espacios que incluyen "pastoral" y "marino":</p>
+
+<pre> 
+P.pastoral.marino { color: green }
+</pre>
+
+<p>Esta regla equivale en el caso de <samp>class="pastoral rojo azul marino"</samp> pero no se corresponde en <samp>class="pastoral rojo"</samp>.
+</div>
+
+<div class="note"><p> <em><strong>Nota.</strong> CSS le otorga tanto poder al atributo "class", que los autores podrían conceptualmente diseñar su propio "lenguaje del documento" basados en elementos con casi ninguna presentación asociada (tales como DIV y SPAN en HTML) y asignando información acerca del estilo a través del atributo "class". Los autores deben evitar esta práctica ya que los elementos estructurales de un lenguaje de documento comúnmente tienen significados aceptados y reconocidos mientras que las clases definidas por el autor no pueden tenerlos.</em>
+</div>
+
+<h2>5.9 <a name="id-selectors">Selectores de ID</a></h2>
+
+<P>Los lenguajes del documento pueden contener atributos que se declaran como del tipo ID. Lo que hace especial a un atributo del tipo ID es que dos de tales atributos no pueden tener el mismo valor; cualquiera sea el lenguaje del documento, un atributo ID puede ser usado para identificar a su elemento de manera excluyente. En HTML todos los atributos ID son denominados "id"; las aplicaciones XML pueden nombrar de manera diferente a los atributos ID, pero se aplica la misma restricción.
+
+<p>El atributo ID de un lenguaje de documento le permite a los autores asignar un identificador a una instancia del elemento dentro de la estructura del documento. Los selectores ID de CSS equivalen a una instancia del elemento basado en su identificador. Un selector ID de CSS contiene un "#" seguido inmediatamente por el valor de ID.</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p> El siguiente selector de ID equivale al elemento H1 cuyo atributo ID tiene el valor "capitulo1":</p>
+
+<PRE>
+H1#capitulo1 { text-align: center }
+</PRE>
+</div>
+
+<div class="html-example"><p> En el siguiente ejemplo, la regla de estilo equivale al elemento que tiene el valor de ID "z98y". La regla será, de este modo, equivalente al elemento P:</p>
+
+<pre>
+&lt;HEAD&gt;
+  &lt;TITLE&gt;Equivalencia con P&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    *#z98y { letter-spacing: 0.3em }
+  &lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+   &lt;P id=z98y&gt;Texto espaciado&lt;/P&gt;
+&lt;/BODY&gt;
+</pre>
+
+<p>En el ejemplo que sigue, sin embargo, la regla de estilo sólo equivale a un elemento H1 que tiene un valor ID de "z98y". La regla no será equivalente con el elemento P en este ejemplo:</p>
+
+<pre>
+&lt;HEAD&gt;
+  &lt;TITLE&gt;Equivalencia con H1 solamente&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    H1#z98y { letter-spacing: 0.5em }
+  &lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+   &lt;P id=z98y&gt;Texto espaciado&lt;/P&gt;
+&lt;/BODY&gt;
+</pre>
+</div>
+
+<P>Los selectores de ID tiene una precedencia mayor que los selectores de atributos. Por ejemplo, en HTML, el selector <samp>#p123</samp> es más específico que <samp>[ID=p123]</samp> en términos de <a
+href="cascade.html">cascada</a>.
+
+<div class="note">
+<p><em><strong>Nota.</strong> En XML 1.0 <a href="refs.html#ref-XML10" rel="biblioentry" class="noxref"><span class="informref">[XML10]</span></a>, la información acerca de qué atributos contiene el ID de un elemento está contenida en una DTD. Cuando analiza XML, las AU no siempre leen la DTD, y así no pueden saber qué es el ID de un elemento. Si el diseñador de una hoja de estilo conoce o sospecha que éste será el caso, deberá usar en cambio los selectores de atributos normales: <code>[name=p371]</code> en lugar de <code>#p371</code>. Sin embargo, el orden en la cascada de los selectores de atributos normales es diferente de los selectores de ID. Puede llegar a ser necesario agregar una prioridad "!important" a las declaraciones: <code>[name=p371]
+{color: red ! important}</code>. Por supuesto, los elementos de los documentos XML 1.0 sin una DTD no tiene ID en absoluto.</em>
+</div>
+
+<h2>5.10 <a name="pseudo-elements">Pseudo-elementos</a> y <a
+name="pseudo-classes">pseudo-clases</a></h2>
+
+<p>En CSS2, el estilo se atribuye a un elemento basado en su posición dentro de la <a href="conform.html#doctree">estructura del documento</a>. Este sencillo modelo es suficiente para muchos casos, pero algunos temas comunes en la edición pueden no ser posibles por medio de la <a
+href="conform.html#doctree">estructura del documento</a>. Por ejemplo, en HTML 4.0 (ver <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a>), ningún elemento se refiere a la primera línea de una párrafo y, por consiguiente, ningún selector CSS simple puede refererirse a ella.</p>
+
+<p>CSS introduce los conceptos de <a name="x22"><span class="index-def"
+title="pseudo-elementos"><dfn>pseudo-elementos</dfn></span></a> y <a name="x23"><span
+class="index-def"
+title="pseudo-clases"><dfn>pseudo-clases</dfn></span></a> para permitir aplicar el formato basado en información que está fuera de la estructura del documento. </p>
+
+<ul>
+<li>Los pseudo-elementos crean abstracciones acerca de la estructura del documento más allá de aquellas especificadas por el lenguaje del documento. Por ejemplo, los lenguajes de documento no ofrecen mecanismos para acceder a la primera letra o a la primera línea del contenido de un elemento. Los pseudo-elementos de CSS permiten a los diseñadores de hojas de estilo referirse a esta información inaccesible por otros medios. Los pseudo-elementos también pueden proporcionar a los diseñadores de hojas de estilo un modo de asignar estilos a un elemento que no existe en el documento fuente (ej., los pseudo-elementos <a
+href="generate.html#before-after-content">:before y :after</a> permite acceder al contenido generado).
+
+<li>Las pseudo-clases clasifican a los elementos basado en características más allá de su nombre, atributos o contenido; en principio, atributos que no pueden deducirse de la estructura del documento. Las pseudo-clases pueden ser dinámicas, en el sentido de que un elemento puede adquirir o perder una pseudo-clase a medida que el usuario interactúa con el documento. La excepción es <a href="#first-child">':first-child'</a>, que <em>puede</em> deducirse de la estructura del documento.
+</ul>
+
+<P>Ni los pseudo-elementos ni las pseudo-clases aparecen en el documento fuente o la estructura del documento.
+
+<P>Las pseudo-clases son permitidas en cualquier lugar dentro de un selector mientras que los pseudo-elementos sólo pueden aparecer después del <a
+href="#subject">sujeto</a> del selector.
+</p>
+
+
+<p>Los nombres de los pseudo-elementos y las pseudo-clases no hacen distinción entre mayúsculas y minúsculas.</p>
+
+<P>Algunas pseudo-clases son mutuamente excluyentes, mientras otras pueden aplicarse simultáneamente al mismo elemento. En caso de reglas conflictivas, el <a href="cascade.html#cascading-order">orden de cascada</A> normal determina el resultado.
+
+<p><a href="conform.html#conformance">Las aplicaciones del usuario de conformidad con HTML</a> pueden <span class="index-inst" title="ignorar"><a name="x24"
+href="syndata.html#ignore">ignorar</a></span> todas las reglas con :first-line o :first-letter en el selector o, alternativamente, puede dar soporte sólo a un subconjunto de las propiedades en estos pseudo-elementos.</P>
+
+<h2><a name="q15">5.11 Pseudo-clases</a></h2>
+
+<h3>5.11.1 La pseudo-clase <a name="first-child">:first-child</a></h3>
+
+<P>La pseudo-clase <a name="x25"><span class="index-def"
+title="first-child|:first-child">:first-child</span></a> equivale a un elemento que es el primer hijo de algún otro elemento.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P> En el ejemplo siguiente, el selector equivale a cualquier elemento P que sea el primer hijo de un elemento DIV. La regla elimina el sangrado del primer párrafo de un DIV:</p>
+
+<PRE>
+DIV &gt; P:first-child { text-indent: 0 }
+</PRE>
+
+Este selector sería equivalente a P dentro de DIV en el siguiente fragmento:
+
+<pre class="html-example">
+&lt;P&gt; El último P antes de la nota.
+&lt;DIV class="nota"&gt;
+   &lt;P&gt; El primer P dentro de la nota.
+&lt;/DIV&gt;
+</pre>
+
+pero no se correspondería con el segundo P en el siguiente fragmento:
+
+<pre class="html-example">
+&lt;P&gt; El último P antes de la nota.
+&lt;DIV class="nota"&gt;
+   &lt;H2&gt;Nota&lt;/H2&gt;
+   &lt;P&gt; El primer P dentro de la nota.
+&lt;/DIV&gt;
+</pre>
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>La siguiente regla especifica 'bold' para el peso de la fuente de cualquier elemento EM que es algún descendiente de un elemento P que es un primer hijo:</p>
+
+<pre>
+P:first-child EM { font-weight : bold }
+</pre>
+</div>
+
+<P>Observe que toda vez que las cajas <a href="visuren.html#anonymous">anónimas</a> no forman parte de la estructura del documento, no se cuentan en el cálculo del primer hijo.
+</p>
+
+<div class="html-example"><P>
+Por ejemplo, el EM en:</p>
+
+<PRE>
+&lt;P&gt;abc &lt;EM&gt;default&lt;/EM&gt; 
+</PRE>
+
+es el primer hijo de P.
+</div>
+
+<P>Los siguientes dos selectores son equivalentes:</p>
+
+<PRE>
+* &gt; A:first-child   /* A es el primer hijo de cualquier elemento */
+A:first-child       /* Igual */
+</PRE>
+
+
+<h3>5.11.2 <a name="link-pseudo-classes">Las pseudo-clases vínculo</a>: <a name="x27"><span
+class="index-def" title="pseudo-clases:::link|:link|link
+(pseudo-clase)">:link</span></a> y <a name="x30"><span class="index-def"
+title="pseudo-clases:::visited|:visited|visited
+(pseudo-clase)">:visited</span></a></h3>
+
+<p>Las aplicaciones del usuario normalmente muestran los vínculos no visitados de un modo diferenciado de aquellos previamente visitados. CSS proporciona las pseudo-clases ':link' y ':visited' para distinguirlos:</p>
+
+<ul>
+<li> La pseudo-clase :link se aplica a los vínculos que aún no han sido visitados.
+
+<li> La pseudo-clase :visited se aplica una vez que el vínculo ha sido visitado por el usuario.
+</ul>
+
+<p class="note"><em><strong>Nota.</strong> Después de cierta cantidad de tiempo, las aplicaciones del usuario pueden elegir devolver un vínculo visitado a la condición de (no visitado) ':link'.</em>
+
+<P>Los dos estados son mutuamente excluyentes.
+
+<p>El lenguaje del documento determina qué elementos son las anclas de orígen de los hipervínculos. Por ejemplo, en HTML&nbsp;4.0, las pseudo-clases link se aplica a los elementos A con el atributo "href". De este modo, las siguientes dos declaraciones CSS2 tienen un efecto similar:</p>
+
+<pre>
+A:link { color: red }
+:link  { color: red }
+</pre>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p>
+Si el siguiente link:</p>
+
+<pre class="html-example">
+&lt;A class="externo" href="http://out.side/"&gt;link externo&lt;/A&gt;
+</pre>
+
+ha sido visitado, esta regla:
+
+<pre>
+A.externo:visited { color: blue }
+</pre>
+
+provocará que sea azul.
+</div>
+
+<h3>5.11.3 <a name="dynamic-pseudo-classes">Las pseudo-clases dinámicas:</a>
+<a name="x33"><span class="index-def" title="pseudo-clases:::hover|:hover|hover
+(pseudo-clase)">:hover</span></a>, <a name="x36"><span class="index-def"
+title="pseudo-clases:::active|:active|active
+(pseudo-clase)">:active</span></a> y <a name="x39"><span class="index-def"
+title="pseudo-clases:::focus|:focus|focus
+(pseudo-clase)">:focus</span></a></h3>
+
+<p>Las aplicaciones del usuario interactivas a veces cambian el procesamiento en respuesta a las acciones del usuario. CSS proporciona tres pseudo-clases para los casos comunes:</p>
+
+<ul>
+<li> La pseudo-clase :hover se aplica mientras el usuario señala un elemento (con algún dispositivo para apuntar), pero no lo activa. Por ejemplo, una aplicación del usuario visual puede aplicar esta pseudo-clase cuando el cursor (el puntero del ratón) se mueve por encima de una caja generada por el elemento. Las aplicaciones del usuario que no ofrecen soporte a los <a href="media.html#interactive-media-group">medios interactivos</a> no tienen que apoyar esta pseudo-clase. Algunas aplicaciones del usuario con conformidad que soportan <a href="media.html#interactive-media-group">medios interactivos</a> pueden no ser adecuadas para soportar esta pseudo-clase (ej., lápices ópticos).
+
+<li> La pseudo-clase :active se aplica mientras un elemento está siendo activado por el usuario. Por ejemplo, el lapso durante el cual el usuario presiona el botón del ratón y lo suelta.
+
+<li> La pseudo-clase :focus se aplica mientras un elemento tiene el foco (acepta eventos del teclado u otras formas de entrada de texto).
+</ul>
+
+<p>Estas pseudo-clases no son mutuamente excluyentes. Un elemento puede recibir varias de ellas al mismo tiempo.
+
+<p>CSS no define qué elementos pueden estar en los estados anteriores o cómo se ingresa y se sale de los estados. Mediante el uso de scripts se puede decidir si los elementos reaccionan a los eventos del usuarios o no, y los distintos dispositivos y aplicaciones del usuario pueden tener diferentes maneras de apuntar o activar los elementos.
+
+<p>Las aplicaciones del usuario no son obligadas a redibujar el documento en uso a causa de las transiciones de las pseudo-clases. Por ejemplo, un hoja de estilo puede especificar que la propiedad <a href="fonts.html#propdef-font-size" class="noxref"><span class="propinst-font-size">'font-size'</span></a> de un vínculo :active debe ser mayor que la de un vínculo inactivo, pero como esto puede ocasionar que las letras cambien de posición cuando el lector selecciona el vínculo, una AU puede ignorar la regla de estilo correspondiente.</p>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p>
+
+<pre>
+A:link    { color: red }    /* vínculos no visitados */
+A:visited { color: blue }   /* vínculos visitados */
+A:hover   { color: yellow } /* el usuario señala el vínculo */
+A:active  { color: lime }   /* vínculos activos */
+</pre>
+
+<p>Observe que A:hover debe ir después que las reglas A:link y A:visited, de otro modo las reglas de cascada ocultarán la propiedad <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> de la regla A:hover. También, debido a que A:active está ubicada después de A:hover, el color activo (lime) será aplicado cuando el usuario active y señale el elemento A.
+</div>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Un ejemplo de combinación de pseudo-clases dinámicas:
+
+<pre>
+A:focus { background: yellow }
+A:focus:hover { background: white }
+</pre>
+
+<P>El último selector equivale a los elementos A que se encuentran en la pseudo-clase :focus y en la pseudo-clase :hover.
+
+</div>
+
+ 
+<P>Para información acerca de la representación del foco en los contornos, consulte por favor la sección sobre <a href="ui.html#dynamic-outlines">foco dinámico en los contornos</a>.
+
+<div class="note"><P>
+<em><strong>Nota.</strong> En CSS1, la pseudo-clase ':active' era mutuamente excluyente con ':link' y ':visited'. Este ya no es el caso. Un elemento puede ser ambos, ':visited' y ':active' (o ':link' y ':active') y la reglas normales de cascada determinan qué propiedades se aplican.
+</em>
+</div>
+
+<h3>5.11.4 <a name="lang">La pseudo-clase de lenguaje:</a> <a name="x42"><span
+class="index-def" title="pseudo-clases:::lang|:lang|lang
+(pseudo-clase)">:lang</span></a></h3>
+
+<p>Si el lenguaje del documento especifica cómo se determina el <a name="x45"><span class="index-inst"
+title="lenguaje (humano)">lenguaje humano</span></a> de un elemento, es posible escribir selectores en CSS que coincidan con elementos basado en su lenguaje. Por ejemplo, en HTML <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a>, el lenguaje se determina por una combinación del atributo "lang", el elemento META y probablemente por la información del protocolo (tal como en los encabezados HTTP). XML utiliza un atributo denominado xml:lang, y puede haber otros métodos específicos del lenguaje del documento para determinar el lenguaje.
+
+<p>La pseudo-clase ':lang(C)' equivale si el elemento está en lenguaje C. Aquí C es un <a name="x46"><span class="index-inst"
+title="código de lenguaje">código de lenguaje</span></a> tal como está especificado en HTML&nbsp;4.0 <a href="refs.html#ref-HTML40" rel="biblioentry" class="noxref"><span class="normref">[HTML40]</span></a> y RFC&nbsp;1766 <a href="refs.html#ref-RFC1766" rel="biblioentry" class="noxref"><span class="informref">[RFC1766]</span></a>. Es validado de igual manera que el operador <a href="#attribute-selectors">'|='</a>.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P>
+<p>Las siguientes reglas determinan las comillas para un documento HTML que está en francés o en alemán:</p>
+
+<pre>
+HTML:lang(fr) { quotes: '« ' ' »' }
+HTML:lang(de) { quotes: '»' '«' '\2039' '\203A' }
+:lang(fr) > Q { quotes: '« ' ' »' }
+:lang(de) > Q { quotes: '»' '«' '\2039' '\203A' }
+</pre>
+
+<p>El segundo par de reglas especifica realmente la propiedad <a href="generate.html#propdef-quotes" class="noxref"><span
+class="propinst-quotes">'quotes'</span></a> de los elementos Q de acuerdo al lenguaje de su padre. Esto se hace porque la elección del tipo de comillas se basa típicamente en el lenguaje del elemento que rodea la comilla, no en las propias comillas: como este fragmento de francés &#8220;&agrave; l'improviste&#8221; en medio de un texto en inglés usa el tipo de comillas propias del inglés.  </div>
+
+<h2><a name="q20">5.12 Pseudo-elementos</a></h2>
+
+<h3>5.12.1 El pseudo-elemento <span class="index-def"
+title="pseudo-elementos:::first-line|:first-line|first-line"><a
+name="first-line-pseudo">:first-line</a></span></h3>
+
+<p>El pseudo-elemento :first-line aplica estilos especiales a la primera línea de un párrafo. Por ejemplo:</p>
+
+<pre class="example">
+P:first-line { text-transform: uppercase }
+</pre>
+
+<p>La regla anterior significa "convertir las letras de la primera línea de cada párrafo en mayúsculas". Sin embargo, el selector "P:first-line" no equivale a ningún elemento HTML real. Se corresponde con un pseudo-elemento que las <a href="conform.html#conformance">aplicaciones del usuario con conformidad</a> insertarán al comienzo de cada párrafo.</p>
+
+<p>Observe que la medida de la primer línea depende de un número de factores, incluyendo el ancho de la página, el tamaño de la fuente, etc. De este modo, un párrafo HTML común como:</p>
+
+<pre class="html-example">
+&lt;P&gt;Este es algún párrafo largo en HTML que será
+partido en varias líneas. La primer línea será identificada
+por una secuencia ficticia de marcas. Las otras líneas
+serán tratadas como líneas comunes dentro del
+párrafo.&lt;/P&gt;
+</pre>
+
+las líneas que resultan partidas como sigue:
+
+<pre class="html-example">
+ESTE ES ALGÚN PÁRRAFO LARGO EN HTML QUE
+será partido en varias líneas. La primer línea será
+identificada por una secuencia ficticia de marcas.
+Las otras líneas serán tratadas como líneas
+comunes dentro del párrafo.
+</pre>
+
+pueden ser "re-escritas" por las aplicaciones del usuario para incluir la <em><a name="x50"><span
+class="index-def" title="secuencia ficticia de marcas">secuencia ficticia de marcas</span></a></em> para :first-line. Esta secuencia ficticia de marcas ayuda a mostrar cómo se heredan las propiedades.
+
+<pre>
+&lt;P&gt;<b>&lt;P:first-line&gt;</b> Este es algún párrafo
+largo en HTML que<b>&lt;/P:first-line&gt;</b> será partido
+en varias líneas. La primer línea será identificada
+por una secuencia ficticia de marcas. Las otras líneas
+serán tratadas como líneas comunes dentro del
+párrafo.&lt;/P&gt;
+</pre>
+
+<p>Si un pseudo-elemento divide un elemento real, el efecto deseado a menudo se consigue con una secuencia ficticia de marcas que cierra y reabre el elemento. De este modo, si marcamos el párrafo anterior con un elemento SPAN:</p>
+
+<pre>
+&lt;P&gt;<b>&lt;SPAN class="test"&gt;</b> Este es algún párrafo
+largo en HTML que será partido en varias líneas.<b>&lt;/SPAN&gt;</b>
+La primer línea será identificada por una secuencia ficticia
+de marcas. Las otras líneas serán tratadas como líneas comunes
+dentro del párrafo.&lt;/P&gt;
+</pre>
+
+la aplicación del usuario puede generar las marcas de inicio y cierre apropiadas para SPAN cuando inserta la secuencia ficticia de marcas para :first-line.
+
+<pre>
+&lt;P&gt;&lt;P:first-line&gt;<b>&lt;SPAN class="test"&gt;</b> Este es algún párrafo
+largo en HTML que<b>&lt;/SPAN&gt;</b>&lt;/P:first-line&gt;<b>&lt;SPAN class="test"&gt;</b>
+será partido en varias líneas.<b>&lt;/SPAN&gt;</b> La primer línea será
+identificada por una secuencia ficticia de marcas. Las otras
+líneas serán tratadas como líneas comunes dentro del párrafo.&lt;/P&gt;
+</pre>
+
+<p> El pseudo-elemento <a name="x51"><span class="index-inst" title="pseudo-elementos:::first-line">:first-line</span></a> sólo puede ser aplicado en elementos a nivel de bloque.</p>
+
+<p>El pseudo-elemento <a name="first-line">:first-line</a> es similar a un elemento a nivel de línea, pero con ciertas restricciones. Sólo las siguientes propiedades se aplican al pseudo-elemento :first-line: <a
+href="fonts.html#font-properties">propiedades de la fuente,</a> <a
+href="colors.html">propiedades del color,</a> <a
+href="colors.html#background-properties">propiedades del fondo,</a>
+<a href="text.html#propdef-word-spacing" class="noxref"><span class="propinst-word-spacing">'word-spacing',</span></a> <a href="text.html#propdef-letter-spacing" class="noxref"><span
+class="propinst-letter-spacing">'letter-spacing',</span></a> <a href="text.html#propdef-text-decoration" class="noxref"><span
+class="propinst-text-decoration">'text-decoration',</span></a> <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align',</span></a> <a href="text.html#propdef-text-transform" class="noxref"><span
+class="propinst-text-transform">'text-transform',</span></a> <a href="visudet.html#propdef-line-height" class="noxref"><span
+class="propinst-line-height">'line-height',</span></a> <a href="text.html#propdef-text-shadow" class="noxref"><span
+class="propinst-text-shadow">'text-shadow'</span></a> y <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'.</span></a></p>
+
+<h3>5.12.2 <a name="first-letter">El pseudo-elemento </a> <a name="x52"><span class="index-def" title="pseudo-elementos:::first-letter|:first-letter|first-letter">:first-letter</span></a></h3>
+
+
+
+<p>El pseudo-elemento :first-letter puede ser usado para las <a name="x55"><span
+class="index-inst" title="capitulares">"capitulares"</span></a> y
+<a name="x56"><span class="index-inst" title="capitulares caídas">"capitulares caídas"</span></a>, que son efectos tipográficos de uso frecuente. Esta clase de letra inicial es similar a un elemento a nivel de línea cuya propiedad <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float'</span></a> es 'none', de otro modo es similar a un elemento flotante.</p>
+
+<p>Estas son las propiedades que se aplican a los pseudo-elementos :first-letter: <a href="fonts.html#font-properties">propiedades de la fuente,</a> <a href="colors.html">propiedades del color,</a> <a
+href="colors.html#background-properties">propiedades del fondo,</a>
+<a href="text.html#propdef-text-decoration" class="noxref"><span class="propinst-text-decoration">'text-decoration',</span></a> <a href="visudet.html#propdef-vertical-align" class="noxref"><span
+class="propinst-vertical-align">'vertical-align'</span></a> (sólo si
+'float' es 'none'), <a href="text.html#propdef-text-transform" class="noxref"><span
+class="propinst-text-transform">'text-transform',</span></a> <a href="visudet.html#propdef-line-height" class="noxref"><span
+class="propinst-line-height">'line-height',</span></a> <a
+href="box.html#margin-properties">propiedades de los márgenes,</a> <a
+href="box.html#padding-properties">propiedades del relleno,</a> <a
+href="box.html#border-properties">propiedades de los bordes,</a> <a href="visuren.html#propdef-float" class="noxref"><span
+class="propinst-float">'float',</span></a> <a href="text.html#propdef-text-shadow" class="noxref"><span
+class="propinst-text-shadow">'text-shadow'</span></a> y <a href="visuren.html#propdef-clear" class="noxref"><span
+class="propinst-clear">'clear'.</span></a></p>
+
+<div class="html-example"><p></p>
+<p>La siguiente CSS2 hará una capitular caída que abarca dos líneas:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;HTML&gt;
+ &lt;HEAD&gt;
+  &lt;TITLE&gt;Capitular caída&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+   P              { font-size: 12pt; line-height: 12pt }
+   P:first-letter { font-size: 200%; font-style: italic;
+                    font-weight: bold; float: left }
+   SPAN           { text-transform: uppercase }
+  &lt;/STYLE&gt;
+ &lt;/HEAD&gt;
+ &lt;BODY&gt;
+  &lt;P&gt;&lt;SPAN&gt;Algunas&lt;/SPAN&gt; palabras de un artículo en un periódico.&lt;/P&gt;
+ &lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+
+<p>Este ejemplo sería formateado como sigue:</p>
+
+<div class="figure">
+<P><img src="./images/first-letter.gif" alt="Imagen que ilustra el efecto de combinar los pseudo-elementos :first-letter y :first-line"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-first-letter" href="images/longdesc/first-letter-desc.html" title="Descripción extensa del ejemplo de capitular caída">[D]</A></SPAN></p>
+</div>
+
+<p>La <a name="x57"><span class="index-inst" title="secuencia ficticia de marcas">secuencia ficticia de marcas</span></a> es:</p>
+
+<pre>
+&lt;P&gt;
+&lt;SPAN&gt;
+&lt;P:first-letter&gt;
+A
+&lt;/P:first-letter&gt;lgunas
+&lt;/SPAN&gt; 
+palabras de un artículo en un periódico.
+&lt;/P&gt;
+</pre>
+
+<p>Observe que la marca para el pseudo-elemento :first-letter es contigua al contenido (es decir, el carácter inicial), mientras que la marca de inicio del pseudo-elemento :first-line se inserta después de la marca de inicio del elemento al que está asignado.</p>
+</div>
+
+<P>Con el propósito de conseguir el formato de las capitulares caídas tradicionales, las aplicaciones del usuario pueden aproximar los tamaños de la fuente, por ejemplo para emparejar las líneas de base. Además, el contorno del signo puede ser tenido en cuenta al establecer el formato.
+
+<P>La puntuación (es decir, los caracteres definidos en Unicode <a href="refs.html#ref-UNICODE" rel="biblioentry" class="noxref"><span class="normref">[UNICODE]</span></a> en las clases de puntuación "open" (Ps), "close" (Pe) y "other" (Po)), que precede a la primera letra debe se incluida, como en:</p>
+
+<div class="figure">
+<P><img src="./images/first-letter2.gif" alt="Las comillas que preceden a la primera letra deben ser incluidas."><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-first-letter2" href="images/longdesc/first-letter2-desc.html" title="Descripción extensa del ejemplo de puntuación y capitular caída">[D]</A></SPAN></p>
+</div>
+
+<p>Los pseudo-elementos :first-letter equivalen a partes de los elementos <a
+href="visuren.html#block-level">a nivel de bloque</a> solamente.</p>
+
+<p>Algunos lenguajes pueden tener reglas específicas acerca de cómo tratar ciertas combinaciones de letras. En alemán, por ejemplo, si la combinación de las letras "ij" aparece al comienzo de una palabra, ambas letras deberían ser consideradas dentro del pseudo-elemento :first-letter.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><p>
+<a name="overlapping-example">El siguiente ejemplo</a> ilustra cómo pueden interactuar los pseudo-elementos que se superponen. La primera letra de cada elemento P será verde con una tamaño de fuente de '24pt'. El resto de la primer línea formateada será azul mientras que el resto del párrafo será rojo.</p>
+
+<pre>
+P { color: red; font-size: 12pt }
+P:first-letter { color: green; font-size: 200% }
+P:first-line { color: blue }
+
+&lt;P&gt;Un texto corto que ocupa dos líneas&lt;/P&gt;
+</pre>
+
+<p>Asumiendo que el corte de la línea ocurre antes de la palabra "ocupa", la <a name="x58"><span class="index-inst" title="secuencia ficticia de marcas">secuencia ficticia de marcas</span></a> para este fragmento podría ser:</p>
+
+<pre>
+&lt;P&gt;
+&lt;P:first-line&gt;
+&lt;P:first-letter&gt; 
+U 
+&lt;/P:first-letter&gt;n texto corto que 
+&lt;/P:first-line&gt; 
+ocupa dos líneas 
+&lt;/P&gt;
+</pre>
+
+<p>Observe que el elemento :first-letter está dentro del elemento :first-line. Las propiedades adjudicadas a :first-line son heredadas por :first-letter, pero son anuladas si la misma propiedad es determinada en :first-letter.</p>
+</div>
+
+<h3>5.12.3 <a name="before-and-after">Los pseudo-elementos </a> <a name="x59"><span class="index-def"
+title="pseudo-elementos:::before|:before">:before</span></a> y <a name="x61"><span
+class="index-def" title="pseudo-elementos:::after|:after">:after</span></a></h3>
+
+<p>Los pseudo-elementos ':before' y ':after' pueden ser usados para insertar un contenido generado antes o después del contenido del elemento. Son explicados en la sección acerca de <a href="generate.html">texto generado.</a>
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+
+<pre>
+H1:before {content: counter(chapno, upper-roman) ". "}
+</pre>
+</div>
+
+<p>Cuando los pseudo-elementos :first-letter y :first-line son combinados con :before y :after, se aplican a la primera letra o línea del elemento que incluye el texto insertado.
+
+<div class="example"><P style="display:none">Ejemplo(s):</P><P>
+
+<pre>
+P.special:before {content: "Especial! "}
+P.special:first-letter {color: #ffd800}
+</pre>
+
+<p>Esto procesará la "E" de "Especial!" en un amarillo oro.
+</div>
+
+<hr class="navbar">
+<TABLE WIDTH=90% CELLPADDING=6 BORDER=1 BGCOLOR="#FFFFE0" ALIGN="center">
+  <TR>
+    <TD align="center">
+<A href="about.html#copyright">Copyright</A> &nbsp;&copy;&nbsp; 1998 <A href="http://www.w3.org">W3C</A> (<A
+href="http://www.lcs.mit.edu">MIT</A>, <A href="http://www.inria.fr/">INRIA</A>, <A href="http://www.keio.ac.jp/">Keio</A> ), All Rights Reserved.
+	  <P>Traducción: <A HREF="http://www.carlos-benavidez.net/">Carlos Benavidez</A></P>
+    </TD>
+  </TR>
+</TABLE>
+
+<div class="navbar" align="center">
+<p><a href="syndata.html">anterior</a> &nbsp;
+<a href="cascade.html">siguiente</a> &nbsp;
+<a href="cover.html#minitoc">contenidos</a> &nbsp;
+<a href="propidx.html">propiedades</a> &nbsp;
+<a href="indexlist.html">índice</a> &nbsp;
+</div>
+</body>
+</html>
